@@ -230,16 +230,17 @@
     }
   ]
 },
-    {
-      "type": "text",
-      "name": "Video Banner Heading",
-      "limit": 2,
-      "settings": [
+
+{
+  "type": "text",
+  "name": "Video Banner Heading",
+  "limit": 2,
+  "settings": [
     {
       "type": "inline_richtext",
       "id": "text",
-      "default": "t:sections.image-banner.blocks.text.settings.text.default",
-      "label": "t:sections.image-banner.blocks.text.settings.text.label"
+      "default": "Default text content here",
+      "label": "Text Content"
     },
     {
       "type": "select",
@@ -263,7 +264,6 @@
     }
   ]
 },
-
 {
   "type": "custom_headline",
   "name": "Custom Headline",
@@ -305,32 +305,31 @@
     }
   ]
 },
-
+{
+  "type": "buttons",
+  "name": "Button Settings",
+  "limit": 1,
+  "settings": [
     {
-      "type": "buttons",
-      "name": "t:sections.image-banner.blocks.buttons.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "button_label_1",
-          "default": "t:sections.image-banner.blocks.buttons.settings.button_label_1.default",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
-          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
-        },
-        {
-          "type": "url",
-          "id": "button_link_1",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_1",
-          "default": false,
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
-        }
-      ]
+      "type": "text",
+      "id": "button_label_1",
+      "default": "Button Label",
+      "label": "Primary Button Label",
+      "info": "Enter a label for the primary button"
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary_1",
+      "default": false,
+      "label": "Use Secondary Button Style"
     }
+  ]
+}
   ],
   "presets": [
     {
