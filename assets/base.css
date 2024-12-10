@@ -109,7 +109,7 @@ p, span {
 /* CTA Buttons */
 .cta, .button {
   font-family: var(--font-body-family);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
