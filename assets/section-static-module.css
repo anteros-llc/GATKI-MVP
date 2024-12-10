@@ -28,10 +28,10 @@
 }
 
 .text-section h1 {
-  @extend h2;
- text-underline-position: from-font;
- text-decoration-skip-ink: none; 
- color: #FAF6F0;
+  @extend h1;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none; 
+  color: #FAF6F0;
 }
 
 .section-1 {
