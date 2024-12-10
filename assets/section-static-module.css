@@ -29,8 +29,7 @@
   @extend h1;
  font-family: "IvyprestoHeadline"!important;
  font-weight: 100!important;
- font-size: 6.2rem;
- line-height: 7.95rem;
+
  text-underline-position: from-font;
  text-decoration-skip-ink: none; 
  color: #FAF6F0;
