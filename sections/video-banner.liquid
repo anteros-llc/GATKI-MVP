@@ -24,12 +24,12 @@
       {%- for block in section.blocks -%}
         {%- case block.type 
         {%- when 'custom_headline' -%}
-          <h2
+          <h4
             class="banner__custom-headline {{ block.settings.heading_size }}"
             {{ block.shopify_attributes }}
           >
             {{ block.settings.headline }}
-          </h2>
+          </h4>
           {%- when 'heading' -%}
             <h2
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
