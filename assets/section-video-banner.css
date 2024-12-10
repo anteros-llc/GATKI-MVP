@@ -11,7 +11,7 @@
 }
 
 .banner__heading {
-  @extend h4;
+  @extend h2;
 }
 
 .caption-with-letter-spacing p{
