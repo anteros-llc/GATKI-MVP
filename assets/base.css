@@ -60,7 +60,6 @@ h5 {
   font-size: 1.25rem;
 }
 
-/* Body and Text */
 body, p, span {
   font-family: var(--font-body-family);
   font-weight: 400;
@@ -75,7 +74,6 @@ p, span {
   font-size: 1.6rem;
 }
 
-/* Captions */
 .caption {
   font-family: var(--font-body-family);
   font-size: 0.75rem;
@@ -87,7 +85,6 @@ p, span {
   font-weight: 500;
 }
 
-/* CTA Buttons */
 .cta, .button {
   font-family: var(--font-body-family);
   font-weight: 500;
@@ -95,6 +92,7 @@ p, span {
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
+
 
 
 .product-card-wrapper .card,
