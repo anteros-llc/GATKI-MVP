@@ -35,13 +35,6 @@
 }
 
 /* Global Typography Settings */
-/* :root {
-  --font-heading-family: "SyndicatGrotesk", "Instrument Sans", sans-serif;
-  --font-body-family: "SyndicatGrotesk", "Instrument Sans", sans-serif;
-  --font-display-family: "IvyPrestoHeadline", serif;
-  --font-heading-scale: 1;
-  --font-body-scale: 1;
-} */
 :root {
   --font-heading-family: "SyndicatGrotesk" !important;
   --font-body-family: "SyndicatGrotesk" !important;
@@ -365,6 +358,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   background-color: rgba(var(--color-foreground), 0.2);
 }
 
+/*
 .text-body {
   font-size: 1.5rem;
   letter-spacing: 0.06rem;
@@ -393,6 +387,7 @@ h5,
   line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
   word-break: break-word;
 }
+*/
 
 .hxxl {
   font-size: clamp(calc(var(--font-heading-scale) * 5.6rem), 14vw, calc(var(--font-heading-scale) * 7.2rem));
