@@ -11,13 +11,12 @@
 }
 
 .banner__heading {
-  @extend h3;
+  @extend h2;
 }
 
 .caption-with-letter-spacing p{
   font-family: "Syndicat Grotesk";
   font-size: 1.6rem;
-  font-weight: 700;
   line-height: 1.76rem;
   text-align: left;
   text-underline-position: from-font;
