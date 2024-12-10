@@ -91,9 +91,7 @@
 /* Headline (Title) */
 .custom-module .card-title {
   font-family: "SyndicatGrotesk"!important;;
-  /* font-size: 2rem;
-  font-weight: 400;
-  line-height: 2.8rem; */
+  font-weight: 400!important;
   color: #91693C;
   margin: 0; /* Remove all margins for tight alignment */
 }
