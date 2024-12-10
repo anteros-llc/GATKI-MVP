@@ -29,7 +29,7 @@
 /* Typography Styles */
 h1, h2 {
   font-family: var(--font-display-family);
-  font-weight: 100 !important;
+  font-weight: 100;
 }
 
 h1 {
@@ -67,7 +67,7 @@ body, p, span {
   line-height: 1.3;
 }
 
-.caption, .caption--medium {
+.caption {
   font-family: var(--font-body-family);
   font-size: 0.75rem;
   font-weight: 400;
@@ -75,8 +75,9 @@ body, p, span {
 }
 
 .caption--medium {
-  font-weight: 500;
+  font-weight: 500; 
 }
+
 
 .cta {
   font-family: var(--font-body-family);
