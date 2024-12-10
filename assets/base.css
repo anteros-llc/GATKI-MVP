@@ -3,130 +3,118 @@
 @font-face {
   font-family: "IvyPrestoHeadline";
   src: url("IvyPrestoHeadline-Thin.woff2") format("woff2");
-  font-weight: 100; /* Thin */
+  font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SyndicatGrotesk";
   src: url("SyndicatGrotesk-Regular.woff2") format("woff2");
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-style: normal;
-  font-variant-alternates: normal; 
+  font-variant-alternates: normal;
   font-feature-settings: "calt" 0;
 }
 
 @font-face {
   font-family: "SyndicatGrotesk";
   src: url("SyndicatGrotesk-Medium.woff2") format("woff2");
-  font-weight: 500; /* Medium */
+  font-weight: 500;
   font-style: normal;
-  font-variant-alternates: normal; 
+  font-variant-alternates: normal;
   font-feature-settings: "calt" 0;
 }
 
 @font-face {
   font-family: "SyndicatGrotesk";
   src: url("SyndicatGrotesk-Bold.woff2") format("woff2");
-  font-weight: 700; /* Bold */
+  font-weight: 700;
   font-style: normal;
-  font-variant-alternates: normal; 
+  font-variant-alternates: normal;
   font-feature-settings: "calt" 0;
 }
 
-/* Global Typography Settings */
+/* Typography Variables */
 :root {
-  --font-heading-family: "SyndicatGrotesk" !important;
-  --font-body-family: "SyndicatGrotesk" !important;
-  --font-display-family: "IvyPrestoHeadline" !important;
-  --font-heading-scale: 1 !important;
-  --font-body-scale: 1 !important;
-  --alpha-button-background: 1;
-  --alpha-button-border: 1;
-  --alpha-link: 0.85;
-  --alpha-badge-border: 0.1;
-  --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
-  --focused-base-outline-offset: 0.3rem;
-  --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  --font-heading-family: "SyndicatGrotesk";
+  --font-body-family: "SyndicatGrotesk";
+  --font-display-family: "IvyPrestoHeadline";
+  --font-heading-scale: 1;
+  --font-body-scale: 1;
 }
 
-/* Display Typography */
+/* Typography Styles */
 h1, h2 {
   font-family: var(--font-display-family);
-  font-weight: 100 !important; /* Thin */
-  line-height: 1.1 !important; /* Consistent display style */
-  letter-spacing: 0 !important;
+  font-weight: 100;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: 7.2rem !important; /* 72px */
+  font-size: 7.2rem;
 }
 
 h2 {
-  font-size: 4.8rem !important; /* 48px */
-  line-height: 1.2 !important;
+  font-size: 4.8rem;
+  line-height: 1.2;
 }
 
-/* Heading Typography */
-h3, h4 {
-  font-family: var(--font-heading-family) !important;
-  line-height: 1.2 !important; /* Consistent heading style */
+h3, h4, h5 {
+  font-family: var(--font-heading-family);
+  line-height: 1.2;
 }
 
 h3 {
-  font-weight: 500 !important; /* Medium */
-  font-size: 3.2rem !important; /* 32px */
+  font-weight: 500;
+  font-size: 3.2rem;
 }
 
 h4 {
-  font-weight: 400 !important; /* Regular */
-  font-size: 2.4rem !important; /* 24px */
+  font-weight: 400;
+  font-size: 2.4rem;
 }
 
-/* Body Typography */
+h5 {
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+/* Body and Text */
 body, p, span {
-  font-family: var(--font-body-family) !important;
-  font-weight: 400 !important; /* Regular */
-  line-height: 1.3 !important;
+  font-family: var(--font-body-family);
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 body {
-  font-size: 2rem !important; /* 20px */
+  font-size: 2rem;
 }
 
 p, span {
-  font-size: 1.6rem !important; /* 16px */
-}
-
-/* Labels */
-label {
-  font-family: var(--font-body-family) !important;
-  font-weight: 700 !important; /* Bold */
-  font-size: 1.6rem !important; /* 16px */
-  line-height: 1.1 !important;
-  text-transform: uppercase !important;
+  font-size: 1.6rem;
 }
 
 /* Captions */
 .caption {
-  font-family: var(--font-body-family) !important;
-  font-size: 1.2rem !important; /* 12px */
-  line-height: 1.3 !important;
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 .caption--medium {
-  font-weight: 500; /* Medium */
+  font-weight: 500;
 }
 
 /* CTA Buttons */
 .cta, .button {
   font-family: var(--font-body-family);
-  font-weight: 700; /* Bold */
-  font-size: 1.4rem; /* 14px */
-  line-height: 1.3;
+  font-weight: 700;
+  font-size: 1.4rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em; /* Matches Figma */
+  letter-spacing: 0.03em;
 }
+
 
 .product-card-wrapper .card,
 .contains-card--product {
@@ -358,36 +346,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   background-color: rgba(var(--color-foreground), 0.2);
 }
 
-/*
-.text-body {
-  font-size: 1.5rem;
-  letter-spacing: 0.06rem;
-  line-height: calc(1 + 0.8 / var(--font-body-scale));
-  font-family: var(--font-body-family);
-  font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight);
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-.h0,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5 {
-  font-family: var(--font-heading-family);
-  font-style: var(--font-heading-style);
-  font-weight: var(--font-heading-weight);
-  letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
-  color: rgb(var(--color-foreground));
-  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
-  word-break: break-word;
-}
-*/
+
+
 
 .hxxl {
   font-size: clamp(calc(var(--font-heading-scale) * 5.6rem), 14vw, calc(var(--font-heading-scale) * 7.2rem));
