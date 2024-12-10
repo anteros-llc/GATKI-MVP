@@ -62,7 +62,7 @@ h5 {
 
 /* Body and Text */
 body, p, span {
-  font-family: var(--font-body-family);
+  font-family: var(--font-body-family); "Instrument Sans", sans-serif;
   font-weight: 400;
   line-height: 1.3;
 }
