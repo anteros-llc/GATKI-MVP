@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "pf-adf17778": {
+      "type": "pf-adf17778",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "pf-adf17778"
+  ],
+  "layout": "theme.pagefly"
+}

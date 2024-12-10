@@ -1,0 +1,102 @@
+{{ 'section-card-lips.css' | asset_url | stylesheet_tag }}
+
+<!-- Dynamic Section -->
+<section class="custom-module">
+  <div class="content-wrapper">
+    <h2 class="module-title">{{ section.settings.title }}</h2>
+    <p class="module-description">{{ section.settings.description }}</p>
+    <div class="cards-container">
+      {% for block in section.blocks %}
+        <div class="card">
+          <div class="card-header">
+            <span class="card-category">{{ block.settings.category }}</span>
+            <span class="card-number">{{ block.settings.number }}</span>
+          </div>
+          <h3 class="card-title">{{ block.settings.title }}</h3>
+          {% if block.settings.description != blank %}
+            <p class="card-description">{{ block.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    {% if section.settings.learn_more_link != blank %}
+      <a href="{{ section.settings.learn_more_link }}" class="learn-more">{{ section.settings.learn_more_text }}</a>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Shopify schema for dynamic settings -->
+{% schema %}
+{
+  "name": "Cards Module",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Simple formula for sensitive and delicate lips."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Description",
+      "default": "The LIP DEW formula combines the anti-inflammatory power of Chenpi Oil and the hydrating benefits of peptides to soothe, plump, and protect delicate lips."
+    },
+    
+    {
+      "type": "text",
+      "id": "learn_more_text",
+      "label": "Learn More Text",
+      "default": "Learn more →"
+    },
+    {
+      "type": "url",
+      "id": "learn_more_link",
+      "label": "Learn More Link",
+    },
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Card Category",
+          "default": "ESSENTIALS"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Card Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Anti-inflammatory, hydrating, and plumping"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Card Description",
+          "default": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cards3UP",
+      "category": "Cards"
+    }
+  ]
+}
+{% endschema %}

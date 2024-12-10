@@ -1,0 +1,141 @@
+/* Section Wrapper */
+.custom-module {
+  background-color: #FAF6F0;
+  padding: 4rem 48px;
+  text-align: center;
+}
+
+@font-face {
+    font-family: "IvyprestoHeadline";
+    src: url("IvyprestoHeadline-Thin.woff2") format("woff2"),
+    url("IvyprestoHeadline-Thin.woff") format("woff");
+}
+
+/* Title & Description */
+.custom-module .module-title {
+  font-family: "IvyprestoHeadline";
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  font-weight: 100;
+  color: #91693C;
+  margin-bottom: 1.5rem;
+  text-underline-position: from-font;
+}
+
+.custom-module .module-description {
+  font-family: "SyndicatGrotesk"!important;
+  font-size: 1.50rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  color: #91693C;
+  margin-bottom: 3rem;
+  text-underline-position: from-font;
+}
+
+/* Cards Container */
+.custom-module .cards-container {
+  display: flex;
+  flex-wrap: nowrap; /* Keep cards in a single row */
+  justify-content: space-between; /* Space cards evenly */
+  align-items: stretch; /* Align cards to have the same height */
+  gap: 16px; /* Space between cards */
+  padding: 0 48px; /* Container padding */
+  max-width: 1440px;
+  margin: 0 auto; /* Center align container */
+}
+
+/* Individual Card */
+.custom-module .card {
+  width: 437.33px; /* Fixed card width */
+  height: 246px; /* Fixed card height */
+  padding: 24px; /* Padding inside the card */
+  border-radius: 12px; /* Fully rounded corners */
+  background-color: #EAE6DD;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  overflow: hidden;
+  gap: 0.5rem; /* Minimal spacing between elements */
+}
+
+/* Card Header */
+.custom-module .card-header {
+  font-size: 0.875rem;
+  color: #91693C;
+  display: flex;
+  justify-content: space-between; /* Align eyebrow and number */
+  align-items: center;
+  margin-bottom: 0.25rem; /* Reduce spacing below header */
+}
+
+/* Eyebrow (Category) */
+.custom-module .card-category {
+  font-family: "SyndicatGrotesk"!important;;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #91693C;
+  margin-bottom: 0; /* Remove margin to align closely with headline */
+}
+
+/* Card Number */
+.custom-module .card-number {
+  font-size: 0.875rem;
+  color: #91693C;
+  font-weight: 600;
+}
+
+/* Headline (Title) */
+.custom-module .card-title {
+  font-family: "SyndicatGrotesk"!important;;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+  color: #91693C;
+  margin: 0; /* Remove all margins for tight alignment */
+}
+
+/* Card Description */
+.custom-module .card-description {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #91693C;
+  margin-top: 16px; /* Add spacing above description */
+}
+
+/* Learn More Link */
+.custom-module .learn-more {
+  display: inline-block;
+  margin-top: 3rem;
+  font-size: 24px;
+  font-weight: 400;
+  color: #91693C;
+  text-decoration: none;
+  border-bottom: 1px solid #91693C;
+  padding-bottom: 0.1rem;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-module .learn-more:hover {
+  color: #5E4327;
+  border-color: #5E4327;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-module .cards-container {
+    flex-direction: column; /* Stack cards vertically */
+    height: auto; /* Adjust height for stacked layout */
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .custom-module .card {
+    width: 100%; /* Full width on mobile */
+    height: auto; /* Allow cards to grow naturally */
+  }
+}

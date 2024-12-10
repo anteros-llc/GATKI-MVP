@@ -1,0 +1,240 @@
+/* Newsletter and Menu Section Alignment */
+.custom-footer-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Newsletter takes 1 part, menus take 3 parts */
+  gap: 5rem;
+  align-items: flex-start; /* Aligns the top edges of newsletter and menu */
+  margin: 0 2rem;
+}
+.navigation{
+  display: flex;
+  gap: 1.8rem; /* Space between menu columns */
+  flex-wrap: wrap; /* Ensures responsiveness */
+  text-align: left;
+}
+
+/* Newsletter Section */
+.custom-footer-newsletter {
+  padding-left: 2rem;
+  max-width: 80%;
+}
+
+.custom-footer-newsletter-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.custom-footer-newsletter-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.custom-footer-newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.custom-footer-newsletter-input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.custom-footer-newsletter-button {
+  padding: 0.75rem 1rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-footer-newsletter-button:hover {
+  background-color: #555;
+}
+
+
+.custom-footer-column {
+  flex: 1 1 200px; /* Ensures columns are flexible and adjust for smaller screens */
+}
+
+.custom-footer-heading {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.custom-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-footer-list-item {
+  margin-bottom: 0.5rem;
+}
+
+.custom-footer-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.custom-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .custom-footer-top {
+    flex-direction: column; /* Stacks newsletter and menus vertically */
+    gap: 1rem;
+  }
+
+  .custom-footer-newsletter {
+    text-align: center; /* Center-align newsletter content for smaller screens */
+  }
+
+  .custom-footer-menu {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .custom-footer-column {
+    text-align: center; /* Center-align menu columns */
+  }
+}
+
+
+.custom-footer {
+  background-color: #EAE1A3; /* Footer background color */
+  color: #101921; /* Footer text color */
+  padding-top: 2rem;
+  font-family: Syndicat Grotesk, sans-serif;
+  text-color: #101921;
+}
+
+/* Top section - Align columns to the right */
+
+/* Each footer column */
+.custom-footer-column {
+  flex: 1 1 auto; /* Flexible width */
+  max-width: 250px; /* Optional max width */
+  text-align: left; /* Align menu text to the left */
+}
+
+/* Footer column heading */
+.custom-footer-heading {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 17.6px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-transform: uppercase;
+}
+
+/* Footer list */
+.custom-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* List items */
+.custom-footer-list-item {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer links */
+.custom-footer-link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+  color: #101921;
+}
+
+.custom-footer-policy-link{
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+  color: #101921;
+}
+
+.custom-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Bottom section */
+.custom-footer-bottom {
+  display: flex;
+  justify-content: space-between; /* Distribute items on opposite ends */
+  align-items: center;
+  padding: 2rem 3rem;
+  background-color: #EAE6DD;
+}
+
+/* Policies on the left */
+.custom-footer-policies {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-footer-policy-item {
+  margin: 0;
+}
+
+/* Copyright on the right */
+.custom-footer-copyright {
+  margin: 0;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Logo Section */
+.custom-footer-logo {
+  background-size: contain; /* Ensures the logo fits without distortion */
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 100%;
+  height: 50rem; /* Matches the 1344px height in rem */
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .custom-footer-top {
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center; /* Center align for smaller screens */
+    text-align: center;
+  }
+
+  .custom-footer-column {
+    text-align: left; /* Keep text left-aligned on smaller screens */
+  }
+
+  .custom-footer-bottom {
+    flex-direction: column; /* Stack bottom section vertically */
+    text-align: center;
+  }
+
+  .custom-footer-policies {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+}

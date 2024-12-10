@@ -1,0 +1,53 @@
+{{ 'section-static-module.css' | asset_url | stylesheet_tag }}
+
+<div class="image-container">
+  <img src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Ingredient_LipDew_OrangeStack_w_o_Marble.png?v=1732846511" 
+       alt="Product Image" 
+       height=100vh
+       width=100%
+       class="image-background">
+  <div class="text-section section-1">
+    <h2>{{ section.settings.ingredients_text }}</h2>
+  </div>
+  <div class="text-section section-2">
+    <h2>{{ section.settings.nature_text }}</h2>
+  </div>
+  <div class="text-section section-3">
+    <h2>{{ section.settings.radiance_text }}</h2>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Static Module",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "ingredients_text",
+      "label": "Text1",
+      "default": "Gentle yet effective ingredients."
+    },
+    {
+      "type": "text",
+      "id": "nature_text",
+      "label": "Text2",
+      "default": "Vitally drawn from nature's depth."
+    },
+    {
+      "type": "text",
+      "id": "radiance_text",
+      "label": "Text3",
+      "default": "Find your radiance with ease."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Static Module"
+    }
+  ]
+}
+
+{% endschema %}

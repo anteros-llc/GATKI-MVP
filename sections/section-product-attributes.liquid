@@ -1,0 +1,61 @@
+{{ 'section-product-attributes.css' | asset_url | stylesheet_tag }}
+
+<div class="product-attributes">
+  {% if section.settings.cruelty_free_text %}
+    <div class="attribute">
+      <span class="attribute-icon">●</span>
+      <span class="attribute-text">{{ section.settings.cruelty_free_text | escape }}</span>
+    </div>
+  {% endif %}
+  
+  {% if section.settings.sulfate_free_text %}
+    <div class="attribute">
+      <span class="attribute-icon">●</span>
+      <span class="attribute-text">{{ section.settings.sulfate_free_text | escape }}</span>
+    </div>
+  {% endif %}
+  
+  {% if section.settings.recyclable_package_text %}
+    <div class="attribute">
+      <span class="attribute-icon">●</span>
+      <span class="attribute-text">{{ section.settings.recyclable_package_text | escape }}</span>
+    </div>
+  {% endif %}
+</div>
+
+<!-- Shopify schema for dynamic settings -->
+{% schema %}
+{
+  "name": "Product Attributes",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "cruelty_free_text",
+      "label": "Cruelty Free Text",
+      "default": "Cruelty free"
+    },
+    {
+      "type": "text",
+      "id": "sulfate_free_text",
+      "label": "Sulfate Free Text",
+      "default": "Sulfate free"
+    },
+    {
+      "type": "text",
+      "id": "recyclable_package_text",
+      "label": "Recyclable Package Text",
+      "default": "Recyclable package"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Attributes"
+    }
+  ]
+}
+{% endschema %}

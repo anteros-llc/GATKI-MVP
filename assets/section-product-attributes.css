@@ -1,0 +1,39 @@
+/* Product Attributes Wrapper */
+.product-attributes {
+  background-color: #FAF6F0; /* Background color */
+  display: flex;
+  flex-wrap: nowrap; /* Keep attributes in a single row */
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Vertically center the attributes */
+  width: 90%; /* Set width relative to the viewport */
+  height: auto; /* Hug the height based on content */
+  padding: 3rem 3rem; /* Top-bottom: 80px (5rem), left-right: 48px (3rem) */
+  margin: 0 auto; /* Center the container */
+  gap: 5rem; /* Increased gap between attributes */
+}
+
+/* Individual Attribute */
+.product-attributes .attribute {
+  display: flex;
+  align-items: center; /* Align icon and text */
+  gap: 0.5rem; /* Space between icon and text (8px -> 0.5rem) */
+  text-align: left;
+  flex-shrink: 0; /* Prevent shrinking of attributes */
+}
+
+/* Attribute Icon (Dot) */
+.product-attributes .attribute-icon {
+  font-size: 1.5rem; /* Dot size: 24px -> 1.5rem */
+  color: #E65919; /* Dot color */
+}
+
+/* Attribute Text */
+.product-attributes .attribute-text {
+  font-family: 'Syndicat Grotesk', sans-serif;
+  font-size: 1.5rem; /* Text size: 24px -> 1.5rem */
+  font-weight: 400;
+  line-height: 1.2; /* Matches 28.8px -> 1.2em (relative to font-size) */
+  color: #101921; /* Text color */
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
