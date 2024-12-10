@@ -47,11 +47,11 @@
 h1, h2 {
   font-family: var(--font-display-family);
   font-weight: 100;
-  line-height: 1.1;
 }
 
 h1 {
   font-size: 4.5rem;
+  line-height: 1.1;
 }
 
 h2 {
@@ -59,9 +59,8 @@ h2 {
   line-height: 1.2;
 }
 
-h3, h4, h5 {
+h3, h4 {
   font-family: var(--font-heading-family);
-  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -74,8 +73,8 @@ h4 {
 }
 
 h5 {
-  font-weight: 400;
-  font-size: 1.6rem;
+  font-family: var(--font-heading-family);
+  font-size: 1.25rem;
 }
 
 /* Body and Text */
