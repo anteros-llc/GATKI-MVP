@@ -27,7 +27,7 @@
   padding: 1.25rem;
 }
 
-.text-section h1 {
+.text-section {
   @extend h1;
  text-underline-position: from-font;
  text-decoration-skip-ink: none; 
