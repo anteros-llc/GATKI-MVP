@@ -25,7 +25,8 @@
   padding: 1.25rem;
 }
 
-.text-section h2 {
+.text-section h1 {
+  @extend h1;
  font-family: "IvyprestoHeadline"!important;
  font-weight: 100!important;
  font-size: 6.2rem;
