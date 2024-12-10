@@ -9,30 +9,15 @@
 
 @font-face {
   font-family: "SyndicatGrotesk";
-  src: url("SyndicatGrotesk-Regular.woff2") format("woff2");
-  font-weight: 400;
+  src: url("SyndicatGrotesk-Regular.woff2") format("woff2"),
+       url("SyndicatGrotesk-Medium.woff2") format("woff2"),
+       url("SyndicatGrotesk-Bold.woff2") format("woff2");
+  font-weight: 400 700; /* Regular, Medium, and Bold */
   font-style: normal;
   font-variant-alternates: normal;
   font-feature-settings: "calt" 0;
 }
 
-@font-face {
-  font-family: "SyndicatGrotesk";
-  src: url("SyndicatGrotesk-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-variant-alternates: normal;
-  font-feature-settings: "calt" 0;
-}
-
-@font-face {
-  font-family: "SyndicatGrotesk";
-  src: url("SyndicatGrotesk-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-variant-alternates: normal;
-  font-feature-settings: "calt" 0;
-}
 
 /* Typography Variables */
 :root {
