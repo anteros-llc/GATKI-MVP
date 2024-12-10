@@ -15,9 +15,7 @@
 }
 
 .caption-with-letter-spacing p{
-  font-family: "Syndicat Grotesk";
-  font-size: 1.6rem;
-  line-height: 1.76rem;
+  @extend .caption;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
