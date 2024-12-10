@@ -3,7 +3,7 @@
 @font-face {
   font-family: "IvyPrestoHeadline";
   src: url("IvyPrestoHeadline-Thin.woff2") format("woff2");
-
+  font-weight: 100;
 }
 
 @font-face {
@@ -19,16 +19,16 @@
 
 /* Typography Variables */
 :root {
-  --font-display-family: "IvyPrestoHeadline";
-  --font-heading-family: "SyndicatGrotesk";
-  --font-body-family: "SyndicatGrotesk";
+  --font-display-family: "Times New Roman", serif;
+  --font-heading-family: "Instrument Sans", sans-serif;
+  --font-body-family: "Instrument Sans", sans-serif;
   --font-heading-scale: 1;
   --font-body-scale: 1;
 }
 
 /* Typography Styles */
 h1, h2 {
-  font-family: var(--font-display-family); "Times New Roman", serif;
+  font-family: var(--font-display-family);
   font-weight: 100;
 }
 
@@ -43,7 +43,7 @@ h2 {
 }
 
 h3, h4 {
-  font-family: var(--font-heading-family);
+  font-family: var(--font-heading-family); 
   line-height: 1.2;
 }
 
