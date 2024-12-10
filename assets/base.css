@@ -13,7 +13,7 @@
        url("SyndicatGrotesk-Bold.woff2") format("woff2");
   font-weight: 400 500 700; /* Regular, Medium, and Bold */
   font-variant-alternates: normal;
-  font-feature-settings: "calt" 0;
+  font-feature-settings: "calt" 3;
 }
 
 
