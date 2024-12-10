@@ -28,7 +28,7 @@
 
 /* Typography Styles */
 h1, h2 {
-  font-family: var(--font-display-family); "Instrument Sans", sans-serif;
+  font-family: var(--font-display-family);
   font-weight: 100;
 }
 
