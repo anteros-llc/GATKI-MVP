@@ -1360,8 +1360,9 @@ button.shopify-payment-button__button--unbranded {
 .button-label,
 .shopify-challenge__button,
 .customer button {
-
+  @extend .cta;
 }
+
 
 .button--tertiary {
   font-size: 1.2rem;
