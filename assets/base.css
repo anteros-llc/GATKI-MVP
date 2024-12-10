@@ -36,9 +36,9 @@
 
 /* Typography Variables */
 :root {
+  --font-display-family: "IvyPrestoHeadline";
   --font-heading-family: "SyndicatGrotesk";
   --font-body-family: "SyndicatGrotesk";
-  --font-display-family: "IvyPrestoHeadline";
   --font-heading-scale: 1;
   --font-body-scale: 1;
 }
