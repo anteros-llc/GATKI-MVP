@@ -14,12 +14,13 @@
   @extend h2;
 }
 
-.caption-with-letter-spacing p{
-  @extend .caption--medium;
+.caption-with-letter-spacing p {
+  @extend .caption--medium; 
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
+
 
 @media only screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__box {
