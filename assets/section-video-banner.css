@@ -11,7 +11,7 @@
 }
 
 .banner__heading {
-  composes: h2 from "base.css";
+  @extend h2;
 }
 
 .caption-with-letter-spacing p{
