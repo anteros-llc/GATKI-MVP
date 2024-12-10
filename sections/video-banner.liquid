@@ -231,8 +231,8 @@
   ]
 },
     {
-  "type": "text",
-  "name": "Video Banner Heading",
+      "type": "text",
+      "name": "Video Banner Heading",
   "limit": 2,
   "settings": [
     {
@@ -263,19 +263,47 @@
     }
   ]
 },
-      {
-      "type": "custom_headline",
-      "name": "Custom Headline",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "headline",
-          "default": "Default Custom Headline",
-          "label": "Custom Headline Text"
-        }
-      ]
+{
+  "type": "custom_headline",
+  "name": "Custom Headline",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "headline",
+      "default": "Enter your custom headline here",
+      "label": "Custom Headline Text"
     },
+    {
+      "type": "select",
+      "id": "headline_style",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        }
+      ],
+      "default": "h2",
+      "label": "Headline Style"
+    }
+  ]
+},
     {
       "type": "buttons",
       "name": "t:sections.image-banner.blocks.buttons.name",
