@@ -1361,6 +1361,7 @@ button.shopify-payment-button__button--unbranded {
 .shopify-challenge__button,
 .customer button {
   @extend .cta;
+  color: #101921;
 }
 
 
