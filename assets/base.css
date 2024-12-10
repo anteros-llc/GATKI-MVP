@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
-.instrument-sans-<uniquifier> {
-  font-family: "Instrument Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
-
 @font-face {
   font-family: "IvyPrestoHeadline";
   src: url("IvyPrestoHeadline-Thin.woff2") format("woff2");
