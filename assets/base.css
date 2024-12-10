@@ -29,7 +29,7 @@
 /* Typography Styles */
 h1, h2 {
   font-family: var(--font-display-family);
-  font-weight: 100;
+  font-weight: 100 !important;
 }
 
 h1 {
