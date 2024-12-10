@@ -226,9 +226,6 @@
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
-      <a href="{{ routes.cart_url }}" class="header__cart-link">
-  {{ 'cart_label' | t | default: 'CART' }}
-</a>
 
       
       {%- if shop.customer_accounts_enabled -%}
