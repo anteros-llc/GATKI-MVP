@@ -28,7 +28,7 @@
 
 /* Typography Styles */
 h1, h2 {
-  font-family: var(--font-display-family); "Times New Roman", serif;
+  font-family: "Times New Roman", serif;
   font-weight: 100;
 }
 
