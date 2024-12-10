@@ -1,35 +1,35 @@
 {{ 'section-video-banner.css' | asset_url | stylesheet_tag }}
 
-
 {%- style -%}
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
 {%- endstyle -%}
 
-
 <div
   id="Banner-{{ section.id }}"
   class="banner video-background banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}"
 >
-  <div class="banner__media media video-background">  
-  	<video autoplay muted loop playsinline id="myVideo">
-    	<source src={{ section.settings.video_url }} type="video/mp4">
-    	Your browser does not support HTML5 video.
-  	</video>
-  </div>                                                                                                                 	 
+  <div class="banner__media media video-background">
+    <video autoplay muted loop playsinline id="myVideo">
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
-        {%- case block.type 
-        {%- when 'custom_headline' -%}
-          <h2
-            class="banner__custom-headline {{ block.settings.heading_size }}"
-            {{ block.shopify_attributes }}
-          >
-            {{ block.settings.headline }}
-          </h2>
+        {%-
+          case block.type
+          {%- when 'custom_headline'
+        -%}
+            <h2
+              class="banner__custom-headline {{ block.settings.heading_size }}"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.headline }}
+            </h2>
           {%- when 'heading' -%}
             <h2
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
@@ -194,46 +194,43 @@
   ],
   "blocks": [
     {
-      "type": "heading",
-      "name": "Video Banner",
-      "limit": 1,
-      "settings": [
+  "type": "heading",
+  "name": "Video Banner",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.image-banner.blocks.heading.settings.heading.default",
+      "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
         {
-          "type": "inline_richtext",
-          "id": "heading",
-          "default": "t:sections.image-banner.blocks.heading.settings.heading.default",
-          "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__1.label"
         },
         {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
-            },
-            {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
-            },
-            {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
-            },
-            {
-              "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
-            },
-            {
-              "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
-            }
-          ],
-          "default": "h1",
-          "label": "t:sections.all.heading_size.label"
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__4.label"
         }
-      ]
-    },
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    }
+  ]
+}
+,
     {
       "type": "text",
       "name": "Video Banner Heading",
