@@ -15,7 +15,7 @@
 }
 
 .caption-with-letter-spacing p{
-  @extend .caption;
+  @extend .caption--medium;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
