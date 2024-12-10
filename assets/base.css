@@ -339,15 +339,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 }
 
-.h0 {
-  font-size: calc(var(--font-heading-scale) * 4rem);
-}
 
 @media only screen and (min-width: 750px) {
-  .h0 {
-    font-size: calc(var(--font-heading-scale) * 5.2rem);
-  }
-}
 
 h1,
 .h1 {
