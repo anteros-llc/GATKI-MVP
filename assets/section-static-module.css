@@ -27,9 +27,6 @@
 
 .text-section h1 {
   @extend h1;
- font-family: "IvyprestoHeadline"!important;
- font-weight: 100!important;
-
  text-underline-position: from-font;
  text-decoration-skip-ink: none; 
  color: #FAF6F0;
