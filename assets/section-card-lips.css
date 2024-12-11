@@ -5,13 +5,6 @@
   text-align: center;
   color: var(--color-chenpi);
 }
-  --color-mandarin: #e65919;
-  --color-albedo: #eae6dd;
-  --color-soil: #101921;
-  --color-citron: #eae1a3;
-  --color-chenpi: #91693c;
-  --color-blanco: #faf6f0;
-  --color-ash: #aaaaaa;
 
 /* Title & Description */
 .custom-module .module-title {
@@ -84,6 +77,7 @@
 
 /* Learn More Link */
 .custom-module .learn-more {
+  color: var(--color-chenpi);
   display: inline-block;
   margin-top: 3rem;
   text-decoration: none;
