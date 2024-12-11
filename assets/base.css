@@ -2646,6 +2646,7 @@ a#cart-icon-bubble{
 
 a#cart-icon-bubble:hover {
     text-decoration: underline;
+}
 
 .header__icon--menu[aria-expanded="true"]::before {
   content: "";
