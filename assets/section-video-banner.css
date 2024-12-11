@@ -8,7 +8,7 @@
 
 .banner__media {
     width: 100%;
-    height: auto; /* Allow height to adjust with aspect ratio */
+    height: 100%; 
     object-fit: cover; /* Ensures the video scales proportionally */
     position: absolute;
     top: 0;
