@@ -1229,6 +1229,9 @@ deferred-media {
 
 /* component-button */
 /* Button - default */
+.button--primary{
+  @extend CTA;
+}
 
 .button--secondary,
 .button--tertiary {
