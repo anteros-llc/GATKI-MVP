@@ -22,7 +22,7 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  color: var(--color-citron);
+  color: var(--color-blanco);
   z-index: 2;
   padding: 1.25rem;
 }
@@ -31,7 +31,7 @@
   @extend h1;
   text-underline-position: from-font;
   text-decoration-skip-ink: none; 
-  color: #FAF6F0;
+  color: var(--color-chenpi);
 }
 
 .section-1 {
