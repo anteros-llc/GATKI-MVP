@@ -3,7 +3,7 @@
   position: relative;
   height: 100vh; /* Full height of the viewport */
   width: 100%; /* Full width */
-  background-color: #EAE1A3;
+  background-color: --var(citron);
   border-radius: 3rem;
 }
 
@@ -22,7 +22,6 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  color: var(--color-blanco);
   z-index: 2;
   padding: 1.25rem;
 }
@@ -31,7 +30,7 @@
   @extend h1;
   text-underline-position: from-font;
   text-decoration-skip-ink: none; 
-  color: var(--color-chenpi);
+  color: --var(blanco);
 }
 
 .section-1 {
