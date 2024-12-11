@@ -103,11 +103,9 @@
 }
 
 .custom-footer {
-  background-color: --var(--color-cirton);
-  color: #101921; /* Footer text color */
+  background-color: --var(--color-citron);
+  color: --var(--color-soil);
   padding-top: 2rem;
-  font-family: Syndicat Grotesk, sans-serif;
-  text-color: --var(--color-soil);
 }
 
 /* Top section - Align columns to the right */
@@ -143,6 +141,7 @@
 .custom-footer-link {
   line-height: 1.5;
   text-decoration: none;
+  color: --var(--color-soil);
 }
 
 .custom-footer-policy-link{
