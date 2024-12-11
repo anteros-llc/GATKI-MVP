@@ -20,14 +20,10 @@
 }
 
 .custom-footer-newsletter-heading {
-  font-size: 1.5rem;
-  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .custom-footer-newsletter-description {
-  font-size: 1rem;
-  color: #555;
   margin-bottom: 1rem;
 }
 
@@ -64,8 +60,6 @@
 }
 
 .custom-footer-heading {
-  font-size: 1.25rem;
-  font-weight: bold;
   margin-bottom: 0.75rem;
 }
 
@@ -80,9 +74,7 @@
 }
 
 .custom-footer-link {
-  color: #333;
   text-decoration: none;
-  font-size: 1rem;
 }
 
 .custom-footer-link:hover {
@@ -110,13 +102,12 @@
   }
 }
 
-
 .custom-footer {
-  background-color: #EAE1A3; /* Footer background color */
+  background-color: --var(--color-cirton);
   color: #101921; /* Footer text color */
   padding-top: 2rem;
   font-family: Syndicat Grotesk, sans-serif;
-  text-color: #101921;
+  text-color: --var(--color-soil);
 }
 
 /* Top section - Align columns to the right */
@@ -130,10 +121,7 @@
 
 /* Footer column heading */
 .custom-footer-heading {
-  font-size: 16px;
-  font-weight: 700;
   margin-bottom: 1rem;
-  line-height: 17.6px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   text-transform: uppercase;
@@ -153,19 +141,12 @@
 
 /* Footer links */
 .custom-footer-link {
-  font-size: 16px;
-  font-weight: 400;
   line-height: 1.5;
   text-decoration: none;
-  color: #101921;
 }
 
 .custom-footer-policy-link{
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.5;
   text-decoration: none;
-  color: #101921;
 }
 
 .custom-footer-link:hover {
@@ -178,7 +159,7 @@
   justify-content: space-between; /* Distribute items on opposite ends */
   align-items: center;
   padding: 2rem 3rem;
-  background-color: #EAE6DD;
+  background-color: --var(--color-albedo);
 }
 
 /* Policies on the left */
@@ -198,9 +179,6 @@
 .custom-footer-copyright {
   margin: 0;
   text-align: right;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.5;
 }
 
 /* Logo Section */
