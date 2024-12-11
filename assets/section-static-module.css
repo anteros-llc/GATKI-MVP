@@ -22,7 +22,7 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  color: #FAF6F0;
+  color: var(--color-citron);
   z-index: 2;
   padding: 1.25rem;
 }
