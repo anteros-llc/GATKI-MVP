@@ -104,7 +104,7 @@
 
 .custom-footer {
   background-color: var(--color-citron) !important;
-  color: --var(--color-soil);
+  color: var(--color-soil);
   padding-top: 2rem;
 }
 
@@ -141,7 +141,7 @@
 .custom-footer-link {
   line-height: 1.5;
   text-decoration: none;
-  color: --var(--color-soil);
+  color: var(--color-soil);
 }
 
 .custom-footer-policy-link{
@@ -158,7 +158,7 @@
   justify-content: space-between; /* Distribute items on opposite ends */
   align-items: center;
   padding: 2rem 3rem;
-  background-color: --var(--color-albedo);
+  background-color: var(--color-albedo);
 }
 
 /* Policies on the left */
