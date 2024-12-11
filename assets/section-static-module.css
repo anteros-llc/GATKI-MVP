@@ -24,6 +24,7 @@
   text-align: center;
   z-index: 2;
   padding: 1.25rem;
+  color: --var(blanco);
 }
 
 .text-section h1 {
