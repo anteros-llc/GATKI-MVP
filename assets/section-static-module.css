@@ -27,14 +27,6 @@
   color: var(--color-blanco);
 }
 
-.text-field h1 {
-  /* @extend h1; */
-  font-weight: 100;
-  /* text-underline-position: from-font;
-  text-decoration-skip-ink: none; 
-  color: var(--color-blanco); */
-}
-
 #field-1 {
   top: 10%; /* Position the first section 10% from the top */
 }
