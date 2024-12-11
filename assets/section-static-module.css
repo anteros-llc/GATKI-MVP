@@ -17,7 +17,7 @@
   padding-bottom: 7rem;
 }
 
-.text-section {
+.text-field {
   position: absolute;
   width: 100%;
   text-align: center;
@@ -27,21 +27,21 @@
   color: var(--color-blanco);
 }
 
-.text-section h1 {
+.text-field h1 {
   @extend h1;
   text-underline-position: from-font;
   text-decoration-skip-ink: none; 
   color: var(--color-blanco);
 }
 
-.section-1 {
+#field-1 {
   top: 10%; /* Position the first section 10% from the top */
 }
 
-.section-2 {
+#field-2 {
   top: 40%; /* Position the second section at 40% */
 }
 
-.section-3 {
+#field-3 {
   top: 70%; /* Position the third section at 70% */
 }
