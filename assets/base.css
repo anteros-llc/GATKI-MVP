@@ -2638,7 +2638,6 @@ input[type="checkbox"] {
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
-  text-decoration: none;
 }
 
 a#cart-icon-bubble:hover {
