@@ -103,7 +103,7 @@
 }
 
 .custom-footer {
-  background-color: --var(--color-citron);
+  background-color: var(--color-citron);
   color: --var(--color-soil);
   padding-top: 2rem;
 }
