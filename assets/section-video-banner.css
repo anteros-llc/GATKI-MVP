@@ -445,13 +445,19 @@
 
 @media screen and (min-width: 550px) {
   .banner.video-background {
-  	min-height: auto;
+  	min-height: 60vh;
   }
 }
 
 @media screen and (min-width: 990px) {
   .banner.video-background {
-  	min-height: 45rem;
+  	min-height: 60vhr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .banner.video-background {
+  	min-height: 60vh;
   }
 }
 
