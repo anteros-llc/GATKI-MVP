@@ -1,33 +1,25 @@
 /* Section Wrapper */
 .custom-module {
-  background-color: #FAF6F0;
-  padding: 4rem 48px;
+  background-color: var(--color-blanco);
+  padding: 4rem;
   text-align: center;
+  color: var(--color-chenpi);
 }
-
-@font-face {
-    font-family: "IvyprestoHeadline";
-    src: url("IvyprestoHeadline-Thin.woff2") format("woff2"),
-    url("IvyprestoHeadline-Thin.woff") format("woff");
-}
+  --color-mandarin: #e65919;
+  --color-albedo: #eae6dd;
+  --color-soil: #101921;
+  --color-citron: #eae1a3;
+  --color-chenpi: #91693c;
+  --color-blanco: #faf6f0;
+  --color-ash: #aaaaaa;
 
 /* Title & Description */
 .custom-module .module-title {
-  font-family: "IvyprestoHeadline";
-  font-size: 3.2rem;
-  line-height: 3.8rem;
-  font-weight: 100;
-  color: #91693C;
   margin-bottom: 1.5rem;
   text-underline-position: from-font;
 }
 
 .custom-module .module-description {
-  font-family: "SyndicatGrotesk"!important;
-  font-size: 1.50rem;
-  font-weight: 400;
-  line-height: 1.75rem;
-  color: #91693C;
   margin-bottom: 3rem;
   text-underline-position: from-font;
 }
@@ -50,7 +42,7 @@
   height: 246px; /* Fixed card height */
   padding: 24px; /* Padding inside the card */
   border-radius: 12px; /* Fully rounded corners */
-  background-color: #EAE6DD;
+  background-color: var(--color-albedo);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
   display: flex;
   flex-direction: column;
@@ -63,7 +55,6 @@
 /* Card Header */
 .custom-module .card-header {
   font-size: 0.875rem;
-  color: #91693C;
   display: flex;
   justify-content: space-between; /* Align eyebrow and number */
   align-items: center;
@@ -72,36 +63,22 @@
 
 /* Eyebrow (Category) */
 .custom-module .card-category {
-  font-family: "SyndicatGrotesk"!important;;
-  font-size: 0.875rem;
-  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #91693C;
   margin-bottom: 0; /* Remove margin to align closely with headline */
 }
 
 /* Card Number */
 .custom-module .card-number {
   font-size: 0.875rem;
-  color: #91693C;
-  font-weight: 600;
 }
 
 /* Headline (Title) */
 .custom-module .card-title {
-  font-family: "SyndicatGrotesk"!important;;
-  font-weight: 400!important;
-  color: #91693C;
   margin: 0; /* Remove all margins for tight alignment */
 }
 
 /* Card Description */
 .custom-module .card-description {
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.6;
-  color: #91693C;
   margin-top: 16px; /* Add spacing above description */
 }
 
@@ -109,9 +86,6 @@
 .custom-module .learn-more {
   display: inline-block;
   margin-top: 3rem;
-  font-size: 24px;
-  font-weight: 400;
-  color: #91693C;
   text-decoration: none;
   border-bottom: 1px solid #91693C;
   padding-bottom: 0.1rem;
