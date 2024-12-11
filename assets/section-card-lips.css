@@ -71,7 +71,6 @@
 .custom-module .card-title {
   margin: 0; /* Remove all margins for tight alignment */
   font-weight: 400;
-  font-size: 2rem;
 }
 
 /* Card Description */
