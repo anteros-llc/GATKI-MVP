@@ -23,6 +23,8 @@
   text-align: center;
   z-index: 2;
   padding: 1.25rem;
+  @extend h1;
+  color: var(--color-blanco);
 }
 
 .text-section {
