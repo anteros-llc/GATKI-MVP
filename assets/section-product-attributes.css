@@ -7,7 +7,7 @@
   align-items: center; /* Vertically center the attributes */
   width: 90%; /* Set width relative to the viewport */
   height: auto; /* Hug the height based on content */
-  padding: 3rem 3rem; /* Top-bottom: 80px (5rem), left-right: 48px (3rem) */
+  padding: 1.5rem; /* Top-bottom: 80px (5rem), left-right: 48px (3rem) */
   margin: 0 auto; /* Center the container */
   gap: 5rem; /* Increased gap between attributes */
 }
