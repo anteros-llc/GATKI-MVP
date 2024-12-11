@@ -119,6 +119,8 @@
 
 /* Footer column heading */
 .custom-footer-heading {
+  font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 1rem;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
@@ -142,6 +144,8 @@
   line-height: 1.5;
   text-decoration: none;
   color: var(--color-soil);
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 .custom-footer-policy-link{
