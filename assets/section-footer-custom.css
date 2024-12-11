@@ -150,6 +150,7 @@
 
 .custom-footer-policy-link{
   text-decoration: none;
+  color: var(--color-soil);
 }
 
 .custom-footer-link:hover {
