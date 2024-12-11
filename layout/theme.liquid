@@ -373,33 +373,5 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
-    <style>
-      .header__icons a#cart-icon-bubble {
-          position: relative;
-      }
-      .header__icons a#cart-icon-bubble svg {
-          opacity: 0;
-          width: 60px !important;
-      }
-      .header__icons a#cart-icon-bubble:before {
-        @extend body;
-        position: relative;
-      }
-
-            a#cart-icon-bubble{
-      text-decoration: none;
-      line-height: calc(1 + 0.3 / var(--font-body-scale));
-      text-underline-offset: 0.3rem;
-      }
-
-      a#cart-icon-bubble:hover {
-          text-decoration: underline;
-      }
-      .header__icons a#cart-icon-bubble .cart-count-bubble {
-          left: auto;
-          right: 0px;
-      }
-    </style>
   </body>
 </html>
