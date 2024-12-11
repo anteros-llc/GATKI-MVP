@@ -19,8 +19,8 @@
 /* Typography Variables */
 :root {
   --font-display-family: "IvyPrestoHeadline", "Times New Roman", serif;
-  --font-heading-family: "SyndicatGrotesk", "Instrument Sans", sans-serif;
-  --font-body-family: "SyndicatGrotesk", "Instrument Sans", sans-serif;
+  --font-heading-family: "Instrument Sans", sans-serif;
+  --font-body-family: "Instrument Sans", sans-serif;
   --font-heading-scale: 1;
   --font-body-scale: 1;
 
