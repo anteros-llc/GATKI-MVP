@@ -451,12 +451,12 @@
 
 @media screen and (min-width: 990px) {
   .banner.video-background {
-  	min-height: 54rem;
+  	min-height: 60vh;
   }
 }
 
 @media screen and (min-width: 1320px) {
   .banner.video-background {
-  	min-height: 54rem;
+  	min-height: 60vh;
   }
 }
