@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "SyndicatGrotesk";
-  src: url("SyndicatGrotesk-Regular.woff2") format("woff2"),
+  src: url("https://cdn.shopify.com/s/files/1/0887/0500/7936/files/SyndicatGrotesk-Regular.woff2?v=1730945481") format("woff2"),
     url("SyndicatGrotesk-Medium.woff2") format("woff2"),
     url("SyndicatGrotesk-Bold.woff2") format("woff2");
   font-weight: 400 500 700;
