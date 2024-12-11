@@ -1,9 +1,8 @@
-
 .image-container {
   position: relative;
   height: 100vh; /* Full height of the viewport */
   width: 100%; /* Full width */
-  background-color: --var(citron);
+  background-color: var(--color-citron);
   border-radius: 3rem;
 }
 
@@ -24,14 +23,13 @@
   text-align: center;
   z-index: 2;
   padding: 1.25rem;
-  /* color: --var(blanco); */
 }
 
 .text-section h1 {
   @extend h1;
   text-underline-position: from-font;
   text-decoration-skip-ink: none; 
-  color: --var(blanco);
+  color: var(--color-blanco);
 }
 
 .section-1 {
