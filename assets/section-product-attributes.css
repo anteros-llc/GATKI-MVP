@@ -1,6 +1,6 @@
 /* Product Attributes Wrapper */
 .product-attributes {
-  background-color: #FAF6F0; /* Background color */
+  background-color: var(--color-blanco); /* Background color */
   display: flex;
   flex-wrap: nowrap; /* Keep attributes in a single row */
   justify-content: space-between; /* Space items evenly */
@@ -24,16 +24,14 @@
 /* Attribute Icon (Dot) */
 .product-attributes .attribute-icon {
   font-size: 1.5rem; /* Dot size: 24px -> 1.5rem */
-  color: #E65919; /* Dot color */
+  color: var(--color-mandarin); /* Dot color */
 }
 
 /* Attribute Text */
 .product-attributes .attribute-text {
-  font-family: 'Syndicat Grotesk', sans-serif;
-  font-size: 1.5rem; /* Text size: 24px -> 1.5rem */
   font-weight: 400;
   line-height: 1.2; /* Matches 28.8px -> 1.2em (relative to font-size) */
-  color: #101921; /* Text color */
+  color: var(--color-soil);
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
