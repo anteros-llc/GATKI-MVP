@@ -13,6 +13,8 @@
 }
 
 .custom-module .module-description {
+  font-weight: 400;
+  font-size: 1.25rem;
   margin-bottom: 3rem;
   text-underline-position: from-font;
 }
@@ -68,11 +70,13 @@
 /* Headline (Title) */
 .custom-module .card-title {
   margin: 0; /* Remove all margins for tight alignment */
+  font-weight: 400;
+  font-size: 2rem;
 }
 
 /* Card Description */
 .custom-module .card-description {
-  margin-top: 16px; /* Add spacing above description */
+  margin-top: 1rem; /* Add spacing above description */
 }
 
 /* Learn More Link */
