@@ -9,8 +9,8 @@
 @font-face {
   font-family: "SyndicatGrotesk";
   src: url("https://cdn.shopify.com/s/files/1/0887/0500/7936/files/SyndicatGrotesk-Regular.woff2?v=1730945481") format("woff2"),
-    url("SyndicatGrotesk-Medium.woff2") format("woff2"),
-    url("SyndicatGrotesk-Bold.woff2") format("woff2");
+    url("https://cdn.shopify.com/s/files/1/0887/0500/7936/files/SyndicatGrotesk-Medium.woff2?v=1730945480") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0887/0500/7936/files/SyndicatGrotesk-Bold.woff2?v=1730945480") format("woff2");
   font-weight: 400 500 700;
   font-variant-alternates: normal;
   font-feature-settings: "calt" 1;
