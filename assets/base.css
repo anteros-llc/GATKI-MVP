@@ -96,6 +96,7 @@ span {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  background-color: var(--color-soil);
 }
 
 .product-card-wrapper .card,
@@ -1229,9 +1230,6 @@ deferred-media {
 
 /* component-button */
 /* Button - default */
-.button--primary{
-  @extend .cta;
-}
 
 .button--secondary,
 .button--tertiary {
