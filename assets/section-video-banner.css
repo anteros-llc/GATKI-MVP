@@ -1,5 +1,5 @@
 html{
-  font-size: calc(var(--font-body-scale) * 100%);
+  font-size: calc(var(--font-body-scale) * 65%);
 }
 
 .banner {
