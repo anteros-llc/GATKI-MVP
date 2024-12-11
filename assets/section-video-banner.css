@@ -432,7 +432,7 @@
 
 @media screen and (min-width: 550px) {
   .banner.video-background {
-  	min-height: 39rem;
+  	min-height: auto;
   }
 }
 
