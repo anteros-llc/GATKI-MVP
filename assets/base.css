@@ -3763,8 +3763,6 @@ header__icons a#cart-icon-bubble:before {
   font-family: --var(--font-heading-family);
 }
 
-p.shopify-installments{
-  display: none!important;
-}
+
 
 
