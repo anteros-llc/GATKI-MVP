@@ -77,15 +77,18 @@
       "block_order": [
         "klaviyo_email_marketing_sms_form_embed_block_dePwtq"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".klaviyo-form-XPfEf9 input[type=\"email\"] {border: none !important; border-bottom: 1px solid #101921 !important; padding-bottom: 4px !important; border-radius: 0 !important; outline: none !important;}",
+        ".klaviyo-form-XPfEf9 input[type=\"email\"]:focus {outline: none !important; border-bottom: 1px solid #101921 !important;}"
+      ],
       "settings": {
         "include_margins": true
       }
     }
   },
   "order": [
+    "1734048633d4a6b7d0",
     "section_footer_custom_66wUxp",
-    "footer",
-    "1734048633d4a6b7d0"
+    "footer"
   ]
 }
