@@ -50,6 +50,7 @@
   word-break: break-word;
   overflow-x: auto;
   padding: 0 0.6rem;
+  color: blue;
 }
 
 .accordion__content img {
