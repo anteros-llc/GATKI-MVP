@@ -79,6 +79,7 @@ span {
   line-height: 1.3;
 }
 
+/* replace this div definition with h6 and h7
 .caption {
   font-family: var(--font-body-family);
   font-size: 0.75rem;
@@ -89,6 +90,7 @@ span {
 .caption--medium {
   font-weight: 500;
 }
+*/
 
 .h6, .h7 {
   font-family: var(--font-body-family);
