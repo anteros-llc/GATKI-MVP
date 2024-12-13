@@ -52,6 +52,15 @@
   padding: 0;
 }
 
+.accordion__content ul,
+.accordion__content ol,
+.accordion__content li {
+  padding-left: 0; /* Removes padding */
+  margin-left: 0;  /* Removes margin */
+  list-style-position: inside; /* Aligns bullets with text */
+}
+
+
 .accordion__content img {
   max-width: 100%;
 }
