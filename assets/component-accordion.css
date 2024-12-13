@@ -35,10 +35,7 @@
   margin: 0;
   word-break: break-word;
   background-color: yellow;
-  font-family: var(--font-body-family);
-    font-size: 0.75rem;
-    font-weight: 500;
-    line-height: 1.3;
+  @extend .h7;
 }
 
 .accordion .svg-wrapper {
