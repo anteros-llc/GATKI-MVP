@@ -93,10 +93,19 @@
             "page": ""
           }
         },
+        "collapsible_tab_MRFRkR": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "INGRIDIENTS",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
         "okendo_reviews_badge_FnGXfk": {
           "type": "shopify://apps/okendo/blocks/reviews-badge/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
-            "horizontal_alignment": "center"
+            "horizontal_alignment": "left"
           }
         }
       },
@@ -106,6 +115,7 @@
         "price",
         "buy_buttons",
         "collapsible_tab_tzHqXN",
+        "collapsible_tab_MRFRkR",
         "okendo_reviews_badge_FnGXfk"
       ],
       "settings": {
@@ -120,8 +130,8 @@
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "related-products": {
