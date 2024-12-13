@@ -25,8 +25,8 @@
         "klaviyo_email_marketing_sms_form_embed_block_dePwtq"
       ],
       "custom_css": [
-        ".klaviyo-form-XPfEf9 input[type=\"email\"] {border: none !important; border-bottom: 1px solid #101921 !important; padding-bottom: 4px !important; padding-left: 0 !important; border-radius: 0 !important; outline: none !important;}",
-        ".klaviyo-form-XPfEf9 input[type=\"email\"]:focus {outline: none !important; border-bottom: 1px solid #101921 !important;}"
+        ".klaviyo-form-XPfEf9 form {border-bottom: 1px solid #101921 !important; padding-bottom: 0 0 0 4px !important;}",
+        ".klaviyo-form-XPfEf9 input[type=\"email\"],.klaviyo-form-XPfEf9 button {border: none !important; outline: none !important; border-radius: 0 !important; padding: 0 !important;}"
       ],
       "settings": {
         "include_margins": true
