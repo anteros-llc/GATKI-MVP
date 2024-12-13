@@ -1,1 +1,91 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"section_footer_custom_66wUxp":{"type":"section-footer-custom","blocks":{"link_list_mUEech":{"type":"link_list","settings":{"heading":"Company","menu":"footer"}},"link_list_9hqtjL":{"type":"link_list","settings":{"heading":"Support","menu":"footer"}},"link_list_mwBM6m":{"type":"link_list","settings":{"heading":"Contact","menu":"footer"}}},"block_order":["link_list_mUEech","link_list_9hqtjL","link_list_mwBM6m"],"settings":{"newsletter_heading":"Subscribe to Our Newsletter","newsletter_description":"Get exclusive updates and offers."}},"footer":{"type":"footer","disabled":true,"settings":{"color_scheme":"scheme-1","newsletter_enable":false,"newsletter_heading":"","enable_follow_on_shop":false,"show_social":false,"enable_country_selector":false,"enable_language_selector":false,"payment_enable":false,"show_policy":true,"margin_top":0,"padding_top":36,"padding_bottom":36}}},"order":["section_footer_custom_66wUxp","footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "section_footer_custom_66wUxp": {
+      "type": "section-footer-custom",
+      "blocks": {
+        "link_list_mUEech": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "footer"
+          }
+        },
+        "link_list_9hqtjL": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "footer"
+          }
+        },
+        "link_list_mwBM6m": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Contact",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_mUEech",
+        "link_list_9hqtjL",
+        "link_list_mwBM6m"
+      ],
+      "settings": {
+        "newsletter_heading": "Subscribe to Our Newsletter",
+        "newsletter_description": "Get exclusive updates and offers."
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1734048633d4a6b7d0": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_dePwtq": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "XPfEf9"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_dePwtq"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "section_footer_custom_66wUxp",
+    "footer",
+    "1734048633d4a6b7d0"
+  ]
+}
