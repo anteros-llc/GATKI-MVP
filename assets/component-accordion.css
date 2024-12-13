@@ -1,5 +1,4 @@
 @import "base.css";
-@import url("base.css");
 
 .accordion summary {
   display: flex;
