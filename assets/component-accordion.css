@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   line-height: 1;
-  padding: 1rem 0;
+
 }
 
 .accordion .summary__title {
@@ -50,14 +50,6 @@
   word-break: break-word;
   overflow-x: auto;
   padding: 0;
-}
-
-.accordion__content ul,
-.accordion__content ol,
-.accordion__content li {
-  padding-left: 0; /* Removes padding */
-  margin-left: 0;  /* Removes margin */
-  list-style-position: inside; /* Aligns bullets with text */
 }
 
 
