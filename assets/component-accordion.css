@@ -29,12 +29,12 @@
 }
 
 .accordion__title {
-  text-size: 89rem;
   display: inline-block;
   max-width: calc(100% - 6rem);
   min-height: 1.6rem;
   margin: 0;
   word-break: break-word;
+  background-color: yellow;
 }
 
 .accordion .svg-wrapper {
