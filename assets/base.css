@@ -93,9 +93,9 @@ span {
 */
 
 .h6, .h7 {
-  font-family: var(--font-body-family);
-  font-size: 0.75rem;
-  line-height: 1.3;
+  font-family: var(--font-body-family) !important;
+  font-size: 0.75rem !important;
+  line-height: 1.3 !important;
 }
 
 .h6 {
