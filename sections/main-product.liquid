@@ -81,7 +81,7 @@
      <div class="grid__item product__media-wrapper">
   <div class="product-media-slider">
     <div class="slider" data-slider>
-      {% for image in product.images %}
+      {% for image in variant_images %}
         <div class="slider__slide">
           <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}">
         </div>
