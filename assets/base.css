@@ -3831,3 +3831,45 @@ header__icons a#cart-icon-bubble:before {
   display: none;
 }
 /* Coded by websensepro.com | youtube.com/c/websensepro */
+
+.product-media-slider {
+  position: relative;
+  width: 50%; /* Adjust based on your layout */
+  margin-right: 20px; /* Space to the right for product info */
+}
+
+.slider {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider__slide {
+  flex: 0 0 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+}
+
+.slider-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.slider-prev,
+.slider-next {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.slider-counter {
+  margin: 0 10px;
+  font-size: 14px;
+}
