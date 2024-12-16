@@ -1270,11 +1270,12 @@ a.product__text {
 .icon-with-text__item {
   display: flex;
   align-items: center;
+  background-color: gray;
 }
 
 .icon-with-text--horizontal .icon-with-text__item {
   flex-direction: column;
-  width: 25%;
+  width: 33%;
   background-color: pink;
 }
 
