@@ -50,70 +50,33 @@
 
 <style>
 .custom-carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 800px;
   margin: 0 auto;
+     position: relative;
+      height: 100%;
 }
 
-.swiper-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
+ .swiper {
+      width: 100%;
+      height: 100%;
+    }
 
-.swiper-wrapper {
-  display: flex;
-}
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.swiper-slide {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.carousel-image img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
 
-.carousel-text {
-  max-width: 50%;
-  padding: 20px;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  color: #333; /* Arrow color */
-  width: 40px;
-  height: 40px;
-  margin-top: -20px; /* Center vertically */
-  top: 50%;
-  z-index: 10;
-}
-
-.swiper-button-prev {
-  left: 10px; /* Adjust position */
-}
-
-.swiper-button-next {
-  right: 10px; /* Adjust position */
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.swiper-button-disabled {
-  opacity: 0.3; /* Optional: Style for disabled state */
-  pointer-events: none;
-}
 
 </style>
 
