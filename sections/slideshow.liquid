@@ -31,7 +31,7 @@
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
       >
         <!-- Image Column -->
-        <div class="slideshow__media banner__media media slideshow__media--half">
+        <div class="slideshow__media banner__media slideshow__media--half">
           {%- if block.settings.image -%}
             {{
               block.settings.image
@@ -119,9 +119,6 @@
   justify-content: center;
 }
 
-.media>*:not(.zoom):not(.deferred-media__poster-button), .media model-viewer{
-  position: unset;
-}
 </style>
 
 {% schema %}
