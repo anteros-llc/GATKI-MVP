@@ -3806,7 +3806,6 @@ header__icons a#cart-icon-bubble:before {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain; /* Prevents image distortion */
-} */
 
 .product__image-slider {
   width: 100%; /* Ensure the carousel takes up the full width */
@@ -3836,5 +3835,3 @@ header__icons a#cart-icon-bubble:before {
 .grid__item .product__image-slider {
   margin-bottom: 2rem; /* Adjust spacing below the carousel */
 }
-
-
