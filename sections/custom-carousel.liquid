@@ -25,13 +25,13 @@
 {%- endif -%}
 
 <slideshow-component
-  class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
+  class="custom-slideshow"
   role="region"
-  aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
+  aria-roledescription="carousel"
   aria-label="{{ section.settings.accessibility_info | escape }}"
 >
   <div
-    class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}"
+    class="slideshow-container"
     id="Slider-{{ section.id }}"
     aria-live="polite"
     aria-atomic="true"
@@ -39,40 +39,35 @@
     data-speed="{{ section.settings.change_slides_speed }}"
   >
     {%- for block in section.blocks -%}
-      <style>
-        #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
-          opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
-        }
-      </style>
       <div
-        class="slideshow__slide grid__item grid--1-col slider__slide"
+        class="slideshow-slide"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
         {{ block.shopify_attributes }}
         role="group"
-        aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
-        aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-        tabindex="-1"
+        aria-roledescription="slide"
+        aria-label="{{ forloop.index }} of {{ section.blocks.size }}"
       >
-        <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
-          {%- if block.settings.image -%}
-            {{
-              block.settings.image
-              | image_url: width: 3840
-              | image_tag: height: block.settings.image.height, sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-            }}
-          {%- endif -%}
-        </div>
-        <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
-          <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }}">
+        <!-- Image and Text Layout -->
+        <div class="slideshow-content">
+          <div class="slideshow-image">
+            {%- if block.settings.image -%}
+              <img
+                src="{{ block.settings.image | img_url: '3840x' }}"
+                alt="{{ block.settings.image_alt | escape }}"
+                class="slideshow-image-element"
+              />
+            {%- endif -%}
+          </div>
+          <div class="slideshow-text">
             {%- if block.settings.heading != blank -%}
-              <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
+              <h2 class="slideshow-heading">
                 {{ block.settings.heading }}
               </h2>
             {%- endif -%}
             {%- if block.settings.subheading != blank -%}
-              <div class="banner__text rte">
-                <p>{{ block.settings.subheading }}</p>
-              </div>
+              <p class="slideshow-subheading">
+                {{ block.settings.subheading }}
+              </p>
             {%- endif -%}
           </div>
         </div>
@@ -80,39 +75,20 @@
     {%- endfor -%}
   </div>
 
-  <div class="slideshow__controls slider-buttons">
-    <button
-      type="button"
-      class="slider-button slider-button--prev"
-      name="previous"
-      aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
-      aria-controls="Slider-{{ section.id }}"
-    >
-      <span class="svg-wrapper">
-        {{- 'icon-caret.svg' | inline_asset_content -}}
-      </span>
+  <!-- Navigation Buttons -->
+  <div class="slideshow-controls">
+    <button class="slider-button slider-button--prev" aria-label="Previous Slide">
+      &#8592;
     </button>
-    <button
-      type="button"
-      class="slider-button slider-button--next"
-      name="next"
-      aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
-      aria-controls="Slider-{{ section.id }}"
-    >
-      <span class="svg-wrapper">
-        {{- 'icon-caret.svg' | inline_asset_content -}}
-      </span>
+    <button class="slider-button slider-button--next" aria-label="Next Slide">
+      &#8594;
     </button>
   </div>
 </slideshow-component>
 
-{%- if request.design_mode -%}
-  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
 {% schema %}
 {
-  "name": "Custom Slideshow",
+  "name": "Custom Split Slideshow",
   "settings": [
     {
       "type": "checkbox",
@@ -155,7 +131,8 @@
   ],
   "presets": [
     {
-      "name": "Custom Slideshow",
+      "name": "Custom Split Slideshow",
+
     }
   ]
 }
