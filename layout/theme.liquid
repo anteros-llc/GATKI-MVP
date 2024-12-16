@@ -36,9 +36,22 @@
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
     {{ 'flickity.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'flickity.js' | asset_url }}" defer></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const staticSlider = document.querySelector(".carousel");
 
+  if (staticSlider) {
+    new Flickity(staticSlider, {
+      cellAlign: "center",
+      contain: true,
+      wrapAround: true,
+      imagesLoaded: true,
+      prevNextButtons: true,
+    });
+  }
+});
+    </script>
 
-    
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
