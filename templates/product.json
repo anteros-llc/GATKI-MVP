@@ -28,15 +28,14 @@
           "type": "icon-with-text",
           "settings": {
             "layout": "horizontal",
-            "icon_1": "none",
             "image_1": "shopify://shop_images/Icon_Day.svg",
             "heading_1": "Day",
-            "icon_2": "none",
             "image_2": "shopify://shop_images/Icon_Night.svg",
             "heading_2": "Night",
-            "icon_3": "none",
             "image_3": "shopify://shop_images/Icon_Soothing.svg",
-            "heading_3": "Soothing"
+            "heading_3": "Soothing",
+            "image_4": "shopify://shop_images/Icon_Travel.svg",
+            "heading_4": "Travel-ready"
           }
         },
         "buy_buttons_UdziB3": {
@@ -154,35 +153,53 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/biscotti-lays-in-a-monstera-leaf.jpg",
-            "alt_text": "Slide image",
-            "slide_heading": "Test",
-            "slide_description": "Slide description text goes here.",
-            "gentleness": 50,
-            "nourishment": 50,
-            "staying_power": 50
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
           }
         },
         "slide_FP3t6t": {
           "type": "slide",
           "settings": {
-            "alt_text": "Slide image",
-            "slide_heading": "Slide Heading",
-            "slide_description": "Slide description text goes here.",
-            "gentleness": 50,
-            "nourishment": 50,
-            "staying_power": 50
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
           }
         },
         "slide_VnR94P": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/lenses-lattes.jpg",
-            "alt_text": "Slide image",
-            "slide_heading": "Slide Heading",
-            "slide_description": "Slide description text goes here.",
-            "gentleness": 50,
-            "nourishment": 50,
-            "staying_power": 50
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
           }
         }
       },
@@ -191,7 +208,16 @@
         "slide_FP3t6t",
         "slide_VnR94P"
       ],
-      "settings": {}
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
     },
     "1731992271885d52d1": {
       "type": "apps",
