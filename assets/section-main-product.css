@@ -1260,7 +1260,7 @@ a.product__text {
 
 
 .icon-with-text--horizontal .h6 {
-  padding-top: calc(var(--icon-size) + var(--icon-spacing));
+
   text-align: center;
 }
 
