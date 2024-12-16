@@ -3802,12 +3802,12 @@ header__icons a#cart-icon-bubble:before {
   margin-bottom: 2rem;
 }
 
-.carousel {
+/* .carousel {
   height: 500px; /* Adjust as needed */
   display: flex;
   align-items: center; /* Vertically center images */
   overflow: hidden;
-}
+} */
 
 .carousel-cell img {
   max-height: 100%;
