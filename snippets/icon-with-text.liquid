@@ -39,7 +39,10 @@
     assign text_only_all_items = false
   elsif heading_3_empty == false and block.settings.icon_3 != 'none' or block.settings.image_3 != null
     assign text_only_all_items = false
+  elsif heading_4_empty == false and block.settings.icon_4 != 'none' or block.settings.image_4 != null
+    assign text_only_all_items = false
   endif
+
   assign text_only_all_items = false
 -%}
 
