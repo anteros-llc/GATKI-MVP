@@ -3785,9 +3785,9 @@ header__icons a#cart-icon-bubble:before {
   font-family: --var(--font-heading-family);
 }
 
-/* Coded by websensepro.com | youtube.com/c/websensepro */
-/* .product__image-slider {
+.product__image-slider {
   width: 100%;
+  overflow: hidden;
 }
 .product__image-slider .carousel-cell {
   width: 100%;
@@ -3805,34 +3805,5 @@ header__icons a#cart-icon-bubble:before {
 .carousel-cell img {
   max-height: 100%;
   max-width: 100%;
-  object-fit: contain; /* Prevents image distortion */
-
-.product__image-slider {
-  width: 100%; /* Full width of the container */
-  height: auto; /* Let the height adapt to the content */
-  max-height: 500px; /* Restrict the height for consistency */
-  overflow: hidden; /* Prevent scrolling */
-  display: flex; /* Ensure images are aligned properly */
-  align-items: center; /* Center images vertically */
-  justify-content: center; /* Center images horizontally */
-}
-
-.product__image-slider .carousel-cell {
-  flex-shrink: 0; /* Prevent cells from shrinking */
-  width: 100%; /* Match the width of the slider */
-  margin: 0 5px; /* Add space between cells */
-  display: flex; /* Flexbox layout for centering content */
-  align-items: center; /* Vertically center images */
-  justify-content: center; /* Horizontally center images */
-}
-
-.product__image-slider .carousel-cell img {
-  max-width: 100%; /* Prevent horizontal overflow */
-  max-height: 100%; /* Ensure the image fits within the container */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Ensure proper image scaling */
-}
-
-.grid__item .product__image-slider {
-  margin-bottom: 2rem; /* Maintain consistent spacing */
+  object-fit: contain;
 }
