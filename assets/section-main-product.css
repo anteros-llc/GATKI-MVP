@@ -1237,7 +1237,7 @@ a.product__text {
 
 .icon-with-text--horizontal .svg-wrapper,
 .icon-with-text--horizontal img {
-  margin-bottom: 0;
+  margin-bottom: var(--icon-spacing);
 }
 
 .icon-with-text--vertical .svg-wrapper {
@@ -1271,7 +1271,7 @@ a.product__text {
   display: flex;
   flex-direction: column; 
   align-items: center; 
-  gap: 0.5rem; 
+
 }
 
 
