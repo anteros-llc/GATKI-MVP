@@ -1,6 +1,6 @@
 <section class="ingredients-module">
   <div class="ingredients-wrapper">
-    <h3 class="ingredients-heading">{{ section.settings.ingredients_heading }}</h3>
+    <h5 class="ingredients-heading">{{ section.settings.ingredients_heading }}</h5>
     <ul class="ingredients-list">
       {%- for block in section.blocks -%}
         <li class="ingredient-item">
@@ -28,7 +28,7 @@
   display: flex;
   justify-content: space-between;
 }
-.ingredients-heading h3 {
+.ingredients-heading h5 {
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
