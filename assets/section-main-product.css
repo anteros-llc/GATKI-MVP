@@ -1271,7 +1271,6 @@ a.product__text {
   display: flex;
   align-items: center;
   background-color: gray;
-  margin: 0;
 }
 
 .icon-with-text--horizontal .icon-with-text__item {
@@ -1280,7 +1279,7 @@ a.product__text {
 }
 
 .icon-with-text--vertical .icon-with-text__item {
-  margin-bottom: var(--icon-size);
+  margin-bottom: 0;
 }
 
 /* SKU block */
