@@ -1,79 +1,46 @@
-<section class="custom-carousel">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'slide' -%}
-          <div class="swiper-slide">
-            <!-- Image -->
-            <div class="carousel-image">
-              <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt_text | escape }}">
-            </div>
-
-            <!-- Text Content -->
-            <div class="carousel-text">
-              <h2>{{ block.settings.slide_heading }}</h2>
-              <p>{{ block.settings.slide_description }}</p>
-              <!-- Custom Progress Bars -->
-              <ul class="custom-sliders">
-                <li>
-                  <span>Gentleness</span>
-                  <div class="slider">
-                    <div class="slider-fill" style="width: {{ block.settings.gentleness }}%;"></div>
-                  </div>
-                </li>
-                <li>
-                  <span>Nourishment</span>
-                  <div class="slider">
-                    <div class="slider-fill" style="width: {{ block.settings.nourishment }}%;"></div>
-                  </div>
-                </li>
-                <li>
-                  <span>Staying Power</span>
-                  <div class="slider">
-                    <div class="slider-fill" style="width: {{ block.settings.staying_power }}%;"></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
+<section>
+<div class="carousel product-slider">
+  {%- for block in section.blocks -%}
+  <div class="carousel-cell">
+    <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt_text }}">
+    <div class="text-content">
+      <h2>{{ block.settings.heading }}</h2>
+      <p>{{ block.settings.description }}</p>
     </div>
-
-    <!-- Navigation Buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
   </div>
+  {%- endfor -%}
+</div>
 </section>
 
-
-
 <style>
-.swiper-container {
-   max-width: 1200px;
-  
-  }
-.swiper-slide img{
-    max-width: unset;
-    width: 100%;
-    display: flex;
-    height: 60vw;
-  }
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-cell {
+  width: 100%;
+  height: auto;
+  margin-right: 10px;
+}
+
+.carousel img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.swiper-container', {
-      loop: true,
-      direction: horizontal,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  });
+var elem = document.querySelector('.product-slider');
+var flkty = new Flickity(elem, {
+  cellAlign: 'left',
+  contain: true,
+  wrapAround: true,
+  prevNextButtons: true,
+  pageDots: false,
+});
+
 </script>
 
 {% schema %}
