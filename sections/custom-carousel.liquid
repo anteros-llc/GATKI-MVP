@@ -44,11 +44,150 @@
 
 
 <style>
-.carousel-cell {
-  width: 100%; /* full width */
-  height: 460px; /* height of carousel */
-  margin-right: 10px;
+/* General Carousel Wrapper */
+.custom-carousel {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  padding: 2rem 0;
 }
+
+/* Carousel Container */
+.carousel-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+}
+
+/* Individual Slide */
+.carousel-cell {
+  flex: 0 0 100%; /* Full width */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Image Styling */
+.carousel-image img {
+  width: 50%; /* Adjust based on design */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Text Content */
+.carousel-text {
+  width: 45%;
+  text-align: left;
+}
+
+.carousel-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.carousel-text p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Custom Progress Bars */
+.custom-sliders {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-sliders li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.custom-sliders span {
+  font-size: 0.9rem;
+  color: #333;
+  flex-shrink: 0;
+  width: 120px;
+}
+
+/* Slider Container */
+.slider {
+  width: 100%;
+  height: 6px;
+  background: #ddd;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.slider-fill {
+  height: 100%;
+  background: #ff6b6b; /* Custom color */
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Flickity Navigation Buttons */
+.flickity-prev-next-button {
+  background: #000;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.flickity-prev-next-button:hover {
+  opacity: 1;
+}
+
+.flickity-prev-next-button.previous {
+  left: -50px;
+}
+
+.flickity-prev-next-button.next {
+  right: -50px;
+}
+
+.flickity-prev-next-button svg {
+  fill: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carousel-cell {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .carousel-image img {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-text {
+    width: 100%;
+  }
+}
+
+
+
 </style>
 
 <script>
