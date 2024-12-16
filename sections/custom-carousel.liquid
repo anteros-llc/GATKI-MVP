@@ -1,16 +1,3 @@
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var elem = document.querySelector('.carousel');
-  var flkty = new Flickity(elem, {
-    cellAlign: 'left',
-    contain: true,
-    wrapAround: true,
-    prevNextButtons: true,
-    pageDots: false
-  });
-});
-</script>
-
 <section class="custom-carousel">
   <div class="carousel-wrapper">
     <div class="carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "prevNextButtons": true, "pageDots": false }'>
@@ -55,7 +42,44 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </section>
 
+
 <style>
+/* Container Styles */
+.custom-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Carousel Styles */
+.carousel {
+  display: flex;
+  width: 100%;
+}
+
+.carousel-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Image Styles */
+.carousel-image img {
+  width: 50%;
+  max-height: 70vh;
+  object-fit: cover;
+}
+
+/* Text Section Styles */
 /* Container Styles */
 .custom-carousel {
   display: flex;
@@ -129,7 +153,21 @@ document.addEventListener('DOMContentLoaded', function () {
   left: 0;
   top: 0;
 }
+
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var elem = document.querySelector('.carousel');
+  var flkty = new Flickity(elem, {
+    cellAlign: 'left',
+    contain: true,
+    wrapAround: true,
+    prevNextButtons: true,
+    pageDots: false
+  });
+});
+</script>
 
 {% schema %}
 {
