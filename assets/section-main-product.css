@@ -1278,11 +1278,11 @@ a.product__text {
 .icon-with-text--horizontal .icon-with-text__item {
   flex-direction: column;
   width: 33%;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .icon-with-text--vertical .icon-with-text__item {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 /* SKU block */
