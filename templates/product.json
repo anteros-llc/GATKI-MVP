@@ -125,7 +125,11 @@
           "settings": {
             "image": "shopify://shop_images/biscotti-lays-in-a-monstera-leaf.jpg",
             "alt_text": "Slide image",
-            "slide_heading": "Slide Heading"
+            "slide_heading": "Test",
+            "slide_description": "Slide description text goes here.",
+            "gentleness": 50,
+            "nourishment": 50,
+            "staying_power": 50
           }
         },
         "slide_VnR94P": {
@@ -133,7 +137,11 @@
           "settings": {
             "image": "shopify://shop_images/lenses-lattes.jpg",
             "alt_text": "Slide image",
-            "slide_heading": "Slide Heading"
+            "slide_heading": "Slide Heading",
+            "slide_description": "Slide description text goes here.",
+            "gentleness": 50,
+            "nourishment": 50,
+            "staying_power": 50
           }
         }
       },
