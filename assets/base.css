@@ -3785,7 +3785,7 @@ header__icons a#cart-icon-bubble:before {
   font-family: --var(--font-heading-family);
 }
 
-.product__image-slider {
+/* .product__image-slider {
   width: 100%;
   overflow: hidden;
 }
@@ -3806,4 +3806,42 @@ header__icons a#cart-icon-bubble:before {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
+}
+ */
+
+/* Ensure the slider uses the full width */
+.product__image-slider {
+  width: 100%;
+  max-height: 100%; /* Restrict height to prevent scrolling */
+  overflow: hidden; /* Prevent scrolling inside the slider container */
+}
+
+/* Ensure each carousel cell fits within the slider */
+.product__image-slider .carousel-cell {
+  width: 100%;
+  margin: 0 5px; /* Adjust as needed */
+  display: flex; /* Align items */
+  justify-content: center;
+  align-items: center; /* Center image */
+}
+
+/* Ensure images fit properly inside their containers */
+.product__image-slider .carousel-cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensure images scale correctly without distortion */
+  display: block; /* Prevent inline spacing issues */
+}
+
+/* Adjust spacing for the slider inside the grid */
+.grid__item .product__image-slider {
+  margin-bottom: 2rem; /* Add spacing below the slider */
+}
+
+/* Ensure images don't exceed their parent's dimensions */
+.carousel-cell img {
+  max-width: 100%;
+  max-height: 100%; /* Prevent vertical overflow */
+  object-fit: contain;
+  overflow: hidden;
 }
