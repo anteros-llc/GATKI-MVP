@@ -3809,39 +3809,30 @@ header__icons a#cart-icon-bubble:before {
 }
  */
 
-/* Ensure the slider uses the full width */
+/* Image slider container */
 .product__image-slider {
-  width: 100%;
-  max-height: 100%; /* Restrict height to prevent scrolling */
-  overflow: hidden; /* Prevent scrolling inside the slider container */
+  width: 100%; /* Full width */
+  height: auto; /* Automatically adjust to content height */
+  max-height: 70vh; /* Constrain the container to 70% of the viewport height */
+  overflow: hidden; /* Prevent scrolling */
+  position: relative; /* Contain child elements */
 }
 
-/* Ensure each carousel cell fits within the slider */
+/* Carousel cells */
 .product__image-slider .carousel-cell {
-  width: 100%;
-  margin: 0 5px; /* Adjust as needed */
-  display: flex; /* Align items */
+  width: 100%; /* Full width */
+  height: 100%; /* Match container height */
+  display: flex; /* Flexbox for alignment */
   justify-content: center;
-  align-items: center; /* Center image */
+  align-items: center; /* Center the image vertically and horizontally */
 }
 
-/* Ensure images fit properly inside their containers */
+/* Images */
 .product__image-slider .carousel-cell img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* Ensure images scale correctly without distortion */
-  display: block; /* Prevent inline spacing issues */
-}
-
-/* Adjust spacing for the slider inside the grid */
-.grid__item .product__image-slider {
-  margin-bottom: 2rem; /* Add spacing below the slider */
-}
-
-/* Ensure images don't exceed their parent's dimensions */
-.carousel-cell img {
-  max-width: 100%;
-  max-height: 100%; /* Prevent vertical overflow */
-  object-fit: contain;
-  overflow: hidden;
+  width: auto; /* Scale based on height */
+  height: 100%; /* Fit to container's height */
+  max-height: 100%; /* Ensure it doesn’t exceed the container */
+  max-width: 100%; /* Prevent horizontal overflow */
+  object-fit: contain; /* Maintain aspect ratio */
+  display: block; /* Remove inline element spacing issues */
 }
