@@ -169,19 +169,19 @@
         "ingredient_GzHGrP": {
           "type": "ingredient",
           "settings": {
-            "ingredient_text": "Example Ingredient"
+            "ingredient_text": "Stickness"
           }
         },
         "ingredient_FGBRwL": {
           "type": "ingredient",
           "settings": {
-            "ingredient_text": "Example Ingredient"
+            "ingredient_text": "Pigment"
           }
         },
         "ingredient_4pH69e": {
           "type": "ingredient",
           "settings": {
-            "ingredient_text": "Example Ingredient"
+            "ingredient_text": "Menthol"
           }
         }
       },
