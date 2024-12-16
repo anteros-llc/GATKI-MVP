@@ -49,21 +49,30 @@
 
 
 <style>
-  .custom-carousel {
+.custom-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .swiper-container {
+  position: relative;
   width: 100%;
-  height: auto;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
 }
 
 .swiper-slide {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 .carousel-image img {
@@ -74,6 +83,7 @@
 
 .carousel-text {
   max-width: 50%;
+  padding: 20px;
 }
 
 .custom-sliders li {
@@ -95,6 +105,47 @@
   width: 0;
   transition: width 0.3s ease;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.swiper-button-prev::after {
+  transform: rotate(-135deg);
+}
+
+.swiper-button-next::after {
+  transform: rotate(45deg);
+}
+
 </style>
 
 <script>
@@ -102,7 +153,7 @@
     new Swiper('.swiper-container', {
       loop: true,
       slidesPerView: 1,
-      spaceBetween: 20,
+      spaceBetween: 0,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -110,7 +161,6 @@
       breakpoints: {
         768: {
           slidesPerView: 1,
-          spaceBetween: 40,
         },
       },
     });
