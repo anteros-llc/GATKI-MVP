@@ -190,9 +190,7 @@
         "ingredient_FGBRwL",
         "ingredient_4pH69e"
       ],
-      "custom_css": [
-        "h3{text-align: center;}"
-      ],
+      "custom_css": [],
       "settings": {
         "ingredients_heading": "14 INGREDIENTS. NOTHING EXTRA."
       }
