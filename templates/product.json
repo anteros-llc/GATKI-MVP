@@ -132,6 +132,17 @@
             "staying_power": 50
           }
         },
+        "slide_FP3t6t": {
+          "type": "slide",
+          "settings": {
+            "alt_text": "Slide image",
+            "slide_heading": "Slide Heading",
+            "slide_description": "Slide description text goes here.",
+            "gentleness": 50,
+            "nourishment": 50,
+            "staying_power": 50
+          }
+        },
         "slide_VnR94P": {
           "type": "slide",
           "settings": {
@@ -147,6 +158,7 @@
       },
       "block_order": [
         "slide_pfY37a",
+        "slide_FP3t6t",
         "slide_VnR94P"
       ],
       "settings": {}
