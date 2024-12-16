@@ -3811,28 +3811,25 @@ header__icons a#cart-icon-bubble:before {
 
 /* Image slider container */
 .product__image-slider {
-  width: 100%;
-  max-height: 70vh; /* Constrain to viewport height */
+  width: 100%; /* Full width of the container */
+  max-height: 70vh; /* Constrain height to 70% of the viewport */
   overflow: hidden; /* Prevent vertical scrolling */
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center images in the slider */
+  position: relative; /* Contain child elements */
 }
 
 /* Carousel cells */
 .product__image-slider .carousel-cell {
-  flex: 1; /* Allow cells to grow/shrink as needed */
-  display: flex; /* Flex container for centering */
-  justify-content: center;
-  align-items: center;
-  height: 100%; /* Match the slider height */
+  flex: 1 0 auto; /* Flex-grow: 1, flex-shrink: 0, auto width */
+  display: flex; /* Flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%; /* Match the height of the container */
 }
 
 /* Images */
 .product__image-slider .carousel-cell img {
-  max-width: 100%;
-  max-height: 100%; /* Ensure it fits within the container */
-  object-fit: contain; /* Maintain aspect ratio */
-  display: block; /* Ensure it behaves as a block-level element */
+  max-width: 100%; /* Ensure the image doesn’t overflow horizontally */
+  max-height: 100%; /* Ensure the image doesn’t overflow vertically */
+  object-fit: contain; /* Maintain aspect ratio within the container */
+  display: block; /* Ensure it behaves as a block element */
 }
