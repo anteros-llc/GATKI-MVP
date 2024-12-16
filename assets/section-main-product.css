@@ -1265,6 +1265,7 @@ a.product__text {
 .icon-with-text--horizontal img + .h6,
 .icon-with-text--horizontal.icon-with-text--text-only .h6 {
   padding: 0;
+  margin-bottom: 0;
 }
 
 .icon-with-text__item {
