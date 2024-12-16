@@ -113,4 +113,27 @@
       </span>
     </div>
   {%- endunless -%}
+
+  {% unless heading_4_empty -%}
+    <div class="icon-with-text__item">
+      {% if block.settings.image_4 == null -%}
+        {% render 'icon-accordion', icon: block.settings.icon_4 -%}
+      {% else -%}
+        <img
+          src="{{ block.settings.image_4 | image_url }}"
+          {% if block.settings.image_4.alt != blank %}
+            alt="{{ block.settings.image_4.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {% endif -%}
+      <span class="h6 inline-richtext">
+        {{- block.settings.heading_4 -}}
+      </span>
+    </div>
+  {% endunless -%}
 </div>
