@@ -108,12 +108,19 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-     <div class="carousel">
-  {% for image in product.images %}
+  <div class="carousel product__image-slider">
+  {%- for media in product.media -%}
     <div class="carousel-cell">
-      <img src="{{ image | img_url: '600x600' }}" alt="{{ image.alt | escape }}">
+      {% if media.media_type == "image" %}
+        <img 
+          src="{{ media | img_url: '800x' }}" 
+          data-flickity-lazyload="{{ media | img_url: '800x' }}" 
+          alt="{{ media.alt | escape }}"
+          class="product-slider-image"
+        >
+      {% endif %}
     </div>
-  {% endfor %}
+  {%- endfor -%}
 </div>
 
 <!-- Custom Arrows -->
