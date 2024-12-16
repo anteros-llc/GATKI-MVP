@@ -1237,7 +1237,7 @@ a.product__text {
 
 .icon-with-text--horizontal .svg-wrapper,
 .icon-with-text--horizontal img {
-  margin-bottom: var(--icon-spacing);
+  margin-bottom: 0;
 }
 
 .icon-with-text--vertical .svg-wrapper {
@@ -1271,6 +1271,7 @@ a.product__text {
   display: flex;
   align-items: center;
   background-color: gray;
+  gap: 0.5rem;
 }
 
 .icon-with-text--horizontal .icon-with-text__item {
@@ -1279,7 +1280,7 @@ a.product__text {
 }
 
 .icon-with-text--vertical .icon-with-text__item {
-  margin-bottom: 0;
+  margin-bottom: var(--icon-size);
 }
 
 /* SKU block */
