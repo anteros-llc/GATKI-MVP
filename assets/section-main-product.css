@@ -1270,6 +1270,7 @@ a.product__text {
 .icon-with-text__item {
   display: flex;
   align-items: center;
+  margin: 0;
 }
 
 .icon-with-text--horizontal .icon-with-text__item {
