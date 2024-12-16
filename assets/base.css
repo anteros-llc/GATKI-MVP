@@ -3786,7 +3786,7 @@ header__icons a#cart-icon-bubble:before {
 }
 
 /* Coded by websensepro.com | youtube.com/c/websensepro */
-.product__image-slider {
+/* .product__image-slider {
   width: 100%;
 }
 .product__image-slider .carousel-cell {
@@ -3802,17 +3802,39 @@ header__icons a#cart-icon-bubble:before {
   margin-bottom: 2rem;
 }
 
-/* .carousel {
-  height: 500px; /* Adjust as needed */
-  display: flex;
-  align-items: center; /* Vertically center images */
-  overflow: hidden;
-} */
-
 .carousel-cell img {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain; /* Prevents image distortion */
+} */
+
+.product__image-slider {
+  width: 100%; /* Ensure the carousel takes up the full width */
+  height: 500px; /* Set a fixed height for the carousel container */
+  max-height: 500px; /* Prevent excessive vertical scrolling */
+  overflow: hidden; /* Prevent vertical scrolling */
+  display: flex; /* Enable flex for centering */
+  align-items: center; /* Center carousel cells vertically */
+  justify-content: center; /* Center carousel cells horizontally */
 }
 
-/* Coded by websensepro.com | youtube.com/c/websensepro */
+.product__image-slider .carousel-cell {
+  width: 100%; /* Carousel cells take full width */
+  height: 100%; /* Carousel cells match the container height */
+  margin: 0 5px; /* Space between cells */
+  display: flex; /* Enable flex for image centering */
+  align-items: center; /* Vertically center images */
+  justify-content: center; /* Horizontally center images */
+}
+
+.product__image-slider .carousel-cell img {
+  max-width: 100%; /* Ensure the image fits horizontally */
+  max-height: 100%; /* Constrain image vertically to prevent overflow */
+  object-fit: contain; /* Preserve image aspect ratio */
+}
+
+.grid__item .product__image-slider {
+  margin-bottom: 2rem; /* Adjust spacing below the carousel */
+}
+
+
