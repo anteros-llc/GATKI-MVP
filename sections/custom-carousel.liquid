@@ -47,6 +47,7 @@
 /* General Carousel Wrapper */
 .custom-carousel {
   width: 100%;
+  height: 200px;
   margin: auto;
   overflow: hidden;
   padding: 2rem 0;
@@ -139,35 +140,7 @@
 }
 
 /* Flickity Navigation Buttons */
-.flickity-prev-next-button {
-  background: #000;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
 
-.flickity-prev-next-button:hover {
-  opacity: 1;
-}
-
-.flickity-prev-next-button.previous {
-  left: -50px;
-}
-
-.flickity-prev-next-button.next {
-  right: -50px;
-}
-
-.flickity-prev-next-button svg {
-  fill: #fff;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -185,9 +158,6 @@
     width: 100%;
   }
 }
-
-
-
 </style>
 
 <script>
