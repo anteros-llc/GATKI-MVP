@@ -1215,7 +1215,7 @@ a.product__text {
 /* Icon with text */
 .icon-with-text {
   --icon-size: 2rem;
-  --icon-spacing: calc(var(--font-heading-scale) * 1rem);
+  --icon-spacing: 0.5rem;
 }
 
 .icon-with-text--horizontal {
