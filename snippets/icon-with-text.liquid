@@ -36,6 +36,7 @@
     assign text_only_all_items = false
   endif
 -%}
+
 <ul
   class="icon-with-text icon-with-text--{{ block.settings.layout }} list-unstyled{% if text_only_all_items %} icon-with-text--text-only{% endif %}"
   {{ block.shopify_attributes }}
