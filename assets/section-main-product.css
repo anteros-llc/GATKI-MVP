@@ -1264,14 +1264,12 @@ a.product__text {
 .icon-with-text--horizontal .svg-wrapper + .h6,
 .icon-with-text--horizontal img + .h6,
 .icon-with-text--horizontal.icon-with-text--text-only .h6 {
-  padding-top: 0;
+  padding-top: var(--icon-spacing);
 }
 
 .icon-with-text__item {
   display: flex;
   align-items: center;
-  padding: 0;
-  list-style: none;
 }
 
 .icon-with-text--horizontal .icon-with-text__item {
