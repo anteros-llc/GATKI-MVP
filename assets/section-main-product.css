@@ -1218,7 +1218,7 @@ a.product__text {
   --icon-spacing: 0.5rem;
 }
 
-.icon-with-text--horizontal, .icon-with-text__item {
+.icon-with-text--horizontal {
   display: flex;
   justify-content: center;
   column-gap: var(--icon-spacing);
@@ -1253,7 +1253,7 @@ a.product__text {
 }
 
 .icon-with-text--vertical img {
-  margin-right: var(--icon-spacing);
+  margin: 0;
 }
 
 .icon-with-text--horizontal .h6 {
@@ -1267,6 +1267,12 @@ a.product__text {
   padding: 0;
 }
 
+.icon-with-text__item {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 0.5rem; 
+}
 
 
 .icon-with-text--horizontal .icon-with-text__item {
