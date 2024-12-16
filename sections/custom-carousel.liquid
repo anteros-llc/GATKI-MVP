@@ -1,52 +1,135 @@
-<section>
-<div class="carousel product-slider">
-  {%- for block in section.blocks -%}
-  <div class="carousel-cell">
-    <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt_text }}">
-    <div class="text-content">
-      <h2>{{ block.settings.heading }}</h2>
-      <p>{{ block.settings.description }}</p>
-    </div>
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
+  {%- style -%}
+    @media screen and (max-width: 749px) {
+      #Slider-{{ section.id }}::before,
+      #Slider-{{ section.id }} .media::before,
+      #Slider-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+    @media screen and (min-width: 750px) {
+      #Slider-{{ section.id }}::before,
+      #Slider-{{ section.id }} .media::before {
+        padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
+<slideshow-component
+  class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
+  role="region"
+  aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
+  aria-label="{{ section.settings.accessibility_info | escape }}"
+>
+  <div
+    class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}"
+    id="Slider-{{ section.id }}"
+    aria-live="polite"
+    aria-atomic="true"
+    data-autoplay="{{ section.settings.auto_rotate }}"
+    data-speed="{{ section.settings.change_slides_speed }}"
+  >
+    {%- for block in section.blocks -%}
+      <style>
+        #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
+          opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+        }
+      </style>
+      <div
+        class="slideshow__slide grid__item grid--1-col slider__slide"
+        id="Slide-{{ section.id }}-{{ forloop.index }}"
+        {{ block.shopify_attributes }}
+        role="group"
+        aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
+        aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+        tabindex="-1"
+      >
+        <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
+          {%- if block.settings.image -%}
+            {{
+              block.settings.image
+              | image_url: width: 3840
+              | image_tag: height: block.settings.image.height, sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+            }}
+          {%- endif -%}
+        </div>
+        <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
+          <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }}">
+            {%- if block.settings.heading != blank -%}
+              <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
+                {{ block.settings.heading }}
+              </h2>
+            {%- endif -%}
+            {%- if block.settings.subheading != blank -%}
+              <div class="banner__text rte">
+                <p>{{ block.settings.subheading }}</p>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
   </div>
-  {%- endfor -%}
-</div>
-</section>
 
-<style>
-/* .carousel {
-  width: 100%;
-  overflow: hidden;
-}
+  <div class="slideshow__controls slider-buttons">
+    <button
+      type="button"
+      class="slider-button slider-button--prev"
+      name="previous"
+      aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+      aria-controls="Slider-{{ section.id }}"
+    >
+      <span class="svg-wrapper">
+        {{- 'icon-caret.svg' | inline_asset_content -}}
+      </span>
+    </button>
+    <button
+      type="button"
+      class="slider-button slider-button--next"
+      name="next"
+      aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+      aria-controls="Slider-{{ section.id }}"
+    >
+      <span class="svg-wrapper">
+        {{- 'icon-caret.svg' | inline_asset_content -}}
+      </span>
+    </button>
+  </div>
+</slideshow-component>
 
-.carousel-cell {
-  width: 100%;
-  height: auto;
-  margin-right: 10px;
-}
-
-.carousel img {
-  display: block;
-  max-width: 100%;
-  object-fit: contain;
-} */
-</style>
-
-<script>
-var elem = document.querySelector('.product-slider');
-var flkty = new Flickity(elem, {
-  cellAlign: 'left',
-  contain: true,
-  wrapAround: true,
-  prevNextButtons: true,
-  pageDots: false,
-});
-
-</script>
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 {% schema %}
 {
-  "name": "Custom Carousel",
-  "settings": [],
+  "name": "Custom Slideshow",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Enable auto-rotation",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "label": "Slide change speed (seconds)",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    }
+  ],
   "blocks": [
     {
       "type": "slide",
@@ -55,59 +138,24 @@ var flkty = new Flickity(elem, {
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "Slide Image"
         },
         {
           "type": "text",
-          "id": "alt_text",
-          "label": "Alt Text",
-          "default": "Slide image"
+          "id": "heading",
+          "label": "Heading"
         },
         {
           "type": "text",
-          "id": "slide_heading",
-          "label": "Heading",
-          "default": "Slide Heading"
-        },
-        {
-          "type": "textarea",
-          "id": "slide_description",
-          "label": "Description",
-          "default": "Slide description text goes here."
-        },
-        {
-          "type": "range",
-          "id": "gentleness",
-          "label": "Gentleness",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 50
-        },
-        {
-          "type": "range",
-          "id": "nourishment",
-          "label": "Nourishment",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 50
-        },
-        {
-          "type": "range",
-          "id": "staying_power",
-          "label": "Staying Power",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 50
+          "id": "subheading",
+          "label": "Subheading"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Custom Carousel",
+      "name": "Custom Slideshow",
     }
   ]
 }
