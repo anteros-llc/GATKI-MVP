@@ -1268,12 +1268,10 @@ a.product__text {
 }
 
 .icon-with-text__item {
-  display: flex;         /* Ensures flex layout */
-  flex-direction: column; /* Stacks icon and text vertically */
-  align-items: center;   /* Centers items horizontally */
+
   margin: 0;             /* Remove margins */
   padding: 0;            /* Remove padding */
-  text-align: center;    /* Ensures text is centered */
+
 }
 
 
