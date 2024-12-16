@@ -3811,28 +3811,28 @@ header__icons a#cart-icon-bubble:before {
 
 /* Image slider container */
 .product__image-slider {
-  width: 100%; /* Full width */
-  height: auto; /* Automatically adjust to content height */
-  max-height: 70vh; /* Constrain the container to 70% of the viewport height */
-  overflow: hidden; /* Prevent scrolling */
-  position: relative; /* Contain child elements */
+  width: 100%;
+  max-height: 70vh; /* Constrain to viewport height */
+  overflow: hidden; /* Prevent vertical scrolling */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center images in the slider */
 }
 
 /* Carousel cells */
 .product__image-slider .carousel-cell {
-  width: 100%; /* Full width */
-  height: 100%; /* Match container height */
-  display: flex; /* Flexbox for alignment */
+  flex: 1; /* Allow cells to grow/shrink as needed */
+  display: flex; /* Flex container for centering */
   justify-content: center;
-  align-items: center; /* Center the image vertically and horizontally */
+  align-items: center;
+  height: 100%; /* Match the slider height */
 }
 
 /* Images */
 .product__image-slider .carousel-cell img {
-  width: auto; /* Scale based on height */
-  height: 100%; /* Fit to container's height */
-  max-height: 100%; /* Ensure it doesn’t exceed the container */
-  max-width: 100%; /* Prevent horizontal overflow */
+  max-width: 100%;
+  max-height: 100%; /* Ensure it fits within the container */
   object-fit: contain; /* Maintain aspect ratio */
-  display: block; /* Remove inline element spacing issues */
+  display: block; /* Ensure it behaves as a block-level element */
 }
