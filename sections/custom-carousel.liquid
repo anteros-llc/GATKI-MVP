@@ -1,3 +1,16 @@
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var elem = document.querySelector('.carousel');
+  var flkty = new Flickity(elem, {
+    cellAlign: 'left',
+    contain: true,
+    wrapAround: true,
+    prevNextButtons: true,
+    pageDots: false
+  });
+});
+</script>
+
 <section class="custom-carousel">
   <div class="carousel-wrapper">
     <div class="carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "prevNextButtons": true, "pageDots": false }'>
@@ -42,7 +55,6 @@
   </div>
 </section>
 
-
 <style>
 /* Container Styles */
 .custom-carousel {
@@ -52,16 +64,9 @@
   padding: 2rem 0;
 }
 
-.carousel-wrapper {
-  display: flex;
+.carousel {
   width: 100%;
   max-width: 1200px;
-}
-
-/* Carousel Styles */
-.carousel {
-  display: flex;
-  width: 100%;
 }
 
 .carousel-cell {
@@ -79,7 +84,7 @@
   object-fit: cover;
 }
 
-/* Text Section Styles */
+/* Text Section */
 .carousel-text {
   width: 45%;
   padding: 2rem;
@@ -95,7 +100,7 @@
   margin-bottom: 2rem;
 }
 
-/* Custom Sliders */
+/* Progress Bars */
 .custom-sliders {
   list-style: none;
   padding: 0;
@@ -103,10 +108,10 @@
 }
 
 .custom-sliders li {
-  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .slider {
@@ -125,19 +130,6 @@
   top: 0;
 }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var elem = document.querySelector('.carousel');
-  var flkty = new Flickity(elem, {
-    cellAlign: 'left',
-    contain: true,
-    wrapAround: true,
-    prevNextButtons: true,
-    pageDots: false
-  });
-});
-</script>
 
 {% schema %}
 {
