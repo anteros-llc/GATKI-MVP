@@ -24,7 +24,7 @@
           "type": "price",
           "settings": {}
         },
-        "buy_buttons": {
+        "buy_buttons_UdziB3": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
@@ -60,7 +60,7 @@
         "title",
         "description",
         "price",
-        "buy_buttons",
+        "buy_buttons_UdziB3",
         "collapsible_tab_tzHqXN",
         "collapsible_tab_MRFRkR",
         "okendo_reviews_badge_FnGXfk"
