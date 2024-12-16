@@ -162,12 +162,47 @@
         "slide_VnR94P"
       ],
       "settings": {}
+    },
+    "ingredients_UDWPHK": {
+      "type": "ingredients",
+      "blocks": {
+        "ingredient_GzHGrP": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_text": "Example Ingredient"
+          }
+        },
+        "ingredient_FGBRwL": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_text": "Example Ingredient"
+          }
+        },
+        "ingredient_4pH69e": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_text": "Example Ingredient"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_GzHGrP",
+        "ingredient_FGBRwL",
+        "ingredient_4pH69e"
+      ],
+      "custom_css": [
+        "h3{text-align: center;}"
+      ],
+      "settings": {
+        "ingredients_heading": "14 INGREDIENTS. NOTHING EXTRA."
+      }
     }
   },
   "order": [
     "main",
     "related-products",
     "1731992271885d52d1",
-    "custom_carousel_LQUw6V"
+    "custom_carousel_LQUw6V",
+    "ingredients_UDWPHK"
   ]
 }
