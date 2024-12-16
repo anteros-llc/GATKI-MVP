@@ -76,20 +76,23 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      <!-- <div class="grid__item product__media-wrapper">
-         {% render 'product-media-gallery', variant_images: variant_images %}
-      </div> -->
-      <div class="carousel">
-  <div class="carousel-cell" style="background-color: #ff9999; height: 200px; text-align: center; line-height: 200px; color: white; font-size: 20px;">
-    Slide 1
-  </div>
-  <div class="carousel-cell" style="background-color: #99ccff; height: 200px; text-align: center; line-height: 200px; color: white; font-size: 20px;">
-    Slide 2
-  </div>
-  <div class="carousel-cell" style="background-color: #ffcc99; height: 200px; text-align: center; line-height: 200px; color: white; font-size: 20px;">
-    Slide 3
-  </div>
-     </div>    
+      <div class="grid__item product__media-wrapper">
+         <div class="carousel product__image-slider">
+  {%- for media in product.media -%}
+    <div class="carousel-cell">
+      {% if media.media_type == "image" %}
+        <img 
+          src="{{ media | img_url: '800x' }}" 
+          data-flickity-lazyload="{{ media | img_url: '800x' }}" 
+          alt="{{ media.alt | escape }}"
+          class="product-slider-image"
+        >
+      {% endif %}
+    </div>
+  {%- endfor -%}
+</div>
+      </div>
+       
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
