@@ -1268,24 +1268,21 @@ a.product__text {
 }
 
 .icon-with-text__item {
-  display: flex;         /* Ensures flex layout */
-  flex-direction: column; /* Stacks icon and text vertically */
-  align-items: center;   /* Centers items horizontally */
-  margin: 0;             /* Remove margins */
-  padding: 0;            /* Remove padding */
-  text-align: center;    /* Ensures text is centered */
+  display: flex;
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center; /* Center align items */
+  gap: 0.5rem; /* 8px gap */
 }
-
 
 
 .icon-with-text--horizontal .icon-with-text__item {
   flex-direction: column;
   width: 33%;
-  margin-bottom: var(--icon-size);
+  margin-bottom: 0;
 }
 
 .icon-with-text--vertical .icon-with-text__item {
-  margin-bottom: var(--icon-size);
+  margin-bottom: 0;
 }
 
 /* SKU block */
