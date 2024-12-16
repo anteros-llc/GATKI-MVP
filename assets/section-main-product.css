@@ -1264,7 +1264,7 @@ a.product__text {
 .icon-with-text--horizontal .svg-wrapper + .h6,
 .icon-with-text--horizontal img + .h6,
 .icon-with-text--horizontal.icon-with-text--text-only .h6 {
-  padding-top: var(--icon-spacing);
+  padding-top: 0;
 }
 
 .icon-with-text__item {
