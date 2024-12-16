@@ -78,28 +78,22 @@
       <!-- <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div> -->
-     <div class="grid__item product__media-wrapper">
-  <div class="product-media-slider">
-    <div class="slider" data-slider>
-      {% for image in product.images %}
-        <div class="slider__slide">
-          <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}">
-        </div>
-      {% endfor %}
-    </div>
-
-    <!-- Slider Navigation -->
-    <div class="slider-navigation">
-      <button class="slider-prev" aria-label="Previous Slide">&lt;</button>
-      <span class="slider-counter">
-        <span class="slider-current">1</span>/<span class="slider-total">{{ product.images.size }}</span>
-      </span>
-      <button class="slider-next" aria-label="Next Slide">&gt;</button>
-    </div>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {% for image in product.images %}
+      <div class="swiper-slide">
+        <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}">
+      </div>
+    {% endfor %}
   </div>
-</div>
 
-      
+  <!-- Navigation -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+
+  <!-- Pagination -->
+  <div class="swiper-pagination"></div>
+</div>   
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
