@@ -116,11 +116,38 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "custom_carousel_LQUw6V": {
+      "type": "custom-carousel",
+      "blocks": {
+        "slide_pfY37a": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/biscotti-lays-in-a-monstera-leaf.jpg",
+            "alt_text": "Slide image",
+            "slide_heading": "Slide Heading"
+          }
+        },
+        "slide_VnR94P": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/lenses-lattes.jpg",
+            "alt_text": "Slide image",
+            "slide_heading": "Slide Heading"
+          }
+        }
+      },
+      "block_order": [
+        "slide_pfY37a",
+        "slide_VnR94P"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
     "related-products",
-    "1731992271885d52d1"
+    "1731992271885d52d1",
+    "custom_carousel_LQUw6V"
   ]
 }
