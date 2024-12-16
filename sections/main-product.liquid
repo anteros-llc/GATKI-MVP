@@ -38,40 +38,6 @@
       }
     }
   {%- endstyle -%}
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const flkty = new Flickity('.carousel', {
-      cellAlign: 'center',
-      contain: true,
-      pageDots: false,
-      prevNextButtons: false,
-      wrapAround: true,
-    });
-
-    // Custom Navigation
-    document.querySelector('.carousel-prev').addEventListener('click', function () {
-      flkty.previous();
-    });
-
-    document.querySelector('.carousel-next').addEventListener('click', function () {
-      flkty.next();
-    });
-
-    // Custom Pagination
-    const dots = document.querySelectorAll('.carousel-dot');
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', function () {
-        flkty.select(index);
-      });
-    });
-
-    // Update Active Dot
-    flkty.on('select', function () {
-      dots.forEach(dot => dot.classList.remove('is-selected'));
-      dots[flkty.selectedIndex].classList.add('is-selected');
-    });
-  });
-</script>
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
