@@ -28,11 +28,14 @@
           "type": "icon-with-text",
           "settings": {
             "layout": "horizontal",
-            "icon_1": "heart",
+            "icon_1": "none",
+            "image_1": "shopify://shop_images/Icon_Day.svg",
             "heading_1": "Day",
-            "icon_2": "return",
+            "icon_2": "none",
+            "image_2": "shopify://shop_images/Icon_Night.svg",
             "heading_2": "Night",
-            "icon_3": "truck",
+            "icon_3": "none",
+            "image_3": "shopify://shop_images/Icon_Soothing.svg",
             "heading_3": "Soothing"
           }
         },
