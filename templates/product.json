@@ -16,6 +16,10 @@
           "type": "title",
           "settings": {}
         },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -31,10 +35,6 @@
             "icon_3": "truck",
             "heading_3": "Heading"
           }
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
         },
         "buy_buttons_UdziB3": {
           "type": "buy_buttons",
@@ -70,9 +70,9 @@
       },
       "block_order": [
         "title",
+        "price",
         "description",
         "icon_with_text_kBRdf6",
-        "price",
         "buy_buttons_UdziB3",
         "collapsible_tab_tzHqXN",
         "collapsible_tab_MRFRkR",
