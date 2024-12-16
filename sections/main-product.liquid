@@ -77,22 +77,22 @@
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-         <div class="carousel product__image-slider">
-  {%- for media in product.media -%}
-    <div class="carousel-cell">
-      {% if media.media_type == "image" %}
-        <img 
-          src="{{ media | img_url: '700x' }}" 
-          data-flickity-lazyload="{{ media | img_url: '800x' }}" 
-          alt="{{ media.alt | escape }}"
-          class="product-slider-image"
-        >
-      {% endif %}
-    </div>
-  {%- endfor -%}
-</div>
+        <div class="carousel product__image-slider">
+          {%- for media in product.media -%}
+            <div class="carousel-cell">
+              {% if media.media_type == 'image' %}
+                <img
+                  src="{{ media | img_url: '700x' }}"
+                  data-flickity-lazyload="{{ media | img_url: '800x' }}"
+                  alt="{{ media.alt | escape }}"
+                  class="product-slider-image"
+                >
+              {% endif %}
+            </div>
+          {%- endfor -%}
+        </div>
       </div>
-       
+
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
@@ -230,9 +230,9 @@
                     <summary>
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
-                        <h2 class="h4 accordion__title inline-richtext">
+                        <h7 class="h4 accordion__title inline-richtext">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
-                        </h2>
+                        </h7>
                       </div>
                       {{- 'icon-caret.svg' | inline_asset_content -}}
                     </summary>
