@@ -38,6 +38,7 @@
       }
     }
   {%- endstyle -%}
+
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
@@ -74,34 +75,9 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-  <div class="carousel product__image-slider">
-  {%- for media in product.media -%}
-    <div class="carousel-cell">
-      {% if media.media_type == "image" %}
-        <img 
-          src="{{ media | img_url: '800x' }}" 
-          data-flickity-lazyload="{{ media | img_url: '800x' }}" 
-          alt="{{ media.alt | escape }}"
-          class="product-slider-image"
-        >
-      {% endif %}
-    </div>
-  {%- endfor -%}
-</div>
-
-<!-- Custom Arrows -->
-<div class="carousel-nav">
-  <button class="carousel-prev">←</button>
-  <button class="carousel-next">→</button>
-</div>
-
-<!-- Custom Pagination -->
-<div class="carousel-dots">
-  {% for image in product.images %}
-    <button class="carousel-dot" data-index="{{ forloop.index0 }}"></button>
-  {% endfor %}
-</div>
-
+      <div class="grid__item product__media-wrapper">
+        {% render 'product-media-gallery', variant_images: variant_images %}
+      </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
