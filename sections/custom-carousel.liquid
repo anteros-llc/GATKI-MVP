@@ -62,7 +62,69 @@
     </button>
   </div>
 </slideshow-component>
+<style>
+  /* Flex container for slides */
+.slider__slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
 
+/* Image column */
+.slideshow__media--half {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshow__media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Text column */
+.slideshow__text-wrapper--half {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.slideshow__text-wrapper--half h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.slideshow__text-wrapper--half p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 749px) {
+  .slider__slide {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slideshow__media--half,
+  .slideshow__text-wrapper--half {
+    width: 100%;
+  }
+
+  .slideshow__text-wrapper--half {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+</style>
 
 {% schema %}
 {
