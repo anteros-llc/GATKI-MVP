@@ -1260,7 +1260,7 @@ a.product__text {
 
 
 .icon-with-text--horizontal .h6 {
-
+  padding-top: calc(var(--icon-size) + var(--icon-spacing));
   text-align: center;
 }
 
@@ -1271,11 +1271,10 @@ a.product__text {
 }
 
 .icon-with-text__item {
-  display: flex;
-  flex-direction: column; /* Stack icon and text vertically */
-  align-items: center; /* Center align items */
-  gap: 0.5rem; /* 8px gap */
+  margin: 0; 
+  padding: 0;
 }
+
 
 
 .icon-with-text--horizontal .icon-with-text__item {
