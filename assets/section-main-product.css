@@ -1264,7 +1264,7 @@ a.product__text {
 .icon-with-text--horizontal .svg-wrapper + .h6,
 .icon-with-text--horizontal img + .h6,
 .icon-with-text--horizontal.icon-with-text--text-only .h6 {
-  padding-top: 0;
+  padding: 0;
 }
 
 .icon-with-text__item {
@@ -1276,7 +1276,7 @@ a.product__text {
 .icon-with-text--horizontal .icon-with-text__item {
   flex-direction: column;
   width: 33%;
-  margin-bottom: 0;
+  margin-bottom: var(--icon-size);
 }
 
 .icon-with-text--vertical .icon-with-text__item {
