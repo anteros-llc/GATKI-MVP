@@ -20,6 +20,18 @@
           "type": "description",
           "settings": {}
         },
+        "icon_with_text_kBRdf6": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Heading",
+            "icon_2": "return",
+            "heading_2": "Heading",
+            "icon_3": "truck",
+            "heading_3": "Heading"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -59,6 +71,7 @@
       "block_order": [
         "title",
         "description",
+        "icon_with_text_kBRdf6",
         "price",
         "buy_buttons_UdziB3",
         "collapsible_tab_tzHqXN",
@@ -99,22 +112,36 @@
         "padding_bottom": 28
       }
     },
-    "1731992271885d52d1": {
-      "type": "apps",
+    "ingredients_UDWPHK": {
+      "type": "ingredients",
       "blocks": {
-        "okendo_reviews_widget_8Vdph6": {
-          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "ingredient_GzHGrP": {
+          "type": "ingredient",
           "settings": {
-            "product": "{{ product }}",
-            "widget_type": "reviews_widget"
+            "ingredient_text": "Stickness"
+          }
+        },
+        "ingredient_FGBRwL": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_text": "Pigment"
+          }
+        },
+        "ingredient_4pH69e": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_text": "Menthol"
           }
         }
       },
       "block_order": [
-        "okendo_reviews_widget_8Vdph6"
+        "ingredient_GzHGrP",
+        "ingredient_FGBRwL",
+        "ingredient_4pH69e"
       ],
+      "custom_css": [],
       "settings": {
-        "include_margins": true
+        "ingredients_heading": "14 INGREDIENTS. NOTHING EXTRA."
       }
     },
     "custom_carousel_LQUw6V": {
@@ -163,44 +190,30 @@
       ],
       "settings": {}
     },
-    "ingredients_UDWPHK": {
-      "type": "ingredients",
+    "1731992271885d52d1": {
+      "type": "apps",
       "blocks": {
-        "ingredient_GzHGrP": {
-          "type": "ingredient",
+        "okendo_reviews_widget_8Vdph6": {
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
-            "ingredient_text": "Stickness"
-          }
-        },
-        "ingredient_FGBRwL": {
-          "type": "ingredient",
-          "settings": {
-            "ingredient_text": "Pigment"
-          }
-        },
-        "ingredient_4pH69e": {
-          "type": "ingredient",
-          "settings": {
-            "ingredient_text": "Menthol"
+            "product": "{{ product }}",
+            "widget_type": "reviews_widget"
           }
         }
       },
       "block_order": [
-        "ingredient_GzHGrP",
-        "ingredient_FGBRwL",
-        "ingredient_4pH69e"
+        "okendo_reviews_widget_8Vdph6"
       ],
-      "custom_css": [],
       "settings": {
-        "ingredients_heading": "14 INGREDIENTS. NOTHING EXTRA."
+        "include_margins": true
       }
     }
   },
   "order": [
     "main",
     "related-products",
-    "1731992271885d52d1",
+    "ingredients_UDWPHK",
     "custom_carousel_LQUw6V",
-    "ingredients_UDWPHK"
+    "1731992271885d52d1"
   ]
 }
