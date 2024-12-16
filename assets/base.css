@@ -59,6 +59,7 @@ h3,
 h4 {
   font-family: var(--font-heading-family);
   line-height: 1.2;
+  font-weight: 400;
 }
 
 h3 {
