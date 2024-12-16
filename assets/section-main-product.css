@@ -1271,12 +1271,12 @@ a.product__text {
   display: flex;
   align-items: center;
   background-color: gray;
+  margin: 0;
 }
 
 .icon-with-text--horizontal .icon-with-text__item {
   flex-direction: column;
   width: 33%;
-  background-color: pink;
 }
 
 .icon-with-text--vertical .icon-with-text__item {
