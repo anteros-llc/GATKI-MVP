@@ -91,6 +91,11 @@
     </div>
   {%- endfor -%}
 </div>
+        <div class="custom-navigation">
+  <button class="prev-button">◀</button>
+  <span class="pagination">1 / 5</span>
+  <button class="next-button">▶</button>
+</div>
       </div>
        
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">

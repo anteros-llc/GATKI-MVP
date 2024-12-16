@@ -37,18 +37,38 @@
     {{ 'flickity.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'flickity.js' | asset_url }}" defer></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-  const staticSlider = document.querySelector(".carousel");
+  // Initialize Flickity
+const flkty = new Flickity(".carousel.product__image-slider", {
+  cellAlign: "center",
+  contain: true,
+  wrapAround: true,
+  pageDots: false, // Disable default dots
+  prevNextButtons: false, // Disable default arrows
+});
 
-  if (staticSlider) {
-    new Flickity(staticSlider, {
-      cellAlign: "center",
-      contain: true,
-      wrapAround: true,
-      imagesLoaded: true,
-      prevNextButtons: true,
-    });
-  }
+// Select pagination element
+const pagination = document.querySelector(".pagination");
+
+// Function to update the pagination text dynamically
+const updatePagination = (index) => {
+  const totalSlides = flkty.slides.length; // Get total slides dynamically
+  pagination.innerText = `${index + 1} / ${totalSlides}`;
+};
+
+// Update pagination when the slider changes
+flkty.on("change", (index) => {
+  updatePagination(index);
+});
+
+// Set initial pagination
+updatePagination(flkty.selectedIndex);
+
+// Add custom navigation buttons
+document.querySelector(".prev-button").addEventListener("click", () => {
+  flkty.previous();
+});
+document.querySelector(".next-button").addEventListener("click", () => {
+  flkty.next();
 });
     </script>
 
