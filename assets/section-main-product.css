@@ -1226,7 +1226,7 @@ a.product__text {
 }
 
 .icon-with-text--vertical {
-  --icon-size: calc(var(--font-heading-scale) * 2rem);
+  --icon-size: 2rem;
 }
 
 .icon-with-text .svg-wrapper {
