@@ -3802,4 +3802,17 @@ header__icons a#cart-icon-bubble:before {
   margin-bottom: 2rem;
 }
 
+.carousel {
+  height: 500px; /* Adjust as needed */
+  display: flex;
+  align-items: center; /* Vertically center images */
+  overflow: hidden;
+}
+
+.carousel-cell img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* Prevents image distortion */
+}
+
 /* Coded by websensepro.com | youtube.com/c/websensepro */
