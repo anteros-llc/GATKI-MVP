@@ -1,6 +1,70 @@
+<section class="ingredients-module">
+  <div class="ingredients-wrapper">
+    <h2 class="ingredients-heading">{{ section.settings.ingredients_heading }}</h2>
+    <ul class="ingredients-list">
+      {%- for block in section.blocks -%}
+        <li class="ingredient-item">
+          <h4>&times; {{ block.settings.ingredient_text }}</h4>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredient-item h4 {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  color: #6b503d; /* Adjust to match your design */
+}
+
+.ingredients-heading {
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+</style>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Ingredients Module",
+  "settings": [
+    {
+      "type": "text",
+      "id": "ingredients_heading",
+      "label": "Heading Text",
+      "default": "14 INGREDIENTS. NOTHING EXTRA."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "ingredient_text",
+          "label": "Ingredient Text",
+          "default": "Example Ingredient"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Module",
+    }
+  ]
+}
 {% endschema %}
+
+
