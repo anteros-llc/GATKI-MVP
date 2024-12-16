@@ -58,8 +58,8 @@ h2 {
 h3,
 h4 {
   font-family: var(--font-heading-family);
-  line-height: 1.2;
   font-weight: 400;
+  line-height: 1.2;
 }
 
 h3 {
@@ -72,6 +72,7 @@ h4 {
 
 h5 {
   font-family: var(--font-heading-family);
+  font-weight: 400;
   font-size: 1.25rem;
 }
 
@@ -79,8 +80,8 @@ body,
 p,
 span {
   font-family: var(--font-body-family);
-  font-size: 1rem;
   font-weight: 400;
+  font-size: 1rem;
   line-height: 1.3;
 }
 
