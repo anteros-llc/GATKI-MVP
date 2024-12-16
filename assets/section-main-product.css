@@ -1214,6 +1214,8 @@ a.product__text {
 
 /* Icon with text */
 .icon-with-text {
+  margin: 0;
+  padding: 0;
   --icon-size: 2rem;
   --icon-spacing: 0.5rem;
 }
@@ -1252,9 +1254,12 @@ a.product__text {
   object-fit: contain;
 }
 
-.icon-with-text--vertical img {
-  margin-right: var(--icon-spacing);
+.icon-with-text__item img {
+  height: 2rem; /* 32px as per your requirement */
+  width: 2rem;
+  margin: 0; /* Ensure no extra margin */
 }
+
 
 .icon-with-text--horizontal .h6 {
   padding-top: calc(var(--icon-size) + var(--icon-spacing));
@@ -1269,9 +1274,11 @@ a.product__text {
 
 .icon-with-text__item {
   display: flex;
-  align-items: center;
-  background-color: gray;
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center; /* Center align items */
+  gap: 0.5rem; /* 8px gap */
 }
+
 
 .icon-with-text--horizontal .icon-with-text__item {
   flex-direction: column;
