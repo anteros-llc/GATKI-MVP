@@ -1271,7 +1271,6 @@ a.product__text {
   display: flex;
   align-items: center;
   background-color: gray;
-  gap: 0.5rem;
 }
 
 .icon-with-text--horizontal .icon-with-text__item {
