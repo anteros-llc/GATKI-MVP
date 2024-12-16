@@ -1275,6 +1275,7 @@ a.product__text {
 .icon-with-text--horizontal .icon-with-text__item {
   flex-direction: column;
   width: 33%;
+  background-color: pink;
 }
 
 .icon-with-text--vertical .icon-with-text__item {
