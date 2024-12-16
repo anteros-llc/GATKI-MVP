@@ -41,10 +41,10 @@
   {{ block.shopify_attributes }}
 >
   {%- unless heading_1_empty -%}
-    <li class="icon-with-text__item">
-      {%- if block.settings.image_1 == null -%}
-        {%- render 'icon-accordion', icon: block.settings.icon_1 -%}
-      {%- else -%}
+    <div class="icon-with-text__item">
+      {% if block.settings.image_1 == null %}
+        {% render 'icon-accordion', icon: block.settings.icon_1 %}
+      {% else %}
         <img
           src="{{ block.settings.image_1 | image_url }}"
           {% if block.settings.image_1.alt != blank %}
@@ -56,11 +56,11 @@
           width="auto"
           loading="lazy"
         >
-      {%- endif -%}
+      {% endif %}
       <span class="h6 inline-richtext">
         {{- block.settings.heading_1 -}}
       </span>
-    </li>
+    </div>
   {%- endunless -%}
   {%- unless heading_2_empty -%}
     <li class="icon-with-text__item">
