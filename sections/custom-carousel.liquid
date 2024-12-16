@@ -1,85 +1,147 @@
-<section class="custom-slideshow">
-  <div class="carousel" data-flickity='{ "contain": true, "wrapAround": true, "pageDots": false, "prevNextButtons": true }'>
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'slide' -%}
-        <div class="carousel-cell">
-          <div class="carousel-content-wrapper">
+<section class="custom-carousel">
+  <div class="carousel-wrapper">
+    <div class="carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "prevNextButtons": true, "pageDots": false }'>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'slide' -%}
+          <div class="carousel-cell">
             <!-- Image -->
             <div class="carousel-image">
-              <img 
-                src="{{ block.settings.image | img_url: '800x' }}" 
-                alt="{{ block.settings.alt_text | escape }}">
+              <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt_text | escape }}">
             </div>
 
             <!-- Text Content -->
             <div class="carousel-text">
-              <h3>{{ block.settings.slide_heading }}</h3>
-              <p>{{ block.settings.slide_text }}</p>
+              <h2>{{ block.settings.slide_heading }}</h2>
+              <p>{{ block.settings.slide_description }}</p>
+              <!-- Custom Progress Bars -->
+              <ul class="custom-sliders">
+                <li>
+                  <span>Gentleness</span>
+                  <div class="slider">
+                    <div class="slider-fill" style="width: {{ block.settings.gentleness }}%;"></div>
+                  </div>
+                </li>
+                <li>
+                  <span>Nourishment</span>
+                  <div class="slider">
+                    <div class="slider-fill" style="width: {{ block.settings.nourishment }}%;"></div>
+                  </div>
+                </li>
+                <li>
+                  <span>Staying Power</span>
+                  <div class="slider">
+                    <div class="slider-fill" style="width: {{ block.settings.staying_power }}%;"></div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
   </div>
 </section>
 
+
 <style>
-  /* Container for the carousel */
-  .custom-slideshow .carousel {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+/* Container Styles */
+.custom-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
 
-  /* Carousel cells */
-  .custom-slideshow .carousel-cell {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
-  }
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+}
 
-  /* Image styles */
-  .custom-slideshow .carousel-image img {
-    max-width: 50%;
-    max-height: 70vh;
-    object-fit: contain;
-    display: block;
-  }
+/* Carousel Styles */
+.carousel {
+  display: flex;
+  width: 100%;
+}
 
-  /* Text content */
-  .custom-slideshow .carousel-text {
-    max-width: 40%;
-    padding-left: 20px;
-  }
+.carousel-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
 
-  .custom-slideshow .carousel-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
+/* Image Styles */
+.carousel-image img {
+  width: 50%;
+  max-height: 70vh;
+  object-fit: cover;
+}
 
-  .custom-slideshow .carousel-text p {
-    font-size: 1rem;
-    color: #555;
-  }
+/* Text Section Styles */
+.carousel-text {
+  width: 45%;
+  padding: 2rem;
+}
+
+.carousel-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-text p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Custom Sliders */
+.custom-sliders {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-sliders li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slider {
+  flex-grow: 1;
+  margin-left: 1rem;
+  height: 4px;
+  background: #ccc;
+  position: relative;
+}
+
+.slider-fill {
+  height: 100%;
+  background: #d45b23;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var elem = document.querySelector('.custom-slideshow .carousel');
-    var flkty = new Flickity(elem, {
-      contain: true,
-      wrapAround: true,
-      pageDots: false,
-      prevNextButtons: true,
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  var elem = document.querySelector('.carousel');
+  var flkty = new Flickity(elem, {
+    cellAlign: 'left',
+    contain: true,
+    wrapAround: true,
+    prevNextButtons: true,
+    pageDots: false
   });
+});
 </script>
 
 {% schema %}
 {
-  "name": "Custom Slideshow",
+  "name": "Custom Carousel",
   "settings": [],
   "blocks": [
     {
@@ -105,16 +167,43 @@
         },
         {
           "type": "textarea",
-          "id": "slide_text",
-          "label": "Text Content",
-          "default": "This is the description for the slide. You can customize this text."
+          "id": "slide_description",
+          "label": "Description",
+          "default": "Slide description text goes here."
+        },
+        {
+          "type": "range",
+          "id": "gentleness",
+          "label": "Gentleness",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "nourishment",
+          "label": "Nourishment",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "staying_power",
+          "label": "Staying Power",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Custom Slideshow",
+      "name": "Custom Carousel",
     }
   ]
 }
