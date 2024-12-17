@@ -1,4 +1,4 @@
-<div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}">
+{% comment %} <div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}">
   {%- for block in section.blocks -%}
     <div
       class="slideshow__slide grid__item grid--2-col slider__slide {% if forloop.first %}active{% endif %}"
@@ -212,3 +212,4 @@ document.addEventListener("DOMContentLoaded", function () {
 {% endschema %}
 
 
+ {% endcomment %}
