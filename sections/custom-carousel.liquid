@@ -118,11 +118,36 @@
   color: var(--color-chenpi);
 }
 
-ul{
-  list-style: none;
-  text-transform: uppercase;
-  padding: 0;
+.custom-sliders {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Two columns: labels and sliders */
+  gap: 10px 20px; /* Row and column gaps */
+  align-items: center; /* Vertically align items */
 }
+
+.custom-sliders li {
+  display: contents; /* Ensure child elements respect the grid layout */
+}
+
+.custom-sliders span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #7a4a2d;
+  text-align: left;
+  margin-right: 10px; /* Spacing between label and slider */
+}
+
+.custom-sliders .slider {
+  display: flex;
+  align-items: center;
+}
+
+.custom-sliders .slider img {
+  margin-left: 20px; /* Adjust spacing to push SVG sliders further to the right */
+  width: auto;
+  max-width: 100%;
+}
+
   
 /* Responsive Design */
 @media (max-width: 749px) {
