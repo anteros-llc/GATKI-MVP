@@ -1,6 +1,178 @@
+<div class="ingredients-module">
+  <div class="image-container">
+    <img id="active-image" src="{{ blocks.first.settings.image | image_url }}" alt="{{ blocks.first.settings.heading }}" />
+    <div class="number-buttons">
+      {% for block in section.blocks %}
+        <button data-index="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}">{{ forloop.index | prepend: '0' }}</button>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="text-container">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="text-content" id="text-content">
+      {% for block in section.blocks %}
+        <div class="text-item {% if forloop.first %}active{% endif %}">
+          <h3>{{ block.settings.heading }}</h3>
+          <p>{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".number-buttons button");
+  const imageElement = document.getElementById("active-image");
+  const textItems = document.querySelectorAll(".text-item");
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      // Update active button
+      document.querySelector(".number-buttons button.active").classList.remove("active");
+      button.classList.add("active");
+
+      // Update active image
+      const newImageSrc = document.querySelector(`.text-item:nth-child(${index + 1})`).dataset.image;
+      imageElement.src = newImageSrc;
+
+      // Update active text
+      document.querySelector(".text-item.active").classList.remove("active");
+      textItems[index].classList.add("active");
+    });
+  });
+});
+
+</script>
+
+<style>
+  .ingredients-module {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px;
+  background-color: #faf6f0;
+}
+
+.image-container {
+  position: relative;
+  width: 50%;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.number-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+}
+
+.number-buttons button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: #f3ede7;
+  color: #7a4a2d;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.number-buttons button.active {
+  background-color: #d1a17b;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.number-buttons button:hover {
+  background-color: #d1a17b;
+  color: #fff;
+}
+
+.text-container {
+  width: 50%;
+}
+
+.text-container h2 {
+  font-size: 28px;
+  color: #7a4a2d;
+  margin-bottom: 20px;
+}
+
+.text-content {
+  position: relative;
+}
+
+.text-item {
+  display: none;
+}
+
+.text-item.active {
+  display: block;
+}
+
+.text-item h3 {
+  font-size: 20px;
+  color: #7a4a2d;
+}
+
+.text-item p {
+  font-size: 16px;
+  color: #7a4a2d;
+}
+</style>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Ingredients Module",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Gentle yet effective ingredients."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Subheading"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Module",
+      "category": "Custom Sections"
+    }
+  ]
+}
 {% endschema %}
+
+
