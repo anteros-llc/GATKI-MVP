@@ -98,6 +98,14 @@
   margin-top: 1rem;
 }
 
+.slideshow__slide {
+  display: none;
+}
+
+.slideshow__slide.active {
+  display: flex;
+}
+
 .slideshow__number {
   background: none;
   border: 1px solid #ccc;
@@ -121,13 +129,6 @@
   border-color: #666;
 }
 
-.slideshow__slide {
-  display: none; /* Default hidden */
-}
-
-.slideshow__slide.active {
-  display: flex; /* Shown slide */
-}
 
 /* Responsive */
 @media (max-width: 749px) {
@@ -148,22 +149,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".slideshow__slide");
   const numbers = document.querySelectorAll(".slideshow__number");
 
+  // Helper function to activate a slide
   const activateSlide = (index) => {
-    // Remove 'active' from all slides and numbers
-    slides.forEach((slide) => slide.classList.remove("active"));
-    numbers.forEach((num) => num.classList.remove("active"));
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
 
-    // Add 'active' to the selected slide and number
-    slides[index].classList.add("active");
-    numbers[index].classList.add("active");
+    numbers.forEach((number, i) => {
+      number.classList.toggle("active", i === index);
+    });
   };
 
-  // Add click events to numbers
+  // Add click events to navigation buttons
   numbers.forEach((number, index) => {
-    number.addEventListener("click", () => activateSlide(index));
+    number.addEventListener("click", () => {
+      activateSlide(index);
+    });
   });
 
-  // Initialize the first slide
+  // Ensure the first slide is visible on load
   activateSlide(0);
 });
 
