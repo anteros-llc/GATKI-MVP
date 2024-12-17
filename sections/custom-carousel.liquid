@@ -27,7 +27,7 @@
         <!-- Right Column: Text -->
         <div class="slideshow__text-wrapper banner__content slideshow__text-wrapper--half">
           {%- if block.settings.heading != blank -%}
-            <h2 class="banner__heading">
+            <h2>
               {{ block.settings.heading }}
             </h2>
           {%- endif -%}
@@ -132,7 +132,7 @@
   margin-bottom: 12rem;
 }
 
-.carousel-section {
+/* .carousel-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,21 +147,11 @@
   .carousel-container {
     display: flex;
     transition: transform 0.3s ease-in-out;
-  }
-  .text-container {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 40px;
-  }
-  .text-container h2 {
-    margin-bottom: 20px;
-  }
-  .text-container ul {
+  } */
+   ul {
     list-style: none;
     padding: 0;
+     text-transform: uppercase;
   }
   .text-container li {
     list-style: none;
