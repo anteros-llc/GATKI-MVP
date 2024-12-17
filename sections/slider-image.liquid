@@ -100,10 +100,18 @@
 }
 
 /* Number Navigation */
+.two-column-carousel .slideshow {
+  position: relative; /* To position numbers relative to the container */
+}
+ 
 .two-column-carousel .slideshow__numbers {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
 }
 
 .two-column-carousel .slideshow__number {
