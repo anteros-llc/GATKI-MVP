@@ -1,60 +1,63 @@
-<slideshow-component
-  class="slider-mobile-gutter"
-  role="region"
-  aria-roledescription="carousel"
-  aria-label="Slideshow"
->
-  <div class="slideshow grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
-    {%- for block in section.blocks -%}
-      <div
-        class="slideshow__slide grid__item grid--2-col slider__slide"
-        id="{{ block.settings.custom_id }}"
-        role="group"
-        aria-roledescription="slide"
-        aria-label="{{ block.settings.heading }}"
-        {% if forloop.index == 1 %}style="display: flex;"{% else %}style="display: none;"{% endif %}
-      >
-        <!-- Left Column: Image -->
-        <div class="slideshow__media slideshow__media--half">
-          {%- if block.settings.image -%}
-            {{
-              block.settings.image
-              | image_url: width: 1600
-              | image_tag: alt: block.settings.heading
-            }}
-          {%- endif -%}
-        </div>
+<div class="two-column-carousel">
+  <slideshow-component
+    class="slider-mobile-gutter"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Two-Column Carousel"
+  >
+    <div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
+      {%- for block in section.blocks -%}
+        <div
+          class="slideshow__slide two-column-slide grid__item grid--2-col slider__slide"
+          id="{{ block.settings.custom_id }}"
+          role="group"
+          aria-roledescription="slide"
+          aria-label="{{ block.settings.heading }}"
+          {% if forloop.index == 1 %}style="display: flex;"{% else %}style="display: none;"{% endif %}
+        >
+          <!-- Left Column: Image -->
+          <div class="slideshow__media banner__media slideshow__media--half">
+            {%- if block.settings.image -%}
+              {{
+                block.settings.image
+                | image_url: width: 1600
+                | image_tag: alt: block.settings.heading
+              }}
+            {%- endif -%}
+          </div>
 
-        <!-- Right Column: Text -->
-        <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-          {%- if block.settings.heading != blank -%}
-            <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
-          {%- endif -%}
-          <p class="slideshow__description">{{ block.settings.description }}</p>
+          <!-- Right Column: Text -->
+          <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+            {%- if block.settings.heading != blank -%}
+              <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
+            {%- endif -%}
+            <p class="slideshow__description">{{ block.settings.description }}</p>
+          </div>
         </div>
-      </div>
-    {%- endfor -%}
-  </div>
+      {%- endfor -%}
+    </div>
 
-  <!-- Number Navigation -->
-  <div class="slideshow__numbers">
-    {%- for block in section.blocks -%}
-      <button
-        type="button"
-        class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
-        data-slide="{{ block.settings.custom_id }}"
-        aria-label="Go to {{ block.settings.heading }}"
-      >
-        {{ forloop.index | prepend: '0' }}
-      </button>
-    {%- endfor -%}
-  </div>
-</slideshow-component>
+    <!-- Number Navigation -->
+    <div class="slideshow__numbers">
+      {%- for block in section.blocks -%}
+        <button
+          type="button"
+          class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
+          data-slide="{{ block.settings.custom_id }}"
+          aria-label="Go to {{ block.settings.heading }}"
+        >
+          {{ forloop.index | prepend: '0' }}
+        </button>
+      {%- endfor -%}
+    </div>
+  </slideshow-component>
+</div>
+
 
 
 <style>
-  /* Layout for the slide */
-.slider__slide {
+ /* Namespace wrapper */
+.two-column-carousel .slider__slide {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,21 +65,21 @@
 }
 
 /* Image Column */
-.slideshow__media--half {
+.two-column-carousel .slideshow__media--half {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.slideshow__media img {
+.two-column-carousel .slideshow__media img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
 /* Text Column */
-.slideshow__text-wrapper--half {
+.two-column-carousel .slideshow__text-wrapper--half {
   flex: 1;
   padding: 2rem;
   display: flex;
@@ -85,42 +88,25 @@
   text-align: left;
 }
 
-.slideshow__heading {
+.two-column-carousel .slideshow__heading {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #333;
 }
 
-.slideshow__description {
+.two-column-carousel .slideshow__description {
   margin-bottom: 1rem;
   color: #666;
 }
 
-.slideshow__list {
-  list-style: none;
-  padding: 0;
-}
-
-.slideshow__list-item {
-  margin-bottom: 0.5rem;
-}
-
 /* Number Navigation */
-.slideshow__numbers {
+.two-column-carousel .slideshow__numbers {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
 
-.slideshow__slide {
-  display: none;
-}
-
-.slideshow__slide.active {
-  display: flex;
-}
-
-.slideshow__number {
+.two-column-carousel .slideshow__number {
   background: none;
   border: 1px solid #ccc;
   border-radius: 50%;
@@ -137,22 +123,21 @@
   transition: all 0.3s ease;
 }
 
-.slideshow__number.active {
+.two-column-carousel .slideshow__number.active {
   background-color: #666;
   color: #fff;
   border-color: #666;
 }
 
-
 /* Responsive */
 @media (max-width: 749px) {
-  .slider__slide {
+  .two-column-carousel .slider__slide {
     flex-direction: column;
     align-items: center;
   }
 
-  .slideshow__media--half,
-  .slideshow__text-wrapper--half {
+  .two-column-carousel .slideshow__media--half,
+  .two-column-carousel .slideshow__text-wrapper--half {
     width: 100%;
     text-align: center;
   }
@@ -160,13 +145,17 @@
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".slideshow__slide");
-  const buttons = document.querySelectorAll(".slideshow__number");
+  const carousel = document.querySelector(".two-column-carousel");
+
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll(".slideshow__slide");
+  const buttons = carousel.querySelectorAll(".slideshow__number");
 
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
-      const targetSlide = document.getElementById(targetId);
+      const targetSlide = carousel.querySelector(`#${targetId}`);
 
       // Hide all slides
       slides.forEach((slide) => {
