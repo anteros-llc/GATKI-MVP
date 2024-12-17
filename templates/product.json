@@ -257,6 +257,13 @@
             "description": "Text 2"
           }
         },
+        "slide_mhdgYU": {
+          "type": "slide",
+          "settings": {
+            "heading": "",
+            "description": ""
+          }
+        },
         "slide_jjGF4T": {
           "type": "slide",
           "settings": {
@@ -269,6 +276,7 @@
       "block_order": [
         "slide_KP9nnm",
         "slide_jJA6fd",
+        "slide_mhdgYU",
         "slide_jjGF4T"
       ],
       "settings": {
