@@ -146,43 +146,29 @@
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".slideshow__slide");
   const numbers = document.querySelectorAll(".slideshow__number");
 
-  // Helper function to show the slide corresponding to the index
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      if (i === index) {
-        slide.classList.add("active");
-        slide.style.display = "flex"; // Ensure visibility
-      } else {
-        slide.classList.remove("active");
-        slide.style.display = "none"; // Hide other slides
-      }
-    });
+  numbers.forEach((button) => {
+    button.addEventListener("click", function () {
+      const targetSlideId = this.getAttribute("data-slide");
+      const targetSlide = document.getElementById(targetSlideId);
 
-    numbers.forEach((number, i) => {
-      if (i === index) {
-        number.classList.add("active");
-      } else {
-        number.classList.remove("active");
-      }
-    });
-  }
+      // Hide all slides
+      document.querySelectorAll(".slideshow__slide").forEach((slide) => {
+        slide.style.display = "none";
+      });
 
-  // Add click event listeners to the navigation buttons
-  numbers.forEach((number) => {
-    number.addEventListener("click", function () {
-      const index = parseInt(this.getAttribute("data-index"), 10); // Ensure it's parsed as a number
-      showSlide(index);
+      // Show the target slide
+      if (targetSlide) {
+        targetSlide.style.display = "flex";
+      }
+
+      // Update button active states
+      numbers.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
     });
   });
-
-  // Initialize the first slide as active
-  showSlide(0);
 });
-
-
 </script>
 {% schema %}
 {
