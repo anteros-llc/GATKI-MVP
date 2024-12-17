@@ -1,42 +1,56 @@
-{% comment %} <div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}">
-  {%- for block in section.blocks -%}
-    <div
-      class="slideshow__slide grid__item grid--2-col slider__slide {% if forloop.first %}active{% endif %}"
-      id="Slide-{{ section.id }}-{{ forloop.index }}"
-    >
-      <!-- Left Column: Image -->
-      <div class="slideshow__media banner__media slideshow__media--half">
-        {%- if block.settings.image -%}
-          {{
-            block.settings.image
-            | image_url: width: 1600
-            | image_tag: alt: block.settings.heading
-          }}
-        {%- endif -%}
-      </div>
-      <!-- Right Column: Text -->
-      <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-        {%- if block.settings.heading != blank -%}
-          <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
-        {%- endif -%}
-        <p class="slideshow__description">{{ block.settings.description }}</p>
-      </div>
-    </div>
-  {%- endfor -%}
-</div>
+<slideshow-component
+  class="slider-mobile-gutter"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Slideshow"
+>
+  <div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
+    {%- for block in section.blocks -%}
+      <div
+        class="slideshow__slide grid__item grid--2-col slider__slide"
+        id="{{ block.settings.custom_id }}"
+        role="group"
+        aria-roledescription="slide"
+        aria-label="{{ block.settings.heading }}"
+        {% if forloop.index == 1 %}style="display: flex;"{% else %}style="display: none;"{% endif %}
+      >
+        <!-- Left Column: Image -->
+        <div class="slideshow__media banner__media slideshow__media--half">
+          {%- if block.settings.image -%}
+            {{
+              block.settings.image
+              | image_url: width: 1600
+              | image_tag: alt: block.settings.heading
+            }}
+          {%- endif -%}
+        </div>
 
-<!-- Number Navigation -->
-<div class="slideshow__numbers">
-  {%- for block in section.blocks -%}
-    <button
-      type="button"
-      class="slideshow__number {% if forloop.first %}active{% endif %}"
-      data-slide="{{ forloop.index0 }}"
-    >
-      {{ forloop.index | prepend: '0' }}
-    </button>
-  {%- endfor -%}
-</div>
+        <!-- Right Column: Text -->
+        <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+          {%- if block.settings.heading != blank -%}
+            <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
+          {%- endif -%}
+          <p class="slideshow__description">{{ block.settings.description }}</p>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <!-- Number Navigation -->
+  <div class="slideshow__numbers">
+    {%- for block in section.blocks -%}
+      <button
+        type="button"
+        class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
+        data-slide="{{ block.settings.custom_id }}"
+        aria-label="Go to {{ block.settings.heading }}"
+      >
+        {{ forloop.index | prepend: '0' }}
+      </button>
+    {%- endfor -%}
+  </div>
+</slideshow-component>
+
 
 <style>
   /* Layout for the slide */
@@ -98,9 +112,9 @@
   margin-top: 1rem;
 }
 
-/* .slideshow__slide {
+.slideshow__slide {
   display: none;
-} */
+}
 
 .slideshow__slide.active {
   display: flex;
@@ -146,15 +160,16 @@
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const numbers = document.querySelectorAll(".slideshow__number");
+  const slides = document.querySelectorAll(".slideshow__slide");
+  const buttons = document.querySelectorAll(".slideshow__number");
 
-  numbers.forEach((button) => {
+  buttons.forEach((button) => {
     button.addEventListener("click", function () {
-      const targetSlideId = this.getAttribute("data-slide");
-      const targetSlide = document.getElementById(targetSlideId);
+      const targetId = this.getAttribute("data-slide");
+      const targetSlide = document.getElementById(targetId);
 
       // Hide all slides
-      document.querySelectorAll(".slideshow__slide").forEach((slide) => {
+      slides.forEach((slide) => {
         slide.style.display = "none";
       });
 
@@ -163,13 +178,14 @@ document.addEventListener("DOMContentLoaded", function () {
         targetSlide.style.display = "flex";
       }
 
-      // Update button active states
-      numbers.forEach((btn) => btn.classList.remove("active"));
+      // Update active button states
+      buttons.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
     });
   });
 });
 </script>
+
 {% schema %}
 {
   "name": "Carousel with Two Columns",
@@ -200,16 +216,21 @@ document.addEventListener("DOMContentLoaded", function () {
           "id": "description",
           "label": "Description"
         },
+        {
+          "type": "text",
+          "id": "custom_id",
+          "label": "Unique Slide ID",
+          "default": "slide-1"
+        }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Two-Column Carousel",
+      "name": "Two-Column Carousel"
     }
   ]
 }
 {% endschema %}
 
 
- {% endcomment %}
