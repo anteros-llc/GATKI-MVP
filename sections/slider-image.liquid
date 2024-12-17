@@ -1,19 +1,22 @@
 <div class="two-column-carousel">
+  <!-- Main Heading -->
+  <h2 class="carousel-main-heading">Gentle yet effective ingredients</h2>
+
   <slideshow-component
     class="slider-mobile-gutter"
     role="region"
     aria-roledescription="carousel"
-    aria-label="Two-Column Carousel"
+    aria-label="Slideshow"
   >
     <div class="slideshow grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
       {%- for block in section.blocks -%}
         <div
-          class="slideshow__slide two-column-slide grid__item grid--2-col slider__slide"
-          id="{{ block.settings.custom_id }}"
+          class="slideshow__slide grid__item grid--2-col slider__slide"
+          id="Slide-{{ section.id }}-{{ forloop.index }}"
           role="group"
           aria-roledescription="slide"
-          aria-label="{{ block.settings.heading }}"
-          {% if forloop.index == 1 %}style="display: flex;"{% else %}style="display: none;"{% endif %}
+          aria-label="{{ forloop.index }} of {{ forloop.length }}"
+          style="{% if forloop.index != 1 %}display: none;{% endif %}" <!-- Ensures the first slide is visible -->
         >
           <!-- Left Column: Image -->
           <div class="slideshow__media slideshow__media--half">
@@ -28,10 +31,12 @@
 
           <!-- Right Column: Text -->
           <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-            {%- if block.settings.heading != blank -%}
-              <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
-            {%- endif -%}
-            <p class="slideshow__description">{{ block.settings.description }}</p>
+            <!-- Ingredient Text -->
+            <div class="ingredient">
+              <span class="ingredient-number">{{ forloop.index | prepend: '0' }}</span>
+              <h6 class="ingredient-heading">{{ block.settings.heading }}</h6>
+              <p class="ingredient-description">{{ block.settings.description }}</p>
+            </div>
           </div>
         </div>
       {%- endfor -%}
@@ -42,9 +47,9 @@
       {%- for block in section.blocks -%}
         <button
           type="button"
-          class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
-          data-slide="{{ block.settings.custom_id }}"
-          aria-label="Go to {{ block.settings.heading }}"
+          class="slideshow__number {% if forloop.first %}active{% endif %}"
+          data-slide="{{ forloop.index }}"
+          aria-label="Go to slide {{ forloop.index }}"
         >
           {{ forloop.index | prepend: '0' }}
         </button>
@@ -52,6 +57,7 @@
     </div>
   </slideshow-component>
 </div>
+
 
 
 
@@ -100,7 +106,46 @@
 }
 
 /* Number Navigation */
+/* Two-Column Carousel Styling */
 .two-column-carousel .slideshow__numbers {
+  position: absolute;
+  bottom: 10px; /* Adjust vertical placement */
+  left: 50%; /* Centers the numbers horizontally */
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.two-column-carousel .slideshow__number {
+  background: var(--color-background);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.two-column-carousel .slideshow__number.active {
+  background: var(--color-primary);
+  color: var(--color-background);
+  border-color: var(--color-primary);
+}
+
+/* Ensure the image container is relatively positioned for absolute positioning of numbers */
+.two-column-carousel .slideshow__media {
+  position: relative;
+}
+
+
+  /* new */
+/* .two-column-carousel .slideshow__numbers {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
@@ -127,7 +172,43 @@
   background-color: #666;
   color: #fff;
   border-color: #666;
+} */
+
+/* Main Heading Styling */
+.two-column-carousel .carousel-main-heading {
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
 }
+
+/* Ingredient Text Styling */
+.two-column-carousel .ingredient {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.two-column-carousel .ingredient-number {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+
+.two-column-carousel .ingredient-heading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.two-column-carousel .ingredient-description {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-top: 0.5rem;
+}
+
 
 /* Responsive */
 @media (max-width: 749px) {
