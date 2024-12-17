@@ -1,146 +1,196 @@
-<div class="ingredients-module">
-  <div class="image-container">
-    <img id="active-image" src="{{ blocks.first.settings.image | image_url }}" alt="{{ blocks.first.settings.heading }}" />
-    <div class="number-buttons">
-      {% for block in section.blocks %}
-        <button data-index="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}">{{ forloop.index | prepend: '0' }}</button>
-      {% endfor %}
-    </div>
-  </div>
-  <div class="text-container">
-    <h2>{{ section.settings.heading }}</h2>
-    <div class="text-content" id="text-content">
-      {% for block in section.blocks %}
-        <div class="text-item {% if forloop.first %}active{% endif %}">
-          <h3>{{ block.settings.heading }}</h3>
-          <p>{{ block.settings.description }}</p>
+<slideshow-component
+  class="slider-mobile-gutter"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Slideshow"
+>
+  <div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
+    {%- for block in section.blocks -%}
+      <div
+        class="slideshow__slide grid__item grid--2-col slider__slide"
+        id="Slide-{{ section.id }}-{{ forloop.index }}"
+        role="group"
+        aria-roledescription="slide"
+        aria-label="{{ forloop.index }} of {{ forloop.length }}"
+        style="{% if forloop.index != 1 %}display: none;{% endif %}" <!-- Hide all slides except the first -->
+      >
+        <!-- Left Column: Image -->
+        <div class="slideshow__media banner__media slideshow__media--half">
+          {%- if block.settings.image -%}
+            {{
+              block.settings.image
+              | image_url: width: 1600
+              | image_tag: alt: block.settings.heading
+            }}
+          {%- endif -%}
         </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
 
+        <!-- Right Column: Text -->
+        <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+          {%- if block.settings.heading != blank -%}
+            <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
+          {%- endif -%}
+          <p class="slideshow__description">{{ block.settings.description }}</p>
+          <ul class="slideshow__list">
+            {%- for item in block.settings.list_items -%}
+              <li class="slideshow__list-item">{{ item }}</li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <!-- Number Navigation -->
+  <div class="slideshow__numbers">
+    {%- for block in section.blocks -%}
+      <button
+        type="button"
+        class="slideshow__number {% if forloop.first %}active{% endif %}"
+        data-slide="{{ forloop.index }}"
+        aria-label="Go to slide {{ forloop.index }}"
+      >
+        {{ forloop.index | prepend: '0' }}
+      </button>
+    {%- endfor -%}
+  </div>
+</slideshow-component>
+<style>
+  /* Layout for the slide */
+.slider__slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Image Column */
+.slideshow__media--half {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshow__media img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Text Column */
+.slideshow__text-wrapper--half {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.slideshow__heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.slideshow__description {
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.slideshow__list {
+  list-style: none;
+  padding: 0;
+}
+
+.slideshow__list-item {
+  margin-bottom: 0.5rem;
+}
+
+/* Number Navigation */
+.slideshow__numbers {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.slideshow__number {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #666;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.slideshow__number.active {
+  background-color: #666;
+  color: #fff;
+  border-color: #666;
+}
+
+/* Responsive */
+@media (max-width: 749px) {
+  .slider__slide {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slideshow__media--half,
+  .slideshow__text-wrapper--half {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".number-buttons button");
-  const imageElement = document.getElementById("active-image");
-  const textItems = document.querySelectorAll(".text-item");
+  const slides = document.querySelectorAll(".slider__slide");
+  const numbers = document.querySelectorAll(".slideshow__number");
 
-  buttons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      // Update active button
-      document.querySelector(".number-buttons button.active").classList.remove("active");
-      button.classList.add("active");
+  numbers.forEach((number) => {
+    number.addEventListener("click", function () {
+      const slideIndex = this.getAttribute("data-slide");
 
-      // Update active image
-      const newImageSrc = document.querySelector(`.text-item:nth-child(${index + 1})`).dataset.image;
-      imageElement.src = newImageSrc;
+      // Hide all slides
+      slides.forEach((slide) => (slide.style.display = "none"));
 
-      // Update active text
-      document.querySelector(".text-item.active").classList.remove("active");
-      textItems[index].classList.add("active");
+      // Show the selected slide
+      document.getElementById(`Slide-${slideIndex}`).style.display = "flex";
+
+      // Remove active class from all numbers
+      numbers.forEach((num) => num.classList.remove("active"));
+
+      // Add active class to clicked number
+      this.classList.add("active");
     });
   });
 });
 
 </script>
-
-<style>
-.ingredients-module {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  padding: 40px;
-}
-
-.image-container {
-  position: relative;
-  width: 50%; /* Ensures the container takes up half the width */
-  height: 720px; /* Ensure the height is explicitly set */
-  overflow: hidden; /* Prevents content from spilling out */
-}
-
-.image-container img {
-  width: 100%; /* Ensures the image fills the container */
-  height: 100%; /* Maintains height to fill container */
-  object-fit: cover; /* Ensures the image scales properly */
-  border-radius: 10px;
-}
-
-.number-buttons {
-  display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  bottom: -40px;
-  left: 0;
-  right: 0;
-}
-
-.number-buttons button {
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 50%;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.number-buttons button.active {
-  transform: scale(1.1);
-}
-
-
-.text-container {
-  width: 50%;
-}
-
-.text-container h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.text-content {
-  position: relative;
-}
-
-.text-item {
-  display: none;
-}
-
-.text-item.active {
-  display: block;
-}
-
-.text-item h3 {
-  font-size: 20px;
-
-}
-
-.text-item p {
-  font-size: 16px;
- 
-}
-
-</style>
-
 {% schema %}
 {
-  "name": "Ingredients Carousel",
+  "name": "Carousel with Two Columns",
   "settings": [
     {
       "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Gentle yet effective ingredients."
+      "id": "section_title",
+      "label": "Section Title"
     }
   ],
   "blocks": [
     {
-      "type": "image",
-      "name": "Image Slide",
+      "type": "slide",
+      "name": "Slide",
       "settings": [
         {
           "type": "image_picker",
@@ -150,19 +200,19 @@
         {
           "type": "text",
           "id": "heading",
-          "label": "Subheading"
+          "label": "Heading"
         },
         {
           "type": "textarea",
           "id": "description",
           "label": "Description"
-        }
+        },
       ]
     }
   ],
   "presets": [
     {
-      "name": "Ingredients Carousel",
+      "name": "Two-Column Carousel",
     }
   ]
 }
