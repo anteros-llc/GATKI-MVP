@@ -1,60 +1,43 @@
-<slideshow-component
-  class="slider-mobile-gutter"
-  role="region"
-  aria-roledescription="carousel"
-  aria-label="Slideshow"
->
-
-  <div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
-    {%- for block in section.blocks -%}
-        <div
-       class="slideshow__slide grid__item grid--2-col slider__slide active"
-  id="Slide-{{ section.id }}-{{ forloop.index }}"
-  role="group"
-  aria-roledescription="slide"
-  aria-label="{{ forloop.index }} of {{ forloop.length }}"
->
-        <!-- Left Column: Image -->
-        <div class="slideshow__media banner__media slideshow__media--half">
-          {%- if block.settings.image -%}
-            {{
-              block.settings.image
-              | image_url: width: 1600
-              | image_tag: alt: block.settings.heading
-            }}
-          {%- endif -%}
-        </div>
-
-        <!-- Right Column: Text -->
-        <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-          {%- if block.settings.heading != blank -%}
-            <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
-          {%- endif -%}
-          <p class="slideshow__description">{{ block.settings.description }}</p>
-          <ul class="slideshow__list">
-            {%- for item in block.settings.list_items -%}
-              <li class="slideshow__list-item">{{ item }}</li>
-            {%- endfor -%}
-          </ul>
-        </div>
+<div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}">
+  {%- for block in section.blocks -%}
+    <div
+      class="slideshow__slide grid__item grid--2-col slider__slide {% if forloop.first %}active{% endif %}"
+      id="Slide-{{ section.id }}-{{ forloop.index }}"
+    >
+      <!-- Left Column: Image -->
+      <div class="slideshow__media banner__media slideshow__media--half">
+        {%- if block.settings.image -%}
+          {{
+            block.settings.image
+            | image_url: width: 1600
+            | image_tag: alt: block.settings.heading
+          }}
+        {%- endif -%}
       </div>
-    {%- endfor -%}
-  </div>
+      <!-- Right Column: Text -->
+      <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+        {%- if block.settings.heading != blank -%}
+          <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
+        {%- endif -%}
+        <p class="slideshow__description">{{ block.settings.description }}</p>
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
 
-  <!-- Number Navigation -->
-  <div class="slideshow__numbers">
-    {%- for block in section.blocks -%}
-      <button
-        type="button"
-        class="slideshow__number {% if forloop.first %}active{% endif %}"
-        data-slide="{{ forloop.index }}"
-        aria-label="Go to slide {{ forloop.index }}"
-      >
-        {{ forloop.index | prepend: '0' }}
-      </button>
-    {%- endfor -%}
-  </div>
-</slideshow-component>
+<!-- Number Navigation -->
+<div class="slideshow__numbers">
+  {%- for block in section.blocks -%}
+    <button
+      type="button"
+      class="slideshow__number {% if forloop.first %}active{% endif %}"
+      data-slide="{{ forloop.index0 }}"
+    >
+      {{ forloop.index | prepend: '0' }}
+    </button>
+  {%- endfor -%}
+</div>
+
 <style>
   /* Layout for the slide */
 .slider__slide {
