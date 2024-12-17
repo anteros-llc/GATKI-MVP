@@ -297,8 +297,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Ingredient_LipDew_Chenpi_2000x2000_PDP_LIPDEW.jpg",
-            "heading": "Test",
-            "description": "Test",
+            "heading": "Image 1",
+            "description": "Description1",
             "custom_id": "slide-1"
           }
         },
@@ -306,25 +306,25 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
-            "heading": "Test",
-            "description": "Test",
+            "heading": "Image 2",
+            "description": "Description 2",
             "custom_id": "slide-2"
           }
         },
         "slide_mqELLa": {
           "type": "slide",
           "settings": {
-            "heading": "",
-            "description": "",
-            "custom_id": "slide-1"
+            "heading": "Image 3",
+            "description": "Description 3",
+            "custom_id": "slide-3"
           }
         },
         "slide_UtYa6p": {
           "type": "slide",
           "settings": {
-            "heading": "",
-            "description": "",
-            "custom_id": "slide-1"
+            "heading": "Image 4",
+            "description": "Description 4",
+            "custom_id": "slide-4"
           }
         }
       },
