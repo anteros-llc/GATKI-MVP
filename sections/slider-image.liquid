@@ -149,27 +149,39 @@ document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".slideshow__slide");
   const numbers = document.querySelectorAll(".slideshow__number");
 
-  // Helper function to activate a slide
-  const activateSlide = (index) => {
+  // Helper function to show the slide corresponding to the index
+  function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
+      if (i === index) {
+        slide.classList.add("active");
+        slide.style.display = "flex"; // Ensure visibility
+      } else {
+        slide.classList.remove("active");
+        slide.style.display = "none"; // Hide other slides
+      }
     });
 
     numbers.forEach((number, i) => {
-      number.classList.toggle("active", i === index);
+      if (i === index) {
+        number.classList.add("active");
+      } else {
+        number.classList.remove("active");
+      }
     });
-  };
+  }
 
-  // Add click events to navigation buttons
-  numbers.forEach((number, index) => {
-    number.addEventListener("click", () => {
-      activateSlide(index);
+  // Add click event listeners to the navigation buttons
+  numbers.forEach((number) => {
+    number.addEventListener("click", function () {
+      const index = parseInt(this.getAttribute("data-index"), 10); // Ensure it's parsed as a number
+      showSlide(index);
     });
   });
 
-  // Ensure the first slide is visible on load
-  activateSlide(0);
+  // Initialize the first slide as active
+  showSlide(0);
 });
+
 
 </script>
 {% schema %}
