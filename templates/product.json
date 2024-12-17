@@ -248,10 +248,19 @@
             "heading": "hello",
             "description": "hello"
           }
+        },
+        "image_JhGkaW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Texture_LipDew_Gel_2000x2000_935fe663-07c5-43bd-be70-88d3fa257280.jpg",
+            "heading": "hello",
+            "description": "hello"
+          }
         }
       },
       "block_order": [
-        "image_UANw8F"
+        "image_UANw8F",
+        "image_JhGkaW"
       ],
       "settings": {
         "heading": "Gentle yet effective ingredients."
