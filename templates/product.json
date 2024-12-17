@@ -237,6 +237,25 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "slider_image_ANw9BW": {
+      "type": "slider-image",
+      "blocks": {
+        "image_UANw8F": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIP_DEW.jpg",
+            "heading": "hello",
+            "description": "hello"
+          }
+        }
+      },
+      "block_order": [
+        "image_UANw8F"
+      ],
+      "settings": {
+        "heading": "Gentle yet effective ingredients."
+      }
     }
   },
   "order": [
@@ -244,6 +263,7 @@
     "related-products",
     "ingredients_UDWPHK",
     "custom_carousel_LQUw6V",
-    "1731992271885d52d1"
+    "1731992271885d52d1",
+    "slider_image_ANw9BW"
   ]
 }
