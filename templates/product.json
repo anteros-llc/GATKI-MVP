@@ -9,57 +9,6 @@
  */
 {
   "sections": {
-    "image_banner_UKJ3fP": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_Kt3anE": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_R7heRx": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "buttons_kiWaeM": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_Kt3anE",
-        "text_R7heRx",
-        "buttons_kiWaeM"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/Lifestyle_Flatlay_LipDew_Ingredients_2000x833_PDP_LIPDEW.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -110,7 +59,7 @@
           "settings": {
             "heading": "INGRIDIENTS",
             "icon": "none",
-            "content": "",
+            "content": "<p>Butyrospermum parkii (shea) butter </p><p>Bis-behenyl/ isostearyl/ phytosteryl dimer dilinoleyl dimer dilinoleate </p><p>Ricinus communis (castor) seed oil </p><p>Squalene </p><p>Hydrogenated castor oil </p><p>Beeswax </p><p>Bisabolol </p><p>Glyceryl caprylate </p><p>Citrus aurantium dulcis (orange) peel oil </p><p>Water </p><p>Glycerin </p><p>Caprylyl glycol </p><p>Acetyl hexapeptide-8 </p><p>Palmitoyl tripeptide-1</p>",
             "page": ""
           }
         },
@@ -271,6 +220,57 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "image_banner_UKJ3fP": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Kt3anE": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_R7heRx": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_kiWaeM": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Kt3anE",
+        "text_R7heRx",
+        "buttons_kiWaeM"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Lifestyle_Flatlay_LipDew_Ingredients_2000x833_PDP_LIPDEW.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "1731992271885d52d1": {
       "type": "apps",
       "blocks": {
@@ -285,6 +285,7 @@
       "block_order": [
         "okendo_reviews_widget_8Vdph6"
       ],
+      "custom_css": [],
       "settings": {
         "include_margins": true
       }
