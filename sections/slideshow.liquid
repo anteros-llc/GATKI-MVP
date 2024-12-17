@@ -1,6 +1,6 @@
-{% comment %} {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
 <slideshow-component
   class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
@@ -31,7 +31,7 @@
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
       >
         <!-- Image Column -->
-        <div class="slideshow__media banner__media slideshow__media--half">
+        <div class="slideshow__media banner__media media slideshow__media--half">
           {%- if block.settings.image -%}
             {{
               block.settings.image
@@ -94,32 +94,6 @@
     </div>
   {%- endif -%}
 </slideshow-component>
-
-<style>
-  .grid--2-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.slideshow__media--half,
-.slideshow__text-wrapper--half {
-  align-self: center;
-}
-
-.slideshow__media--half img {
-  max-width: 50%;
-  height: auto;
-}
-
-.slideshow__text-wrapper--half {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-</style>
 
 {% schema %}
 {
