@@ -314,6 +314,7 @@
         "slide_mqELLa": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Texture_LipDew_Gel_2000x2000_PDP_LIPDEW.jpg",
             "heading": "Image 3",
             "description": "Description 3",
             "custom_id": "slide-3"
