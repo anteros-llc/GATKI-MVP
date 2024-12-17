@@ -46,23 +46,25 @@
 </script>
 
 <style>
-  .ingredients-module {
+.ingredients-module {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
   padding: 40px;
-  background-color: #faf6f0;
 }
 
 .image-container {
   position: relative;
-  width: 50%;
+  width: 50%; /* Ensures the container takes up half the width */
+  height: 720px; /* Ensure the height is explicitly set */
+  overflow: hidden; /* Prevents content from spilling out */
 }
 
 .image-container img {
-  width: 100%;
-  height: auto;
+  width: 100%; /* Ensures the image fills the container */
+  height: 100%; /* Maintains height to fill container */
+  object-fit: cover; /* Ensures the image scales properly */
   border-radius: 10px;
 }
 
@@ -80,8 +82,6 @@
   height: 50px;
   border: none;
   border-radius: 50%;
-  background-color: #f3ede7;
-  color: #7a4a2d;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -89,15 +89,9 @@
 }
 
 .number-buttons button.active {
-  background-color: #d1a17b;
-  color: #fff;
   transform: scale(1.1);
 }
 
-.number-buttons button:hover {
-  background-color: #d1a17b;
-  color: #fff;
-}
 
 .text-container {
   width: 50%;
@@ -105,7 +99,6 @@
 
 .text-container h2 {
   font-size: 28px;
-  color: #7a4a2d;
   margin-bottom: 20px;
 }
 
@@ -123,13 +116,14 @@
 
 .text-item h3 {
   font-size: 20px;
-  color: #7a4a2d;
+
 }
 
 .text-item p {
   font-size: 16px;
-  color: #7a4a2d;
+ 
 }
+
 </style>
 
 {% schema %}
