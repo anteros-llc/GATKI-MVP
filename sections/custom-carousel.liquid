@@ -31,18 +31,37 @@
               {{ block.settings.heading }}
             </h2>
           {%- endif -%}
-
-          {%- if block.settings.subheading != blank -%}
-            <p class="banner__text">
-              {{ block.settings.subheading }}
-            </p>
-          {%- endif -%}
+        <ul>
+            <li>
+              Gentleness
+              <img
+                src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693"
+                alt="Gentleness slider"
+                class="slider-svg"
+              >
+            </li>
+            <li>
+              Nourishment
+              <img
+                src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693"
+                alt="Nourishment slider"
+                class="slider-svg"
+              >
+            </li>
+            <li>
+              Staying Power
+              <img
+                src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_8.0.svg?v=1734398694"
+                alt="Staying Power slider"
+                class="slider-svg"
+              >
+            </li>
+          </ul>
         </div>
       </div>
     {%- endfor -%}
   </div>
-
-  <!-- Navigation Buttons -->
+  
  <!-- Navigation Buttons -->
   {%- if section.blocks.size > 1 -%}
     <div class="slideshow__controls slider-buttons">
