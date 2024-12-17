@@ -139,6 +139,18 @@
   border-color: #666;
 }
 
+.slideshow__slide {
+  display: none; /* All slides are hidden by default */
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slideshow__slide:first-child {
+  display: flex; /* Show the first slide by default */
+}
+
+
 /* Responsive */
 @media (max-width: 749px) {
   .slider__slide {
