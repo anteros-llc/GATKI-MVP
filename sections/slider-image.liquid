@@ -4,16 +4,17 @@
   aria-roledescription="carousel"
   aria-label="Slideshow"
 >
+
   <div class="slideshow banner grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
     {%- for block in section.blocks -%}
-      <div
+        <div
         class="slideshow__slide grid__item grid--2-col slider__slide"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
         role="group"
         aria-roledescription="slide"
         aria-label="{{ forloop.index }} of {{ forloop.length }}"
-        style="{% if forloop.index != 1 %}display: none;{% endif %}" <!-- Hide all slides except the first -->
-      >
+        style="{% if forloop.index != 1 %}display: none;{% endif %}" <!-- Ensures the first slide is visible -->
+>
         <!-- Left Column: Image -->
         <div class="slideshow__media banner__media slideshow__media--half">
           {%- if block.settings.image -%}
@@ -153,29 +154,33 @@
 }
 </style>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".slider__slide");
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".slideshow__slide");
   const numbers = document.querySelectorAll(".slideshow__number");
 
-  numbers.forEach((number) => {
+  // Initialize by showing only the first slide
+  slides.forEach((slide, index) => {
+    slide.style.display = index === 0 ? "flex" : "none";
+  });
+
+  numbers.forEach((number, index) => {
     number.addEventListener("click", function () {
-      const slideIndex = this.getAttribute("data-slide");
-
       // Hide all slides
-      slides.forEach((slide) => (slide.style.display = "none"));
+      slides.forEach((slide) => {
+        slide.style.display = "none";
+      });
 
-      // Show the selected slide
-      document.getElementById(`Slide-${slideIndex}`).style.display = "flex";
+      // Show the clicked slide
+      slides[index].style.display = "flex";
 
       // Remove active class from all numbers
       numbers.forEach((num) => num.classList.remove("active"));
 
-      // Add active class to clicked number
+      // Add active class to the clicked number
       this.classList.add("active");
     });
   });
 });
-
 </script>
 {% schema %}
 {
