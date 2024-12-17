@@ -69,7 +69,9 @@
 </slideshow-component>
 <style>
   /* Flex container for slides */
-
+ #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
+          opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+        }
 .slider-mobile-gutter{
   background-color: var(--color-blanco); 
   color: var(--color-chenpi);
