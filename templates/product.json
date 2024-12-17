@@ -241,29 +241,29 @@
     "slider_image_ANw9BW": {
       "type": "slider-image",
       "blocks": {
-        "image_UANw8F": {
-          "type": "image",
+        "slide_KP9nnm": {
+          "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIP_DEW.jpg",
-            "heading": "hello",
-            "description": "hello"
+            "heading": "Text",
+            "description": "Texting"
           }
         },
-        "image_JhGkaW": {
-          "type": "image",
+        "slide_jJA6fd": {
+          "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Texture_LipDew_Gel_2000x2000_935fe663-07c5-43bd-be70-88d3fa257280.jpg",
-            "heading": "hello",
-            "description": "hello"
+            "heading": "Text 2",
+            "description": "Text 2"
           }
         }
       },
       "block_order": [
-        "image_UANw8F",
-        "image_JhGkaW"
+        "slide_KP9nnm",
+        "slide_jJA6fd"
       ],
       "settings": {
-        "heading": "Gentle yet effective ingredients."
+        "section_title": "Title I am here"
       }
     }
   },
