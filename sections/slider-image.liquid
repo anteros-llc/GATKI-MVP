@@ -27,20 +27,6 @@
                 | image_tag: alt: block.settings.heading
               }}
             {%- endif -%}
-
-              <!-- Number Navigation -->
-    <div class="slideshow__numbers">
-      {%- for block in section.blocks -%}
-        <button
-          type="button"
-          class="slideshow__number {% if forloop.first %}active{% endif %}"
-          data-slide="{{ forloop.index }}"
-          aria-label="Go to slide {{ forloop.index }}"
-        >
-          {{ forloop.index | prepend: '0' }}
-        </button>
-      {%- endfor -%}
-    </div>
           </div>
 
           <!-- Right Column: Text -->
@@ -53,6 +39,20 @@
             </div>
           </div>
         </div>
+      {%- endfor -%}
+    </div>
+
+    <!-- Number Navigation -->
+    <div class="slideshow__numbers">
+      {%- for block in section.blocks -%}
+        <button
+          type="button"
+          class="slideshow__number {% if forloop.first %}active{% endif %}"
+          data-slide="{{ forloop.index }}"
+          aria-label="Go to slide {{ forloop.index }}"
+        >
+          {{ forloop.index | prepend: '0' }}
+        </button>
       {%- endfor -%}
     </div>
   </slideshow-component>
@@ -106,17 +106,16 @@
 }
 
 /* Number Navigation */
-
 /* Numbers Above Image */
 .two-column-carousel .slideshow__numbers {
   display: flex;
   justify-content: center;
-  position: absolute; /* Position numbers relative to the image container */
-  bottom: -20px; /* Adjust this value to move numbers closer to or overlap the image */
+  position: absolute; /* Position above the image */
+  bottom: -20px; /* Adjust to move numbers closer to the image */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 20; /* Ensure numbers are above other content */
-  gap: 10px; /* Space between numbers */
+  z-index: 10;
+  gap: 10px; /* Spacing between buttons */
 }
 
 .two-column-carousel .slideshow__number {
@@ -133,31 +132,25 @@
   color: #666;
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow */
 }
 
 .two-column-carousel .slideshow__number.active {
-  background-color: #f8c291; /* Change to match your design */
+  background-color: #f8c291; /* Active background color */
   color: #fff;
   border-color: #f8c291;
 }
 
-/* Ensure Image Wrapper Makes Room for Numbers */
+/* Image Wrapper to Accommodate Numbers */
 .two-column-carousel .slideshow__media--half {
-  position: relative; /* Enables absolute positioning for numbers */
-  padding-bottom: 4rem; /* Create space for the numbers to appear */
+  position: relative; /* To position numbers within the container */
+  padding-bottom: 3rem; /* Adjust space for numbers */
 }
 
 .two-column-carousel .slideshow__media img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  display: block; /* Ensure images are displayed */
-}
-
-/* Debugging: Highlight Numbers Container */
-.two-column-carousel .slideshow__numbers {
-  background-color: rgba(255, 0, 0, 0.1); /* Add a temporary background for visibility debugging */
 }
 
 
