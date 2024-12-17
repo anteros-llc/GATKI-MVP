@@ -152,7 +152,7 @@
         "slide_pfY37a": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/biscotti-lays-in-a-monstera-leaf.jpg",
+            "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
             "heading": "The touch of softness.",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
@@ -292,45 +292,7 @@
     },
     "slider_image_ANw9BW": {
       "type": "slider-image",
-      "blocks": {
-        "slide_KP9nnm": {
-          "type": "slide",
-          "settings": {
-            "heading": "Text",
-            "description": "Texting"
-          }
-        },
-        "slide_jJA6fd": {
-          "type": "slide",
-          "settings": {
-            "heading": "Text 2",
-            "description": "Text 2"
-          }
-        },
-        "slide_mhdgYU": {
-          "type": "slide",
-          "settings": {
-            "heading": "",
-            "description": ""
-          }
-        },
-        "slide_jjGF4T": {
-          "type": "slide",
-          "settings": {
-            "heading": "ggghhg",
-            "description": "ghghghgh"
-          }
-        }
-      },
-      "block_order": [
-        "slide_KP9nnm",
-        "slide_jJA6fd",
-        "slide_mhdgYU",
-        "slide_jjGF4T"
-      ],
-      "settings": {
-        "section_title": "Title I am here"
-      }
+      "settings": {}
     }
   },
   "order": [
