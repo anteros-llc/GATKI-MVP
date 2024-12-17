@@ -256,11 +256,19 @@
             "heading": "Text 2",
             "description": "Text 2"
           }
+        },
+        "slide_jjGF4T": {
+          "type": "slide",
+          "settings": {
+            "heading": "ggghhg",
+            "description": "ghghghgh"
+          }
         }
       },
       "block_order": [
         "slide_KP9nnm",
-        "slide_jJA6fd"
+        "slide_jJA6fd",
+        "slide_jjGF4T"
       ],
       "settings": {
         "section_title": "Title I am here"
