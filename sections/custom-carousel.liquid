@@ -61,7 +61,6 @@
       </div>
     {%- endfor -%}
   </div>
-  
  <!-- Navigation Buttons -->
   {%- if section.blocks.size > 1 -%}
     <div class="slideshow__controls slider-buttons">
@@ -137,6 +136,65 @@
 .slideshow__text-wrapper--half p {
   font-size: 1rem;
 }
+
+.carousel-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #f7f1eb;
+  }
+  .carousel-wrapper {
+    position: relative;
+    display: flex;
+    max-width: 1440px;
+    overflow: hidden;
+  }
+  .carousel-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  .text-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+  }
+  .text-container h2 {
+    margin-bottom: 20px;
+  }
+  .text-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  .text-container li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  .slider-svg {
+    margin-left: 20px;
+    height: 10px;
+    width: 200px;
+  }
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .arrow-prev {
+    left: 20px;
+  }
+  .arrow-next {
+    right: 20px;
+  }
 
 /* Responsive Design */
 @media (max-width: 749px) {
