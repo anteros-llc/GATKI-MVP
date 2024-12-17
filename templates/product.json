@@ -323,6 +323,7 @@
         "slide_UtYa6p": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Ingredient_LipDew_Chenpi_2000x2000_PDP_LIPDEW.jpg",
             "heading": "Image 4",
             "description": "Description 4",
             "custom_id": "slide-4"
