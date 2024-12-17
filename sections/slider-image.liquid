@@ -106,73 +106,58 @@
 }
 
 /* Number Navigation */
-/* Two-Column Carousel Styling */
+/* Numbers Above Image */
 .two-column-carousel .slideshow__numbers {
-  position: absolute;
-  bottom: 10px; /* Adjust vertical placement */
-  left: 50%; /* Centers the numbers horizontally */
+  display: flex;
+  justify-content: center;
+  position: absolute; /* Position above the image */
+  bottom: -20px; /* Adjust to move numbers closer to the image */
+  left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
+  z-index: 10;
+  gap: 10px; /* Spacing between buttons */
 }
 
 .two-column-carousel .slideshow__number {
-  background: var(--color-background);
-  border: 2px solid var(--color-primary);
-  border-radius: 50%;
   width: 50px;
   height: 50px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--color-primary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.two-column-carousel .slideshow__number.active {
-  background: var(--color-primary);
-  color: var(--color-background);
-  border-color: var(--color-primary);
-}
-
-/* Ensure the image container is relatively positioned for absolute positioning of numbers */
-.two-column-carousel .slideshow__media {
-  position: relative;
-}
-
-
-  /* new */
-/* .two-column-carousel .slideshow__numbers {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.two-column-carousel .slideshow__number {
-  background: none;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin: 0 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  cursor: pointer;
   color: #666;
-  font-weight: bold;
   transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow */
 }
 
 .two-column-carousel .slideshow__number.active {
-  background-color: #666;
+  background-color: #f8c291; /* Active background color */
   color: #fff;
-  border-color: #666;
-} */
+  border-color: #f8c291;
+}
+
+/* Image Wrapper to Accommodate Numbers */
+.two-column-carousel .slideshow__media--half {
+  position: relative; /* To position numbers within the container */
+  padding-bottom: 3rem; /* Adjust space for numbers */
+}
+
+.two-column-carousel .slideshow__media img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+
+
+
+
 
 /* Main Heading Styling */
 .two-column-carousel .carousel-main-heading {
