@@ -39,19 +39,15 @@
 
 /* Footer Columns */
 .custom-footer-column {
-  flex: 1 1 auto; /* Flexible width */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between list items */
 }
 
 /* Footer Headings */
 .custom-footer-heading {
   margin-bottom: 1.5rem; /* Space between heading and list */
 }
-
-.custom-footer-column .custom-footer-heading {
-  margin-bottom: 1.5rem; /* Ensures higher specificity */
-}
-
-
 
 /* Footer Lists */
 .custom-footer-list {
