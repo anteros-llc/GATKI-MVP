@@ -73,8 +73,6 @@
 
 /* Parent Container */
 .custom-footer {
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
   background-color: var(--color-citron);
   color: var(--color-soil);
   padding-top: 3rem; /* Adjusted to match Figma spacing */
@@ -84,11 +82,8 @@
 /* Footer Container */
 .custom-footer-container {
   display: grid;
-  grid-template-columns: repeat(12, 1fr); /* 12-column grid */
-  gap: 3rem; /* Uniform spacing between rows and columns */
-  padding: 3rem; /* Padding all around */
+  gap: 2rem; /* Space between rows */
 }
-
 
 /* Footer Logo Section */
 .custom-footer-logo {
