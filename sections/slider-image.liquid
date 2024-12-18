@@ -307,12 +307,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // On load, ensure only the first slide is visible
+  // On load, ensure only the first slide is visible but no active buttons
   slides.forEach((slide, index) => {
     slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
   });
 
-  // Remove active state and collapse all hidden texts
   const resetState = () => {
     buttons.forEach((btn) => btn.classList.remove("active"));
     hiddenTexts.forEach((text) => {
@@ -327,25 +326,31 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
+      const isActive = this.classList.contains("active");
 
-      // Reset all slides and texts
+      // Collapse all slides and texts
       resetState();
 
-      // Show the clicked slide
-      if (targetSlide) targetSlide.style.display = "flex";
+      if (!isActive) {
+        // Show the clicked slide
+        if (targetSlide) targetSlide.style.display = "flex";
 
-      // Add active class to the clicked button
-      this.classList.add("active");
+        // Add active class to the clicked button
+        this.classList.add("active");
 
-      // Show corresponding hidden text
-      hiddenTexts.forEach((text) => {
-        const ingredientId = text.getAttribute("data-ingredient-id");
-        if (ingredientId === targetId) {
-          text.style.display = "block";
-          text.style.opacity = "1";
-          text.style.maxHeight = "500px"; // Adjust as needed
-        }
-      });
+        // Show corresponding hidden text
+        hiddenTexts.forEach((text) => {
+          const ingredientId = text.getAttribute("data-ingredient-id");
+          if (ingredientId === targetId) {
+            text.style.display = "block";
+            text.style.opacity = "1";
+            text.style.maxHeight = "500px"; // Adjust as needed
+          }
+        });
+      } else {
+        // If the button is already active, collapse the text and deactivate the button
+        this.classList.remove("active");
+      }
     });
   });
 });
