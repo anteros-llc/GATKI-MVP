@@ -43,8 +43,9 @@
   text-align: left;
 }
 
+/* Footer Headings */
 .custom-footer-heading {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Space between heading and list */
 }
 
 /* Footer Lists */
@@ -54,12 +55,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem; /* Space between list items */
 }
 
+/* Footer List Items */
 .custom-footer-list-item {
-  margin-bottom: 0.5rem;
+  margin: 0; /* Removed margin to avoid duplication with gap */
 }
+
 
 /* Footer Links */
 .custom-footer-link {
