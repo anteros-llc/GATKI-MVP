@@ -46,9 +46,11 @@
 .custom-footer-heading {
   margin-bottom: 1.5rem; /* Space between heading and list */
 }
-label.custom-footer-heading {
-  margin-bottom: 1.5rem !important; /* Force override */
+
+.custom-footer-column .custom-footer-heading {
+  margin-bottom: 1.5rem; /* Ensures higher specificity */
 }
+
 
 
 /* Footer Lists */
