@@ -81,7 +81,7 @@
   background-color: var(--color-albedo);
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Align items to the center vertically */
+  align-items: center; /* Align items vertically */
   padding: 0 3rem; /* Maintain horizontal padding */
 }
 
@@ -105,12 +105,19 @@
   padding: 0;
 }
 
+.custom-footer-policy-item h6 {
+  margin: 0; /* Remove margins from h6 */
+  padding: 0; /* Remove padding */
+  font-size: 1rem; /* Optional: Adjust font size */
+  line-height: 1; /* Tight line-height */
+}
 
 .custom-footer-bottom,
 .custom-footer-policies,
 .custom-footer-copyright {
-  outline: 1px solid red; /* Helps visually identify spacing */
+  outline: 1px solid red; /* Debugging outline */
 }
+
 
 
 /* Responsive Adjustments */
