@@ -295,8 +295,6 @@ ul{
 .two-column-carousel .ingredient-description {
   margin-top: 0.25rem; /* Reduce spacing between title and description */
 }
-</style>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.querySelector(".two-column-carousel");
@@ -307,9 +305,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // On load, ensure only the first slide is visible but no active buttons
+  // Ensure only the first slide is visible, no button active, and all texts are collapsed
   slides.forEach((slide, index) => {
     slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
+  });
+
+  buttons.forEach((btn) => btn.classList.remove("active")); // No active button
+  hiddenTexts.forEach((text) => {
+    text.style.display = "none";
+    text.style.opacity = "0";
+    text.style.maxHeight = "0";
   });
 
   const resetState = () => {
