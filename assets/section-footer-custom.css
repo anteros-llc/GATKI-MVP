@@ -22,14 +22,6 @@
 
 /* Navigation Section */
 .navigation {
-  flex: 1 1 50%; /* Each section takes up 50% of the parent */
-  display: flex; /* Use flex for internal layout */
-  flex-wrap: wrap; /* Allows wrapping within the navigation */
-  gap: 3rem; /* Internal spacing between items */
-  background-color: white;
-}
-
-.navigation {
   flex: 1; /* Allows it to take up the remaining space */
   display: flex;
   flex-wrap: wrap;
