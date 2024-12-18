@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh; /* Full height of the viewport */
   width: 100%; /* Full width */
-  background-color: var(--color-citron);
+  background-color: var(--color-albedo);
   border-radius: 3rem;
 }
 
