@@ -1496,3 +1496,16 @@ a.product__text {
     border: none;
   }
 }
+
+.product-header{
+    display: flex
+    align-items: baseline;
+    justify-content: space-between;
+}
+.product-eyebrow{
+  font-size: 0.75rem;
+}
+
+.product__title h3{
+  margin-bottom: 0;
+}
