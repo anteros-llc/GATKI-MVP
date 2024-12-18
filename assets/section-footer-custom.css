@@ -24,11 +24,9 @@
 
 /* Navigation Section */
 .navigation {
-  flex: 1 1 auto; /* Grows to fill remaining space */
   display: flex;
   gap: 1.8rem; /* Space between menu columns */
-  flex-wrap: wrap; /* Ensures responsiveness */
-  text-align: left;
+
   width: 50%;
 }
 
