@@ -44,14 +44,14 @@
 
   <!-- Bottom Section -->
   <div class="custom-footer-bottom">
-    <small class="custom-footer-copyright"> &copy; {{ 'now' | date: '%Y' }} GATKI by Anteros LLC. </small>
+    <h6 class="custom-footer-copyright">&copy; {{ 'now' | date: '%Y' }} GATKI by Anteros LLC.</h6>
     <ul class="custom-footer-policies">
       {% for policy in shop.policies %}
         {% if policy %}
           <li class="custom-footer-policy-item">
-            <small
-              ><a href="{{ policy.url }}" class="custom-footer-policy-link">{{ policy.title }}</a></small
-            >
+            <h6>
+              <a href="{{ policy.url }}" class="custom-footer-policy-link">{{ policy.title }}</a>
+            </h6>
           </li>
         {% endif %}
       {% endfor %}
