@@ -31,21 +31,22 @@
           <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
             <h3>{{ slide.settings.heading }}</h3>
             <p>{{ slide.settings.description }}</p>
-            <ul class="ingredient-list">
-            {%- for ingredient in section.blocks -%}
-  {%- if ingredient.type == 'ingredient' and ingredient.settings.slide_id == slide.settings.custom_id -%}
-    <li class="ingredient-item" id="ingredient-{{ slide.settings.custom_id }}-{{ forloop.index }}">
-      <div class="ingredient-heading">
-        <span class="ingredient-number">{{ ingredient.settings.number }}</span>
-        <span class="ingredient-title">{{ ingredient.settings.title }}</span>
+            <div class="ingredient-list">
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'ingredient' -%}
+      <div class="ingredient-item" id="{{ block.settings.slide_id }}">
+        <div class="ingredient-heading">
+          <span class="ingredient-number">{{ block.settings.number }}</span>
+          <span class="ingredient-title">{{ block.settings.title }}</span>
+        </div>
+        <p class="ingredient-description">{{ block.settings.description }}</p>
+        <div class="ingredient-hidden-text" style="display: none;">
+          {{ block.settings.hidden_text }}
+        </div>
       </div>
-      <p class="ingredient-description">{{ ingredient.settings.description }}</p>
-      <p class="ingredient-hidden-text" style="display: none;">{{ ingredient.settings.hidden_text }}</p>
-    </li>
-  {%- endif -%}
-{%- endfor -%}
-
-            </ul>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
           </div>
         </div>
       {%- endfor -%}
