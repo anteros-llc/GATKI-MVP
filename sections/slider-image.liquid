@@ -310,13 +310,15 @@ document.addEventListener("DOMContentLoaded", function () {
     slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
   });
 
-  // Ensure all buttons are not active and hidden texts are collapsed
-  buttons.forEach((btn) => btn.classList.remove("active"));
-  hiddenTexts.forEach((text) => {
-    text.style.display = "none";
-    text.style.opacity = "0";
-    text.style.maxHeight = "0";
-  });
+  // Remove active state and collapse all hidden texts
+  const resetState = () => {
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    hiddenTexts.forEach((text) => {
+      text.style.display = "none";
+      text.style.opacity = "0";
+      text.style.maxHeight = "0";
+    });
+  };
 
   // Add event listeners to buttons
   buttons.forEach((button) => {
@@ -324,14 +326,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
 
-      // Hide all slides
-      slides.forEach((slide) => (slide.style.display = "none"));
+      // Reset all slides and texts
+      resetState();
 
       // Show the clicked slide
       if (targetSlide) targetSlide.style.display = "flex";
 
-      // Update active button state
-      buttons.forEach((btn) => btn.classList.remove("active"));
+      // Add active class to the clicked button
       this.classList.add("active");
 
       // Show corresponding hidden text
@@ -340,11 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (ingredientId === targetId) {
           text.style.display = "block";
           text.style.opacity = "1";
-          text.style.maxHeight = "500px"; // Adjust height as needed
-        } else {
-          text.style.display = "none";
-          text.style.opacity = "0";
-          text.style.maxHeight = "0";
+          text.style.maxHeight = "500px"; // Adjust as needed
         }
       });
     });
