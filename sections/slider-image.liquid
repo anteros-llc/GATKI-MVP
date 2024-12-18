@@ -312,11 +312,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
+  // Initial state: Remove active class, collapse hidden texts, and show the first slide
   buttons.forEach((btn) => btn.classList.remove("active"));
-
-  // On load, ensure only the first slide is visible but no active buttons
+  hiddenTexts.forEach((text) => {
+    text.style.display = "none";
+    text.style.opacity = "0";
+    text.style.maxHeight = "0";
+  });
   slides.forEach((slide, index) => {
-    slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
+    slide.style.display = index === 0 ? "flex" : "none"; // Show only the first slide
   });
 
   const resetState = () => {
@@ -325,6 +329,9 @@ document.addEventListener("DOMContentLoaded", function () {
       text.style.display = "none";
       text.style.opacity = "0";
       text.style.maxHeight = "0";
+    });
+    slides.forEach((slide) => {
+      slide.style.display = "none"; // Hide all slides
     });
   };
 
@@ -335,14 +342,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetSlide = carousel.querySelector(`#${targetId}`);
       const isActive = this.classList.contains("active");
 
-      // Collapse all slides and texts
+      // Reset all states
       resetState();
 
       if (!isActive) {
         // Show the clicked slide
         if (targetSlide) targetSlide.style.display = "flex";
 
-        // Add active class to the clicked button
+        // Mark the button as active
         this.classList.add("active");
 
         // Show corresponding hidden text
@@ -354,14 +361,10 @@ document.addEventListener("DOMContentLoaded", function () {
             text.style.maxHeight = "500px"; // Adjust as needed
           }
         });
-      } else {
-        // If the button is already active, collapse the text and deactivate the button
-        this.classList.remove("active");
       }
     });
   });
 });
-
 </script>
 
 {% schema %}
