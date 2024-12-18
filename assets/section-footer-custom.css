@@ -85,6 +85,7 @@
   padding: 0 3rem; 
 }
 
+/* Policies on the Left */
 .custom-footer-policies {
   display: flex;
   gap: 2rem;
@@ -93,12 +94,10 @@
   margin: 0;
 }
 
-.custom-footer-policies li {
+.custom-footer-policy-item {
   margin: 0;
-  padding: 0; /* Ensure no internal padding */
-  line-height: 1; /* Reset line-height for clean alignment */
+  padding: 0; 
 }
-
 
 /* Copyright on the Right */
 .custom-footer-copyright {
