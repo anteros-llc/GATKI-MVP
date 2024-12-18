@@ -112,8 +112,8 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
-                <div class="product__title" {{ block.shopify_attributes }}>
                   <span class="product-eyebrow">Fragnance-free Hydrating Balm</span>
+                <div class="product__title" {{ block.shopify_attributes }}>
                   <h3>{{ product.title | escape }}</h3>
                   <span class="product__price">
     ${{ product.price | divided_by: 100 }}
