@@ -107,36 +107,45 @@
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
   /* Parent Container Adjustments */
-  .custom-footer-top {
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-    text-align: center;
+  .custom-footer-container {
+    flex-direction: column; /* Stack columns vertically */
+    gap: 2rem; /* Space between stacked columns */
+    margin: 0 1.5rem; /* Adjust margin for smaller screens */
   }
 
   /* Newsletter Section */
   .custom-footer-newsletter {
-
+    padding-right: 0; /* Remove padding-right */
   }
 
-  /* Menu Adjustments */
-  .custom-footer-menu {
-    justify-content: center;
-    gap: 1rem;
+  /* Navigation Section */
+  .navigation {
+    flex-direction: column; /* Stack items in navigation */
+    gap: 2rem; /* Space between navigation columns */
   }
 
+  /* Footer Columns */
   .custom-footer-column {
-    text-align: center;
+    text-align: left; /* Align column text to the left */
+  }
+
+  /* Footer Logo Section */
+  .custom-footer-logo {
+    padding: 2rem 1.5rem; /* Adjust padding for smaller screens */
   }
 
   /* Bottom Section */
   .custom-footer-bottom {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column; /* Stack bottom items vertically */
+    text-align: center; /* Center-align bottom content */
   }
 
   .custom-footer-policies {
-    justify-content: center;
+    justify-content: center; /* Center-align policy links */
     margin-bottom: 1rem;
+  }
+
+  .custom-footer-copyright {
+    text-align: center; /* Center-align copyright text */
   }
 }
