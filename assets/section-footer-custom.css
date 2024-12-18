@@ -9,8 +9,7 @@
 /* Footer Container - Flexbox */
 .custom-footer-container {
   display: flex;
-  justify-content: space-between; 
-  align-items: flex-start; 
+
   gap: 3rem;
   margin: 0 2rem;
   background-color: grey;
