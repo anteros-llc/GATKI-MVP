@@ -40,13 +40,16 @@
 /* Footer Columns */
 .custom-footer-column {
   flex: 1 1 auto; /* Flexible width */
-  text-align: left;
 }
 
 /* Footer Headings */
 .custom-footer-heading {
   margin-bottom: 1.5rem; /* Space between heading and list */
 }
+label.custom-footer-heading {
+  margin-bottom: 1.5rem !important; /* Force override */
+}
+
 
 /* Footer Lists */
 .custom-footer-list {
