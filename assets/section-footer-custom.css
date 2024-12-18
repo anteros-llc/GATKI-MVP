@@ -77,11 +77,12 @@
 
 /* Bottom Section */
 .custom-footer-bottom {
+  color: var(--color-soil);
+  background-color: var(--color-albedo);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 3rem;
-  background-color: var(--color-albedo);
+  align-items: flex-start; /* Align items to the top */
+  padding: 0 3rem; 
 }
 
 /* Policies on the Left */
@@ -95,7 +96,6 @@
 
 .custom-footer-policy-item {
   margin: 0;
-
 }
 
 /* Copyright on the Right */
