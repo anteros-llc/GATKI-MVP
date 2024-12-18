@@ -53,12 +53,29 @@
                   <span class="ingredient-number">{{ ingredient.settings.number }}</span>
                 </div>
                 <p class="ingredient-description">{{ ingredient.settings.description }}</p>
-                <div class="ingredient-hidden-text"
-                  data-ingredient-id="{{ ingredient.settings.slide_id }}"
-                  {% if block.settings.slide_id == ingredient.settings.slide_id %}style="display: block;"{% else %}style="display: none;"{% endif %}
-                >
-                  {{ ingredient.settings.hidden_text }}
-                </div>
+               <div class="ingredient-hidden-text"
+     data-ingredient-id="{{ ingredient.settings.slide_id }}"
+     {% if block.settings.slide_id == ingredient.settings.slide_id %}style="display: block;"{% else %}style="display: none;"{% endif %}
+>
+  {% if ingredient.settings.percentage %}
+  <div class="percentage">
+    <span>{{ ingredient.settings.percentage }}</span>
+  </div>
+  {% endif %}
+  <div class="bullet-points">
+    <ul>
+      {% if ingredient.settings.bullet_point_1 %}
+      <li>{{ ingredient.settings.bullet_point_1 }}</li>
+      {% endif %}
+      {% if ingredient.settings.bullet_point_2 %}
+      <li>{{ ingredient.settings.bullet_point_2 }}</li>
+      {% endif %}
+      {% if ingredient.settings.bullet_point_3 %}
+      <li>{{ ingredient.settings.bullet_point_3 }}</li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
               </li>
               {%- endif -%}
               {%- endfor -%}
@@ -410,10 +427,24 @@ document.addEventListener("DOMContentLoaded", function () {
           "default": "This is a brief description of the ingredient."
         },
         {
-          "type": "textarea",
-          "id": "hidden_text",
-          "label": "Hidden Text",
-          "default": "This is additional information about the ingredient."
+          "type": "text",
+          "id": "percentage",
+          "label": "Percentage (Optional)"
+        },
+        {
+        "type": "text",
+        "id": "bullet_point_1",
+        "label": "Bullet Point 1"
+        },
+        {
+        "type": "text",
+        "id": "bullet_point_2",
+        "label": "Bullet Point 2 (Optional)"
+        },
+        {
+        "type": "text",
+        "id": "bullet_point_3",
+        "label": "Bullet Point 3 (Optional)"
         }
       ]
     }
