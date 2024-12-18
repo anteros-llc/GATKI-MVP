@@ -107,19 +107,15 @@ h7 {
   font-weight: 500;
 }
 
-.cta {
+/* Button text style */
+h8 {
   font-family: var(--font-body-family);
   font-weight: 500;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  background-color: var(--color-soil);
 }
 
-.cta:hover {
-  background-color: var(--color-chenpi);
-  color: var(--color-blanco);
-}
 
 .product-card-wrapper .card,
 .contains-card--product {
