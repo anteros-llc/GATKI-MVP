@@ -85,12 +85,7 @@
 
 /* Footer column heading */
 .custom-footer-heading {
-  font-size: 1rem;
-  font-weight: 700;
   margin-bottom: 2rem;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  text-transform: uppercase;
 }
 
 /* Footer list */
