@@ -2,7 +2,7 @@
 .custom-footer {
   background-color: var(--color-citron);
   color: var(--color-soil);
-  padding-top: 3rem;
+  padding: 3rem 0 3rem 3rem;
 }
 
 /* Footer Container */
