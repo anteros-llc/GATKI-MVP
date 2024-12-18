@@ -5,25 +5,25 @@
   padding-top: 3rem;
 }
 
-/* Parent Container */
+/* Footer Container */
 .custom-footer-container {
-  display: flex;
+  display: flex; 
   gap: 3rem; /* Consistent gap between B and C */
   margin: 0 2rem;
 }
 
 /* Newsletter Section */
 .custom-footer-newsletter {
-  flex: 0 0 25%; /* Fixes width at 25% */
-  max-width: 25%; /* Prevents it from exceeding 25% */
+  flex: 1 1 50%; /* Each section takes up 50% of the parent */
+  max-width: 50%; /* Prevents exceeding the 50% width */
   background-color: white;
 }
 
 /* Navigation Section */
 .navigation {
-  flex: 1; /* Allows it to take up the remaining space */
-  display: flex;
-  flex-wrap: wrap;
+  flex: 1 1 50%; /* Each section takes up 50% of the parent */
+  display: flex; /* Use flex for internal layout */
+  flex-wrap: wrap; /* Allows wrapping within the navigation */
   gap: 3rem; /* Internal spacing between items */
   background-color: white;
 }
