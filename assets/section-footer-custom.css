@@ -58,10 +58,10 @@
   gap: 0.5rem; /* Space between list items */
 }
 
-/* Footer List Items */
+/* Footer List Items
 .custom-footer-list-item {
-  margin: 0; /* Removed margin to avoid duplication with gap */
-}
+  margin: 0; /* Removed margin to avoid duplication with gap
+}*/
 
 
 /* Footer Links */
