@@ -124,11 +124,6 @@
                     </h2>
                   </a>
               </div>  
-              {%- when 'price' -%}
-                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                  <span class="product__price">
-                    ${{ product.price | divided_by: 100 }}</span>
-                </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
