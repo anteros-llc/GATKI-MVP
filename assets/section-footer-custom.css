@@ -39,11 +39,9 @@
 
 /* Footer Columns */
 .custom-footer-column {
-  flex: 1 1 auto; /* Flexible width */
-}
-
-.custom-footer-heading {
-  margin-bottom: 1.5rem; /* Adds space between heading and list */
+  display: flex; /* Makes gap work */
+  flex-direction: column; /* Stack children vertically */
+  gap: 1.5rem; /* Space between heading and list */
 }
 
 /* Footer Lists */
