@@ -305,68 +305,52 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // Initial setup: Show the first slide and collapse all hidden texts
+  // On load, ensure only the first slide is visible
   slides.forEach((slide, index) => {
     slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
   });
 
+  // Ensure all buttons are not active and hidden texts are collapsed
+  buttons.forEach((btn) => btn.classList.remove("active"));
   hiddenTexts.forEach((text) => {
     text.style.display = "none";
     text.style.opacity = "0";
     text.style.maxHeight = "0";
   });
 
-  buttons.forEach((btn) => btn.classList.remove("active"));
-
   // Add event listeners to buttons
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
-      const targetText = carousel.querySelector(`.ingredient-hidden-text[data-ingredient-id="${targetId}"]`);
 
       // Hide all slides
-      slides.forEach((slide) => {
-        slide.style.display = "none";
-      });
-
-      // Collapse all hidden texts
-      hiddenTexts.forEach((text) => {
-        text.style.display = "none";
-        text.style.opacity = "0";
-        text.style.maxHeight = "0";
-      });
-
-      // Remove active class from all buttons
-      buttons.forEach((btn) => btn.classList.remove("active"));
+      slides.forEach((slide) => (slide.style.display = "none"));
 
       // Show the clicked slide
-      if (targetSlide) {
-        targetSlide.style.display = "flex";
-      }
+      if (targetSlide) targetSlide.style.display = "flex";
 
-      // Expand the corresponding hidden text
-      if (targetText) {
-        const isExpanded = targetText.style.display === "block";
+      // Update active button state
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
 
-        if (isExpanded) {
-          // Collapse if already expanded
-          targetText.style.display = "none";
-          targetText.style.opacity = "0";
-          targetText.style.maxHeight = "0";
+      // Show corresponding hidden text
+      hiddenTexts.forEach((text) => {
+        const ingredientId = text.getAttribute("data-ingredient-id");
+        if (ingredientId === targetId) {
+          text.style.display = "block";
+          text.style.opacity = "1";
+          text.style.maxHeight = "500px"; // Adjust height as needed
         } else {
-          // Expand if collapsed
-          targetText.style.display = "block";
-          targetText.style.opacity = "1";
-          targetText.style.maxHeight = "500px"; // Adjust as needed
+          text.style.display = "none";
+          text.style.opacity = "0";
+          text.style.maxHeight = "0";
         }
-      }
-
-      // Add active class to the clicked button
-      this.classList.toggle("active");
+      });
     });
   });
 });
+
 
 </script>
 
