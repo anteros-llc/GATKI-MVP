@@ -8,10 +8,10 @@
 
 /* Footer Container */
 .custom-footer-container {
-  display: flex;
-  grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Newsletter takes 1 part, menus take 3 parts */
   gap: 3rem; /* Space between rows */
-  align-items: flex-start; 
+  align-items: flex-start; /* Aligns the top edges */
   margin: 0 3rem;
   background-color: grey;
 }
