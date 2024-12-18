@@ -126,8 +126,8 @@
   display: flex;
   justify-content: space-between; /* Distribute items on opposite ends */
   align-items: center;
-  padding: 1rem 3rem;
-  background-color: var(--color-albedo);
+  padding: 1.5rem 3rem;
+  background-color: var(--color-citron);
 }
 
 /* Policies on the left */
