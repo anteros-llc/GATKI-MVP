@@ -14,14 +14,15 @@
 
 /* Newsletter Section */
 .custom-footer-newsletter {
-  flex: 1 1 25%; /* Each section takes up 50% of the parent */
-  max-width: 25%; /* Prevents exceeding the 50% width */
+  flex: 0 0 25%; /* Fixes width at 25% without allowing it to grow */
+  max-width: 25%; /* Prevents exceeding 25% width */
   background-color: white;
 }
 
 /* Navigation Section */
 .navigation {
-  flex: 1 1 50%; /* Each section takes up 50% of the parent */
+  flex: 0 0 50%; /* Fixes width at 50%, prevents growth or shrinking */
+  max-width: 50%;
   display: flex; /* Use flex for internal layout */
   flex-wrap: wrap; /* Allows wrapping within the navigation */
   gap: 3rem; /* Internal spacing between items */
