@@ -3802,3 +3802,7 @@ header__icons a#cart-icon-bubble:before {
   max-width: 100%;
   object-fit: contain;
 }
+
+.product-eyebrow {
+  font-size: 0.75rem;
+}
