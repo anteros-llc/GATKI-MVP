@@ -6,28 +6,31 @@
   gap: 3rem; /* Space between child elements */
 }
 
-/* Footer Container */
+/* Footer Container - Flexbox */
 .custom-footer-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Newsletter takes 1 part, menus take 3 parts */
-  gap: 3rem; /* Space between rows */
+  display: flex;
+  justify-content: space-between; /* Space between newsletter and navigation */
   align-items: flex-start; /* Aligns the top edges */
+  gap: 3rem; /* Space between rows */
   margin: 0 2rem;
-  background-color: grey
+  background-color: grey;
 }
 
 /* Newsletter Section */
 .custom-footer-newsletter {
-  max-width: 80%;
+  flex: 0 1 25%; /* Takes up 25% of the space but doesn't grow */
+  max-width: 80%; /* Optional: Limits width */
 }
 
 /* Navigation Section */
 .navigation {
+  flex: 1 1 auto; /* Grows to fill remaining space */
   display: flex;
   gap: 1.8rem; /* Space between menu columns */
   flex-wrap: wrap; /* Ensures responsiveness */
   text-align: left;
 }
+
 
 /* Footer Logo Section */
 .custom-footer-logo {
