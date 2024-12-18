@@ -70,91 +70,83 @@
 
 
 
-
-/* Parent Container */
+/* Parent Container: Stacks all items vertically */
 .custom-footer {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
   background-color: var(--color-citron) !important;
   color: var(--color-soil);
-  padding-top: 2rem;
+  gap: 3rem; /* Vertical spacing between sections */
 }
 
-/* Footer Container */
+/* First Container Above Logo */
 .custom-footer-container {
-  display: grid;
-  gap: 2rem; /* Space between rows */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  padding: 3rem; /* Padding on all sides */
+  gap: 3rem; /* Gap between rows/child elements */
 }
 
-/* Footer Logo Section */
-.custom-footer-logo {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top center;
-  width: 100%;
-  height: auto;
-  padding: 1.5rem;
+/* Three Columns Layout */
+.custom-footer-columns {
+  display: flex;
+  flex-direction: row; /* Align columns horizontally */
+  gap: 3rem; /* Horizontal gap between columns */
 }
 
-/* Footer Columns */
+/* Individual Column */
 .custom-footer-column {
-  flex: 1 1 auto;
-  max-width: 250px;
-  text-align: left;
+  flex: 1; /* Equal width for all columns */
+  max-width: 250px; /* Optional: Limit width for readability */
+  text-align: left; /* Align text to the left */
 }
 
-/* Footer Column Headings */
+/* Column Heading */
 .custom-footer-heading {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Spacing below headings */
+  font-weight: bold;
 }
 
-/* Footer Lists */
+/* Footer List Styling */
 .custom-footer-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: column; /* Stack list items vertically */
+  gap: 0.5rem; /* Spacing between list items */
 }
 
 /* Footer Links */
-.custom-footer-link {
-  text-decoration: none;
-  color: var(--color-soil);
-}
-
-.custom-footer-link:hover {
-  text-decoration: none;
-}
-
+.custom-footer-link,
 .custom-footer-policy-link {
   text-decoration: none;
   color: var(--color-soil);
 }
 
-/* Bottom Section */
+.custom-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Bottom Section (Policies and Copyright) */
 .custom-footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Align items on opposite ends */
   align-items: center;
   padding: 1.5rem 3rem;
   background-color: var(--color-albedo);
 }
 
-/* Policies on the Left */
+/* Policies Styling */
 .custom-footer-policies {
   display: flex;
-  gap: 2rem;
+  gap: 3rem; /* Gap between policy links */
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.custom-footer-policy-item {
-  margin: 0;
-  color: var(--color-soil);
-}
-
-/* Copyright on the Right */
+/* Copyright Styling */
 .custom-footer-copyright {
   margin: 0;
   text-align: right;
