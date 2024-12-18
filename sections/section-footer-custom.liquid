@@ -1,5 +1,5 @@
-{{ 'section-footer-custom.css' | asset_url | stylesheet_tag }}
 {{ 'base.css' | asset_url | stylesheet_tag }}
+{{ 'section-footer-custom.css' | asset_url | stylesheet_tag }}
 
 <footer class="custom-footer">
   <div class="custom-footer-container">
@@ -45,7 +45,7 @@
 
   <!-- Bottom Section -->
   <div class="custom-footer-bottom">
-    <h6 class="custom-footer-copyright">&copy; {{ 'now' | date: '%Y' }} GATKI by Anteros LLC.</h6>
+    <h5 class="custom-footer-copyright">&copy; {{ 'now' | date: '%Y' }} GATKI by Anteros LLC.</h5>
     <ul class="custom-footer-policies">
       {% for policy in shop.policies %}
         {% if policy %}
