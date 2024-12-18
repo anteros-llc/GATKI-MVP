@@ -21,7 +21,7 @@
 
 /* Navigation Section */
 .navigation {
-  flex: 1 1 100%;
+  flex: 1 1 50%;
   display: flex;
   flex-wrap: wrap; 
   gap: 3rem; 
@@ -39,9 +39,11 @@
 
 /* Footer Columns */
 .custom-footer-column {
-  display: flex; /* Makes gap work */
-  flex-direction: column; /* Stack children vertically */
-  gap: 1.5rem; /* Space between heading and list */
+  flex: 1 1 auto; /* Flexible width */
+}
+
+.custom-footer-heading {
+  margin-bottom: 1.5rem; /* Adds space between heading and list */
 }
 
 /* Footer Lists */
@@ -54,11 +56,6 @@
   gap: 0.5rem; /* Space between list items */
 }
 
-
-/* Footer List Items
-.custom-footer-list-item {
-  margin: 0; /* Removed margin to avoid duplication with gap
-}*/
 
 
 /* Footer Links */
