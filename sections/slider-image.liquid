@@ -28,6 +28,7 @@
 
           <!-- Right Column: Text -->
         <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+          <div class="ingredients-container">
             <ul class="ingredients-list-carousel">
               {%- for ingredient in section.blocks -%}
               {%- if ingredient.type == 'ingredient' -%}
@@ -44,6 +45,7 @@
               {%- endif -%}
               {%- endfor -%}
             </ul>
+          </div>
           </div>
         </div>
         {%- endif -%}
@@ -195,8 +197,6 @@
     text-align: center;
   }
 }
-/* Text Column */
-
 
 </style>
 
