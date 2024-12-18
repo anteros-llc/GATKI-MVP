@@ -16,7 +16,7 @@
 .custom-footer-newsletter {
   flex: 1 1 50%; /* Each section takes up 50% of the parent */
   max-width: 50%; /* Prevents exceeding the 50% width */
-  padding-right: 20%; /* Half of the 3rem gap for alignment */
+  padding-right: 30%; /* Half of the 3rem gap for alignment */
   background-color: white;
 }
 
