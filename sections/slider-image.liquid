@@ -305,41 +305,27 @@ ul{
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // Initial Reset: Set up the initial state
-  slides.forEach((slide, index) => {
-    slide.style.display = index === 0 ? "flex" : "none"; // Show only the first slide
-  });
-  buttons.forEach((button) => button.classList.remove("active")); // No active button on load
-  hiddenTexts.forEach((text) => (text.style.display = "none")); // Collapse all hidden texts
-
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
       const correspondingHiddenText = targetSlide.querySelector(".ingredient-hidden-text");
 
-      // Toggle Logic: Check if the button is already active
-      if (this.classList.contains("active")) {
-        // Collapse Text and Deactivate Button
-        this.classList.remove("active");
-        if (correspondingHiddenText) correspondingHiddenText.style.display = "none";
-        return; // Exit early
-      }
+      // Hide all slides and deactivate buttons
+      slides.forEach((slide) => (slide.style.display = "none"));
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      hiddenTexts.forEach((text) => (text.style.display = "none"));
 
-      // Reset All States
-      slides.forEach((slide) => (slide.style.display = "none")); // Hide all slides
-      buttons.forEach((btn) => btn.classList.remove("active")); // Deactivate all buttons
-      hiddenTexts.forEach((text) => (text.style.display = "none")); // Collapse all hidden texts
+      // Activate the clicked button and show the corresponding slide
+      targetSlide.style.display = "flex";
+      this.classList.add("active");
 
-      // Activate the Selected Slide and Button
-      if (targetSlide) targetSlide.style.display = "flex"; // Show the selected slide
-      this.classList.add("active"); // Activate the clicked button
-
-      // Expand the Corresponding Hidden Text
+      // Expand the hidden text for the selected slide
       if (correspondingHiddenText) correspondingHiddenText.style.display = "block";
     });
   });
 });
+
 </script>
 
 {% schema %}
