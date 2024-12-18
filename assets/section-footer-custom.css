@@ -39,14 +39,14 @@
 
 /* Footer Columns */
 .custom-footer-column {
-  flex: 1; /* Evenly distribute width among columns */
+  flex: 1; 
   display: flex; 
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column; 
 }
 
 /* Footer Headings */
 .custom-footer-heading {
-  margin-bottom: 1.5rem; /* Space between heading and list */
+  margin-bottom: 1.5rem; 
 }
 
 /* Footer Lists */
@@ -56,10 +56,8 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* Space between list items */
+  gap: 0.5rem; 
 }
-
-
 
 
 /* Footer Links */
