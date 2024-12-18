@@ -198,6 +198,69 @@
   }
 }
 
+/* Wrapper for the ingredients */
+.two-column-carousel .ingredients-container {
+  max-height: 40rem; /* Adjust height as needed */
+  overflow-y: auto; /* Adds vertical scrolling if content overflows */
+  padding-right: 1rem; /* Space for scrollbar */
+}
+
+/* Ingredient item styles */
+.two-column-carousel .ingredient-heading {
+  display: flex;
+  justify-content: space-between; /* Number to the right */
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-chenpi);
+}
+
+.two-column-carousel .ingredient-title {
+  flex-grow: 1; /* Takes up remaining space */
+  text-align: left;
+}
+
+.two-column-carousel .ingredient-number {
+  text-align: right;
+  margin-left: 1rem;
+  color: var(--color-chenpi);
+}
+
+.two-column-carousel .ingredient-description {
+  margin: 0.5rem 0 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Scrollbar customization (optional) */
+.two-column-carousel .ingredients-container::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+.two-column-carousel .ingredients-container::-webkit-scrollbar-thumb {
+  background: var(--color-chenpi);
+  border-radius: 0.3rem;
+}
+
+.two-column-carousel .ingredients-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .two-column-carousel .ingredients-container {
+    max-height: 30rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .two-column-carousel .ingredients-container {
+    max-height: 20rem;
+  }
+}
+
+
 </style>
 
 <script>
