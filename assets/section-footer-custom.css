@@ -2,8 +2,8 @@
 .custom-footer {
   background-color: var(--color-citron);
   color: var(--color-soil);
-  padding-top: 3rem; /* Adjusted to match Figma spacing */
-  gap: 3rem; /* Space between child elements */
+  padding-top: 3rem; 
+  gap: 3rem; /
 }
 
 /* Footer Container - Flexbox */
@@ -24,7 +24,7 @@
 /* Navigation Section */
 .navigation {
   display: flex;
-  gap: 2rem; 
+  gap: 3rem; 
   width: 50%;
 }
 
