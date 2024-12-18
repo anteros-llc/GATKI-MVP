@@ -107,7 +107,7 @@ h7 {
   font-weight: 500;
 }
 
-.caption {
+.cta {
   font-family: var(--font-body-family);
   font-weight: 500;
   font-size: 0.875rem;
@@ -116,7 +116,7 @@ h7 {
   background-color: var(--color-soil);
 }
 
-.caption:hover {
+.cta:hover {
   background-color: var(--color-chenpi);
   color: var(--color-blanco);
 }
