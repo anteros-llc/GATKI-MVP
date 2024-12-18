@@ -13,14 +13,14 @@
   text-align: left;
 }
 
-/* Newsletter Section */
+/* Newsletter Section
 .custom-footer-newsletter {
   padding-left: 2rem;
   max-width: 80%;
 }
 
 .custom-footer-column {
-  flex: 1 1 200px; /* Ensures columns are flexible and adjust for smaller screens */
+  flex: 1 1 200px; /* Ensures columns are flexible and adjust for smaller screens
 }
 
 .custom-footer-heading {
@@ -44,6 +44,7 @@
 .custom-footer-link:hover {
   text-decoration: underline;
 }
+ */
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
