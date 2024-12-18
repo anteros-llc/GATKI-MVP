@@ -296,7 +296,7 @@ ul{
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.querySelector(".two-column-carousel");
 
   if (!carousel) return;
@@ -305,12 +305,12 @@ ul{
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // Initial Reset
+  // Initial Reset: Set up the initial state
   slides.forEach((slide, index) => {
     slide.style.display = index === 0 ? "flex" : "none"; // Show only the first slide
   });
-  buttons.forEach((button) => button.classList.remove("active")); // Remove active state from all buttons
-  hiddenTexts.forEach((text) => (text.style.display = "none")); // Ensure all hidden texts are collapsed
+  buttons.forEach((button) => button.classList.remove("active")); // No active button on load
+  hiddenTexts.forEach((text) => (text.style.display = "none")); // Collapse all hidden texts
 
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
@@ -318,12 +318,12 @@ ul{
       const targetSlide = carousel.querySelector(`#${targetId}`);
       const correspondingHiddenText = targetSlide.querySelector(".ingredient-hidden-text");
 
-      // Toggle Logic: Check if this button is already active
+      // Toggle Logic: Check if the button is already active
       if (this.classList.contains("active")) {
         // Collapse Text and Deactivate Button
         this.classList.remove("active");
         if (correspondingHiddenText) correspondingHiddenText.style.display = "none";
-        return; // Exit early to avoid activating the same button again
+        return; // Exit early
       }
 
       // Reset All States
@@ -332,15 +332,14 @@ ul{
       hiddenTexts.forEach((text) => (text.style.display = "none")); // Collapse all hidden texts
 
       // Activate the Selected Slide and Button
-      if (targetSlide) targetSlide.style.display = "flex"; // Show the clicked slide
+      if (targetSlide) targetSlide.style.display = "flex"; // Show the selected slide
       this.classList.add("active"); // Activate the clicked button
 
-      // Expand the Corresponding Text
+      // Expand the Corresponding Hidden Text
       if (correspondingHiddenText) correspondingHiddenText.style.display = "block";
     });
   });
 });
-
 </script>
 
 {% schema %}
