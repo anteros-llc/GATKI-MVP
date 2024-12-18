@@ -1559,3 +1559,8 @@ a.product__text {
 .product__title h3 {
   margin-top: 0;
 }
+
+.sizing {
+  display: flex;
+  justify-content: space-between;
+}
