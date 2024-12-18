@@ -44,17 +44,17 @@
 .custom-footer-link:hover {
   text-decoration: underline;
 }
- */
 
-/* Responsive Adjustments */
+
+/* Responsive Adjustments
 @media (max-width: 768px) {
   .custom-footer-top {
-    flex-direction: column; /* Stacks newsletter and menus vertically */
+    flex-direction: column; /* Stacks newsletter and menus vertically 
     gap: 1rem;
   }
 
   .custom-footer-newsletter {
-    text-align: center; /* Center-align newsletter content for smaller screens */
+    text-align: center; /* Center-align newsletter content for smaller screens
   }
 
   .custom-footer-menu {
@@ -63,9 +63,10 @@
   }
 
   .custom-footer-column {
-    text-align: center; /* Center-align menu columns */
+    text-align: center; /* Center-align menu columns 
   }
 }
+*/
 
 .custom-footer {
   background-color: var(--color-citron) !important;
