@@ -18,7 +18,7 @@
 
 /* Newsletter Section */
 .custom-footer-newsletter {
-  width: 50%;
+  max-width: 50%;
 }
 
 /* Navigation Section */
