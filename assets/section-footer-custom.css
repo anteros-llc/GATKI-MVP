@@ -70,83 +70,97 @@
 
 
 
-/* Parent Container: Stacks all items vertically */
+
+/* Parent Container */
 .custom-footer {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  background-color: var(--color-citron) !important;
+  flex-direction: column; /* Stack content vertically */
+  background-color: var(--color-citron);
   color: var(--color-soil);
-  gap: 3rem; /* Vertical spacing between sections */
+  padding-top: 3rem; /* Adjusted to match Figma spacing */
+  gap: 3rem; /* Space between child elements */
 }
 
-/* First Container Above Logo */
+/* Footer Container */
 .custom-footer-container {
-  display: flex;
-  flex-direction: column; /* Stack children vertically */
-  padding: 3rem; /* Padding on all sides */
-  gap: 3rem; /* Gap between rows/child elements */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12-column grid */
+  gap: 3rem; /* Uniform spacing between rows and columns */
+  padding: 3rem; /* Padding all around */
 }
 
-/* Three Columns Layout */
-.custom-footer-columns {
-  display: flex;
-  flex-direction: row; /* Align columns horizontally */
-  gap: 3rem; /* Horizontal gap between columns */
+
+/* Footer Logo Section */
+.custom-footer-logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 100%;
+  height: auto;
+  padding: 1.5rem;
 }
 
-/* Individual Column */
+/* Footer Columns */
 .custom-footer-column {
-  flex: 1; /* Equal width for all columns */
-  max-width: 250px; /* Optional: Limit width for readability */
-  text-align: left; /* Align text to the left */
+  flex: 1 1 auto;
+  max-width: 250px;
+  text-align: left;
 }
 
-/* Column Heading */
+/* Footer Column Headings */
 .custom-footer-heading {
-  margin-bottom: 1.5rem; /* Spacing below headings */
-  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
-/* Footer List Styling */
+/* Footer Lists */
 .custom-footer-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column; /* Stack list items vertically */
-  gap: 0.5rem; /* Spacing between list items */
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 /* Footer Links */
-.custom-footer-link,
-.custom-footer-policy-link {
+.custom-footer-link {
   text-decoration: none;
   color: var(--color-soil);
 }
 
 .custom-footer-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-/* Bottom Section (Policies and Copyright) */
+.custom-footer-policy-link {
+  text-decoration: none;
+  color: var(--color-soil);
+}
+
+/* Bottom Section */
 .custom-footer-bottom {
   display: flex;
-  justify-content: space-between; /* Align items on opposite ends */
+  justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
   background-color: var(--color-albedo);
 }
 
-/* Policies Styling */
+/* Policies on the Left */
 .custom-footer-policies {
   display: flex;
-  gap: 3rem; /* Gap between policy links */
+  gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Copyright Styling */
+.custom-footer-policy-item {
+  margin: 0;
+  color: var(--color-soil);
+}
+
+/* Copyright on the Right */
 .custom-footer-copyright {
   margin: 0;
   text-align: right;
