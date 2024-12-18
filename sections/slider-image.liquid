@@ -307,6 +307,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
+  buttons.forEach((btn) => btn.classList.remove("active"));
+
   // On load, ensure only the first slide is visible but no active buttons
   slides.forEach((slide, index) => {
     slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
