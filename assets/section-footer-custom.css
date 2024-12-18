@@ -81,8 +81,8 @@
   background-color: var(--color-albedo);
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Align items vertically */
-  padding: 1.5rem 3rem; /* Adjusted vertical and horizontal padding */
+  align-items: center; 
+  padding: 1.5rem 3rem; 
 }
 
 /* Copyright and Policies */
