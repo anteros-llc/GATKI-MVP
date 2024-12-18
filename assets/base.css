@@ -101,7 +101,7 @@ span {
   font-weight: 500;
 }
 
-.cta {
+.h8 {
   font-family: var(--font-body-family);
   font-weight: 500;
   font-size: 0.875rem;
@@ -110,7 +110,7 @@ span {
   background-color: var(--color-soil);
 }
 
-.cta:hover {
+.h8:hover {
   background-color: var(--color-chenpi);
   color: var(--color-blanco);
 }
