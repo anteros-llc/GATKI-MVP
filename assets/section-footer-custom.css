@@ -2,33 +2,31 @@
 .custom-footer {
   background-color: var(--color-citron);
   color: var(--color-soil);
-  padding-top: 3rem; 
-  gap: 3rem; 
+  padding-top: 3rem;
 }
 
-/* Footer Container - Flexbox */
+/* Footer Container */
 .custom-footer-container {
   display: flex;
-
-  gap: 3rem;
+  gap: 3rem; /* Gap between newsletter and navigation */
   margin: 0 2rem;
   background-color: grey;
 }
 
 /* Newsletter Section */
-.custom-footer-newsletter {
-  flex: 0 0 25%;
-  max-width: 25%;
+.custom-footer-newsletter,
+.navigation {
+  flex: 1 1 50%; /* Each section takes up 50% width */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Internal spacing within each section */
 }
 
 /* Navigation Section */
 .navigation {
-  flex: 1; 
-  display: flex;
-  gap: 3rem; /* Space between menu columns */
-  flex-wrap: wrap;
-  width: 50%;
+  text-align: left;
 }
+
 
 
 
