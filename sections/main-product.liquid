@@ -120,6 +120,9 @@
                       {{ product.title | escape }}
                     </h2>
                   </a>
+                                <span class="product__price">
+    ${{ product.price | divided_by: 100 }}
+  </span>
                 </div>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
