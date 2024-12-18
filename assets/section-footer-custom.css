@@ -7,10 +7,9 @@
 
 /* Footer Container */
 .custom-footer-container {
-  display: flex; /* Flexbox for layout */
+  display: flex; 
   gap: 3rem; /* Consistent gap between B and C */
   margin: 0 2rem;
-  background-color: grey;
 }
 
 /* Newsletter Section */
@@ -26,6 +25,7 @@
   display: flex; /* Use flex for internal layout */
   flex-wrap: wrap; /* Allows wrapping within the navigation */
   gap: 3rem; /* Internal spacing between items */
+  background-color: white;
 }
 
 
