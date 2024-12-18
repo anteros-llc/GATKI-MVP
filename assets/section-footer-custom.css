@@ -24,11 +24,10 @@
 
 /* Navigation Section */
 .navigation {
-  flex: 1 1 auto; /* Allows navigation to grow and fill the remaining space */
+  flex: 1; 
   display: flex;
   gap: 3rem; /* Space between menu columns */
   flex-wrap: wrap;
-  text-align: left;
 }
 
 
