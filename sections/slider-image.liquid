@@ -28,11 +28,21 @@
           </div>
 
           <!-- Right Column: Text -->
-          <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-            {%- if block.settings.heading != blank -%}
-              <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
-            {%- endif -%}
-            <p class="slideshow__description">{{ block.settings.description }}</p>
+       <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+            <h3>{{ block.settings.heading }}</h3>
+            <p>{{ block.settings.description }}</p>
+            <ul class="ingredient-list">
+              {%- for ingredient in block.blocks -%}
+                <li class="ingredient-item" id="ingredient-{{ block.settings.custom_id }}-{{ forloop.index }}">
+                  <div class="ingredient-heading">
+                    <span class="ingredient-number">{{ ingredient.settings.number }}</span>
+                    <span class="ingredient-title">{{ ingredient.settings.title }}</span>
+                  </div>
+                  <p class="ingredient-description">{{ ingredient.settings.description }}</p>
+                  <p class="ingredient-hidden-text" style="display: none;">{{ ingredient.settings.hidden_text }}</p>
+                </li>
+              {%- endfor -%}
+            </ul>
           </div>
         </div>
       {%- endfor -%}
@@ -252,14 +262,52 @@ document.addEventListener("DOMContentLoaded", function () {
           "default": "slide-1"
         }
       ]
+    },
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "slide_id",
+          "label": "Slide ID (Link to Slide)"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Ingredient Number"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ingredient Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Ingredient Description"
+        },
+        {
+          "type": "textarea",
+          "id": "hidden_text",
+          "label": "Hidden Text"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Two-Column Carousel"
+      "name": "Two-Column Carousel",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "ingredient"
+        }
+      ]
     }
   ]
 }
 {% endschema %}
-
 
