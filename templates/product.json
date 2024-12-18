@@ -283,9 +283,12 @@
             "title": "CHENPI OIL",
             "description": "Chenpi, the sun-dried mandarin orange peel (Citrus reticulata Blanco), has been cherished in traditional Chinese medicine for its warming properties and aromatic bitterness.",
             "percentage": "",
-            "bullet_point_1": "Anti-inflammatoryExtracted from sun-dried Chenpi (mandarin orange peel) from Xinhui, China, our vitamin C-rich oil is anti-inflammatory and antibacterial, soothing irritation.",
-            "bullet_point_2": "SoothingThe lightweight, non-greasy oil creates a moisture barrier that relieves dry and flaky lips.",
-            "bullet_point_3": "BrighteningRich in antioxidants, it neutralizes free radicals to enhance lip vitality and reduce dullness."
+            "bullet_point_1_heading": "Anti-inflammatory",
+            "bullet_point_1_text": "Extracted from sun-dried Chenpi (mandarin orange peel) from Xinhui, China, our vitamin C-rich oil is anti-inflammatory and antibacterial, soothing irritation.",
+            "bullet_point_2_heading": "Soothing",
+            "bullet_point_2_text": "The lightweight, non-greasy oil creates a moisture barrier that relieves dry and flaky lips.",
+            "bullet_point_3_heading": "Brightening",
+            "bullet_point_3_text": "Rich in antioxidants, it neutralizes free radicals to enhance lip vitality and reduce dullness."
           }
         },
         "ingredient_YW3jXa": {
@@ -297,9 +300,12 @@
             "title": "DUAL PEPTIDE COMPLEX",
             "description": "Tripeptide-1 boosts collagen production, while Hexapeptide-8, a botulinum toxin mimic, locks in moisture and reduces fine lines, keeping lips smooth and bouncy.",
             "percentage": "",
-            "bullet_point_1": "",
-            "bullet_point_2": "",
-            "bullet_point_3": ""
+            "bullet_point_1_heading": "",
+            "bullet_point_1_text": "",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
           }
         },
         "ingredient_h8ydbV": {
@@ -311,9 +317,12 @@
             "title": "CAMELIA SQUALANE",
             "description": "Cold-pressed Camellia Squalane retains active compounds for superior hydration. Compared to other sources, it offers higher purity, fewer impurities, and a more refined skin texture.",
             "percentage": "",
-            "bullet_point_1": "",
-            "bullet_point_2": "",
-            "bullet_point_3": ""
+            "bullet_point_1_heading": "",
+            "bullet_point_1_text": "",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
           }
         },
         "ingredient_qtXFxx": {
@@ -325,9 +334,12 @@
             "title": "BISABOLOL",
             "description": "Bisabolol, a patented natural compound from Brazil's Candeia tree, is known for its powerful anti-inflammatory properties.",
             "percentage": "",
-            "bullet_point_1": "",
-            "bullet_point_2": "",
-            "bullet_point_3": ""
+            "bullet_point_1_heading": "",
+            "bullet_point_1_text": "",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
           }
         }
       },
