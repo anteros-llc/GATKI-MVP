@@ -126,7 +126,7 @@
   display: flex;
   justify-content: space-between; /* Distribute items on opposite ends */
   align-items: center;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
   background-color: var(--color-albedo);
 }
 
@@ -174,7 +174,7 @@
     text-align: left; /* Keep text left-aligned on smaller screens */
   }
 
-  .custom-footer-bottom h6 {
+  .custom-footer-bottom {
     flex-direction: column; /* Stack bottom section vertically */
     text-align: center;
   }
