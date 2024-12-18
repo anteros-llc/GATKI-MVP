@@ -3,17 +3,16 @@
     class="slider-mobile-gutter"
     role="region"
     aria-roledescription="carousel"
-    aria-label="Two-Column Carousel"
+    aria-label="Two-Column Carousel with Ingredients"
   >
-    <h2>Gentle yet effective ingredients.</h2>
+    <h2 class="carousel-title">Gentle yet effective ingredients</h2>
+
     <div class="slideshow grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
       {%- for block in section.blocks -%}
+        {%- if block.type == 'ingredient' -%}
         <div
           class="slideshow__slide two-column-slide grid__item grid--2-col slider__slide"
-          id="{{ block.settings.custom_id }}"
-          role="group"
-          aria-roledescription="slide"
-          aria-label="{{ block.settings.heading }}"
+          id="{{ block.settings.slide_id }}"
           {% if forloop.index == 1 %}style="display: flex;"{% else %}style="display: none;"{% endif %}
         >
           <!-- Left Column: Image -->
@@ -22,51 +21,47 @@
               {{
                 block.settings.image
                 | image_url: width: 1600
-                | image_tag: alt: block.settings.heading
+                | image_tag: alt: block.settings.title
               }}
             {%- endif -%}
           </div>
 
-       <!-- Right Column: Text -->
+          <!-- Right Column: Text -->
           <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-            <h3>{{ slide.settings.heading }}</h3>
-            <p>{{ slide.settings.description }}</p>
-            <div class="ingredient-list">
-  {%- for block in section.blocks -%}
-    {%- if block.type == 'ingredient' -%}
-      <div class="ingredient-item" id="{{ block.settings.slide_id }}">
-        <div class="ingredient-heading">
-          <span class="ingredient-number">{{ block.settings.number }}</span>
-          <span class="ingredient-title">{{ block.settings.title }}</span>
-        </div>
-        <p class="ingredient-description">{{ block.settings.description }}</p>
-        <div class="ingredient-hidden-text" style="display: none;">
-          {{ block.settings.hidden_text }}
-        </div>
-      </div>
-    {%- endif -%}
-  {%- endfor -%}
-</div>
+            <div class="ingredient-item">
+              <div class="ingredient-heading">
+                <span class="ingredient-number">{{ block.settings.number }}</span>
+                <span class="ingredient-title">{{ block.settings.title }}</span>
+              </div>
+              <p class="ingredient-description">{{ block.settings.description }}</p>
+              <div class="ingredient-hidden-text" style="display: none;">
+                {{ block.settings.hidden_text }}
+              </div>
+            </div>
           </div>
         </div>
+        {%- endif -%}
       {%- endfor -%}
     </div>
 
     <!-- Number Navigation -->
     <div class="slideshow__numbers">
       {%- for block in section.blocks -%}
+        {%- if block.type == 'ingredient' -%}
         <button
           type="button"
           class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
-          data-slide="{{ block.settings.custom_id }}"
-          aria-label="Go to {{ block.settings.heading }}"
+          data-slide="{{ block.settings.slide_id }}"
+          aria-label="Go to {{ block.settings.title }}"
         >
-          {{ forloop.index | prepend: '0' }}
+          {{ block.settings.number }}
         </button>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   </slideshow-component>
 </div>
+
 
 
 <style>
@@ -245,6 +240,11 @@ document.addEventListener("DOMContentLoaded", function () {
           "default": "slide-1"
         },
         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Ingredient Image"
+        },
+        {
           "type": "text",
           "id": "number",
           "label": "Ingredient Number",
@@ -278,3 +278,5 @@ document.addEventListener("DOMContentLoaded", function () {
   ]
 }
 {% endschema %}
+
+
