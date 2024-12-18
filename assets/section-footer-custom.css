@@ -82,7 +82,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center; /* Align items vertically */
-  padding: 0 3rem; /* Maintain horizontal padding */
+  padding: 1.5rem 3rem; /* Maintain horizontal padding */
 }
 
 /* Copyright on the Right */
@@ -117,7 +117,6 @@
 .custom-footer-copyright {
   outline: 1px solid red; /* Debugging outline */
 }
-
 
 
 /* Responsive Adjustments */
