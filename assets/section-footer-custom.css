@@ -108,8 +108,7 @@
 .custom-footer-policy-item h6 {
   margin: 0; /* Remove margins from h6 */
   padding: 0; /* Remove padding */
-  font-size: 1rem; /* Optional: Adjust font size */
-  line-height: 1; /* Tight line-height */
+
 }
 
 .custom-footer-bottom,
