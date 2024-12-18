@@ -8,23 +8,23 @@
 /* Footer Container */
 .custom-footer-container {
   display: flex;
-  gap: 3rem; /* Gap between newsletter and navigation */
+  gap: 3rem; /* Consistent gap between children */
   margin: 0 2rem;
   background-color: grey;
 }
 
 /* Newsletter Section */
-.custom-footer-newsletter,
-.navigation {
-  flex: 1 1 50%; /* Each section takes up 50% width */
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Internal spacing within each section */
+.custom-footer-newsletter {
+  flex: 0 0 25%; /* Fix width to 25% */
+  max-width: 25%; /* Ensures it doesn't grow */
 }
 
 /* Navigation Section */
 .navigation {
-  text-align: left;
+  flex: 1; /* Fill the remaining space */
+  display: grid; /* Switch to grid for clean alignment */
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 3rem; /* Internal spacing between columns */
 }
 
 
