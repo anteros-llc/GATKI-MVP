@@ -13,6 +13,7 @@
   gap: 3rem; /* Space between rows */
   align-items: flex-start; /* Aligns the top edges */
   margin: 0 2rem;
+  background-color: grey;
 }
 
 /* Newsletter Section */
