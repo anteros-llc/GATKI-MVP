@@ -2,34 +2,40 @@
 .custom-footer {
   background-color: var(--color-citron);
   color: var(--color-soil);
-  padding-top: 3rem; 
-  gap: 3rem; /* Space between child elements */
+  padding-top: 3rem;
+  gap: 3rem;
 }
 
-/* Footer Container - Flexbox */
+/* Footer Container - Shared Flexbox Layout */
 .custom-footer-container {
   display: flex;
-  justify-content: space-between; /* Ensures space between newsletter and navigation */
-  align-items: flex-start; /* Aligns the top edges */
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 3rem;
   margin: 0 2rem;
   background-color: grey;
 }
 
-/* Newsletter Section */
+/* Newsletter Section - Adjusted Width */
 .custom-footer-newsletter {
-  flex: 0 0 50%; /* Fix width to 50% without allowing it to grow */
-  max-width: 20%;
+  flex: 0 0 35%; /* Matches width of the letter 'G' visually */
+  max-width: 35%; /* Prevents it from stretching */
+}
+
+/* Shared Flex Layout for Children */
+.navigation, .custom-footer-newsletter {
+  display: flex; /* Use the same display setting */
+  flex-direction: column; /* Stack items vertically */
+  gap: 1.5rem; /* Uniform gap between elements */
 }
 
 /* Navigation Section */
 .navigation {
-  flex: 1 1 auto; /* Allows navigation to grow and fill the remaining space */
-  display: flex;
-  gap: 3rem; /* Space between menu columns */
+  flex: 1 1 auto; /* Allows navigation to fill remaining space */
   flex-wrap: wrap;
   text-align: left;
 }
+
 
 
 
