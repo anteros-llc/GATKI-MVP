@@ -101,6 +101,22 @@
 
 }
 
+/* Footer list */
+.custom-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* or use grid */
+  flex-direction: column; /* Stack items vertically */
+  gap: 0.5rem; /* Adds spacing between child elements */
+}
+
+/* List items */
+.custom-footer-list-item {
+  /* margin-bottom removed, spacing handled by the parent */
+}
+
+
 /* Footer links */
 .custom-footer-link {
   text-decoration: none;
