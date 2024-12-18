@@ -27,21 +27,24 @@
             {%- endif -%}
           </div>
 
-          <!-- Right Column: Text -->
-       <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-            <h3>{{ block.settings.heading }}</h3>
-            <p>{{ block.settings.description }}</p>
+       <!-- Right Column: Text -->
+          <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+            <h3>{{ slide.settings.heading }}</h3>
+            <p>{{ slide.settings.description }}</p>
             <ul class="ingredient-list">
-              {%- for ingredient in block.blocks -%}
-                <li class="ingredient-item" id="ingredient-{{ block.settings.custom_id }}-{{ forloop.index }}">
-                  <div class="ingredient-heading">
-                    <span class="ingredient-number">{{ ingredient.settings.number }}</span>
-                    <span class="ingredient-title">{{ ingredient.settings.title }}</span>
-                  </div>
-                  <p class="ingredient-description">{{ ingredient.settings.description }}</p>
-                  <p class="ingredient-hidden-text" style="display: none;">{{ ingredient.settings.hidden_text }}</p>
-                </li>
-              {%- endfor -%}
+            {%- for ingredient in section.blocks -%}
+  {%- if ingredient.type == 'ingredient' and ingredient.settings.slide_id == slide.settings.custom_id -%}
+    <li class="ingredient-item" id="ingredient-{{ slide.settings.custom_id }}-{{ forloop.index }}">
+      <div class="ingredient-heading">
+        <span class="ingredient-number">{{ ingredient.settings.number }}</span>
+        <span class="ingredient-title">{{ ingredient.settings.title }}</span>
+      </div>
+      <p class="ingredient-description">{{ ingredient.settings.description }}</p>
+      <p class="ingredient-hidden-text" style="display: none;">{{ ingredient.settings.hidden_text }}</p>
+    </li>
+  {%- endif -%}
+{%- endfor -%}
+
             </ul>
           </div>
         </div>
