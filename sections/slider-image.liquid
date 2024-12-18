@@ -216,32 +216,58 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-direction: column;
-  gap: 1rem; /* Space between number and text */
-  margin-bottom: 1.5rem; /* Space between each ingredient */
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee; /* Optional divider between ingredients */
+}
+
+.two-column-carousel .ingredient-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; /* Aligns text and numbers */
+  width: 100%;
 }
 
 .two-column-carousel .ingredient-number {
-  font-size: 1.25rem; /* Slightly larger for prominence */
+  font-size: 1.5rem;
   font-weight: bold;
-  color: var(--color-chenpi); /* Adjust to match design */
-  flex-shrink: 0; /* Prevents number from shrinking */
+  color: var(--color-chenpi);
+  margin-left: auto; /* Pushes the number to the far right */
+  text-align: right;
 }
 
 .two-column-carousel .ingredient-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: var(--color-chenpi); /* Adjust to match design */
-  text-transform: uppercase;
-  margin-bottom: 0.3rem;
+  color: var(--color-chenpi);
+  flex: 1; /* Ensures the title takes available space */
 }
 
 .two-column-carousel .ingredient-description {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--color-text-secondary); /* Muted tone */
-  margin: 0;
+  font-size: 1rem;
+  color: var(--color-body);
+  margin-top: 0.5rem;
 }
+
+.two-column-carousel .ingredient-hidden-text {
+  font-size: 0.9rem;
+  color: var(--color-body-light);
+  margin-top: 0.5rem;
+  display: none; /* Hidden by default */
+}
+
+/* Optional: Add responsive design */
+@media (max-width: 749px) {
+  .two-column-carousel .ingredient-item {
+    flex-direction: column;
+  }
+
+  .two-column-carousel .ingredient-number {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+
 
 /* Adjusted Responsiveness */
 @media (max-width: 749px) {
