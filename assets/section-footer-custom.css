@@ -97,8 +97,10 @@
 
 .custom-footer-policy-item {
   margin: 0;
-  padding: 0; 
+  padding: 0;
+  line-height: 1; /* Consistent line-height to reduce spacing */
 }
+
 
 /* Copyright on the Right */
 .custom-footer-copyright {
