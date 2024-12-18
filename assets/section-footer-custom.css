@@ -126,7 +126,7 @@
   display: flex;
   justify-content: space-between; /* Distribute items on opposite ends */
   align-items: center;
-  padding: 2rem 3rem;
+  padding: 1.5rem 3rem;
   background-color: var(--color-albedo);
 }
 
