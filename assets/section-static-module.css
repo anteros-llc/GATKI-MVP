@@ -23,7 +23,7 @@
   text-align: center;
   z-index: 2;
   padding: 1.25rem;
-  @extend h2;
+  @extend h3;
   color: var(--color-blanco);
 }
 
