@@ -295,6 +295,7 @@ ul{
 .two-column-carousel .ingredient-description {
   margin-top: 0.25rem; /* Reduce spacing between title and description */
 }
+<style/> 
   
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -306,18 +307,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // On load, ensure only the first slide is visible
+  // Ensure only the first slide is visible, no button active, and all texts are collapsed
   slides.forEach((slide, index) => {
     slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
   });
 
-  // Ensure no button is active initially and all hidden texts are collapsed
-  buttons.forEach((btn) => btn.classList.remove("active"));
+  buttons.forEach((btn) => btn.classList.remove("active")); // No active button
   hiddenTexts.forEach((text) => {
     text.style.display = "none";
     text.style.opacity = "0";
     text.style.maxHeight = "0";
   });
+
+  const resetState = () => {
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    hiddenTexts.forEach((text) => {
+      text.style.display = "none";
+      text.style.opacity = "0";
+      text.style.maxHeight = "0";
+    });
+  };
 
   // Add event listeners to buttons
   buttons.forEach((button) => {
@@ -327,13 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const isActive = this.classList.contains("active");
 
       // Collapse all slides and texts
-      slides.forEach((slide) => (slide.style.display = "none"));
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      hiddenTexts.forEach((text) => {
-        text.style.display = "none";
-        text.style.opacity = "0";
-        text.style.maxHeight = "0";
-      });
+      resetState();
 
       if (!isActive) {
         // Show the clicked slide
@@ -351,6 +354,9 @@ document.addEventListener("DOMContentLoaded", function () {
             text.style.maxHeight = "500px"; // Adjust as needed
           }
         });
+      } else {
+        // If the button is already active, collapse the text and deactivate the button
+        this.classList.remove("active");
       }
     });
   });
