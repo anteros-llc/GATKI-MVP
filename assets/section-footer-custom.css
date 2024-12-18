@@ -9,7 +9,7 @@
 .custom-footer-container {
   display: flex; 
   gap: 3rem;
-  margin: 3rem;
+  margin: 0 3rem;
 }
 
 /* Newsletter Section */
