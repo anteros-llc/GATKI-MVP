@@ -88,7 +88,7 @@ label {
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.1;
-  text-decoration: uppercase;
+  text-transform: uppercase;
 }
 
 h6,
