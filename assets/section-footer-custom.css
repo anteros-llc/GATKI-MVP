@@ -105,11 +105,8 @@
 
 /* Footer links */
 .custom-footer-link {
-  line-height: 1.5;
   text-decoration: none;
   color: var(--color-soil);
-  font-weight: 400;
-  font-size: 1rem;
 }
 
 .custom-footer-policy-link{
