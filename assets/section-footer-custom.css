@@ -81,9 +81,10 @@
   background-color: var(--color-albedo);
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the top */
-  padding: 0 3rem; 
+  align-items: center; /* Align items to the center vertically */
+  padding: 0 3rem; /* Maintain horizontal padding */
 }
+
 
 /* Policies on the Left */
 .custom-footer-policies {
