@@ -34,9 +34,9 @@
               {%- if ingredient.type == 'ingredient' -%}
               <li class="ingredient-item">
                 <div class="ingredient-heading">
-                  <h6 class="ingredient-title">{{ ingredient.settings.title }}</h6>
                   <span class="ingredient-number">{{ ingredient.settings.number }}</span>
                 </div>
+                <h6 class="ingredient-title">{{ ingredient.settings.title }}</h6>
                 <p class="ingredient-description">{{ ingredient.settings.description }}</p>
                 <div class="ingredient-hidden-text" style="display: none;">
                   {{ ingredient.settings.hidden_text }}
