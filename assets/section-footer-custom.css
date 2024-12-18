@@ -51,8 +51,7 @@
 /* Footer Lists */
 .custom-footer-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+
   display: flex;
   flex-direction: column;
   gap: 0.5rem; /* Space between list items */
