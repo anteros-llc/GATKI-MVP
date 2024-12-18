@@ -22,6 +22,7 @@
 
 /* Navigation Section */
 .navigation {
+  width: 100%;
   display: flex;
   gap: 3rem; /* Space between menu columns */
   flex-wrap: wrap; /* Ensures responsiveness */
