@@ -196,6 +196,79 @@
     text-align: center;
   }
 }
+/* Text Column */
+.two-column-carousel .slideshow__text-wrapper--half {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem; /* Space between ingredient items */
+}
+
+.two-column-carousel .ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.two-column-carousel .ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem; /* Space between number and text */
+  margin-bottom: 1.5rem; /* Space between each ingredient */
+}
+
+.two-column-carousel .ingredient-number {
+  font-size: 1.25rem; /* Slightly larger for prominence */
+  font-weight: bold;
+  color: var(--color-chenpi); /* Adjust to match design */
+  flex-shrink: 0; /* Prevents number from shrinking */
+}
+
+.two-column-carousel .ingredient-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-chenpi); /* Adjust to match design */
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.two-column-carousel .ingredient-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary); /* Muted tone */
+  margin: 0;
+}
+
+/* Adjusted Responsiveness */
+@media (max-width: 749px) {
+  .two-column-carousel .slideshow__text-wrapper--half {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .two-column-carousel .ingredient-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .two-column-carousel .ingredient-number {
+    font-size: 1rem;
+  }
+
+  .two-column-carousel .ingredient-title {
+    font-size: 0.9rem;
+  }
+
+  .two-column-carousel .ingredient-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
+
 </style>
 
 <script>
