@@ -39,9 +39,13 @@
 
 /* Footer Columns */
 .custom-footer-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Space between list items */
+  flex: 1 1 auto; /* Flexible width */
+  gap: 1.5rem;
+}
+
+/* Footer Headings */
+.custom-footer-heading {
+  margin-bottom: 1.5rem; /* Space between heading and list */
 }
 
 /* Footer Lists */
