@@ -23,8 +23,7 @@
   text-align: center;
   z-index: 2;
   padding: 1.25rem;
-  @extend h3;
-  color: var(--color-blanco);
+  color: var(--color-chenpi);
 }
 
 #field-1 {
