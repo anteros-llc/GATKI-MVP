@@ -116,7 +116,7 @@
                   <span class="product-eyebrow">Fragnance-free Hydrating Balm</span>
                   <h3>{{ product.title | escape }}</h3>
                   <span class="product__price">
-    {{ product.price | money_without_currency }}
+    ${{ product.price | divided_by: 100 }}
   </span>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
