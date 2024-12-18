@@ -50,7 +50,9 @@
       {% for policy in shop.policies %}
         {% if policy %}
           <li class="custom-footer-policy-item">
-            <a href="{{ policy.url }}" class="custom-footer-policy-link">{{ policy.title }}</a>
+            <h6>
+              <a href="{{ policy.url }}" class="custom-footer-policy-link">{{ policy.title }}</a>
+            </h6>
           </li>
         {% endif %}
       {% endfor %}
