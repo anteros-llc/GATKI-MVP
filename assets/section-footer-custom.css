@@ -15,8 +15,8 @@
 
 /* Newsletter Section */
 .custom-footer-newsletter {
-  flex: 1 1 50%; /* Each section takes up 50% of the parent */
-  max-width: 50%; /* Prevents exceeding the 50% width */
+  flex: 1 1 20%; /* Each section takes up 50% of the parent */
+  max-width: 20%; /* Prevents exceeding the 50% width */
 }
 
 /* Navigation Section */
