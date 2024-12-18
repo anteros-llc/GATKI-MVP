@@ -3,30 +3,34 @@
   background-color: var(--color-citron);
   color: var(--color-soil);
   padding-top: 3rem; 
-  gap: 3rem; /
+  gap: 3rem; /* Space between child elements */
 }
 
 /* Footer Container - Flexbox */
 .custom-footer-container {
   display: flex;
-  justify-content: space-between; /* Space between newsletter and navigation */
+  justify-content: space-between; /* Ensures space between newsletter and navigation */
   align-items: flex-start; /* Aligns the top edges */
-  gap: 3rem; /* Space between rows */
+  gap: 3rem;
   margin: 0 2rem;
   background-color: grey;
 }
 
 /* Newsletter Section */
 .custom-footer-newsletter {
+  flex: 0 0 50%; /* Fix width to 50% without allowing it to grow */
   max-width: 50%;
 }
 
 /* Navigation Section */
 .navigation {
+  flex: 1 1 auto; /* Allows navigation to grow and fill the remaining space */
   display: flex;
-  gap: 3rem; 
-  width: 50%;
+  gap: 3rem; /* Space between menu columns */
+  flex-wrap: wrap;
+  text-align: left;
 }
+
 
 
 /* Footer Logo Section */
