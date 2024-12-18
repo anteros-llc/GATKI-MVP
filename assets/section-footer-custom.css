@@ -115,18 +115,20 @@
 
   /* Newsletter Section */
   .custom-footer-newsletter {
+    width: 100%; /* Full width on mobile */
     padding-right: 0; /* Remove padding-right */
   }
 
   /* Navigation Section */
   .navigation {
-    flex-direction: column; /* Stack items in navigation */
+    width: 100%; /* Full width on mobile */
+    flex-direction: column; /* Stack navigation items */
     gap: 2rem; /* Space between navigation columns */
   }
 
   /* Footer Columns */
   .custom-footer-column {
-    text-align: left; /* Align column text to the left */
+    width: 100%; /* Ensure columns take full width */
   }
 
   /* Footer Logo Section */
