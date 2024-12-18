@@ -307,17 +307,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // On load, ensure only the first slide is visible, but no buttons are active
+  // On load, ensure only the first slide is visible but no active buttons
   slides.forEach((slide, index) => {
     slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
-  });
-
-  buttons.forEach((btn) => btn.classList.remove("active")); // Ensure no buttons are active initially
-
-  hiddenTexts.forEach((text) => {
-    text.style.display = "none";
-    text.style.opacity = "0";
-    text.style.maxHeight = "0";
   });
 
   const resetState = () => {
@@ -338,7 +330,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Collapse all slides and texts
       resetState();
-      slides.forEach((slide) => (slide.style.display = "none"));
 
       if (!isActive) {
         // Show the clicked slide
@@ -356,10 +347,14 @@ document.addEventListener("DOMContentLoaded", function () {
             text.style.maxHeight = "500px"; // Adjust as needed
           }
         });
+      } else {
+        // If the button is already active, collapse the text and deactivate the button
+        this.classList.remove("active");
       }
     });
   });
 });
+
 </script>
 
 {% schema %}
