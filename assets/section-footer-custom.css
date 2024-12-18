@@ -68,13 +68,21 @@
 }
 */
 
+
+
+
+
+
+
+
+
+
+
 .custom-footer {
   background-color: var(--color-citron) !important;
   color: var(--color-soil);
   padding-top: 2rem;
 }
-
-/* Top section - Align columns to the right */
 
 /* Each footer column */
 .custom-footer-column {
@@ -97,12 +105,6 @@
   flex-direction: column; /* Stack items vertically */
   gap: 0.5rem; /* Adds spacing between child elements */
 }
-
-/* List items */
-.custom-footer-list-item {
-  /* margin-bottom removed, spacing handled by the parent */
-}
-
 
 /* Footer links */
 .custom-footer-link {
@@ -182,3 +184,104 @@
     margin-bottom: 1rem;
   }
 }
+
+
+
+
+
+
+
+/* Parent Footer Container */
+.custom-footer {
+  background-color: var(--color-citron) !important;
+  color: var(--color-soil);
+  padding: 2rem 0; /* Top and bottom padding */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Adds spacing between footer rows */
+}
+
+/* Top Section: Footer Columns */
+.custom-footer-top {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12-column grid */
+  gap: 2rem; /* Spacing between grid columns */
+}
+
+/* Footer Columns */
+.custom-footer-column {
+  grid-column: span 4; /* Each column takes 4 of 12 grid columns */
+  text-align: left;
+}
+
+.custom-footer-column:last-child {
+  grid-column: span 6; /* The right 3 columns span half of the grid */
+}
+
+/* Footer Headings */
+.custom-footer-heading {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+/* Footer Lists */
+.custom-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 0.5rem; /* Vertical spacing */
+}
+
+/* Footer Links */
+.custom-footer-link,
+.custom-footer-policy-link {
+  text-decoration: none;
+  color: var(--color-soil);
+}
+
+.custom-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Bottom Section: Policies and Copyright */
+.custom-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  background-color: var(--color-albedo);
+}
+
+/* Footer Policies */
+.custom-footer-policies {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual Policy Item */
+.custom-footer-policy-item {
+  color: var(--color-soil);
+  margin: 0;
+}
+
+/* Copyright Text */
+.custom-footer-copyright {
+  text-align: right;
+  margin: 0;
+}
+
+/* Footer Logo Section */
+.custom-footer-logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  padding: 1.5rem;
+}
+
