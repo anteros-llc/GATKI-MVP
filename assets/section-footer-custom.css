@@ -85,6 +85,11 @@
   padding: 0 3rem; /* Maintain horizontal padding */
 }
 
+/* Copyright on the Right */
+.custom-footer-copyright {
+  margin: 0;
+  text-align: right;
+}
 
 /* Policies on the Left */
 .custom-footer-policies {
@@ -98,15 +103,8 @@
 .custom-footer-policy-item {
   margin: 0;
   padding: 0;
-  line-height: 1; /* Consistent line-height to reduce spacing */
 }
 
-
-/* Copyright on the Right */
-.custom-footer-copyright {
-  margin: 0;
-  text-align: right;
-}
 
 .custom-footer-bottom,
 .custom-footer-policies,
