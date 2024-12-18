@@ -27,17 +27,23 @@
           </div>
 
           <!-- Right Column: Text -->
-          <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-            <div class="ingredient-item">
-              <div class="ingredient-heading">
-                <span class="ingredient-number">{{ block.settings.number }}</span>
-                <span class="ingredient-title">{{ block.settings.title }}</span>
-              </div>
-              <p class="ingredient-description">{{ block.settings.description }}</p>
-              <div class="ingredient-hidden-text" style="display: none;">
-                {{ block.settings.hidden_text }}
-              </div>
-            </div>
+        <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+            <ul class="ingredients-list">
+              {%- for ingredient in section.blocks -%}
+              {%- if ingredient.type == 'ingredient' -%}
+              <li class="ingredient-item">
+                <div class="ingredient-heading">
+                  <span class="ingredient-number">{{ ingredient.settings.number }}</span>
+                  <span class="ingredient-title">{{ ingredient.settings.title }}</span>
+                </div>
+                <p class="ingredient-description">{{ ingredient.settings.description }}</p>
+                <div class="ingredient-hidden-text" style="display: none;">
+                  {{ ingredient.settings.hidden_text }}
+                </div>
+              </li>
+              {%- endif -%}
+              {%- endfor -%}
+            </ul>
           </div>
         </div>
         {%- endif -%}
