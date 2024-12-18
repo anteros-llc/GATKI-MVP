@@ -93,19 +93,6 @@
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-/* List items */
-.custom-footer-list-item {
-  margin-bottom: 0.5rem;
-
-}
-
-/* Footer list */
-.custom-footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex; /* or use grid */
   flex-direction: column; /* Stack items vertically */
   gap: 0.5rem; /* Adds spacing between child elements */
