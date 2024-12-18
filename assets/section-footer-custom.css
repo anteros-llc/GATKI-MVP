@@ -12,8 +12,8 @@
   grid-template-columns: 1fr 1fr; /* Newsletter takes 1 part, menus take 3 parts */
   gap: 3rem; /* Space between rows */
   align-items: flex-start; /* Aligns the top edges */
-  margin: 0 3rem;
-  background-color: grey;
+  margin: 0 2rem;
+  background-color: grey
 }
 
 /* Newsletter Section */
@@ -24,7 +24,7 @@
 /* Navigation Section */
 .navigation {
   display: flex;
-  gap: 3rem; /* Space between menu columns */
+  gap: 1.8rem; /* Space between menu columns */
   flex-wrap: wrap; /* Ensures responsiveness */
   text-align: left;
 }
