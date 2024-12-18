@@ -45,9 +45,8 @@
 
 /* Footer Columns */
 .custom-footer-column {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem; /* Internal spacing within columns */
+  flex: 1 1 auto; /* Flexible width */
+  text-align: left;
 }
 
 .custom-footer-heading {
