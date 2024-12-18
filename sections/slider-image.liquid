@@ -190,6 +190,12 @@ ul{
   margin: 0;
 }
 
+.ingredient-hidden-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
 
 /* Responsive */
 @media (max-width: 749px) {
@@ -331,7 +337,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
 </script>
 
 {% schema %}
