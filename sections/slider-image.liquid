@@ -296,7 +296,7 @@ ul{
 </style>
 
 <script>
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.querySelector(".two-column-carousel");
 
   if (!carousel) return;
@@ -305,23 +305,52 @@ ul{
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
+  // On load, ensure only the first slide is visible
+  slides.forEach((slide, index) => {
+    slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
+  });
+
+  // Ensure all buttons are not active and hidden texts are collapsed
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  hiddenTexts.forEach((text) => {
+    text.style.display = "none";
+    text.style.opacity = "0";
+    text.style.maxHeight = "0";
+  });
+
+  // Add event listeners to buttons
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
-      const correspondingHiddenText = targetSlide.querySelector(".ingredient-hidden-text");
+      const targetText = carousel.querySelector(`.ingredient-hidden-text[data-ingredient-id="${targetId}"]`);
+      const isActive = this.classList.contains("active");
 
-      // Hide all slides and deactivate buttons
+      // Toggle hidden text visibility
+      hiddenTexts.forEach((text) => {
+        text.style.display = "none";
+        text.style.opacity = "0";
+        text.style.maxHeight = "0";
+      });
+
+      if (targetText && !isActive) {
+        // Expand the corresponding hidden text
+        targetText.style.display = "block";
+        targetText.style.opacity = "1";
+        targetText.style.maxHeight = "500px"; // Adjust height as needed
+      }
+
+      // Hide all slides
       slides.forEach((slide) => (slide.style.display = "none"));
+
+      // Show the clicked slide
+      if (targetSlide) targetSlide.style.display = "flex";
+
+      // Toggle button active state
       buttons.forEach((btn) => btn.classList.remove("active"));
-      hiddenTexts.forEach((text) => (text.style.display = "none"));
-
-      // Activate the clicked button and show the corresponding slide
-      targetSlide.style.display = "flex";
-      this.classList.add("active");
-
-      // Expand the hidden text for the selected slide
-      if (correspondingHiddenText) correspondingHiddenText.style.display = "block";
+      if (!isActive) {
+        this.classList.add("active");
+      }
     });
   });
 });
