@@ -29,6 +29,14 @@
   background-color: white;
 }
 
+.navigation {
+  flex: 1; /* Allows it to take up the remaining space */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem; /* Internal spacing between items */
+  background-color: white;
+}
+
 
 
 /* Footer Logo Section */
