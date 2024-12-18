@@ -29,6 +29,7 @@
   gap: 1.8rem; /* Space between menu columns */
   flex-wrap: wrap; /* Ensures responsiveness */
   text-align: left;
+  width: 50%;
 }
 
 
