@@ -19,14 +19,13 @@
 /* Newsletter Section */
 .custom-footer-newsletter {
   flex: 0 1 25%; /* Takes up 25% of the space but doesn't grow */
-  max-width: 80%; /* Optional: Limits width */
+
 }
 
 /* Navigation Section */
 .navigation {
   display: flex;
   gap: 1.8rem; /* Space between menu columns */
-
   width: 50%;
 }
 
