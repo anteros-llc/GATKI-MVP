@@ -24,20 +24,6 @@
                 | image_tag: alt: block.settings.title
               }}
             {%- endif -%}
-              <div class="slideshow__numbers">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'ingredient' -%}
-        <button
-          type="button"
-          class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
-          data-slide="{{ block.settings.slide_id }}"
-          aria-label="Go to {{ block.settings.title }}"
-        >
-          {{ block.settings.number }}
-        </button>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
           </div>
 
           <!-- Right Column: Text -->
@@ -52,10 +38,7 @@
                   <span class="ingredient-number">{{ ingredient.settings.number }}</span>
                 </div>
                 <p class="ingredient-description">{{ ingredient.settings.description }}</p>
-                <div class="ingredient-hidden-text"
-                  data-ingredient-id="{{ ingredient.settings.slide_id }}"
-                  {% if block.settings.slide_id == ingredient.settings.slide_id %}style="display: block;"{% else %}style="display: none;"{% endif %}
-                >
+                <div class="ingredient-hidden-text" style="display: none;">
                   {{ ingredient.settings.hidden_text }}
                 </div>
               </li>
@@ -65,22 +48,6 @@
           </div>
           </div>
         </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-
-    <!-- Number Navigation -->
-    <div class="slideshow__numbers">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'ingredient' -%}
-        <button
-          type="button"
-          class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
-          data-slide="{{ block.settings.slide_id }}"
-          aria-label="Go to {{ block.settings.title }}"
-        >
-          {{ block.settings.number }}
-        </button>
         {%- endif -%}
       {%- endfor -%}
     </div>
@@ -167,10 +134,8 @@ ul{
 .two-column-carousel .slideshow__numbers {
   display: flex;
   justify-content: center;
-  margin-top: -6rem;
   position: absolute;
-  left: -30%;
-  right: 0;
+  bottom: 14%;
   width: 100%;
 }
 
@@ -198,18 +163,18 @@ ul{
   border-color: var(--color-chenpi);
 }
 
+.two-column-carousel .slideshow__number:hover{
+  background-color: var(--color-chenpi);
+  color: var(--color-blanco);
+  border-color: var(--color-chenpi);
+}
+
 .two-column-carousel .ingredients-list-carousel {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.ingredient-hidden-text {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-}
 
 /* Responsive */
 @media (max-width: 749px) {
@@ -238,8 +203,6 @@ ul{
   display: flex;
   justify-content: space-between; /* Number to the right */
   align-items: center;
-  font-size: 1rem;
-  font-weight: bold;
   color: var(--color-chenpi);
 }
 
@@ -252,11 +215,9 @@ ul{
   text-align: right;
   margin-left: 1rem;
   color: var(--color-chenpi);
+  font-size: 0.75rem;
 }
-
-.two-column-carousel .ingredient-description {
-}
-
+  
 /* Scrollbar customization (optional) */
 .two-column-carousel .ingredients-container::-webkit-scrollbar {
   width: 0.6rem;
@@ -292,8 +253,16 @@ ul{
 
 /* Ingredient Description */
 .two-column-carousel .ingredient-description {
-  margin-top: 0.25rem; /* Reduce spacing between title and description */
+  margin-top: 0.25rem; /* Reduce spacing between title and description */ 
 }
+
+.two-column-carousel .ingredient-title{
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
 </style>
 
 <script>
@@ -304,58 +273,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const slides = carousel.querySelectorAll(".slideshow__slide");
   const buttons = carousel.querySelectorAll(".slideshow__number");
-  const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // On load, ensure only the first slide is visible
-  slides.forEach((slide, index) => {
-    slide.style.display = index === 0 ? "flex" : "none"; // First slide visible
-  });
-
-  // Ensure all buttons are not active and hidden texts are collapsed
-  buttons.forEach((btn) => btn.classList.remove("active"));
-  hiddenTexts.forEach((text) => {
-    text.style.display = "none";
-    text.style.opacity = "0";
-    text.style.maxHeight = "0";
-  });
-
-  // Add event listeners to buttons
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
-      const targetText = carousel.querySelector(`.ingredient-hidden-text[data-ingredient-id="${targetId}"]`);
-      const isActive = this.classList.contains("active");
-
-      // Toggle hidden text visibility
-      hiddenTexts.forEach((text) => {
-        text.style.display = "none";
-        text.style.opacity = "0";
-        text.style.maxHeight = "0";
-      });
-
-      if (targetText && !isActive) {
-        // Expand the corresponding hidden text
-        targetText.style.display = "block";
-        targetText.style.opacity = "1";
-        targetText.style.maxHeight = "500px"; // Adjust height as needed
-      }
 
       // Hide all slides
-      slides.forEach((slide) => (slide.style.display = "none"));
+      slides.forEach((slide) => {
+        slide.style.display = "none";
+      });
 
-      // Show the clicked slide
-      if (targetSlide) targetSlide.style.display = "flex";
-
-      // Toggle button active state
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      if (!isActive) {
-        this.classList.add("active");
+      // Show the target slide
+      if (targetSlide) {
+        targetSlide.style.display = "flex";
       }
+
+      // Update active button states
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
     });
   });
 });
-
 </script>
 
 {% schema %}
