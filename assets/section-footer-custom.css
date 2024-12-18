@@ -21,7 +21,7 @@
 
 /* Navigation Section */
 .navigation {
-  flex: 1 1 50%;
+  flex: 1 1 100%;
   display: flex;
   flex-wrap: wrap; 
   gap: 3rem; 
