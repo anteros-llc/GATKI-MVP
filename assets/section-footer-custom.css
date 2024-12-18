@@ -87,7 +87,7 @@
 /* Policies on the Left */
 .custom-footer-policies {
   display: flex;
-  gap: 2rem;
+  gap: 0rem;
   list-style: none;
   padding: 0;
   margin: 0;
