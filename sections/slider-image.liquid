@@ -59,26 +59,26 @@
 >
   {% if ingredient.settings.percentage %}
   <div class="percentage">
-    <span>{{ ingredient.settings.percentage }}</span>
+    <h2>{{ ingredient.settings.percentage }}</h2>
   </div>
   {% endif %}
   <div class="bullet-points">
     <ul>
       {% if ingredient.settings.bullet_point_1_heading and ingredient.settings.bullet_point_1_text %}
       <li>
-        <h4>{{ ingredient.settings.bullet_point_1_heading }}</h4>
+        <h6>{{ ingredient.settings.bullet_point_1_heading }}</h6>
         <p>{{ ingredient.settings.bullet_point_1_text }}</p>
       </li>
       {% endif %}
       {% if ingredient.settings.bullet_point_2_heading and ingredient.settings.bullet_point_2_text %}
       <li>
-        <h4>{{ ingredient.settings.bullet_point_2_heading }}</h4>
+        <h6>{{ ingredient.settings.bullet_point_2_heading }}</h6>
         <p>{{ ingredient.settings.bullet_point_2_text }}</p>
       </li>
       {% endif %}
       {% if ingredient.settings.bullet_point_3_heading and ingredient.settings.bullet_point_3_text %}
       <li>
-        <h4>{{ ingredient.settings.bullet_point_3_heading }}</h4>
+        <h6>{{ ingredient.settings.bullet_point_3_heading }}</h6>
         <p>{{ ingredient.settings.bullet_point_3_text }}</p>
       </li>
       {% endif %}
