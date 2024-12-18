@@ -123,6 +123,11 @@ span {
   background-color: var(--color-soil);
 }
 
+.cta:hover {
+  background-color: var(--color-chenpi);
+  color: var(--color-blanco);
+}
+
 .product-card-wrapper .card,
 .contains-card--product {
   --border-radius: var(--product-card-corner-radius);
@@ -3801,8 +3806,4 @@ header__icons a#cart-icon-bubble:before {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-}
-
-.product-eyebrow {
-  font-size: 0.75rem;
 }
