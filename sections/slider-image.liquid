@@ -38,7 +38,10 @@
                   <span class="ingredient-number">{{ ingredient.settings.number }}</span>
                 </div>
                 <p class="ingredient-description">{{ ingredient.settings.description }}</p>
-                <div class="ingredient-hidden-text" style="display: none;">
+                <div class="ingredient-hidden-text"
+                  data-ingredient-id="{{ ingredient.settings.slide_id }}"
+                  {% if block.settings.slide_id == ingredient.settings.slide_id %}style="display: block;"{% else %}style="display: none;"{% endif %}
+                >
                   {{ ingredient.settings.hidden_text }}
                 </div>
               </li>
@@ -181,12 +184,6 @@ ul{
   border-color: var(--color-chenpi);
 }
 
-.two-column-carousel .slideshow__number:hover{
-  background-color: var(--color-chenpi);
-  color: var(--color-blanco);
-  border-color: var(--color-chenpi);
-}
-
 .two-column-carousel .ingredients-list-carousel {
   list-style: none;
   padding: 0;
@@ -221,6 +218,8 @@ ul{
   display: flex;
   justify-content: space-between; /* Number to the right */
   align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
   color: var(--color-chenpi);
 }
 
@@ -233,9 +232,11 @@ ul{
   text-align: right;
   margin-left: 1rem;
   color: var(--color-chenpi);
-  font-size: 0.75rem;
 }
-  
+
+.two-column-carousel .ingredient-description {
+}
+
 /* Scrollbar customization (optional) */
 .two-column-carousel .ingredients-container::-webkit-scrollbar {
   width: 0.6rem;
@@ -271,16 +272,8 @@ ul{
 
 /* Ingredient Description */
 .two-column-carousel .ingredient-description {
-  margin-top: 0.25rem; /* Reduce spacing between title and description */ 
+  margin-top: 0.25rem; /* Reduce spacing between title and description */
 }
-
-.two-column-carousel .ingredient-title{
-  font-size: 0.75rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: 600;
-}
-
 </style>
 
 <script>
@@ -310,6 +303,16 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update active button states
       buttons.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
+  
+    // Update Hidden Text
+      hiddenTexts.forEach((text) => {
+        const ingredientId = text.getAttribute("data-ingredient-id");
+        if (ingredientId === targetId) {
+          text.style.display = "block"; // Show matching text
+        } else {
+          text.style.display = "none"; // Hide non-matching text
+        }
+      });
     });
   });
 });
