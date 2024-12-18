@@ -297,7 +297,41 @@
           "type": "ingredient",
           "settings": {
             "slide_id": "slide-1",
+            "image": "shopify://shop_images/Ingredient_LipDew_Chenpi_2000x2000_PDP_LIPDEW.jpg",
             "number": "01",
+            "title": "Gentle Ingredient",
+            "description": "This is a brief description of the ingredient.",
+            "hidden_text": "This is additional information about the ingredient."
+          }
+        },
+        "ingredient_YW3jXa": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-2",
+            "image": "shopify://shop_images/Ingredient_Pianta_1000x1000_PDP_LIPDEW.jpg",
+            "number": "02",
+            "title": "Gentle Ingredient",
+            "description": "This is a brief description of the ingredient.",
+            "hidden_text": "This is additional information about the ingredient."
+          }
+        },
+        "ingredient_h8ydbV": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-3",
+            "image": "shopify://shop_images/Ingredient_Camellia_2000x2000_PDP_LIPDEW.jpg",
+            "number": "03",
+            "title": "Gentle Ingredient",
+            "description": "This is a brief description of the ingredient.",
+            "hidden_text": "This is additional information about the ingredient."
+          }
+        },
+        "ingredient_qtXFxx": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-4",
+            "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
+            "number": "04",
             "title": "Gentle Ingredient",
             "description": "This is a brief description of the ingredient.",
             "hidden_text": "This is additional information about the ingredient."
@@ -305,7 +339,10 @@
         }
       },
       "block_order": [
-        "ingredient_AVkb6z"
+        "ingredient_AVkb6z",
+        "ingredient_YW3jXa",
+        "ingredient_h8ydbV",
+        "ingredient_qtXFxx"
       ],
       "settings": {}
     }
