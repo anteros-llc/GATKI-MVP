@@ -82,7 +82,7 @@
 /* Footer Container */
 .custom-footer-container {
   display: grid;
-  gap: 2rem; /* Space between rows */
+  gap: 3rem; /* Space between rows */
 }
 
 /* Footer Logo Section */
