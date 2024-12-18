@@ -310,6 +310,22 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
+      const targetText = carousel.querySelector(`.ingredient-hidden-text[data-ingredient-id="${targetId}"]`);
+      const isActive = this.classList.contains("active");
+
+      // Toggle hidden text visibility
+      hiddenTexts.forEach((text) => {
+        text.style.display = "none";
+        text.style.opacity = "0";
+        text.style.maxHeight = "0";
+      });
+
+      if (targetText && !isActive) {
+        // Expand the corresponding hidden text
+        targetText.style.display = "block";
+        targetText.style.opacity = "1";
+        targetText.style.maxHeight = "500px"; // Adjust height as needed
+      }
 
       // Hide all slides
       slides.forEach((slide) => (slide.style.display = "none"));
@@ -317,26 +333,15 @@ document.addEventListener("DOMContentLoaded", function () {
       // Show the clicked slide
       if (targetSlide) targetSlide.style.display = "flex";
 
-      // Update active button state
+      // Toggle button active state
       buttons.forEach((btn) => btn.classList.remove("active"));
-      this.classList.add("active");
-
-      // Show corresponding hidden text
-      hiddenTexts.forEach((text) => {
-        const ingredientId = text.getAttribute("data-ingredient-id");
-        if (ingredientId === targetId) {
-          text.style.display = "block";
-          text.style.opacity = "1";
-          text.style.maxHeight = "500px"; // Adjust height as needed
-        } else {
-          text.style.display = "none";
-          text.style.opacity = "0";
-          text.style.maxHeight = "0";
-        }
-      });
+      if (!isActive) {
+        this.classList.add("active");
+      }
     });
   });
 });
+
 </script>
 
 {% schema %}
