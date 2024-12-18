@@ -70,8 +70,6 @@
   </slideshow-component>
 </div>
 
-
-
 <style>
 ul{
   list-style: none;
@@ -133,14 +131,10 @@ ul{
 .two-column-carousel .slideshow__text-wrapper--half {
   flex: 1;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   text-align: left;
 }
 
 .two-column-carousel .slideshow__heading {
-  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -204,6 +198,7 @@ ul{
 /* Wrapper for the ingredients */
 .two-column-carousel .ingredients-container {
   max-height: 40rem; /* Adjust height as needed */
+  max-width: 30rem;
   overflow-y: auto; /* Adds vertical scrolling if content overflows */
   padding-right: 1rem; /* Space for scrollbar */
 }
@@ -230,10 +225,6 @@ ul{
 }
 
 .two-column-carousel .ingredient-description {
-  margin: 0.5rem 0 1rem;
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.4;
 }
 
 /* Scrollbar customization (optional) */
