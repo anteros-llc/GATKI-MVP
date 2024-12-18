@@ -174,7 +174,7 @@
     text-align: left; /* Keep text left-aligned on smaller screens */
   }
 
-  .custom-footer-bottom {
+  .custom-footer-bottom h6 {
     flex-direction: column; /* Stack bottom section vertically */
     text-align: center;
   }
