@@ -328,44 +328,37 @@ ul{
   margin-top: 0.25rem; /* Reduce spacing between title and description */
 }
 
-/* Bullet Points Container */
-.ingredient-hidden-text .bullet-points ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Up to 3 columns */
-  gap: 1rem; /* Spacing between items */
-  padding: 0;
-  margin: 1rem 0; /* Add spacing above and below */
-  list-style: none; /* Remove default list styling */
-}
 
-/* Individual Bullet Point */
-.ingredient-hidden-text .bullet-points ul li {
+/* Style for bullet points */
+.ingredient-hidden-text ul {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Ensures columns are evenly spaced */
+  gap: 1rem; /* Adjust spacing between columns */
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
 }
 
-.ingredient-hidden-text .bullet-points ul li h4 {
-  font-size: 1rem; /* Adjust heading font size */
-  font-weight: bold;
-  margin-bottom: 0.25rem; /* Add spacing between heading and text */
-  color: #333; /* Darker text for heading */
+.ingredient-hidden-text li {
+  flex: 0 1 30%; /* Adjust column width to ensure 3 columns max */
+  margin-bottom: 1rem;
 }
 
-.ingredient-hidden-text .bullet-points ul li p {
-  font-size: 0.9rem; /* Slightly smaller text */
-  margin: 0;
-  color: #666; /* Lighter text for description */
+.ingredient-hidden-text li::before {
+  content: '•'; /* Bullet point */
+  color: var(--color-mandarin); /* Change to desired color */
+  font-size: 1.5rem; /* Adjust bullet size */
+  margin-right: 0.5rem; /* Space between bullet and text */
+  vertical-align: middle;
 }
 
-/* Red Bullet Points */
-.ingredient-hidden-text .bullet-points ul li::before {
-  content: '•'; /* Red bullet */
-  color: #cc0000; /* Red color */
-  font-size: 1.2rem; /* Adjust bullet size */
-  margin-right: 0.5rem;
-  display: inline-block; /* Ensure bullet is aligned */
+/* Heading and text */
+.ingredient-hidden-text li h6 {
+  margin-bottom: 0.5rem;
 }
+
+
 
 </style>
 
