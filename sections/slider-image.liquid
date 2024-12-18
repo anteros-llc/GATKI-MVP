@@ -231,42 +231,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 {% schema %}
 {
-  "name": "Carousel with Two Columns",
-  "settings": [
-    {
-      "type": "text",
-      "id": "section_title",
-      "label": "Section Title"
-    }
-  ],
+  "name": "Two-Column Carousel",
+  "settings": [],
   "blocks": [
-    {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "text",
-          "id": "custom_id",
-          "label": "Unique Slide ID",
-          "default": "slide-1"
-        }
-      ]
-    },
     {
       "type": "ingredient",
       "name": "Ingredient",
@@ -274,44 +241,40 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           "type": "text",
           "id": "slide_id",
-          "label": "Slide ID (Link to Slide)"
+          "label": "Slide ID",
+          "default": "slide-1"
         },
         {
           "type": "text",
           "id": "number",
-          "label": "Ingredient Number"
+          "label": "Ingredient Number",
+          "default": "01"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Ingredient Title"
+          "label": "Ingredient Title",
+          "default": "Gentle Ingredient"
         },
         {
           "type": "textarea",
           "id": "description",
-          "label": "Ingredient Description"
+          "label": "Ingredient Description",
+          "default": "This is a brief description of the ingredient."
         },
         {
           "type": "textarea",
           "id": "hidden_text",
-          "label": "Hidden Text"
+          "label": "Hidden Text",
+          "default": "This is additional information about the ingredient."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Two-Column Carousel",
-      "blocks": [
-        {
-          "type": "slide"
-        },
-        {
-          "type": "ingredient"
-        }
-      ]
+      "name": "Two-Column Carousel"
     }
   ]
 }
 {% endschema %}
-
