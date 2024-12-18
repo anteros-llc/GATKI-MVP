@@ -82,40 +82,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center; /* Align items vertically */
-  padding: 1.5rem 3rem; /* Maintain horizontal padding */
+  padding: 1.5rem 3rem; /* Adjusted vertical and horizontal padding */
 }
 
-/* Copyright on the Right */
-.custom-footer-copyright {
+/* Copyright and Policies */
+.custom-footer-copyright,
+.custom-footer-policies,
+.custom-footer-policy-item h6 {
   margin: 0;
-  text-align: right;
+  padding: 0;
 }
 
-/* Policies on the Left */
 .custom-footer-policies {
   display: flex;
   gap: 2rem;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.custom-footer-policy-item {
-  margin: 0;
-  padding: 0;
-}
 
-.custom-footer-policy-item h6 {
-  margin: 0; /* Remove margins from h6 */
-  padding: 0; /* Remove padding */
-
-}
-
-.custom-footer-bottom,
-.custom-footer-policies,
-.custom-footer-copyright {
-  outline: 1px solid red; /* Debugging outline */
-}
 
 
 /* Responsive Adjustments */
