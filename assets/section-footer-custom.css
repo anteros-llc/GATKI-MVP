@@ -24,7 +24,7 @@
 /* Navigation Section */
 .navigation {
   display: flex;
-  gap: 1.8rem; /* Space between menu columns */
+  gap: 3rem; /* Space between menu columns */
   flex-wrap: wrap; /* Ensures responsiveness */
   text-align: left;
 }
