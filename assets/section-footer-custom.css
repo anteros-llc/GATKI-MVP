@@ -124,14 +124,14 @@
   display: flex;
   justify-content: space-between; /* Distribute items on opposite ends */
   align-items: center;
-  padding: 1.5rem 3rem;
+  padding: 0rem 3rem;
   background-color: var(--color-albedo);
 }
 
 /* Policies on the left */
 .custom-footer-policies {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
