@@ -137,7 +137,6 @@
 .two-column-carousel .slideshow__heading {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #333;
 }
 
 .two-column-carousel .slideshow__description {
@@ -197,104 +196,7 @@
   }
 }
 /* Text Column */
-.two-column-carousel .slideshow__text-wrapper--half {
-  flex: 1;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 1.5rem; /* Space between ingredient items */
-}
 
-.two-column-carousel .ingredients-list-carousel {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.two-column-carousel .ingredient-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #eee; /* Optional divider between ingredients */
-}
-
-.two-column-carousel .ingredient-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline; /* Aligns text and numbers */
-  width: 100%;
-}
-
-.two-column-carousel .ingredient-number {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--color-chenpi);
-  margin-left: auto; /* Pushes the number to the far right */
-  text-align: right;
-}
-
-.two-column-carousel .ingredient-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--color-chenpi);
-  flex: 1; /* Ensures the title takes available space */
-}
-
-.two-column-carousel .ingredient-description {
-  font-size: 1rem;
-  color: var(--color-body);
-  margin-top: 0.5rem;
-}
-
-.two-column-carousel .ingredient-hidden-text {
-  font-size: 0.9rem;
-  color: var(--color-body-light);
-  margin-top: 0.5rem;
-  display: none; /* Hidden by default */
-}
-
-/* Optional: Add responsive design */
-@media (max-width: 749px) {
-  .two-column-carousel .ingredient-item {
-    flex-direction: column;
-  }
-
-  .two-column-carousel .ingredient-number {
-    margin-left: 0;
-    text-align: left;
-  }
-}
-
-
-/* Adjusted Responsiveness */
-@media (max-width: 749px) {
-  .two-column-carousel .slideshow__text-wrapper--half {
-    padding: 1rem;
-    text-align: center;
-  }
-
-  .two-column-carousel .ingredient-item {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .two-column-carousel .ingredient-number {
-    font-size: 1rem;
-  }
-
-  .two-column-carousel .ingredient-title {
-    font-size: 0.9rem;
-  }
-
-  .two-column-carousel .ingredient-description {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
-}
 
 </style>
 
