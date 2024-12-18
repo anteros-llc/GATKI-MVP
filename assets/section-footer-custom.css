@@ -19,7 +19,7 @@
 /* Newsletter Section */
 .custom-footer-newsletter {
   flex: 0 0 50%; /* Fix width to 50% without allowing it to grow */
-  max-width: 50%;
+  max-width: 20%;
 }
 
 /* Navigation Section */
