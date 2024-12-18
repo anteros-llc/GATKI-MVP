@@ -9,26 +9,30 @@
     </div>
     <div class="navigation">
       {% for block in section.blocks %}
-        <div class="custom-footer-column">
-          {% if block.settings.heading %}
-            <label class="custom-footer-heading">{{ block.settings.heading }}</label>
-          {% endif %}
-          <ul class="custom-footer-list">
-            {% for link in block.settings.menu.links %}
-              <li class="custom-footer-list-item">
-                <a
-                  href="{{ link.url }}"
-                  class="custom-footer-link"
-                  {% if link.new_window %}
-                    target="_blank"
-                  {% endif %}
-                >
-                  {{ link.title }}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
+        {% if block.settings.heading or block.settings.menu.links.size > 0 %}
+          <div class="custom-footer-column">
+            {% if block.settings.heading %}
+              <label class="custom-footer-heading">{{ block.settings.heading }}</label>
+            {% endif %}
+            {% if block.settings.menu.links.size > 0 %}
+              <ul class="custom-footer-list">
+                {% for link in block.settings.menu.links %}
+                  <li class="custom-footer-list-item">
+                    <a
+                      href="{{ link.url }}"
+                      class="custom-footer-link"
+                      {% if link.new_window %}
+                        target="_blank"
+                      {% endif %}
+                    >
+                      {{ link.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
