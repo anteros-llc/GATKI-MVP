@@ -7,26 +7,25 @@
 
 /* Footer Container */
 .custom-footer-container {
-  display: flex;
-  gap: 3rem; /* Consistent gap between children */
+  display: flex; /* Flexbox for layout */
+  gap: 3rem; /* Consistent gap between B and C */
   margin: 0 2rem;
   background-color: grey;
 }
 
 /* Newsletter Section */
 .custom-footer-newsletter {
-  flex: 0 0 25%; /* Fix width to 25% */
-  max-width: 25%; /* Ensures it doesn't grow */
+  flex: 1 1 50%; /* Each section takes up 50% of the parent */
+  max-width: 50%; /* Prevents exceeding the 50% width */
 }
 
 /* Navigation Section */
 .navigation {
-  flex: 1; /* Fill the remaining space */
-  display: grid; /* Switch to grid for clean alignment */
-  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-  gap: 3rem; /* Internal spacing between columns */
+  flex: 1 1 50%; /* Each section takes up 50% of the parent */
+  display: flex; /* Use flex for internal layout */
+  flex-wrap: wrap; /* Allows wrapping within the navigation */
+  gap: 3rem; /* Internal spacing between items */
 }
-
 
 
 
