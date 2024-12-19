@@ -244,7 +244,7 @@ product-info {
 }
 
 a.product__text {
-  color: var(--color-soil);
+  color: blue;
   display: block;
   text-decoration: none;
 }
