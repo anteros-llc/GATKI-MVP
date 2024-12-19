@@ -1507,7 +1507,7 @@ details[open] > .share-button__fallback {
 }
 
 .share-button__button:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   text-underline-offset: 0.3rem;
 }
 
@@ -2677,10 +2677,6 @@ a#cart-icon-bubble {
   text-decoration: none;
 }
 
-a#cart-icon-bubble:hover {
-  text-decoration: underline;
-}
-
 .header__icon--menu[aria-expanded="true"]::before {
   content: "";
   top: 100%;
@@ -2977,10 +2973,6 @@ details[open] > .header__menu-item .icon-caret {
 .header__submenu .header__menu-item {
   justify-content: space-between;
   padding: 0.8rem 2rem;
-}
-
-.header__submenu .header__menu-item:hover {
-  text-decoration-line: underline;
 }
 
 .header__menu-item .icon-caret {
