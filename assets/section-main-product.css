@@ -223,6 +223,11 @@ product-info {
 }
 
 /* Product info */
+
+.product__info-container product__column-sticky {
+  color: var(--color-soil);
+}
+
 .product__info-container > * + * {
   margin: 1.5rem 0;
   color: var(--color-soil);
