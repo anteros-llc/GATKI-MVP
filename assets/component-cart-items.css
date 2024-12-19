@@ -79,6 +79,7 @@ cart-items .title-wrapper-with-link {
 }
 
 a.cart-item__name, .cart-item__name {
+  color: inherit;
   text-decoration: none;
   display: block;
 }
