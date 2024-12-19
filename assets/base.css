@@ -2921,12 +2921,6 @@ details[open] > .header__menu-item .icon-caret {
   transform: rotate(180deg);
 }
 
-.header__active-menu-item {
-  transition: text-decoration-thickness var(--duration-short) ease;
-  color: rgb(var(--color-foreground));
-
-}
-
 .header__menu-item:hover .header__active-menu-item {
   text-decoration: none;
 }
