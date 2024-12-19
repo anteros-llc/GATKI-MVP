@@ -252,6 +252,7 @@ a.product__text {
 }
 
 .product__title {
+  color: var(--color-soil);
   word-break: break-word;
   margin-bottom: 1.5rem;
 }
@@ -1551,7 +1552,6 @@ a.product__text {
   align-items: baseline;
   justify-content: space-between;
   font-size: 2rem;
-  color: var(--color-soil);
 }
 
 .product-header h3,
