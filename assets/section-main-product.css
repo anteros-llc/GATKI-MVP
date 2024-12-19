@@ -254,7 +254,8 @@ a.product__text {
 
 .product__weight {
   display: flex;
-  
+  padding: 0 0.75rem;
+  border: 
 }
 
 .product__title {
