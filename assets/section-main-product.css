@@ -33,6 +33,7 @@ product-info {
   }
 
   .product__info-wrapper {
+    color: var(--color-soil);
     padding: 0 0 0 5rem;
   }
 
@@ -244,7 +245,6 @@ product-info {
 }
 
 a.product__text {
-  color: blue;
   display: block;
   text-decoration: none;
 }
