@@ -148,7 +148,6 @@ product-info {
 }
 
 /* Product form */
-
 .product-form {
   display: block;
 }
@@ -251,6 +250,11 @@ a.product__text {
 
 .product__text.caption-with-letter-spacing {
   text-transform: uppercase;
+}
+
+.product__weight {
+  display: flex;
+  
 }
 
 .product__title {
