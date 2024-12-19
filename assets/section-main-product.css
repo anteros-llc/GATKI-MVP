@@ -226,7 +226,6 @@ product-info {
 /* Product info */
 
 .product__info-container > * + * {
-  color: blue;
   margin: 1.5rem 0;
 }
 
@@ -245,9 +244,9 @@ product-info {
 }
 
 a.product__text {
+  color: var(--color-soil);
   display: block;
   text-decoration: none;
-  color: rgba(var(--color-foreground), 0.75);
 }
 
 .product__text.caption-with-letter-spacing {
