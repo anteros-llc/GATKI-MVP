@@ -7,3 +7,36 @@
   data-oke-star-border-color="#E65919"
   data-oke-star-foreground-color="#E65919"
 ></div>
+
+<style>
+  [data-oke-badge] {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust spacing between stars and review count */
+  }
+
+  [data-oke-badge] .oke-stars {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  [data-oke-badge] .oke-stars svg {
+    height: 16px; /* Desired star size */
+    width: 16px;
+  }
+
+  [data-oke-badge] .oke-review-count {
+    font-family: Arial, sans-serif;
+    font-size: 14px; /* Adjust to match design */
+    font-weight: normal;
+    color: #000000; /* Black text color */
+  }
+
+  [data-oke-badge] .oke-review-count::before {
+    content: '('; /* Add opening parenthesis */
+  }
+
+  [data-oke-badge] .oke-review-count::after {
+    content: ')'; /* Add closing parenthesis */
+  }
+</style>
