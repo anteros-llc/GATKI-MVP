@@ -68,6 +68,13 @@
           "settings": {
             "horizontal_alignment": "left"
           }
+        },
+        "text_pikJCc": {
+          "type": "text",
+          "settings": {
+            "text": "0.32 FL OZ 10ML",
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
@@ -78,7 +85,8 @@
         "buy_buttons_UdziB3",
         "collapsible_tab_tzHqXN",
         "collapsible_tab_MRFRkR",
-        "okendo_reviews_badge_FnGXfk"
+        "okendo_reviews_badge_FnGXfk",
+        "text_pikJCc"
       ],
       "settings": {
         "enable_sticky_info": true,
