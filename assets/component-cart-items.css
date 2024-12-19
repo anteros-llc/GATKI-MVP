@@ -78,10 +78,12 @@ cart-items .title-wrapper-with-link {
   text-decoration: none;
 }
 
-.cart-item__name {
+a.cart-item__name, .cart-item__name {
   text-decoration: none;
   display: block;
 }
+
+
 
 .cart-item__name:hover {
   text-decoration: underline;
