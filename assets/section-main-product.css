@@ -1,5 +1,4 @@
 product-info {
-  color: blue;
   display: block;
 }
 
@@ -226,7 +225,6 @@ product-info {
 /* Product info */
 .product__info-container > * + * {
   margin: 1.5rem 0;
-  color: blue;
   color: var(--color-soil);
 }
 
@@ -324,7 +322,6 @@ a.product__text {
 .product--no-media .product__media-wrapper,
 .product--no-media .product__info-wrapper {
   padding: 0;
-  color: blue:
 }
 
 .product__tax {
@@ -1554,6 +1551,7 @@ a.product__text {
   align-items: baseline;
   justify-content: space-between;
   font-size: 2rem;
+  color: var(--color-soil);
 }
 
 .product-header h3,
