@@ -558,7 +558,6 @@ h6:empty {
   box-shadow: none;
   color: rgb(var(--color-link));
   background-color: transparent;
-  font-size: 1.4rem;
   font-family: inherit;
 }
 
