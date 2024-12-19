@@ -226,6 +226,7 @@ product-info {
 /* Product info */
 
 .product__info-container > * + * {
+  color: blue;
   margin: 1.5rem 0;
 }
 
