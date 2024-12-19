@@ -32,14 +32,6 @@
             "text_style": "body"
           }
         },
-        "text_FWGTpD": {
-          "type": "text",
-          "settings": {
-            "text": "10 ML",
-            "text_2": "Text",
-            "text_style": "body"
-          }
-        },
         "icon_with_text_kBRdf6": {
           "type": "icon-with-text",
           "settings": {
@@ -97,7 +89,6 @@
         "price",
         "description",
         "text_pikJCc",
-        "text_FWGTpD",
         "icon_with_text_kBRdf6",
         "buy_buttons_UdziB3",
         "collapsible_tab_tzHqXN",
