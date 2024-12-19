@@ -223,9 +223,8 @@ product-info {
 }
 
 /* Product info */
-
 .product__info-wrapper {
-  color: blue;
+  color: var(--color-soil);
 }
 .product__info-container > * + * {
   margin: 1.5rem 0;
