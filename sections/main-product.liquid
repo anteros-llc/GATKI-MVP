@@ -113,17 +113,17 @@
                 </p>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <span class="product-eyebrow">Fragrance-free Hydrating Balm</span>
+                  <h7 class="product-eyebrow">Fragrance-free Hydrating Balm</h7>
                   <div class="product-header">
                     <h3>{{ product.title | escape }}</h3>
-                      <span class="product__price">${{ product.price | divided_by: 100 }}</span>
-                      </div>
+                    <span class="product__price">${{ product.price | divided_by: 100 }}</span>
+                  </div>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
                     </h2>
                   </a>
-              </div>  
+                </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -206,7 +206,7 @@
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
-                  <hr class="divider" />
+                  <hr class="divider">
                   <div class="sizing">
                     <span>0.32 FL OZ</span>
                     <span>10 ML</span>
