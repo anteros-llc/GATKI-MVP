@@ -1308,6 +1308,11 @@ button.shopify-payment-button__button--unbranded {
   border: 2px solid var(--color-blanco);
 }
 
+.button--secondary:hover {
+  color: var(--color-manadarin);
+  border: 2px solid var(--color-mandarin);
+}
+
 .button--primary {
   font-family: var(--font-body-family);
   font-weight: 500;
@@ -1317,6 +1322,10 @@ button.shopify-payment-button__button--unbranded {
   background-color: var(--color-soil);
   color: var(--color-blanco);
   padding: 1rem 2rem;
+}
+
+.button--primary:hover {
+  background-color: var(--color-chenpi);
 }
 
 .button:before,
