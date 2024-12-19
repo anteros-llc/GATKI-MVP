@@ -9,33 +9,18 @@
 ></div>
 
 <style>
+  /* Align stars and text in the Okendo review badge */
   [data-oke-badge] {
     display: flex;
-    align-items: center;
-  }
-
-  [data-oke-badge] .oke-stars {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  [data-oke-badge] .oke-stars svg {
-    height: 16px; /* Desired star size */
-    width: 16px;
+    align-items: center; /* Vertically align stars and text */
+    gap: 8px; /* Add space between stars and review text */
   }
 
   [data-oke-badge] .oke-review-count {
     font-family: Arial, sans-serif;
-    font-size: 14px; /* Adjust to match design */
+    font-size: 14px; /* Match design requirements */
     font-weight: normal;
-    color: #000000; /* Black text color */
-  }
-
-  [data-oke-badge] .oke-review-count::before {
-    content: '('; /* Add opening parenthesis */
-  }
-
-  [data-oke-badge] .oke-review-count::after {
-    content: ')'; /* Add closing parenthesis */
+    color: #000000; /* Adjust text color */
+    margin: 0; /* Remove extra spacing */
   }
 </style>
