@@ -27,7 +27,14 @@
         "text_pikJCc": {
           "type": "text",
           "settings": {
-            "text": "0.32 FL OZ 10ML",
+            "text": "0.32 FL OZ",
+            "text_style": "body"
+          }
+        },
+        "text_FWGTpD": {
+          "type": "text",
+          "settings": {
+            "text": "10 ML",
             "text_style": "body"
           }
         },
@@ -82,6 +89,7 @@
         "price",
         "description",
         "text_pikJCc",
+        "text_FWGTpD",
         "icon_with_text_kBRdf6",
         "buy_buttons_UdziB3",
         "collapsible_tab_tzHqXN",
