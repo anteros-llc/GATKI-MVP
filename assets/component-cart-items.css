@@ -77,12 +77,11 @@ cart-items .title-wrapper-with-link {
   text-decoration: none;
 }
 
-a.cart-item__name, .cart-item__name {
+a.cart-item__name, .cart-item__name, .cart-item__name:hover {
   color: inherit;
   text-decoration: none;
   display: block;
 }
-
 
 .cart-item__price-wrapper > * {
   display: block;
