@@ -1297,7 +1297,7 @@ button.shopify-payment-button__button--unbranded {
   appearance: none;
 }
 
-.button--primary {
+.button--secondary {
   font-family: var(--font-body-family);
   font-weight: 500;
   font-size: 0.875rem;
@@ -1309,7 +1309,7 @@ button.shopify-payment-button__button--unbranded {
   border: 2px solid var(--color-blanco);
 }
 
-.button--secondary {
+.button--primary {
   font-family: var(--font-body-family);
   font-weight: 500;
   font-size: 0.875rem;
@@ -1317,6 +1317,7 @@ button.shopify-payment-button__button--unbranded {
   letter-spacing: 0.03em;
   background-color: var(--color-soil);
   color: var(--color-blanco);
+  padding: 1rem 2rem;
 }
 
 .button:before,
