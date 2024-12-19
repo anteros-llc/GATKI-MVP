@@ -76,7 +76,9 @@ h5 {
   font-size: 1.25rem;
 }
 
-body, p, span {
+body,
+p,
+span {
   font-family: var(--font-body-family);
   font-weight: 400;
   font-size: 1rem;
@@ -116,7 +118,6 @@ h8 {
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
-
 
 .product-card-wrapper .card,
 .contains-card--product {
@@ -1176,7 +1177,7 @@ summary::-webkit-details-marker {
 .media {
   display: block;
   background-color: rgba(var(--color-foreground), 0.1);
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
 
@@ -2917,7 +2918,8 @@ details[open] > .header__menu-item .icon-caret {
   transform: rotate(180deg);
 }
 
-.header__menu-item:hover span, .header__menu-item:hover .header__active-menu-item {
+.header__menu-item:hover span,
+.header__menu-item:hover .header__active-menu-item {
   text-decoration: none;
 }
 
