@@ -1309,7 +1309,7 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .button--secondary:hover {
-  color: var(--color-manadarin);
+  color: var(--color-mandarin);
   border: 2px solid var(--color-mandarin);
 }
 
