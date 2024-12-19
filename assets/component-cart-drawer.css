@@ -16,7 +16,7 @@
 }
 
 .drawer__inner {
-    color: blue;
+  color: var(--color-soil);
   height: 100%;
   width: 40rem;
   max-width: calc(100vw - 3rem);
