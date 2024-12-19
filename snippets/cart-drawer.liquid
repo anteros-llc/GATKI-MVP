@@ -62,7 +62,7 @@
         </div>
       {%- endif -%}
       <div class="drawer__header">
-        <h5 class="drawer__heading">CART</h5>
+        <h5 class="drawer__heading">{{ 'sections.cart.title' | t }}</h5>
         <button
           class="drawer__close"
           type="button"
@@ -94,22 +94,22 @@
                       <th id="CartDrawer-ColumnProductImage" role="columnheader">
                         <span class="visually-hidden">{{ 'sections.cart.headings.image' | t }}</span>
                       </th>
-                      <h7
+                      <th
                         id="CartDrawer-ColumnProduct"
                         class="caption-with-letter-spacing"
                         scope="col"
                         role="columnheader"
                       >
                         {{ 'sections.cart.headings.product' | t }}
-                      </h7>
-                      <h7
+                      </th>
+                      <th
                         id="CartDrawer-ColumnTotal"
                         class="right caption-with-letter-spacing"
                         scope="col"
                         role="columnheader"
                       >
                         {{ 'sections.cart.headings.total' | t }}
-                      </h7>
+                      </th>
                       <th id="CartDrawer-ColumnQuantity" role="columnheader">
                         <span class="visually-hidden">{{ 'sections.cart.headings.quantity' | t }}</span>
                       </th>
