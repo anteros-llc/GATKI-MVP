@@ -2904,13 +2904,8 @@ details[open] > .header__submenu {
   transition: text-decoration var(--duration-short) ease;
 }
 
-.header__menu-item:hover span {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
-}
-
 details[open] > .header__menu-item {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 details[open]:hover > .header__menu-item {
@@ -2921,7 +2916,7 @@ details[open] > .header__menu-item .icon-caret {
   transform: rotate(180deg);
 }
 
-.header__menu-item:hover .header__active-menu-item {
+.header__menu-item:hover span, .header__menu-item:hover .header__active-menu-item {
   text-decoration: none;
 }
 
