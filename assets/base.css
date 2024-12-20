@@ -1317,7 +1317,7 @@ button.shopify-payment-button__button--unbranded {
   font-weight: 500;
   font-size: 0.875rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   background-color: var(--color-blanco);
   color: var(--color-chenpi);
   padding: 1rem 2rem;
