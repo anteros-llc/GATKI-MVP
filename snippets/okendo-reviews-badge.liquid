@@ -11,8 +11,8 @@
 <style>
   .oke-minimalBadge {
     display: flex;
-    justify-content: space-between; /* Space out stars and count + REVIEW */
-    align-items: center; /* Vertically align stars and text */
+    justify-content: space-between; /* Space out REVIEW and stars + count */
+    align-items: center; /* Vertically align items */
   }
 
   .oke-minimalBadge-stars {
@@ -23,12 +23,24 @@
 
   .oke-minimalBadge-count {
     display: flex;
-    gap: 4px; /* Space between the number and REVIEW */
-    align-items: center; /* Align 1 and REVIEW vertically */
+    gap: 4px; /* Space between the count and REVIEW */
+    align-items: center; /* Align items vertically */
     font-family: var(--font-body-family);
     font-size: 0.75rem;
     line-height: 1.1;
     font-weight: 400;
+  }
+
+  .oke-minimalBadge-count::before {
+    content: "("; /* Add opening parenthesis */
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .oke-minimalBadge-count::after {
+    content: ")"; /* Add closing parenthesis */
+    font-size: inherit;
+    font-weight: inherit;
   }
 
   .oke-minimalBadge-count span {
