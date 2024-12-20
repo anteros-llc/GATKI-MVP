@@ -1,12 +1,30 @@
-<div
-  data-oke-badge
-  data-oke-layout="minimal"
-  data-oke-star-background-color="#FAF6F0"
-  data-oke-star-height-px="12"
-  data-oke-star-border-enabled="true"
-  data-oke-star-border-color="#E65919"
-  data-oke-star-foreground-color="#E65919"
-></div>
+<a href="#product-reviews" class="okendo-badge-link">
+  <div
+    data-oke-badge
+    data-oke-layout="minimal"
+    data-oke-star-background-color="#FAF6F0"
+    data-oke-star-height-px="12"
+    data-oke-star-border-enabled="true"
+    data-oke-star-border-color="#E65919"
+    data-oke-star-foreground-color="#E65919"
+  ></div>
+</a>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const badgeLink = document.querySelector(".okendo-badge-link");
+  const okendoHeader = document.querySelector(".oke-w-header-content");
+
+  if (badgeLink && okendoHeader) {
+    badgeLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      okendoHeader.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});
+
+</script>
 
 <style>
   .oke-minimalBadge {
