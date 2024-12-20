@@ -31,20 +31,24 @@
     font-weight: 400;
   }
 
-  /* Target the number and wrap parentheses */
+  .oke-minimalBadge-count::before,
+  .oke-minimalBadge-count::after {
+    content: ""; /* Remove unwanted parentheses from the whole container */
+  }
+
+  /* Specific styling for the review count */
   .oke-minimalBadge-count > span:first-child::before {
-    content: "("; /* Opening parenthesis for the number */
+    content: "("; /* Add opening parenthesis to the count */
   }
 
   .oke-minimalBadge-count > span:first-child::after {
-    content: ")"; /* Closing parenthesis for the number */
+    content: ")"; /* Add closing parenthesis to the count */
   }
 
-  /* REVIEW text styling */
-  .oke-minimalBadge-count > span:nth-child(2) {
+  .oke-minimalBadge-count > span:last-child {
     font-size: 0.75rem; /* REVIEW text size */
     font-weight: 500;
     text-transform: uppercase;
-    margin-left: 4px; /* Space REVIEW from the count */
+    margin-left: 4px; /* Space REVIEW from count */
   }
 </style>
