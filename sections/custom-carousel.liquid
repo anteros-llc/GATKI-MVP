@@ -8,7 +8,7 @@
   aria-roledescription="carousel"
   aria-label="Slideshow"
 >
-  <div class="slideshow banner slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
+  <div class="slideshow banner slider slider--everywhere custom-slider" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
     {%- for block in section.blocks -%}
       <div
         class="slideshow__slide slider__slide slider__custom"
@@ -35,7 +35,7 @@
               {{ block.settings.heading }}
             </h2>
           {%- endif -%}
-          
+            {% if block.settings.slide_type == 'slider' %}
           <div class="bottom-slider">
       <div class="slider-wrapper">
   <div class="slider-label">GENTLENESS</div>
@@ -50,7 +50,19 @@
   <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_8.0.svg?v=1734398694" alt="Staying Power slider">
 </div>  
           </div>
+         {% elsif block.settings.slide_type == 'text' %}  
+      <div class="text-content">
+        <ul>
+          <li><strong>HOW IT FEELS:</strong> Cushiony soft</li>
+          <li><strong>HOW IT LOOKS:</strong> Clear with a natural sheen</li>
+          <li><strong>HOW IT SMELLS:</strong> Fragrance-free</li>
+          <li><strong>HOW IT TASTES:</strong> Flavor-free</li>
+          <li><strong>BEST FOR:</strong> Suitable for all, especially sensitive lips</li>
+        </ul>
+      </div>
+            {% endif %}
         </div>
+
       </div>
     {%- endfor -%}
   </div>
@@ -81,7 +93,15 @@
 <style>
 
   /* Flex container for slides */
-   #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
+.banner2{
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0;
+  gap: 0;
+  overflow-y: hidden;
+}
+  
+ #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
           opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
         }
 .slider-mobile-gutter{
@@ -309,22 +329,6 @@
           "default": "t:sections.slideshow.blocks.slide.settings.heading.default",
           "label": "t:sections.slideshow.blocks.slide.settings.heading.label"
         },
-           {
-          "type": "select",
-          "id": "slide_type",
-          "label": "Slide Type",
-          "options": [
-        {
-         "value": "slider",
-         "label": "Slider Content"
-        },
-        {
-        "value": "text",
-        "label": "Text Content"
-      }
-  ],
-  "default": "slider"
-},
         {
           "type": "select",
           "id": "heading_size",
