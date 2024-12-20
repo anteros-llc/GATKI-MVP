@@ -1271,9 +1271,9 @@ a.product__text {
 
 .icon-with-text--horizontal {
   display: flex;
-  justify-content: center;
-  column-gap: var(--icon-spacing);
-  flex-direction: row;
+  align-items: space-;
+  justify-content: space-between;
+  padding-left: 3%;
 }
 
 .icon-with-text--vertical {
