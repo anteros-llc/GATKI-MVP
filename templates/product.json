@@ -255,6 +255,7 @@
         "text_R7heRx",
         "buttons_kiWaeM"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Lifestyle_Flatlay_LipDew_Ingredients_2000x833_PDP_LIPDEW.jpg",
         "image_overlay_opacity": 0,
@@ -347,6 +348,7 @@
         "ingredient_h8ydbV",
         "ingredient_qtXFxx"
       ],
+      "disabled": true,
       "settings": {}
     },
     "1731992271885d52d1": {
