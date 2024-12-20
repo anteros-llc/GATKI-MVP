@@ -208,7 +208,7 @@
         "slide_FP3t6t"
       ],
       "settings": {
-        "layout": "full_bleed",
+        "layout": "grid",
         "slide_height": "medium",
         "slider_visual": "counter",
         "auto_rotate": false,

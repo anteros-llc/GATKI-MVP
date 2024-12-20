@@ -9,18 +9,27 @@
 ></div>
 
 <style>
-  /* Align stars and text in the Okendo review badge */
-  [data-oke-badge] {
+  /* Style and alignment for the minimal badge container */
+  .oke-minimalBadge {
     display: flex;
     align-items: center; /* Vertically align stars and text */
-    gap: 8px; /* Add space between stars and review text */
+    gap: 8px; /* Space between stars and review count */
   }
 
-  [data-oke-badge] .oke-review-count {
+  .oke-minimalBadge-stars {
+    display: flex;
+    align-items: center;
+  }
+
+  .oke-minimalBadge-count {
     font-family: Arial, sans-serif;
     font-size: 14px; /* Match design requirements */
     font-weight: normal;
-    color: #000000; /* Adjust text color */
-    margin: 0; /* Remove extra spacing */
+    color: #000000; /* Text color */
+    margin: 0; /* Remove unnecessary spacing */
+  }
+
+  .oke-minimalBadge-count span {
+    font-weight: bold; /* Optional: Make "Review" text bold */
   }
 </style>
