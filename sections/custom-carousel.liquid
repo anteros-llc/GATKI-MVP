@@ -62,7 +62,6 @@
       </div>
             {% endif %}
         </div>
-
       </div>
     {%- endfor -%}
   </div>
@@ -329,6 +328,22 @@
           "default": "t:sections.slideshow.blocks.slide.settings.heading.default",
           "label": "t:sections.slideshow.blocks.slide.settings.heading.label"
         },
+        {
+  "type": "select",
+  "id": "slide_type",
+  "label": "Slide Type",
+  "options": [
+    {
+      "value": "slider",
+      "label": "Slider"
+    },
+    {
+      "value": "text",
+      "label": "Text"
+    }
+  ],
+  "default": "slider"
+},
         {
           "type": "select",
           "id": "heading_size",
