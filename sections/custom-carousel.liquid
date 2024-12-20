@@ -92,6 +92,49 @@
   height: auto;
 }
 
+  /* Ensure proper slide width */
+.slider__slide {
+  flex: 0 0 100%; /* Each slide takes up 100% of the container width */
+  max-width: 100%; /* Prevent overflow */
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure container hides overflow */
+.slider,
+.slideshow {
+  overflow: hidden; /* Hide slides outside the visible area */
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  scroll-snap-type: x mandatory; /* Enable scroll snapping */
+  scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  .slider__slide {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    align-items: center;
+  }
+}
+
+/* Hide scrollbar (optional) */
+.slider {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.slider::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+
+?????
+  stop
+
 /* Image column */
 .slideshow__media--half {
   flex: 1;
