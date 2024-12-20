@@ -58,23 +58,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Script loaded");
 
-  const badge = document.querySelector("#product-reviews");
-  const reviewsSection = document.querySelector(".oke-w-header-content"); // Replace with the actual reviews section ID
-
-  if (badge && reviewsSection) {
+  const badge = document.querySelector(".oke-w-header-content");
+  if (badge) {
     console.log("Okendo badge found:", badge);
-    badge.addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent any default action
-
-      reviewsSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
-      console.log("Navigated to the reviews section!");
+    badge.addEventListener("click", function () {
+      console.log("Badge clicked!");
     });
+This worked. It took me to badge section
   } else {
-    console.error("Badge or reviews section not found");
+    console.error("Okendo badge not found");
   }
 });
 </script>
