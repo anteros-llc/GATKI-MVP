@@ -55,19 +55,19 @@
   {%- endif -%}
 
     <script>
- document.addEventListener("DOMContentLoaded", function () {
-  console.log("Script loaded");
-
-  const badge = document.querySelector("[data-oke-badge]");
+ const waitForBadge = setInterval(() => {
+  const badge = document.querySelector('[data-oke-badge]');
   if (badge) {
-    console.log("Okendo badge found:", badge);
+    clearInterval(waitForBadge);
+    console.log("Badge loaded!");
+    
+    // Attach the click event listener
     badge.addEventListener("click", function () {
       console.log("Badge clicked!");
     });
-  } else {
-    console.error("Okendo badge not found");
   }
-});
+}, 100);
+
 </script>
   
 
