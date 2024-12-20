@@ -12,15 +12,17 @@
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-  const badgeLink = document.querySelector(".okendo-badge-link");
-  const okendoHeader = document.querySelector(".okeReviews");
+ document.addEventListener("DOMContentLoaded", function () {
+  console.log("Script loaded");
 
-  if (badgeLink && okendoHeader) {
-    badgeLink.addEventListener("click", function (e) {
-      e.preventDefault();
-      okendoHeader.scrollIntoView({ behavior: "smooth" });
+  const badge = document.querySelector("[data-oke-badge]");
+  if (badge) {
+    console.log("Okendo badge found:", badge);
+    badge.addEventListener("click", function () {
+      console.log("Badge clicked!");
     });
+  } else {
+    console.error("Okendo badge not found");
   }
 });
 
