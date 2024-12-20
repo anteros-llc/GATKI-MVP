@@ -1296,6 +1296,22 @@ button.shopify-payment-button__button--unbranded {
   appearance: none;
 }
 
+.button--primary {
+  font-family: var(--font-body-family);
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background-color: var(--color-soil);
+  color: var(--color-blanco);
+  padding: 1rem 2rem;
+  transition: all 0.3s ease; /* Smooth animation */
+}
+
+.button--primary:hover {
+  background-color: var(--color-chenpi);
+}
+
 .button--secondary {
   font-family: var(--font-body-family);
   font-weight: 500;
@@ -1314,21 +1330,6 @@ button.shopify-payment-button__button--unbranded {
   border: 1px solid var(--color-mandarin);
 }
 
-.button--primary {
-  font-family: var(--font-body-family);
-  font-weight: 500;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  background-color: var(--color-soil);
-  color: var(--color-blanco);
-  padding: 1rem 2rem;
-  transition: all 0.3s ease; /* Smooth animation */
-}
-
-.button--primary:hover {
-  background-color: var(--color-chenpi);
-}
 
 .button:before,
 .shopify-challenge__button:before,
