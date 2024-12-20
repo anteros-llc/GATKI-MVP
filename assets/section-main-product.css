@@ -1272,7 +1272,7 @@ a.product__text {
 .icon-with-text--horizontal {
   display: flex;
   justify-content: space-between;
-  padding-left: 3%;
+  padding-left: 3% !important;
 }
 
 .icon-with-text--vertical {
