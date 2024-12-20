@@ -11,20 +11,20 @@
 <style>
   .oke-minimalBadge {
     display: flex;
-    justify-content: space-between; /* Separate REVIEW and stars + count */
-    align-items: flex-start; /* Align items at the top */
+    justify-content: space-between; /* Separate the count and stars visually */
+    align-items: center;
   }
 
   .oke-minimalBadge-stars {
     display: flex;
     align-items: center;
-    margin-right: 8px; /* Add spacing between stars and count */
   }
 
   .oke-minimalBadge-count {
     display: flex;
-    flex-direction: column; /* Stack the count and REVIEW vertically */
-    align-items: flex-end; /* Align to the right */
+    justify-content: space-between; /* Space out the number and text */
+    width: 100%; /* Make the container take full width */
+    text-align: right;
   }
 
   .oke-minimalBadge-count span {
@@ -33,10 +33,14 @@
     line-height: 1.3;
     font-weight: 500;
     text-transform: uppercase;
-    margin-top: 2px; /* Add spacing between the count and REVIEW */
+    margin-left: 8px; /* Create spacing from the count */
   }
 
   .oke-minimalBadge-count::before {
-    content: ''; /* Remove extra unwanted spacing */
+    content: attr(data-count); /* Pull the number dynamically if possible */
+    font-family: var(--font-body-family);
+    font-size: 0.55rem;
+    line-height: 1.1;
+    font-weight: 400;
   }
 </style>
