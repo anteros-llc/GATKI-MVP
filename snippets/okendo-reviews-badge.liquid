@@ -8,26 +8,6 @@
   data-oke-star-foreground-color="#E65919"
 ></div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const badgeCount = document.querySelector(".oke-minimalBadge-count");
-    if (badgeCount) {
-      const reviewText = badgeCount.querySelector("span:last-child");
-      if (reviewText) {
-        // Clone the REVIEW span
-        const clonedReviewText = reviewText.cloneNode(true);
-
-        // Remove the original REVIEW span
-        reviewText.remove();
-
-        // Append the cloned REVIEW span to the parent container
-        const badgeContainer = document.querySelector(".oke-minimalBadge");
-        badgeContainer.appendChild(clonedReviewText);
-      }
-    }
-  });
-</script>
-
 <style>
   .oke-minimalBadge {
     display: flex;
@@ -42,16 +22,27 @@
   }
 
   .oke-minimalBadge-count {
+    display: flex;
+    gap: 4px;
+    align-items: center;
     font-family: var(--font-body-family);
     font-size: 0.75rem;
     line-height: 1.1;
     font-weight: 400;
   }
 
-  .oke-minimalBadge span:last-child {
+  .oke-minimalBadge-count::before {
+    content: "("; /* Add opening parenthesis before the number */
+  }
+
+  .oke-minimalBadge-count::after {
+    content: ")"; /* Add closing parenthesis after the number */
+  }
+
+  .oke-minimalBadge-count span {
     font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
-    margin-left: 8px;
+    margin-left: 4px; /* Add spacing between the number and Review */
   }
 </style>
