@@ -7,7 +7,7 @@
 
 /* Footer Container */
 .custom-footer-container {
-  display: flex; 
+  display: flex;
   gap: 3rem;
   margin: 0 3rem;
 }
@@ -15,16 +15,16 @@
 /* Newsletter Section */
 .custom-footer-newsletter {
   flex: 1 1 50%;
-  max-width: 50%; 
-  padding-right: 25%; 
+  max-width: 50%;
+  padding-right: 25%;
 }
 
 /* Navigation Section */
 .navigation {
   flex: 1 1 50%;
   display: flex;
-  flex-wrap: wrap; 
-  gap: 3rem; 
+  flex-wrap: wrap;
+  gap: 3rem;
 }
 
 /* Footer Logo Section */
@@ -39,14 +39,14 @@
 
 /* Footer Columns */
 .custom-footer-column {
-  flex: 1; 
-  display: flex; 
-  flex-direction: column; 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Footer Headings */
 .custom-footer-heading {
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;
 }
 
 /* Footer Lists */
@@ -56,9 +56,8 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; 
+  gap: 0.5rem;
 }
-
 
 /* Footer Links */
 .custom-footer-link {
@@ -72,6 +71,7 @@
 
 .custom-footer-policy-link {
   text-decoration: none;
+  color: var(--color-soil);
 }
 
 /* Bottom Section */
@@ -80,8 +80,8 @@
   background-color: var(--color-albedo);
   display: flex;
   justify-content: space-between;
-  align-items: center; 
-  padding: 1.5rem 3rem; 
+  align-items: center;
+  padding: 1.5rem 3rem;
 }
 
 /* Copyright and Policies */
@@ -97,8 +97,6 @@
   gap: 2rem;
   list-style: none;
 }
-
-
 
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
@@ -141,8 +139,5 @@
   .custom-footer-policies {
     justify-content: center; /* Center-align policy links */
     margin-bottom: 1rem;
-  }
-
-  .custom-footer-copyright {
   }
 }
