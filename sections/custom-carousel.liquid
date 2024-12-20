@@ -35,6 +35,7 @@
               {{ block.settings.heading }}
             </h2>
           {%- endif -%}
+          
           <div class="bottom-slider">
       <div class="slider-wrapper">
   <div class="slider-label">GENTLENESS</div>
@@ -213,6 +214,22 @@
       "default": "medium",
       "label": "t:sections.slideshow.settings.slide_height.label"
     },
+    {
+        "type": "select",
+        "id": "slide_type",
+        "label": "Slide Type",
+          "options": [
+      {
+       "value": "slider",
+      "label": "Slider Content"
+      },
+      {
+      "value": "text",
+      "label": "Text Content"
+      }
+  ],
+  "default": "slider"
+},
     {
       "type": "select",
       "id": "slider_visual",
