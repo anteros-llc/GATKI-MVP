@@ -1306,6 +1306,7 @@ button.shopify-payment-button__button--unbranded {
   color: var(--color-chenpi);
   padding: 1rem 2rem;
   border: 2px solid var(--color-blanco);
+  transition: all 0.3s ease; /* Smooth animation */
 }
 
 .button--secondary:hover {
@@ -1322,6 +1323,7 @@ button.shopify-payment-button__button--unbranded {
   background-color: var(--color-soil);
   color: var(--color-blanco);
   padding: 1rem 2rem;
+  transition: all 0.3s ease; /* Smooth animation */
 }
 
 .button--primary:hover {
