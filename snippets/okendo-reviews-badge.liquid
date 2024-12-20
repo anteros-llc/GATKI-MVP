@@ -8,15 +8,25 @@
   data-oke-star-foreground-color="#E65919"
 ></div>
 
-document.addEventListener("DOMContentLoaded", function () { const badgeCount =
-document.querySelector(".oke-minimalBadge-count"); if (badgeCount) { const reviewText =
-badgeCount.querySelector("span:last-child"); if (reviewText) { // Clone the REVIEW span const clonedReviewText =
-reviewText.cloneNode(true);
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const badgeCount = document.querySelector(".oke-minimalBadge-count");
+    if (badgeCount) {
+      const reviewText = badgeCount.querySelector("span:last-child");
+      if (reviewText) {
+        // Clone the REVIEW span
+        const clonedReviewText = reviewText.cloneNode(true);
 
-// Remove the original REVIEW span reviewText.remove();
+        // Remove the original REVIEW span
+        reviewText.remove();
 
-// Append the cloned REVIEW span to the parent container const badgeContainer =
-document.querySelector(".oke-minimalBadge"); badgeContainer.appendChild(clonedReviewText); } } });
+        // Append the cloned REVIEW span to the parent container
+        const badgeContainer = document.querySelector(".oke-minimalBadge");
+        badgeContainer.appendChild(clonedReviewText);
+      }
+    }
+  });
+</script>
 
 <style>
   .oke-minimalBadge {
