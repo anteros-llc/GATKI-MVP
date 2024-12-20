@@ -79,7 +79,6 @@
         },
         "custom_liquid_L7ttzK": {
           "type": "custom_liquid",
-          "disabled": true,
           "settings": {
             "custom_liquid": "{% render 'okendo-reviews-badge' %}"
           }
