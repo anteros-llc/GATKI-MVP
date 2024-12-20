@@ -54,6 +54,23 @@
     <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
+    <script>
+ document.addEventListener("DOMContentLoaded", function () {
+  console.log("Script loaded");
+
+  const badge = document.querySelector("[data-oke-badge]");
+  if (badge) {
+    console.log("Okendo badge found:", badge);
+    badge.addEventListener("click", function () {
+      console.log("Badge clicked!");
+    });
+  } else {
+    console.error("Okendo badge not found");
+  }
+});
+</script>
+  
+
   {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
   {%- if first_3d_model -%}
     {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
