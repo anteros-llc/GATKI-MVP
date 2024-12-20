@@ -31,17 +31,17 @@
     font-weight: 400;
   }
 
-  /* Add parentheses around the number */
+  /* Target the number and wrap parentheses */
   .oke-minimalBadge-count > span:first-child::before {
-    content: "("; /* Opening parenthesis */
+    content: "("; /* Opening parenthesis for the number */
   }
 
   .oke-minimalBadge-count > span:first-child::after {
-    content: ")"; /* Closing parenthesis */
+    content: ")"; /* Closing parenthesis for the number */
   }
 
-  /* Style for REVIEW */
-  .oke-minimalBadge-count > span:last-child {
+  /* REVIEW text styling */
+  .oke-minimalBadge-count > span:nth-child(2) {
     font-size: 0.75rem; /* REVIEW text size */
     font-weight: 500;
     text-transform: uppercase;
