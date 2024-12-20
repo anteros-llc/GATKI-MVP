@@ -12,22 +12,20 @@
   .oke-minimalBadge {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Vertically align stars and text */
+    align-items: center;
+  }
+
+  .oke-minimalBadge-count {
+    order: -1; /* Move this element before the stars */
+    font-family: Arial, sans-serif;
+    font-size: 14px; /* Match design requirements */
+    font-weight: normal;
+    margin-right: 8px; /* Add spacing after the count */
   }
 
   .oke-minimalBadge-stars {
-      display: flex;
-      align-items: center;
-    }
-
-  .oke-minimalBadge-count {
-      font-family: Arial, sans-serif;
-      font-size: 14px; /* Match design requirements */
-      font-weight: normal;
-      margin: 0; /* Remove unnecessary spacing */
-    }
-
-  .oke-minimalBadge-count span {
-
-    }
+    order: 0; /* Keep stars in default position */
+    display: flex;
+    align-items: center;
+  }
 </style>
