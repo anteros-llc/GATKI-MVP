@@ -11,18 +11,16 @@
 }
 
 .banner__heading {
-  font-family: "IvyprestoHeadline";
+  @extend h2;
 }
 
-.caption-with-letter-spacing p{
-  font-family: "Syndicat Grotesk";
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.76rem;
+.caption-with-letter-spacing p {
+  @extend .caption--medium; 
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
+
 
 @media only screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__box {
@@ -51,8 +49,8 @@
 }
 
 @media screen and (max-width: 749px) {
-  .banner--small.banner--mobile-bottom .banner__media {
-    height: 28rem;
+  .banner__media {
+    height: 50vh;
   }
 
   .banner--medium.banner--mobile-bottom .banner__media > .banner__media {
@@ -91,6 +89,9 @@
 
   .banner--large:not(.banner--adapt) {
     min-height: 72rem;
+  }
+  .banner__media{
+    height: 100%
   }
 
   .banner__content.banner__content--top-left {
@@ -434,18 +435,24 @@
 
 @media screen and (min-width: 550px) {
   .banner.video-background {
-  	min-height: 39rem;
+  	min-height: auto;
   }
 }
 
 @media screen and (min-width: 990px) {
   .banner.video-background {
-  	min-height: 54rem;
+  	min-height: 38rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .banner.video-background {
+  	min-height: 40rem;
   }
 }
 
 @media screen and (min-width: 1320px) {
   .banner.video-background {
-  	min-height: 72rem;
+  	min-height: 50rem;
   }
 }

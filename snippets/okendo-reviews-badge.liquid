@@ -1,0 +1,48 @@
+  <div
+    data-oke-badge
+    data-oke-layout="minimal"
+    data-oke-star-background-color="#FAF6F0"
+    data-oke-star-height-px="12"
+    data-oke-star-border-enabled="true"
+    data-oke-star-border-color="#E65919"
+    data-oke-star-foreground-color="#E65919"
+  ></div>
+
+<style>
+  .oke-minimalBadge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .oke-minimalBadge-stars {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+
+  .oke-minimalBadge-count {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-family: var(--font-body-family);
+    font-size: 0.75rem;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+
+  .oke-minimalBadge-count::before {
+    content: "("; /* Add opening parenthesis before the number */
+  }
+
+  .oke-minimalBadge-count::after {
+    content: ")"; /* Add closing parenthesis after the number */
+  }
+
+  .oke-minimalBadge-count span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-left: 4px; /* Add spacing between the number and Review */
+  }
+</style>

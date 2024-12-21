@@ -1,1 +1,120 @@
-{"sections":{"video_banner_iaQeaL":{"type":"video-banner","blocks":{"text_aYrtdi":{"type":"text","settings":{"text":"drop 01","text_style":"caption-with-letter-spacing"}},"heading_xUqwf3":{"type":"heading","settings":{"heading":"100 pieces. 100 stories. Be part of our first chapter.","heading_size":"h0"}},"buttons_bVcCcT":{"type":"buttons","settings":{"button_label_1":"SHOP NOW","button_link_1":"shopify:\/\/products\/lip-balm","button_style_secondary_1":false}}},"block_order":["text_aYrtdi","heading_xUqwf3","buttons_bVcCcT"],"settings":{"video_url":"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/88a1eec56f544b82b81a38b25381dfff.mp4","desktop_content_position":"bottom-left","show_text_box":true,"desktop_content_alignment":"left","color_scheme":"scheme-5","mobile_content_alignment":"center"}},"card_section_lips_whwkyT":{"type":"card-section-lips","blocks":{"card_r4pAwa":{"type":"card","settings":{"category":"ESSENTIALS","number":"01","title":"Anti-inflammatory, hydrating, and plumping","description":""}},"card_49MPNi":{"type":"card","settings":{"category":"ESSENTIALS","number":"02","title":"Chenpi Oil and Dual Peptide Complex","description":""}},"card_4HBKGE":{"type":"card","settings":{"category":"ESSENTIALS","number":"03","title":"Lightweight, fragrance-free, and non-sticky gel","description":""}}},"block_order":["card_r4pAwa","card_49MPNi","card_4HBKGE"],"custom_css":[],"settings":{"title":"Simple formula for sensitive and delicate lips.","description":"The LIP DEW formula combines the anti-inflammatory power of Chenpi Oil and the hydrating benefits of peptides to soothe, plump, and protect delicate lips.","learn_more_text":"Learn more ↗︎","learn_more_link":"shopify:\/\/products\/lip-balm"}},"section_static_module_eeeYLb":{"type":"section-static-module","custom_css":[],"settings":{"ingredients_text":"Gentle yet effective ingredients.","nature_text":"Vitally drawn from nature's depth.","radiance_text":"Find your radiance with ease."}},"section_product_attributes_fBB7bM":{"type":"section-product-attributes","custom_css":[],"settings":{"cruelty_free_text":"Cruelty free","sulfate_free_text":"Sulfate free","recyclable_package_text":"Recyclable package"}}},"order":["video_banner_iaQeaL","card_section_lips_whwkyT","section_static_module_eeeYLb","section_product_attributes_fBB7bM"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "video_banner_iaQeaL": {
+      "type": "video-banner",
+      "blocks": {
+        "text_aYrtdi": {
+          "type": "text",
+          "settings": {
+            "text": "drop 01",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading_xUqwf3": {
+          "type": "heading",
+          "settings": {
+            "heading": "100 pieces. 100 stories. Be part of our first chapter."
+          }
+        },
+        "buttons_bVcCcT": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://products/lip-balm",
+            "button_style_secondary_1": true
+          }
+        }
+      },
+      "block_order": [
+        "text_aYrtdi",
+        "heading_xUqwf3",
+        "buttons_bVcCcT"
+      ],
+      "settings": {
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/97aa4be16ec14b8d8fd51615eb97ed21.mov",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-5",
+        "mobile_content_alignment": "center"
+      }
+    },
+    "card_section_lips_whwkyT": {
+      "type": "card-section-lips",
+      "blocks": {
+        "card_r4pAwa": {
+          "type": "card",
+          "settings": {
+            "category": "ESSENTIALS",
+            "number": "01",
+            "title": "Anti-inflammatory, hydrating, and plumping",
+            "description": ""
+          }
+        },
+        "card_49MPNi": {
+          "type": "card",
+          "settings": {
+            "category": "ESSENTIALS",
+            "number": "02",
+            "title": "Chenpi Oil and Dual Peptide Complex",
+            "description": ""
+          }
+        },
+        "card_4HBKGE": {
+          "type": "card",
+          "settings": {
+            "category": "ESSENTIALS",
+            "number": "03",
+            "title": "Lightweight, fragrance-free, and non-sticky gel",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_r4pAwa",
+        "card_49MPNi",
+        "card_4HBKGE"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "Simple formula for sensitive and delicate lips.",
+        "description": "The LIP DEW formula combines the anti-inflammatory power of Chenpi Oil and the hydrating benefits of peptides to soothe, plump, and protect delicate lips.",
+        "learn_more_text": "Learn more",
+        "learn_more_link": "shopify://products/lip-balm"
+      }
+    },
+    "section_static_module_eeeYLb": {
+      "type": "section-static-module",
+      "custom_css": [],
+      "settings": {
+        "ingredients_text": "Gentle yet effective ingredients.",
+        "nature_text": "Vitally drawn from nature's depth.",
+        "radiance_text": "Find your radiance with ease."
+      }
+    },
+    "section_product_attributes_fBB7bM": {
+      "type": "section-product-attributes",
+      "custom_css": [],
+      "settings": {
+        "cruelty_free_text": "Cruelty free",
+        "sulfate_free_text": "Sulfate free",
+        "recyclable_package_text": "Recyclable package"
+      }
+    }
+  },
+  "order": [
+    "video_banner_iaQeaL",
+    "card_section_lips_whwkyT",
+    "section_static_module_eeeYLb",
+    "section_product_attributes_fBB7bM"
+  ]
+}
