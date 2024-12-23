@@ -71,16 +71,10 @@
             "page": ""
           }
         },
-        "okendo_reviews_badge_FnGXfk": {
-          "type": "shopify://apps/okendo/blocks/reviews-badge/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "okendo_star_rating_EXAQWq": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
-            "horizontal_alignment": "left"
-          }
-        },
-        "custom_liquid_L7ttzK": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'okendo-reviews-badge' %}"
+            "product": "{{product}}"
           }
         }
       },
@@ -93,8 +87,7 @@
         "buy_buttons_UdziB3",
         "collapsible_tab_tzHqXN",
         "collapsible_tab_MRFRkR",
-        "okendo_reviews_badge_FnGXfk",
-        "custom_liquid_L7ttzK"
+        "okendo_star_rating_EXAQWq"
       ],
       "settings": {
         "enable_sticky_info": true,
