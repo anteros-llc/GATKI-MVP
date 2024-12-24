@@ -3,6 +3,7 @@
   position: relative;
   line-height: 1;
   padding: 1rem 0;
+  border-top: 0.1rem solid var(--color-ash);
 }
 
 .accordion .summary__title {
