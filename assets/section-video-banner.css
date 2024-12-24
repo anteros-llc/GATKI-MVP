@@ -4,6 +4,7 @@
   flex-direction: column;
   z-index: auto;
   isolation: isolate;
+  color: var(--color-blanco);
 }
 
 .banner__box {
@@ -15,12 +16,11 @@
 }
 
 .caption-with-letter-spacing p {
-  @extend .caption--medium; 
+  @extend .caption--medium;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
-
 
 @media only screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__box {
@@ -90,8 +90,8 @@
   .banner--large:not(.banner--adapt) {
     min-height: 72rem;
   }
-  .banner__media{
-    height: 100%
+  .banner__media {
+    height: 100%;
   }
 
   .banner__content.banner__content--top-left {
@@ -141,7 +141,7 @@
 }
 
 @media screen and (max-width: 749px) {
-  .banner{
+  .banner {
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -304,7 +304,7 @@
 
 .banner::after,
 .banner__media::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   background: #000000;
@@ -405,54 +405,56 @@
 }
 
 /*Custom CSS for Video Background*/
-.media.video-background>*:not(.zoom) {
+.media.video-background > *:not(.zoom) {
   height: auto;
 }
 
-.banner__media, .banner:after, .banner__media:after {
-	background: none
+.banner__media,
+.banner:after,
+.banner__media:after {
+  background: none;
 }
 
 @media screen and (max-width: 749px) {
   .banner.video-background:not(.banner--mobile-bottom) .banner__content {
-  	min-height: 20rem;
+    min-height: 20rem;
   }
 
   .button {
-	min-height: calc(3.5rem + var(--buttons-border-width) * 2);
-	font-size: 1.2rem;
+    min-height: calc(3.5rem + var(--buttons-border-width) * 2);
+    font-size: 1.2rem;
   }
 
   .banner__box {
-      padding-top: 1rem;
-	padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   .banner__heading.h0 {
-      line-height: 2rem;
-	font-size: calc(var(--font-heading-scale) * 3rem);
+    line-height: 2rem;
+    font-size: calc(var(--font-heading-scale) * 3rem);
   }
 }
 
 @media screen and (min-width: 550px) {
   .banner.video-background {
-  	min-height: auto;
+    min-height: auto;
   }
 }
 
 @media screen and (min-width: 990px) {
   .banner.video-background {
-  	min-height: 38rem;
+    min-height: 38rem;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .banner.video-background {
-  	min-height: 40rem;
+    min-height: 40rem;
   }
 }
 
 @media screen and (min-width: 1320px) {
   .banner.video-background {
-  	min-height: 50rem;
+    min-height: 50rem;
   }
 }
