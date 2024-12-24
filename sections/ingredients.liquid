@@ -4,7 +4,7 @@
     <ul class="point-list">
       {%- for block in section.blocks -%}
         <li class="ingredient-item">
-          <h4>&times; {{ block.settings.ingredient_text }}</h4>
+          <h4>&times; {{ block.settings.bulletpoint_text }}</h4>
         </li>
       {%- endfor -%}
     </ul>
@@ -60,7 +60,7 @@
       "settings": [
         {
           "type": "text",
-          "id": "ingredient_text",
+          "id": "bulletpoint_text",
           "label": "Point",
           "default": "Example Ingredient"
         }
