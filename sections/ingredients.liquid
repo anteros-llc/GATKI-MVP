@@ -22,6 +22,9 @@
   .point-wrapper {
     width: 75%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Stack eyebrow and point list */
+    gap: 1.25rem; /* Add vertical spacing */
   }
 
   .point-list {
@@ -30,25 +33,24 @@
     margin: 0;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allows items to wrap if they don’t fit */
+    flex-wrap: wrap;
   }
 
   .bulletpoint-item h4 {
     text-transform: uppercase;
   }
 
-  /* Media query for smaller screens */
   @media (max-width: 750px) {
     .point-list {
-      display: block; /* Switch to block for stacking */
+      display: block;
     }
 
     .bulletpoint-item {
-      margin-bottom: 1rem; /* Add spacing between stacked items */
+      margin-bottom: 1rem;
     }
 
     .bulletpoint-item:last-child {
-      margin-bottom: 0; /* Remove bottom margin for the last item */
+      margin-bottom: 0;
     }
   }
 </style>
