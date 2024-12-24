@@ -389,7 +389,7 @@
 }
 
 .banner__box > * + .banner__buttons {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 749px) {
