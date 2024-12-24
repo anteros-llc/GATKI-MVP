@@ -22,8 +22,8 @@
 .accordion {
   margin-top: 2rem;
   margin-bottom: 0;
-  border-top: 0.1rem solid var(--color-ash);
-  border-bottom: 0.1rem solid var(--color-ash);
+  border-top: 0.5rem solid var(--color-ash);
+  border-bottom: 0.5rem solid var(--color-ash);
 }
 
 .accordion__title {
