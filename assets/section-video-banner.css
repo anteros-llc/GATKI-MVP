@@ -328,6 +328,10 @@
   margin-top: 1rem;
 }
 
+.banner__box > * + .banner__buttons {
+  margin-top: 1rem;
+}
+
 .banner__box > *:first-child {
   margin-top: 0;
 }
