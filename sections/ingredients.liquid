@@ -12,27 +12,44 @@
 </section>
 
 <style>
-    .made-without{
-      color: var(--color-chenpi);
-      padding: 3rem 0;
-      background-color: var(--color-albedo);
-      text-align: center;
-    }
-    .point-wrapper{
-      width: 75%;
-      margin: 0 auto;
-    }
-    .point-list {
+  .made-without {
+    color: var(--color-chenpi);
+    padding: 3rem 0;
+    background-color: var(--color-albedo);
+    text-align: center;
+  }
+
+  .point-wrapper {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .point-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap; /* Allows items to wrap if they don’t fit */
   }
 
-    .bulletpoint-item h4 {
+  .bulletpoint-item h4 {
     text-transform: uppercase;
+  }
 
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .point-list {
+      display: block; /* Switch to block for stacking */
+    }
+
+    .bulletpoint-item {
+      margin-bottom: 1rem; /* Add spacing between stacked items */
+    }
+
+    .bulletpoint-item:last-child {
+      margin-bottom: 0; /* Remove bottom margin for the last item */
+    }
   }
 </style>
 
