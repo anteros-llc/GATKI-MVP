@@ -127,33 +127,33 @@
     "ingredients_UDWPHK": {
       "type": "ingredients",
       "blocks": {
-        "ingredient_GzHGrP": {
-          "type": "ingredient",
+        "point_UyzRpe": {
+          "type": "point",
           "settings": {
-            "ingredient_text": "Stickness"
+            "bulletpoint_text": "STICKINESS"
           }
         },
-        "ingredient_FGBRwL": {
-          "type": "ingredient",
+        "point_GtfFwG": {
+          "type": "point",
           "settings": {
-            "ingredient_text": "Pigment"
+            "bulletpoint_text": "PIGMENT"
           }
         },
-        "ingredient_4pH69e": {
-          "type": "ingredient",
+        "point_FpMXgE": {
+          "type": "point",
           "settings": {
-            "ingredient_text": "Menthol"
+            "bulletpoint_text": "MENTHOL"
           }
         }
       },
       "block_order": [
-        "ingredient_GzHGrP",
-        "ingredient_FGBRwL",
-        "ingredient_4pH69e"
+        "point_UyzRpe",
+        "point_GtfFwG",
+        "point_FpMXgE"
       ],
       "custom_css": [],
       "settings": {
-        "ingredients_heading": "14 INGREDIENTS. NOTHING EXTRA."
+        "point_heading": "14 INGREDIENTS. NOTHING EXTRA."
       }
     },
     "custom_carousel_LQUw6V": {
