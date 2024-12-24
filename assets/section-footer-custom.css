@@ -110,6 +110,7 @@
   /* Newsletter Section */
   .custom-footer-newsletter {
     width: 100%; /* Full width on mobile */
+    max-width: 100%;
     padding-right: 0; /* Remove padding-right */
   }
 
