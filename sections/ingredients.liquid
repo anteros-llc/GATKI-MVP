@@ -1,6 +1,6 @@
 <section class="made-without">
   <div class="point-wrapper">
-    <label class="eyebrow">{{ section.settings.point_heading }}</label>
+    <label class="eyebrow">{{ section.settings.eyebrow }}</label>
     <ul class="point-list">
       {%- for block in section.blocks -%}
         <li class="bulletpoint-item">
@@ -48,7 +48,7 @@
   "settings": [
     {
       "type": "text",
-      "id": "point_heading",
+      "id": "eyebrow",
       "label": "Eyebrow",
       "default": "14 INGREDIENTS. NOTHING EXTRA."
     }
