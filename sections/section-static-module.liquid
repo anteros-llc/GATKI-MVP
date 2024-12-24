@@ -1,22 +1,23 @@
 {{ 'section-static-module.css' | asset_url | stylesheet_tag }}
 
 <div class="image-container">
-  <img src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Ingredient_LipDew_OrangeStack_w_o_Marble.png?v=1732846511" 
-       alt="Product Image" 
-       height=100vh
-       width=100%
-       class="image-background">
-  <div class="text-section section-1">
-    <h2>{{ section.settings.ingredients_text }}</h2>
+  <img
+    src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Ingredient_LipDew_OrangeStack_w_o_Marble.png?v=1732846511"
+    alt="Product Image"
+    height="100vh"
+    width="100%"
+    class="image-background"
+  >
+  <div class="text-field" id="field-1">
+    <h1>{{ section.settings.ingredients_text }}</h1>
   </div>
-  <div class="text-section section-2">
-    <h2>{{ section.settings.nature_text }}</h2>
+  <div class="text-field" id="field-2">
+    <h1>{{ section.settings.nature_text }}</h1>
   </div>
-  <div class="text-section section-3">
-    <h2>{{ section.settings.radiance_text }}</h2>
+  <div class="text-field" id="field-3">
+    <h1>{{ section.settings.radiance_text }}</h1>
   </div>
 </div>
-
 
 {% schema %}
 {
@@ -49,5 +50,4 @@
     }
   ]
 }
-
 {% endschema %}

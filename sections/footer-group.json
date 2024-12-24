@@ -1,1 +1,94 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"section_footer_custom_66wUxp":{"type":"section-footer-custom","blocks":{"link_list_mUEech":{"type":"link_list","settings":{"heading":"Company","menu":"footer"}},"link_list_9hqtjL":{"type":"link_list","settings":{"heading":"Support","menu":"footer"}},"link_list_mwBM6m":{"type":"link_list","settings":{"heading":"Contact","menu":"footer"}}},"block_order":["link_list_mUEech","link_list_9hqtjL","link_list_mwBM6m"],"settings":{"newsletter_heading":"Subscribe to Our Newsletter","newsletter_description":"Get exclusive updates and offers."}},"footer":{"type":"footer","disabled":true,"settings":{"color_scheme":"scheme-1","newsletter_enable":false,"newsletter_heading":"","enable_follow_on_shop":false,"show_social":false,"enable_country_selector":false,"enable_language_selector":false,"payment_enable":false,"show_policy":true,"margin_top":0,"padding_top":36,"padding_bottom":36}}},"order":["section_footer_custom_66wUxp","footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "1734048633d4a6b7d0": {
+      "type": "apps",
+      "custom_css": [
+        ".klaviyo-form-XPfEf9 form {border-bottom: 1px solid #101921 !important; padding-bottom: 0 0 0 4px !important;}",
+        ".klaviyo-form-XPfEf9 input[type=\"email\"],.klaviyo-form-XPfEf9 button {border: none !important; outline: none !important; border-radius: 0 !important; padding: 0 !important;}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "section_footer_custom_66wUxp": {
+      "type": "section-footer-custom",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_zYJww8": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "XPfEf9"
+          }
+        },
+        "link_list_mUEech": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "footer"
+          }
+        },
+        "link_list_9hqtjL": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "footer2"
+          }
+        },
+        "link_list_mwBM6m": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Contact",
+            "menu": "footer3-menu"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_zYJww8",
+        "link_list_mUEech",
+        "link_list_9hqtjL",
+        "link_list_mwBM6m"
+      ],
+      "custom_css": [
+        ".klaviyo-form-XPfEf9 form {border-bottom: 1px solid #101921 !important; padding-bottom: 4px !important;}",
+        ".klaviyo-form-XPfEf9 input[type=\"email\"],.klaviyo-form-XPfEf9 button {border: none !important; outline: none !important; border-radius: 0 !important; padding: 0 !important;}"
+      ],
+      "settings": {
+        "newsletter_heading": "",
+        "newsletter_description": ""
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "1734048633d4a6b7d0",
+    "section_footer_custom_66wUxp",
+    "footer"
+  ]
+}

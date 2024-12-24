@@ -3,74 +3,82 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
 <slideshow-component
-  class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
+  class="slider-mobile-gutter"
   role="region"
-  aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
-  aria-label="{{ section.settings.accessibility_info | escape }}"
+  aria-roledescription="carousel"
+  aria-label="Slideshow"
 >
-  <div
-    class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--2-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-    id="Slider-{{ section.id }}"
-    aria-live="polite"
-    aria-atomic="true"
-    data-autoplay="{{ section.settings.auto_rotate }}"
-    data-speed="{{ section.settings.change_slides_speed }}"
-  >
+  <div class="slideshow banner slider slider--everywhere custom-slider" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
     {%- for block in section.blocks -%}
-      <style>
-        #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
-          opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
-        }
-      </style>
       <div
-        class="slideshow__slide grid__item grid--2-col slider__slide"
+        class="slideshow__slide slider__slide slider__custom"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
-        {{ block.shopify_attributes }}
         role="group"
-        aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
-        aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+        aria-roledescription="slide"
+        aria-label="{{ forloop.index }} of {{ forloop.length }}"
       >
-        <!-- Image Column -->
-        <div class="slideshow__media banner__media media slideshow__media--half">
+        <!-- Left Column: Image -->
+        <div class="slideshow__media slideshow__media--half">
           {%- if block.settings.image -%}
             {{
               block.settings.image
-              | image_url: width: 1920
+              | image_url: width: 1600
               | image_tag: alt: block.settings.heading
             }}
           {%- endif -%}
         </div>
 
-        <!-- Text Column -->
-        <div class="slideshow__text-wrapper banner__content slideshow__text-wrapper--half">
-          <div class="slideshow__text">
-            {%- if block.settings.heading != blank -%}
-              <h2 class="banner__heading {{ block.settings.heading_size }}">
-                {{ block.settings.heading }}
-              </h2>
-            {%- endif -%}
-
-            {%- if block.settings.subheading != blank -%}
-              <p class="banner__text">
-                {{ block.settings.subheading }}
-              </p>
-            {%- endif -%}
-
-            {%- if block.settings.button_label != blank -%}
-              <a
-                href="{{ block.settings.link }}"
-                class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
-              >
-                {{ block.settings.button_label }}
-              </a>
-            {%- endif -%}
+        <!-- Right Column: Text -->
+        <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
+          {%- if block.settings.heading != blank -%}
+            <h2>
+              {{ block.settings.heading }}
+            </h2>
+          {%- endif -%}
+            {% if block.settings.slide_type == 'slider' %}
+          <div class="bottom-slider">
+      <div class="slider-wrapper">
+  <h6 class="slider-label">GENTLENESS</h6>
+  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693" alt="Gentleness slider">
+</div>
+<div class="slider-wrapper">
+  <h6 class="slider-label">NOURISHMENT</h6>
+  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693" alt="Nourishment slider">
+</div>
+<div class="slider-wrapper">
+  <h6 class="slider-label">STAYING POWER</h6>
+  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_8.0.svg?v=1734398694" alt="Staying Power slider">
+</div>  
           </div>
+         {% elsif block.settings.slide_type == 'text' %}  
+      <div class="text-content">
+        <div class="slider-wrapper">
+          <h6>HOW IT FEELS</h6>
+          <span>Cushiony soft</span>
+        </div>
+        <div class="slider-wrapper">
+          <h6>HOW IT LOOKS</h6>
+          <span>Clear with a natural sheen</span>
+        </div>
+        <div class="slider-wrapper">
+          <h6>HOW IT SMELLS</h6>
+          <span>Fragrance-free</span>
+        </div>
+        <div class="slider-wrapper">
+          <h6>HOW IT TASTES</h6>
+          <span>Flavor-free</span>
+        </div>
+        <div class="slider-wrapper">
+          <h6>BEST FOR</h6>
+          <span>Suitable for all, especially sensitive lips</span>
+        </div>
+      </div>
+            {% endif %}
         </div>
       </div>
     {%- endfor -%}
   </div>
-
-  <!-- Navigation Buttons -->
+ <!-- Navigation Buttons -->
   {%- if section.blocks.size > 1 -%}
     <div class="slideshow__controls slider-buttons">
       <button
@@ -94,6 +102,105 @@
     </div>
   {%- endif -%}
 </slideshow-component>
+<style>
+
+  /* Flex container for slides */
+#Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
+          opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+        }
+.slider-mobile-gutter{
+  background-color: var(--color-blanco); 
+  color: var(--color-chenpi);
+} 
+  
+.slider__custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+/* Image column */
+.slideshow__media--half {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshow__media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-width: 720px;
+}
+
+/* Text column */
+.slideshow__text-wrapper--half {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  height: 100%;
+}
+
+.slideshow__text-wrapper--half h2 {
+  color: var(--color-chenpi);
+}
+
+.slider-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-label {
+  flex: 1;
+  text-align: left;
+  padding-bottom: .3rem;
+}
+
+.svg-slider {
+  margin-left: 20px; /* Moves the SVG further to the right */
+  flex: 1; /* Takes more space than label */
+  padding-bottom: .3rem;
+}
+
+.slider-wrapper h6, .silder-wrapper span{
+  font-size: 1rem;
+  line-height: 1.1rem;
+}
+
+.slider-wrapper h6{
+  font-weight: 700;
+}
+
+.slider-wrapper span{
+  font-weight: 400;
+}
+  
+/* Responsive Design */
+@media (max-width: 749px) {
+  .slider__slide {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slideshow__media--half,
+  .slideshow__text-wrapper--half {
+    width: 100%;
+  }
+
+  .slideshow__text-wrapper--half {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+</style>
 
 {% schema %}
 {
@@ -239,6 +346,22 @@
           "default": "t:sections.slideshow.blocks.slide.settings.heading.default",
           "label": "t:sections.slideshow.blocks.slide.settings.heading.label"
         },
+        {
+  "type": "select",
+  "id": "slide_type",
+  "label": "Slide Type",
+  "options": [
+    {
+      "value": "slider",
+      "label": "Slider"
+    },
+    {
+      "value": "text",
+      "label": "Text"
+    }
+  ],
+  "default": "slider"
+},
         {
           "type": "select",
           "id": "heading_size",

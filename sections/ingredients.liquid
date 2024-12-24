@@ -1,0 +1,78 @@
+<section class="made-without">
+  <label class="eyebrow">{{ section.settings.eyebrow }}</label>
+  <ul class="point-list">
+    {%- for block in section.blocks -%}
+      <li class="bulletpoint-item">
+        <h4>&times; {{ block.settings.bulletpoint_text }}</h4>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+<style>
+  .made-without {
+    color: var(--color-chenpi);
+    padding: 1rem 8rem;
+    background-color: var(--color-albedo);
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align content */
+    gap: 0rem; /* Vertical spacing between eyebrow and bullet points */
+  }
+
+  .point-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Stack items on smaller screens */
+    gap: 6rem; /* Horizontal spacing between bullet points */
+  }
+
+  .bulletpoint-item h4 {
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 750px) {
+    .point-list {
+      flex-direction: column; /* Stack bullet points vertically */
+      gap: 1rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Made Without",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "14 INGREDIENTS. NOTHING EXTRA."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "bulletpoint_text",
+          "label": "Point",
+          "default": "Bulletpoint"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "point Module",
+    }
+  ]
+}
+{% endschema %}

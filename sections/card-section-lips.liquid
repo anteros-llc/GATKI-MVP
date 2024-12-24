@@ -4,7 +4,7 @@
 <section class="custom-module">
   <div class="content-wrapper">
     <h2 class="module-title">{{ section.settings.title }}</h2>
-    <p class="module-description">{{ section.settings.description }}</p>
+    <h5 class="module-description">{{ section.settings.description }}</h5>
     <div class="cards-container">
       {% for block in section.blocks %}
         <div class="card">
@@ -20,7 +20,11 @@
       {% endfor %}
     </div>
     {% if section.settings.learn_more_link != blank %}
-      <a href="{{ section.settings.learn_more_link }}" class="learn-more">{{ section.settings.learn_more_text }}</a>
+      <a href="{{ section.settings.learn_more_link }}" class="learn-more">{{ section.settings.learn_more_text }}
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 17" height="15" width="15">
+        <path fill="#91693C" d="M13.5875 2.65869L14 3.07119V13.5712H12.5375V5.18994L3.125 14.6587L2 13.5337L11.45 4.10244H3.0875V2.65869H13.5875Z"/>
+      </svg> 
+      </a>
     {% endif %}
   </div>
 </section>

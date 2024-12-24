@@ -1,1 +1,376 @@
-{"sections":{"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"description":{"type":"description","settings":{}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":false}},"okendo_reviews_badge_FnGXfk":{"type":"shopify:\/\/apps\/okendo\/blocks\/reviews-badge\/bb689e69-ea70-4661-8fb7-ad24a2e23c29","settings":{"horizontal_alignment":"center"}}},"block_order":["title","description","price","variant_picker","buy_buttons","okendo_reviews_badge_FnGXfk"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","media_size":"medium","constrain_to_viewport":true,"media_fit":"cover","gallery_layout":"stacked","media_position":"left","image_zoom":"lightbox","mobile_thumbnails":"hide","hide_variants":true,"enable_video_looping":false,"padding_top":36,"padding_bottom":12}},"related-products":{"type":"related-products","settings":{"heading":"You may also like","heading_size":"h2","products_to_show":4,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"columns_mobile":"2","padding_top":36,"padding_bottom":28}},"1731992271885d52d1":{"type":"apps","blocks":{"okendo_reviews_widget_8Vdph6":{"type":"shopify:\/\/apps\/okendo\/blocks\/reviews-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29","settings":{"product":"{{product}}","widget_type":"reviews_widget"}}},"block_order":["okendo_reviews_widget_8Vdph6"],"settings":{"include_margins":true}},"173220843939acca06":{"type":"apps","settings":{"include_margins":true}}},"order":["main","related-products","1731992271885d52d1","173220843939acca06"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "text_pikJCc": {
+          "type": "text",
+          "settings": {
+            "text": "0.32 FL OZ",
+            "text_2": "10 ML",
+            "text_style": "body"
+          }
+        },
+        "icon_with_text_kBRdf6": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "image_1": "shopify://shop_images/Icon_Day.svg",
+            "heading_1": "Day",
+            "image_2": "shopify://shop_images/Icon_Night.svg",
+            "heading_2": "Night",
+            "image_3": "shopify://shop_images/Icon_Soothing.svg",
+            "heading_3": "Soothing",
+            "image_4": "shopify://shop_images/Icon_Travel.svg",
+            "heading_4": "Travel-ready"
+          }
+        },
+        "buy_buttons_UdziB3": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "collapsible_tab_tzHqXN": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "BENEFITS",
+            "icon": "none",
+            "content": "<p>Formulated for sensitive lips with only 14 ingredients</p><p>Gentle yet effective</p><p>Non-sticky texture</p><p>Easy, seamless glide with a ergonomically curved tip</p><p>Portable and convenient</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_MRFRkR": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "INGREDIENTS",
+            "icon": "none",
+            "content": "<p>Butyrospermum parkii (shea) butter </p><p>Bis-behenyl/ isostearyl/ phytosteryl dimer dilinoleyl dimer dilinoleate </p><p>Ricinus communis (castor) seed oil </p><p>Squalene </p><p>Hydrogenated castor oil </p><p>Beeswax </p><p>Bisabolol </p><p>Glyceryl caprylate </p><p>Citrus aurantium dulcis (orange) peel oil </p><p>Water </p><p>Glycerin </p><p>Caprylyl glycol </p><p>Acetyl hexapeptide-8 </p><p>Palmitoyl tripeptide-1</p>",
+            "page": ""
+          }
+        },
+        "okendo_star_rating_EXAQWq": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "description",
+        "text_pikJCc",
+        "icon_with_text_kBRdf6",
+        "buy_buttons_UdziB3",
+        "collapsible_tab_tzHqXN",
+        "collapsible_tab_MRFRkR",
+        "okendo_star_rating_EXAQWq"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "ingredients_UDWPHK": {
+      "type": "ingredients",
+      "blocks": {
+        "point_UyzRpe": {
+          "type": "point",
+          "settings": {
+            "bulletpoint_text": "STICKINESS"
+          }
+        },
+        "point_GtfFwG": {
+          "type": "point",
+          "settings": {
+            "bulletpoint_text": "PIGMENT"
+          }
+        },
+        "point_FpMXgE": {
+          "type": "point",
+          "settings": {
+            "bulletpoint_text": "MENTHOL"
+          }
+        }
+      },
+      "block_order": [
+        "point_UyzRpe",
+        "point_GtfFwG",
+        "point_FpMXgE"
+      ],
+      "custom_css": [],
+      "settings": {
+        "eyebrow": ""
+      }
+    },
+    "custom_carousel_LQUw6V": {
+      "type": "custom-carousel",
+      "blocks": {
+        "slide_pfY37a": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
+            "heading": "The touch of softness.",
+            "slide_type": "slider",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_FP3t6t": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Texture_LipDew_Gel_2000x2000_PDP_LIPDEW.jpg",
+            "heading": "The touch of softness.",
+            "slide_type": "text",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_pfY37a",
+        "slide_FP3t6t"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "small",
+        "slider_visual": "numbers",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "image_banner_UKJ3fP": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Kt3anE": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_R7heRx": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_kiWaeM": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Kt3anE",
+        "text_R7heRx",
+        "buttons_kiWaeM"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Lifestyle_Flatlay_LipDew_Ingredients_2000x833_PDP_LIPDEW.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "slider_image_ANw9BW": {
+      "type": "slider-image",
+      "blocks": {
+        "ingredient_AVkb6z": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-1",
+            "image": "shopify://shop_images/Ingredient_LipDew_Chenpi_2000x2000_PDP_LIPDEW.jpg",
+            "number": "01",
+            "title": "CHENPI OIL",
+            "description": "Chenpi, the sun-dried mandarin orange peel (Citrus reticulata Blanco), has been cherished in traditional Chinese medicine for its warming properties and aromatic bitterness.",
+            "percentage": "",
+            "bullet_point_1_heading": "Anti-inflammatory",
+            "bullet_point_1_text": "Extracted from sun-dried Chenpi (mandarin orange peel) from Xinhui, China, our vitamin C-rich oil is anti-inflammatory and antibacterial, soothing irritation.",
+            "bullet_point_2_heading": "Soothing",
+            "bullet_point_2_text": "The lightweight, non-greasy oil creates a moisture barrier that relieves dry and flaky lips.",
+            "bullet_point_3_heading": "Brightening",
+            "bullet_point_3_text": "Rich in antioxidants, it neutralizes free radicals to enhance lip vitality and reduce dullness."
+          }
+        },
+        "ingredient_YW3jXa": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-2",
+            "image": "shopify://shop_images/Ingredient_Pianta_1000x1000_PDP_LIPDEW.jpg",
+            "number": "02",
+            "title": "DUAL PEPTIDE COMPLEX",
+            "description": "Tripeptide-1 boosts collagen production, while Hexapeptide-8, a botulinum toxin mimic, locks in moisture and reduces fine lines, keeping lips smooth and bouncy.",
+            "percentage": "+57%",
+            "bullet_point_1_heading": "Collagen Synthesis Production",
+            "bullet_point_1_text": "Wrinkle volume reduced by 20.6% and length by 15.9% after one week.",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
+          }
+        },
+        "ingredient_h8ydbV": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-3",
+            "image": "shopify://shop_images/Ingredient_Camellia_2000x2000_PDP_LIPDEW.jpg",
+            "number": "03",
+            "title": "CAMELIA SQUALANE",
+            "description": "Cold-pressed Camellia Squalane retains active compounds for superior hydration. Compared to other sources, it offers higher purity, fewer impurities, and a more refined skin texture.",
+            "percentage": "+36.51%",
+            "bullet_point_1_heading": "Skin Hydration",
+            "bullet_point_1_text": "Moisture increased from 36.51% to 48.52% within 5 minutes, rising further over 2 hours.",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
+          }
+        },
+        "ingredient_qtXFxx": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-4",
+            "image": "shopify://shop_images/Ingredient_Peptide_2000x2000_PDP_LIPDEW.jpg",
+            "number": "04",
+            "title": "BISABOLOL",
+            "description": "Bisabolol, a patented natural compound from Brazil's Candeia tree, is known for its powerful anti-inflammatory properties.",
+            "percentage": "-23%",
+            "bullet_point_1_heading": "Inflammatory Compounds",
+            "bullet_point_1_text": "Inflammation-related compounds reduced by 23%.",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_AVkb6z",
+        "ingredient_YW3jXa",
+        "ingredient_h8ydbV",
+        "ingredient_qtXFxx"
+      ],
+      "settings": {}
+    },
+    "1731992271885d52d1": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_8Vdph6": {
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{ product }}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_8Vdph6"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "ingredients_UDWPHK",
+    "custom_carousel_LQUw6V",
+    "image_banner_UKJ3fP",
+    "slider_image_ANw9BW",
+    "1731992271885d52d1"
+  ]
+}

@@ -2,7 +2,8 @@
   position: relative;
   height: 100vh; /* Full height of the viewport */
   width: 100%; /* Full width */
-  background-color: #EAE1A3 !important;
+  background-color: var(--color-albedo);
+  border-radius: 3rem;
 }
 
 .image-background {
@@ -16,33 +17,23 @@
   padding-bottom: 7rem;
 }
 
-.text-section {
+.text-field {
   position: absolute;
   width: 100%;
   text-align: center;
-  color: #FAF6F0;
   z-index: 2;
   padding: 1.25rem;
+  color: var(--color-chenpi);
 }
 
-.text-section h2 {
- font-family: "IvyprestoHeadline"!important;
- font-weight: 100!important;
- font-size: 6.2rem;
- line-height: 7.95rem;
- text-underline-position: from-font;
- text-decoration-skip-ink: none; 
- color: #FAF6F0;
-}
-
-.section-1 {
+#field-1 {
   top: 10%; /* Position the first section 10% from the top */
 }
 
-.section-2 {
+#field-2 {
   top: 40%; /* Position the second section at 40% */
 }
 
-.section-3 {
+#field-3 {
   top: 70%; /* Position the third section at 70% */
 }

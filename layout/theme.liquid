@@ -34,6 +34,23 @@
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+    {{ 'flickity.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'flickity.js' | asset_url }}" defer></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const staticSlider = document.querySelector(".carousel");
+
+  if (staticSlider) {
+    new Flickity(staticSlider, {
+      cellAlign: "center",
+      contain: true,
+      wrapAround: true,
+      imagesLoaded: true,
+      prevNextButtons: true,
+    });
+  }
+});
+    </script>
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -53,7 +70,7 @@
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
-
+      
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
         {% if forloop.index == 1 -%}
@@ -79,7 +96,7 @@
           endif
         %}
 
-        --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-foreground:  var(--color-soil);
         --color-background-contrast: {{ background_color_contrast.red }},{{ background_color_contrast.green }},{{ background_color_contrast.blue }};
         --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
         --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
@@ -100,15 +117,6 @@
       }
 
       :root {
-        /* --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-        --font-body-style: {{ settings.type_body_font.style }};
-        --font-body-weight: {{ settings.type_body_font.weight }};
-        --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
-
-        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
-        --font-heading-style: {{ settings.type_header_font.style }};
-        --font-heading-weight: {{ settings.type_header_font.weight }}; */
-
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 
@@ -230,7 +238,7 @@
 
       html {
         box-sizing: border-box;
-        font-size: calc(var(--font-body-scale)* 62.5%);
+        font-size: calc(var(--font-body-scale) * 100%);
         height: 100%;
       }
 
@@ -240,12 +248,6 @@
         grid-template-columns: 100%;
         min-height: 100%;
         margin: 0;
-        /* font-size: 1.5rem;
-        letter-spacing: 0.06rem; */
-        /* line-height: calc(1 + 0.8 / var(--font-body-scale));
-        font-family: var(--font-body-family);
-        font-style: var(--font-body-style);
-        font-weight: var(--font-body-weight); */
       }
 
       @media screen and (min-width: 750px) {
@@ -296,7 +298,13 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-  {% include 'pagefly-app-header' %}</head>
+    {% include 'pagefly-app-header' %}
+    <style>
+shopify-payment-terms {
+    display: none !important;
+}
+</style>
+  </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -372,33 +380,5 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
-    <style>
-.header__icons a#cart-icon-bubble {
-    position: relative;
-}
-.header__icons a#cart-icon-bubble svg {
-    opacity: 0;
-    width: 60px !important;
-}
-.header__icons a#cart-icon-bubble:before {
-    position: relative;
-    content: 'CART';
-    font-family: Syndicat-Grotesk !important;
-} 
-      a#cart-icon-bubble{
-text-decoration: none;
-line-height: calc(1 + 0.3 / var(--font-body-scale));
-text-underline-offset: 0.3rem;
-}
-
-a#cart-icon-bubble:hover {
-    text-decoration: underline;
-}
-.header__icons a#cart-icon-bubble .cart-count-bubble {
-    left: auto;
-    right: 0px;
-}
-</style>
   </body>
 </html>
