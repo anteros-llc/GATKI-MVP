@@ -152,8 +152,12 @@ ul{
 
 @media (max-width: 480px) {
   .two-column-carousel .slideshow__media img {
-    max-width: 16rem; /* Compact size for mobile */
     padding: 0.5rem 0 0; /* Minimal padding on top */
+  }
+
+  .two-column-carousel .slideshow__numbers{
+     bottom: unset;
+     top: 27%
   }
 }
 
@@ -285,7 +289,7 @@ ul{
 }
 
 .two-column-carousel .ingredients-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--color-chenpi);
 }
 
 /* Responsive adjustments */
@@ -347,12 +351,12 @@ ul{
   margin-top: 0;
   margin-bottom: 0;
 }
+  
 .ingredient-hidden-text li p{
   font-size: 0.75rem;
   margin-top: 0;
   margin-bottom: 0;
 }
-
 </style>
 
 <script>
