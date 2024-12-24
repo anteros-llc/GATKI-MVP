@@ -1,6 +1,6 @@
 <section class="made-without">
   <div class="point-wrapper">
-    <h5 class="point-heading">{{ section.settings.point_heading }}</h5>
+    <label class="point-heading">{{ section.settings.point_heading }}</label>
     <ul class="point-list">
       {%- for block in section.blocks -%}
         <li class="ingredient-item">
@@ -29,7 +29,7 @@
     display: flex;
     justify-content: space-between;
   }
-    .point-heading h5 {
+    .point-heading label {
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
