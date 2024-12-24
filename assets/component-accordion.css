@@ -3,8 +3,6 @@
   position: relative;
   line-height: 1;
   padding: 1rem 0;
-  border-top: 0.1rem solid var(--color-ash);
-  border-bottom: 0.1rem solid var(--color-ash);
 }
 
 .accordion .summary__title {
@@ -24,6 +22,8 @@
 .accordion {
   margin-top: 2rem;
   margin-bottom: 0;
+  border-top: 0.1rem solid var(--color-ash);
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
 .accordion__title {
