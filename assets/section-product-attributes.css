@@ -35,3 +35,12 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
+
+@media screen and (max-width: 750px) {
+  .product-attributes {
+    flex-direction: column;
+    gap: 0;
+    align-items: baseline;
+    margin: 0 auto;
+  }
+}
