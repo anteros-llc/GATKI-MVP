@@ -23,8 +23,9 @@
     width: 75%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* Stack eyebrow and point list */
-    gap: 0.5rem; /* Add vertical spacing */
+    flex-direction: column; /* Ensures flex layout */
+    align-items: center; /* Centers content horizontally */
+    gap: 1.25rem; /* Vertical spacing between eyebrow and bullet points */
   }
 
   .point-list {
@@ -33,7 +34,8 @@
     margin: 0;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    gap: 1rem; /* Adds spacing between bullet points */
   }
 
   .bulletpoint-item h4 {
@@ -42,15 +44,8 @@
 
   @media (max-width: 750px) {
     .point-list {
-      display: block;
-    }
-
-    .bulletpoint-item {
-      margin-bottom: 1rem;
-    }
-
-    .bulletpoint-item:last-child {
-      margin-bottom: 0;
+      flex-direction: column; /* Stacks bullet points */
+      gap: 1rem; /* Vertical spacing between bullet points */
     }
   }
 </style>
