@@ -1,14 +1,12 @@
 <section class="made-without">
-  <div class="point-wrapper">
-    <label class="eyebrow">{{ section.settings.eyebrow }}</label>
-    <ul class="point-list">
-      {%- for block in section.blocks -%}
-        <li class="bulletpoint-item">
-          <h4>&times; {{ block.settings.bulletpoint_text }}</h4>
-        </li>
-      {%- endfor -%}
-    </ul>
-  </div>
+  <label class="eyebrow">{{ section.settings.eyebrow }}</label>
+  <ul class="point-list">
+    {%- for block in section.blocks -%}
+      <li class="bulletpoint-item">
+        <h4>&times; {{ block.settings.bulletpoint_text }}</h4>
+      </li>
+    {%- endfor -%}
+  </ul>
 </section>
 
 <style>
@@ -17,15 +15,14 @@
     padding: 3rem 0;
     background-color: var(--color-albedo);
     text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align content */
+    gap: 0.75rem; /* Vertical spacing between eyebrow and bullet points */
   }
 
-  .point-wrapper {
-    width: 75%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem; /* Reduced gap for a closer vertical distance */
+  .eyebrow {
+    font-weight: bold; /* Add additional styling if needed */
   }
 
   .point-list {
@@ -34,8 +31,8 @@
     margin: 0;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem; /* Adds spacing between bullet points */
+    flex-wrap: wrap; /* Stack items on smaller screens */
+    gap: 1rem; /* Horizontal spacing between bullet points */
   }
 
   .bulletpoint-item h4 {
@@ -44,7 +41,7 @@
 
   @media (max-width: 750px) {
     .point-list {
-      flex-direction: column;
+      flex-direction: column; /* Stack bullet points vertically */
       gap: 1rem;
     }
   }
