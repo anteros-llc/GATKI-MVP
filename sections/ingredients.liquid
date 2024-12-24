@@ -23,9 +23,9 @@
     width: 75%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* Ensures flex layout */
-    align-items: center; /* Centers content horizontally */
-    gap: 1.25rem; /* Vertical spacing between eyebrow and bullet points */
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem; /* Reduced gap for a closer vertical distance */
   }
 
   .point-list {
@@ -34,7 +34,7 @@
     margin: 0;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    flex-wrap: wrap;
     gap: 1rem; /* Adds spacing between bullet points */
   }
 
@@ -44,8 +44,8 @@
 
   @media (max-width: 750px) {
     .point-list {
-      flex-direction: column; /* Stacks bullet points */
-      gap: 1rem; /* Vertical spacing between bullet points */
+      flex-direction: column;
+      gap: 1rem;
     }
   }
 </style>
