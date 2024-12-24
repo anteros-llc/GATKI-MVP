@@ -417,7 +417,6 @@
 
 @media screen and (max-width: 749px) {
   .banner.video-background:not(.banner--mobile-bottom) .banner__content {
-    min-height: 20rem;
   }
 
   .button {
