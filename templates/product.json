@@ -65,22 +65,16 @@
         "collapsible_tab_MRFRkR": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "INGRIDIENTS",
+            "heading": "INGREDIENTS",
             "icon": "none",
             "content": "<p>Butyrospermum parkii (shea) butter </p><p>Bis-behenyl/ isostearyl/ phytosteryl dimer dilinoleyl dimer dilinoleate </p><p>Ricinus communis (castor) seed oil </p><p>Squalene </p><p>Hydrogenated castor oil </p><p>Beeswax </p><p>Bisabolol </p><p>Glyceryl caprylate </p><p>Citrus aurantium dulcis (orange) peel oil </p><p>Water </p><p>Glycerin </p><p>Caprylyl glycol </p><p>Acetyl hexapeptide-8 </p><p>Palmitoyl tripeptide-1</p>",
             "page": ""
           }
         },
-        "okendo_reviews_badge_FnGXfk": {
-          "type": "shopify://apps/okendo/blocks/reviews-badge/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "okendo_star_rating_EXAQWq": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
-            "horizontal_alignment": "left"
-          }
-        },
-        "custom_liquid_L7ttzK": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'okendo-reviews-badge' %}"
+            "product": "{{product}}"
           }
         }
       },
@@ -93,8 +87,7 @@
         "buy_buttons_UdziB3",
         "collapsible_tab_tzHqXN",
         "collapsible_tab_MRFRkR",
-        "okendo_reviews_badge_FnGXfk",
-        "custom_liquid_L7ttzK"
+        "okendo_star_rating_EXAQWq"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -134,33 +127,33 @@
     "ingredients_UDWPHK": {
       "type": "ingredients",
       "blocks": {
-        "ingredient_GzHGrP": {
-          "type": "ingredient",
+        "point_UyzRpe": {
+          "type": "point",
           "settings": {
-            "ingredient_text": "Stickness"
+            "bulletpoint_text": "STICKINESS"
           }
         },
-        "ingredient_FGBRwL": {
-          "type": "ingredient",
+        "point_GtfFwG": {
+          "type": "point",
           "settings": {
-            "ingredient_text": "Pigment"
+            "bulletpoint_text": "PIGMENT"
           }
         },
-        "ingredient_4pH69e": {
-          "type": "ingredient",
+        "point_FpMXgE": {
+          "type": "point",
           "settings": {
-            "ingredient_text": "Menthol"
+            "bulletpoint_text": "MENTHOL"
           }
         }
       },
       "block_order": [
-        "ingredient_GzHGrP",
-        "ingredient_FGBRwL",
-        "ingredient_4pH69e"
+        "point_UyzRpe",
+        "point_GtfFwG",
+        "point_FpMXgE"
       ],
       "custom_css": [],
       "settings": {
-        "ingredients_heading": "14 INGREDIENTS. NOTHING EXTRA."
+        "eyebrow": ""
       }
     },
     "custom_carousel_LQUw6V": {

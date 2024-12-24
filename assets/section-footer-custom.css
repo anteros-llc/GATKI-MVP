@@ -81,7 +81,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
 }
 
 /* Copyright and Policies */
@@ -99,7 +99,7 @@
 }
 
 /* Responsive Adjustments */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 750px) {
   /* Parent Container Adjustments */
   .custom-footer-container {
     flex-direction: column; /* Stack columns vertically */
@@ -138,6 +138,5 @@
 
   .custom-footer-policies {
     justify-content: center; /* Center-align policy links */
-    margin-bottom: 1rem;
   }
 }

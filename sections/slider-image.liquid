@@ -96,22 +96,6 @@
         {%- endif -%}
       {%- endfor -%}
     </div>
-
-    <!-- Number Navigation -->
-    <!-- <div class="slideshow__numbers">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'ingredient' -%}
-        <button
-          type="button"
-          class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
-          data-slide="{{ block.settings.slide_id }}"
-          aria-label="Go to {{ block.settings.title }}"
-        >
-          {{ block.settings.number }}
-        </button>
-        {%- endif -%}
-      {%- endfor -%}
-    </div> -->
   </slideshow-component>
 </div>
 
@@ -337,26 +321,36 @@ ul{
   gap: 1rem; /* Adjust spacing between columns */
   list-style: none;
   padding: 0;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .ingredient-hidden-text li {
   flex: 0 1 30%; /* Adjust column width to ensure 3 columns max */
-  margin-bottom: 1rem;
+}
+
+.ingredient-hidden-text h2{
+  margin-bottom: 0;
+  color: var(--color-mandarin);
+  margin-top: 0;
 }
 
 .ingredient-hidden-text h6::before {
   content: '•'; /* Bullet point */
   color: var(--color-mandarin); /* Change to desired color */
   font-size: 1.5rem; /* Adjust bullet size */
-  margin-right: 0.5rem; /* Space between bullet and text */
+  margin-right: 0.2rem; /* Space between bullet and text */
   vertical-align: sub;
 }
 
 /* Heading and text */
 .ingredient-hidden-text li h6 {
-  margin-bottom: 0.5rem;
   margin-top: 0;
+  margin-bottom: 0;
+}
+.ingredient-hidden-text li p{
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 </style>

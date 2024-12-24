@@ -38,15 +38,15 @@
             {% if block.settings.slide_type == 'slider' %}
           <div class="bottom-slider">
       <div class="slider-wrapper">
-  <div class="slider-label">GENTLENESS</div>
+  <h6 class="slider-label">GENTLENESS</h6>
   <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693" alt="Gentleness slider">
 </div>
 <div class="slider-wrapper">
-  <div class="slider-label">NOURISHMENT</div>
+  <h6 class="slider-label">NOURISHMENT</h6>
   <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693" alt="Nourishment slider">
 </div>
 <div class="slider-wrapper">
-  <div class="slider-label">STAYING POWER</div>
+  <h6 class="slider-label">STAYING POWER</h6>
   <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_8.0.svg?v=1734398694" alt="Staying Power slider">
 </div>  
           </div>
@@ -105,15 +105,7 @@
 <style>
 
   /* Flex container for slides */
-.banner2{
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin: 0;
-  gap: 0;
-  overflow-y: hidden;
-}
-  
- #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
+#Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
           opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
         }
 .slider-mobile-gutter{
@@ -175,6 +167,19 @@
   margin-left: 20px; /* Moves the SVG further to the right */
   flex: 1; /* Takes more space than label */
   padding-bottom: .3rem;
+}
+
+.slider-wrapper h6, .silder-wrapper span{
+  font-size: 1rem;
+  line-height: 1.1rem;
+}
+
+.slider-wrapper h6{
+  font-weight: 700;
+}
+
+.slider-wrapper span{
+  font-weight: 400;
 }
   
 /* Responsive Design */

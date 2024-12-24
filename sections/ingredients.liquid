@@ -1,78 +1,78 @@
-<section class="ingredients-module">
-  <div class="ingredients-wrapper">
-    <h5 class="ingredients-heading">{{ section.settings.ingredients_heading }}</h5>
-    <ul class="ingredients-list">
-      {%- for block in section.blocks -%}
-        <li class="ingredient-item">
-          <h4>&times; {{ block.settings.ingredient_text }}</h4>
-        </li>
-      {%- endfor -%}
-    </ul>
-  </div>
+<section class="made-without">
+  <label class="eyebrow">{{ section.settings.eyebrow }}</label>
+  <ul class="point-list">
+    {%- for block in section.blocks -%}
+      <li class="bulletpoint-item">
+        <h4>&times; {{ block.settings.bulletpoint_text }}</h4>
+      </li>
+    {%- endfor -%}
+  </ul>
 </section>
 
 <style>
-  .ingredients-module{
+  .made-without {
     color: var(--color-chenpi);
-    padding: 0.5rem 0 2.2rem 0;
+    padding: 1rem 8rem;
     background-color: var(--color-albedo);
     text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align content */
+    gap: 0rem; /* Vertical spacing between eyebrow and bullet points */
   }
-  .ingredients-wrapper{
-    width: 75%;
-    margin: 0 auto;
+
+  .point-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Stack items on smaller screens */
+    gap: 6rem; /* Horizontal spacing between bullet points */
   }
-  .ingredients-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-}
-  .ingredients-heading h5 {
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
-}
-  .ingredient-item h4 {
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0;
-}
+
+  .bulletpoint-item h4 {
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 750px) {
+    .point-list {
+      flex-direction: column; /* Stack bullet points vertically */
+      gap: 1rem;
+    }
+  }
 </style>
 
 {% schema %}
 {
-  "name": "Ingredients Module",
+  "name": "Made Without",
   "settings": [
     {
       "type": "text",
-      "id": "ingredients_heading",
-      "label": "Heading Text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
       "default": "14 INGREDIENTS. NOTHING EXTRA."
     }
   ],
   "blocks": [
     {
-      "type": "ingredient",
-      "name": "Ingredient",
+      "type": "point",
+      "name": "Point",
       "settings": [
         {
           "type": "text",
-          "id": "ingredient_text",
-          "label": "Ingredient Text",
-          "default": "Example Ingredient"
+          "id": "bulletpoint_text",
+          "label": "Point",
+          "default": "Bulletpoint"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Ingredients Module",
+      "name": "point Module",
     }
   ]
 }
 {% endschema %}
-
-
