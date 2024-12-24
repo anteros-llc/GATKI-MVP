@@ -3,7 +3,7 @@
     <h5 class="point-heading">{{ section.settings.point_heading }}</h5>
     <ul class="point-list">
       {%- for block in section.blocks -%}
-        <li class="point">
+        <li class="ingredient-item">
           <h4>&times; {{ block.settings.ingredient_text }}</h4>
         </li>
       {%- endfor -%}
@@ -35,7 +35,7 @@
     text-transform: uppercase;
     margin: 0;
   }
-    .point h4 {
+    .ingredient-item h4 {
     font-weight: 400;
     text-transform: uppercase;
     margin: 0;
@@ -55,14 +55,14 @@
   ],
   "blocks": [
     {
-      "type": "point",
-      "name": "point",
+      "type": "ingredient",
+      "name": "Ingredient",
       "settings": [
         {
           "type": "text",
           "id": "ingredient_text",
-          "label": "Point",
-          "default": "Example Point"
+          "label": "Ingredient Text",
+          "default": "Example Ingredient"
         }
       ]
     }
