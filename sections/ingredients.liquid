@@ -12,39 +12,39 @@
 </section>
 
 <style>
-  .ingredients-module{
-    color: var(--color-chenpi);
-    padding: 0.5rem 0 2.2rem 0;
-    background-color: var(--color-albedo);
-    text-align: center;
+    .ingredients-module{
+      color: var(--color-chenpi);
+      padding: 0.5rem 0 2.2rem 0;
+      background-color: var(--color-albedo);
+      text-align: center;
+    }
+    .ingredients-wrapper{
+      width: 75%;
+      margin: 0 auto;
+    }
+    .ingredients-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
   }
-  .ingredients-wrapper{
-    width: 75%;
-    margin: 0 auto;
+    .ingredients-heading h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
   }
-  .ingredients-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-}
-  .ingredients-heading h5 {
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
-}
-  .ingredient-item h4 {
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0;
-}
+    .ingredient-item h4 {
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+  }
 </style>
 
 {% schema %}
 {
-  "name": "Ingredients Module",
+  "name": "Made Without",
   "settings": [
     {
       "type": "text",
@@ -74,5 +74,3 @@
   ]
 }
 {% endschema %}
-
-
