@@ -378,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
   buttons.forEach((button, index) => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
-      const targetSlide = carousel.querySelector(#${targetId});
+      const targetSlide = carousel.querySelector(`#${targetId}`);
       const isActive = this.classList.contains("active");
 
       if (isActive) {
