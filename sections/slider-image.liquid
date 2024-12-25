@@ -212,11 +212,25 @@ ul{
   margin: 0;
 }
 
-.ingredient-hidden-text {
+/* .ingredient-hidden-text {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: max-height 10s ease, opacity 10s ease;
+} */
+
+.ingredient-hidden-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.ingredient-hidden-text.visible {
+  max-height: 500px; /* Or whatever maximum height is appropriate */
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Responsive */
@@ -358,13 +372,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
+  // CSS class names
+  const visibleClass = "visible";
+
   // Initial state: Reset buttons, hide texts, and show the first slide
   const resetState = () => {
     buttons.forEach((btn) => btn.classList.remove("active"));
     hiddenTexts.forEach((text) => {
-      text.style.display = "none";
-      text.style.opacity = "0";
-      text.style.maxHeight = "0";
+      text.classList.remove(visibleClass);
     });
     slides.forEach((slide) => {
       slide.style.display = "none"; // Hide all slides
@@ -387,9 +402,7 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.remove("active");
         hiddenTexts.forEach((text) => {
           if (text.getAttribute("data-ingredient-id") === targetId) {
-            text.style.display = "none";
-            text.style.opacity = "0";
-            text.style.maxHeight = "0";
+            text.classList.remove(visibleClass);
           }
         });
       } else {
@@ -405,16 +418,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // Show the corresponding hidden text
         hiddenTexts.forEach((text) => {
           if (text.getAttribute("data-ingredient-id") === targetId) {
-            text.style.display = "block";
-            text.style.opacity = "1";
-            text.style.maxHeight = "500px"; // Adjust height as needed
+            text.classList.add(visibleClass);
           }
         });
       }
     });
   });
 });
-
 </script>
 
 {% schema %}
