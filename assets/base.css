@@ -1375,10 +1375,6 @@ button.shopify-payment-button__button--unbranded {
       rgba(var(--color-button), var(--alpha-button-background));
 }
 
-.button--secondary:after {
-  --border-opacity: var(--buttons-border-opacity);
-}
-
 .button:focus-visible,
 .button:focus,
 .button.focused,
