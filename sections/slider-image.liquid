@@ -435,16 +435,20 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.add("active");
 
         // Show the corresponding hidden text
-        hiddenTexts.forEach((text) => {
-          if (text.getAttribute("data-ingredient-id") === targetId) {
-            text.classList.add(visibleClass);
-          }
-        });
+      hiddenTexts.forEach((text) => {
+  if (text.getAttribute("data-ingredient-id") === targetId) {
+    text.style.display = "block"; // Ensure it's rendered
+    const height = text.scrollHeight; // Trigger reflow to stabilize layout
+    text.style.maxHeight = `${height}px`; // Dynamically set height
+    text.classList.add(visibleClass);
+  }
+});
       }
     });
   });
 });
 </script>
+
 
 {% schema %}
 {
