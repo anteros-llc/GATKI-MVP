@@ -235,21 +235,19 @@ ul{
  */ 
 
 .ingredient-hidden-text {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
-  transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
 .ingredient-hidden-text.visible {
-  max-height: 500px; /* Adjust height as needed or use dynamic height */
   opacity: 1;
   visibility: visible;
-  transition-delay: 0.2s; /* Delay visibility change */
+  max-height: none; /* Dynamically set by JavaScript */
 }
+
 
 
 /* Responsive */
@@ -435,14 +433,31 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.add("active");
 
         // Show the corresponding hidden text
-      hiddenTexts.forEach((text) => {
+hiddenTexts.forEach((text) => {
   if (text.getAttribute("data-ingredient-id") === targetId) {
-    text.style.display = "block"; // Ensure it's rendered
-    const height = text.scrollHeight; // Trigger reflow to stabilize layout
-    text.style.maxHeight = `${height}px`; // Dynamically set height
-    text.classList.add(visibleClass);
+    if (text.classList.contains("visible")) {
+      // Collapse the text
+      text.style.maxHeight = "0";
+      text.style.opacity = "0";
+      text.style.visibility = "hidden";
+      text.classList.remove("visible");
+    } else {
+      // Expand the text
+      text.style.maxHeight = `${text.scrollHeight}px`; // Set dynamic height
+      text.style.opacity = "1";
+      text.style.visibility = "visible";
+      text.classList.add("visible");
+
+      // After transition, reset maxHeight to "none" to allow content changes
+      setTimeout(() => {
+        if (text.classList.contains("visible")) {
+          text.style.maxHeight = "none"; // Allow for dynamic content updates
+        }
+      }, 500); // Match the CSS transition duration
+    }
   }
 });
+
       }
     });
   });
