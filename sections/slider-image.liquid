@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // Function to hide all slides and reset all hidden texts
+  // Reset all buttons, hidden texts, and slides
   const resetState = () => {
     buttons.forEach((btn) => btn.classList.remove("active"));
     hiddenTexts.forEach((text) => {
@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
       text.classList.remove("visible");
     });
     slides.forEach((slide) => {
-      slide.style.display = "none";
+      slide.style.display = "none"; // Ensure all slides are hidden initially
     });
   };
 
@@ -404,10 +404,8 @@ document.addEventListener("DOMContentLoaded", function () {
           targetText.classList.remove("visible");
         }
 
-        // Hide the corresponding slide
-        if (targetSlide) {
-          targetSlide.style.display = "none";
-        }
+        // Keep the current slide visible
+        if (targetSlide) targetSlide.style.display = "flex";
       } else {
         // Reset all states to hide other slides and texts
         resetState();
@@ -425,7 +423,7 @@ document.addEventListener("DOMContentLoaded", function () {
           targetText.style.visibility = "visible";
           targetText.classList.add("visible");
 
-          // After transition, reset maxHeight to "none" to allow content changes
+          // After transition, reset maxHeight to "none" to allow dynamic content
           setTimeout(() => {
             if (targetText.classList.contains("visible")) {
               targetText.style.maxHeight = "none";
@@ -436,7 +434,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
 </script>
 
 
