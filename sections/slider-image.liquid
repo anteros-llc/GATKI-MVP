@@ -235,6 +235,8 @@ ul{
  */ 
 
 .ingredient-hidden-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -246,6 +248,7 @@ ul{
   max-height: 500px; /* Adjust height as needed or use dynamic height */
   opacity: 1;
   visibility: visible;
+  transition-delay: 0.2s; /* Delay visibility change */
 }
 
 
