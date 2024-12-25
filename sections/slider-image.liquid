@@ -389,14 +389,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // CSS class names
-  const visibleClass = "visible";
-
   // Initial state: Reset buttons, hide texts, and show the first slide
   const resetState = () => {
     buttons.forEach((btn) => btn.classList.remove("active"));
     hiddenTexts.forEach((text) => {
-      text.classList.remove(visibleClass);
+      text.style.maxHeight = "0";
+      text.style.opacity = "0";
+      text.style.visibility = "hidden";
+      text.classList.remove("visible");
     });
     slides.forEach((slide) => {
       slide.style.display = "none"; // Hide all slides
@@ -408,20 +408,25 @@ document.addEventListener("DOMContentLoaded", function () {
   if (slides.length > 0) slides[0].style.display = "flex"; // Show first slide only
 
   // Add event listeners to buttons
-  buttons.forEach((button, index) => {
+  buttons.forEach((button) => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
+      const targetText = carousel.querySelector(
+        `.ingredient-hidden-text[data-ingredient-id="${targetId}"]`
+      );
       const isActive = this.classList.contains("active");
 
       if (isActive) {
         // If already active, collapse text and deactivate button
         this.classList.remove("active");
-        hiddenTexts.forEach((text) => {
-          if (text.getAttribute("data-ingredient-id") === targetId) {
-            text.classList.remove(visibleClass);
-          }
-        });
+
+        if (targetText) {
+          targetText.style.maxHeight = "0";
+          targetText.style.opacity = "0";
+          targetText.style.visibility = "hidden";
+          targetText.classList.remove("visible");
+        }
       } else {
         // Reset all states
         resetState();
@@ -433,35 +438,24 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.add("active");
 
         // Show the corresponding hidden text
-hiddenTexts.forEach((text) => {
-  if (text.getAttribute("data-ingredient-id") === targetId) {
-    if (text.classList.contains("visible")) {
-      // Collapse the text
-      text.style.maxHeight = "0";
-      text.style.opacity = "0";
-      text.style.visibility = "hidden";
-      text.classList.remove("visible");
-    } else {
-      // Expand the text
-      text.style.maxHeight = `${text.scrollHeight}px`; // Set dynamic height
-      text.style.opacity = "1";
-      text.style.visibility = "visible";
-      text.classList.add("visible");
+        if (targetText) {
+          targetText.style.maxHeight = `${targetText.scrollHeight}px`; // Set dynamic height
+          targetText.style.opacity = "1";
+          targetText.style.visibility = "visible";
+          targetText.classList.add("visible");
 
-      // After transition, reset maxHeight to "none" to allow content changes
-      setTimeout(() => {
-        if (text.classList.contains("visible")) {
-          text.style.maxHeight = "none"; // Allow for dynamic content updates
+          // After transition, reset maxHeight to "none" to allow content changes
+          setTimeout(() => {
+            if (targetText.classList.contains("visible")) {
+              targetText.style.maxHeight = "none";
+            }
+          }, 500); // Match the CSS transition duration
         }
-      }, 500); // Match the CSS transition duration
-    }
-  }
-});
-
       }
     });
   });
 });
+
 </script>
 
 
