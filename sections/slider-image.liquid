@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".slideshow__number");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // Initial state: Reset buttons, hide texts, and show the first slide
+  // Function to hide all slides and reset all hidden texts
   const resetState = () => {
     buttons.forEach((btn) => btn.classList.remove("active"));
     hiddenTexts.forEach((text) => {
@@ -375,13 +375,13 @@ document.addEventListener("DOMContentLoaded", function () {
       text.classList.remove("visible");
     });
     slides.forEach((slide) => {
-      slide.style.display = "none"; // Hide all slides
+      slide.style.display = "none";
     });
   };
 
   // On load, reset all states but make the first slide visible
   resetState();
-  if (slides.length > 0) slides[0].style.display = "flex"; // Show first slide only
+  if (slides.length > 0) slides[0].style.display = "flex";
 
   // Add event listeners to buttons
   buttons.forEach((button) => {
@@ -394,7 +394,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const isActive = this.classList.contains("active");
 
       if (isActive) {
-        // If already active, collapse text and deactivate button
+        // If the button is already active, collapse the text and deactivate the button
         this.classList.remove("active");
 
         if (targetText) {
@@ -403,17 +403,22 @@ document.addEventListener("DOMContentLoaded", function () {
           targetText.style.visibility = "hidden";
           targetText.classList.remove("visible");
         }
-      } else {
-        // Reset all states
-        resetState();
 
-        // Show the clicked slide
-        if (targetSlide) targetSlide.style.display = "flex";
+        // Hide the corresponding slide
+        if (targetSlide) {
+          targetSlide.style.display = "none";
+        }
+      } else {
+        // Reset all states to hide other slides and texts
+        resetState();
 
         // Mark the clicked button as active
         this.classList.add("active");
 
-        // Show the corresponding hidden text
+        // Show the corresponding slide
+        if (targetSlide) targetSlide.style.display = "flex";
+
+        // Expand the corresponding hidden text
         if (targetText) {
           targetText.style.maxHeight = `${targetText.scrollHeight}px`; // Set dynamic height
           targetText.style.opacity = "1";
@@ -425,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (targetText.classList.contains("visible")) {
               targetText.style.maxHeight = "none";
             }
-          }, 500); // Match the CSS transition duration
+          }, 500); // Match CSS transition duration
         }
       }
     });
