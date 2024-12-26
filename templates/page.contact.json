@@ -36,7 +36,7 @@
         "text_mqbqxM": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>IG: </strong>@GATKI.CO</p><p><strong>Email: </strong>INFO@GATKI.CO</p>"
+            "text": "<p>IG:<strong> </strong><a href=\"https://www.instagram.com/gatki.co\" target=\"_blank\" title=\"https://www.instagram.com/gatki.co\">@GATKI.CO</a></p><p>Email: <a href=\"mailto:info@gatki.co\" title=\"mailto:info@gatki.co\">INFO@GATKI.CO</a></p>"
           }
         }
       },
