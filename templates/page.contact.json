@@ -23,11 +23,17 @@
         "heading_hKqy9T": {
           "type": "heading",
           "settings": {
-            "heading": "Support",
+            "heading": "We’re here to help.",
             "heading_size": "h1"
           }
         },
         "text_YkM3AQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Have questions or need assistance? Reach out to us anytime.</p>"
+          }
+        },
+        "text_mqbqxM": {
           "type": "text",
           "settings": {
             "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
@@ -36,7 +42,8 @@
       },
       "block_order": [
         "heading_hKqy9T",
-        "text_YkM3AQ"
+        "text_YkM3AQ",
+        "text_mqbqxM"
       ],
       "settings": {
         "desktop_content_position": "center",
