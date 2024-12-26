@@ -86,7 +86,7 @@
   </div>
 </div>
 
-              </li>
+            </li>
               {%- endif -%}
               {%- endfor -%}
             </ul>
@@ -139,30 +139,12 @@ ul{
 @media (max-width: 1024px) {
   .two-column-carousel .slideshow__media img {
     max-width: 28rem; /* Slightly smaller for medium screens */
-    padding: 1.5rem 0 0; /* Adjust padding for smaller screens */
   }
 }
 
 @media (max-width: 768px) {
   .two-column-carousel .slideshow__media img {
     max-width: 22rem; /* Smaller size for tablets */
-    padding: 1rem 0 0; /* Adjust top padding */
-  }
-}
-
-@media (max-width: 749px) {
- .two-column-carousel .slideshow__numbers{
-     top: 35%;
-  }
-}
-
-@media (max-width: 480px) {
-  .two-column-carousel .slideshow__media img {
-    padding: 0.5rem 0 0; /* Minimal padding on top */
-  }
-
-  .two-column-carousel .slideshow__numbers{
-     top: 35%;
   }
 }
 
@@ -182,7 +164,7 @@ ul{
 }
 
 /* Number Navigation */
-.two-column-carousel .slideshow {
+.two-column-carousel .slideshow__media--half {
   position: relative; /* To position numbers relative to the container */
 }
  
@@ -190,7 +172,7 @@ ul{
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 13%;
+  bottom: 5%;
   width: 100%;
 }
 
@@ -234,7 +216,7 @@ ul{
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
 /* Responsive */
@@ -321,7 +303,6 @@ ul{
   margin-top: 0.25rem; /* Reduce spacing between title and description */
 }
 
-
 /* Style for bullet points */
 .ingredient-hidden-text ul {
   display: flex;
@@ -346,15 +327,17 @@ ul{
 .ingredient-hidden-text h6::before {
   content: '•'; /* Bullet point */
   color: var(--color-mandarin); /* Change to desired color */
-  font-size: 1.5rem; /* Adjust bullet size */
-  margin-right: 0.2rem; /* Space between bullet and text */
-  vertical-align: sub;
+  font-size: 1rem; /* Adjust bullet size */
+  margin-right: 0.125rem; /* Space between bullet and text */
 }
 
 /* Heading and text */
 .ingredient-hidden-text li h6 {
   margin-top: 0;
   margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
   
 .ingredient-hidden-text li p{
@@ -430,8 +413,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
 </script>
+
 
 {% schema %}
 {

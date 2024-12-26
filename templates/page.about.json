@@ -13,50 +13,55 @@
       "type": "main-page",
       "disabled": true,
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "rich_text_TV8fjt": {
+    "rich_text_Xqy9MB": {
       "type": "rich-text",
       "blocks": {
-        "heading_hKqy9T": {
+        "heading_KRWUn6": {
           "type": "heading",
           "settings": {
-            "heading": "Need help? Let’s connect.",
+            "heading": "Our story",
             "heading_size": "h1"
           }
         },
-        "text_YkM3AQ": {
+        "text_aWX6Ei": {
           "type": "text",
           "settings": {
-            "text": "<p>We’re here to make things easy for you. Reach out via Instagram DM for the fastest response or email us if you prefer.</p>"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
         },
-        "text_mqbqxM": {
-          "type": "text",
+        "button_dJQQnW": {
+          "type": "button",
           "settings": {
-            "text": "<p>IG:<strong> </strong><a href=\"https://www.instagram.com/gatki.co\" target=\"_blank\" title=\"https://www.instagram.com/gatki.co\">@GATKI.CO</a></p><p>Email: <a href=\"mailto:info@gatki.co\" title=\"mailto:info@gatki.co\">INFO@GATKI.CO</a></p>"
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "heading_hKqy9T",
-        "text_YkM3AQ",
-        "text_mqbqxM"
+        "heading_KRWUn6",
+        "text_aWX6Ei",
+        "button_dJQQnW"
       ],
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
     "main",
-    "rich_text_TV8fjt"
+    "rich_text_Xqy9MB"
   ]
 }
