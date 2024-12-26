@@ -13,10 +13,6 @@
   "sections": {
     "1734048633d4a6b7d0": {
       "type": "apps",
-      "custom_css": [
-        ".klaviyo-form-XPfEf9 form {border-bottom: 1px solid #101921 !important; padding-bottom: 0 0 0 4px !important;}",
-        ".klaviyo-form-XPfEf9 input[type=\"email\"],.klaviyo-form-XPfEf9 button {border: none !important; outline: none !important; border-radius: 0 !important; padding: 0 !important;}"
-      ],
       "settings": {
         "include_margins": true
       }
