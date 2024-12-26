@@ -23,13 +23,12 @@
         "heading_hKqy9T": {
           "type": "heading",
           "settings": {
-            "heading": "Coming soon.",
+            "heading": "Support",
             "heading_size": "h1"
           }
         },
         "text_YkM3AQ": {
           "type": "text",
-          "disabled": true,
           "settings": {
             "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
