@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-blog",
+      "disabled": true,
       "settings": {
         "layout": "collage",
         "show_image": true,
@@ -27,14 +28,14 @@
         "heading_JGpHAB": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "Our story",
             "heading_size": "h1"
           }
         },
         "text_mqiw6J": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "text": "<p><strong>GATKI</strong> blends GAT (lit. \"luck\" in Cantonese) with KI (lit. \"energy\" in Japanese). Our name evokes the phonetic link between 吉 (lit. \"luck\") and 桔 (lit. \"mandarin orange\") in Cantonese, where the fruit has long symbolized auspiciousness and vitality.</p><p>In tribute to this tradition, our first product, LIP DEW, features Chenpi (sun-dried mandarin peel), cherished in Chinese botanical history for centuries. </p><p>In a world that often feels rushed, we present moments of pause and reflection, fostering mind-body balance through effortless rituals.</p>"
           }
         }
       },
