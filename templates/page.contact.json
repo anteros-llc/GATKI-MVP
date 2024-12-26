@@ -23,32 +23,21 @@
         "heading_hKqy9T": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "Coming soon.",
             "heading_size": "h1"
           }
         },
         "text_YkM3AQ": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          }
-        },
-        "button_pCRzrB": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
         "heading_hKqy9T",
-        "text_YkM3AQ",
-        "button_pCRzrB"
+        "text_YkM3AQ"
       ],
       "settings": {
         "desktop_content_position": "center",
