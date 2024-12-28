@@ -29,7 +29,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://products/lip-balm",
+            "button_link_1": "shopify://products/lipdew",
             "button_style_secondary_1": true
           }
         }
@@ -89,7 +89,7 @@
         "title": "Simple formula for sensitive and delicate lips.",
         "description": "The LIP DEW formula combines the anti-inflammatory power of Chenpi Oil and the hydrating benefits of peptides to soothe, plump, and protect delicate lips.",
         "learn_more_text": "Learn more",
-        "learn_more_link": "shopify://products/lip-balm"
+        "learn_more_link": "shopify://products/lipdew"
       }
     },
     "section_static_module_eeeYLb": {
