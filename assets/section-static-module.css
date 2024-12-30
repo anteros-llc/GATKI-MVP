@@ -40,8 +40,6 @@
 
 
 @media (max-width: 375px) {
-  .text-field h1 {
-    font-size: 3rem;
-  }
+  border-radius: 3rem
 }
 
