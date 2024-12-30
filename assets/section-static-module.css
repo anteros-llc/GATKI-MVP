@@ -40,6 +40,8 @@
 
 
 @media (max-width: 375px) {
-  border-radius: 3rem
+  .image-container {
+    border-radius: 3rem;
+  }
 }
 
