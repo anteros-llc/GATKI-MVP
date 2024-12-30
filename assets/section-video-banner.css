@@ -9,6 +9,7 @@
 
 .banner__box {
   text-align: center;
+  padding: 0;
 }
 
 .banner__heading {
@@ -148,7 +149,7 @@
 }
 
 .banner__media {
-  height: 100vh;
+  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
