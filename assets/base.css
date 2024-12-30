@@ -20,10 +20,7 @@
   font-feature-settings: "calt" 1;
 }
 
-:root {
-  --breakpoint-mobile: 375px;
-  --breakpoint-tablet: 750px;
-  
+:root { 
   /* Typography Variables */
   --font-display-family: "IvyPrestoHeadline", "Times New Roman", serif;
   --font-heading-family: "SyndicatGrotesk", "Instrument Sans", sans-serif;
