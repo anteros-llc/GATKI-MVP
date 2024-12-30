@@ -38,10 +38,10 @@
   top: 70%; /* Position the third section at 70% */
 }
 
-/* 
-@media screen and (max-width: 750px) {
+
+@media (max-width: 375px) {
   .text-field h1 {
     font-size: 3rem;
   }
 }
- */
+
