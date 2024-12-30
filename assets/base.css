@@ -27,6 +27,9 @@
   --font-body-family: "SyndicatGrotesk", "Instrument Sans", sans-serif;
   --font-heading-scale: 1;
   --font-body-scale: 1;
+  --breakpoint-mobile: 375px;
+  --breakpoint-tablet: 750px;
+  --breakpoint-desktop: 1440px;
 
   /* Color Variables */
   --color-mandarin: #e65919;
