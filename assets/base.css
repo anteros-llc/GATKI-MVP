@@ -120,7 +120,7 @@ h8 {
 }
 
 /* Mobile Typography Styles */
-@media (max-width: 375px) {
+@media screen and (max-width: 375px) {
   h1 {
     font-size: 2.75rem;
     line-height: 1.1;
