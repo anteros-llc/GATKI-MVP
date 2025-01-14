@@ -140,4 +140,9 @@
   .custom-footer-policies {
     justify-content: center; /* Center-align policy links */
   }
+
+  .custom-footer {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
 }
