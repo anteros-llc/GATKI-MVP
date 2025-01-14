@@ -38,9 +38,9 @@
 
 @media screen and (max-width: 750px) {
   .product-attributes {
-    flex-direction: column;
-    gap: 0;
+    gap: 0.375rem;
     align-items: baseline;
-    margin: 0 auto;
+    margin: 0;
+    width: 100%;
   }
 }
