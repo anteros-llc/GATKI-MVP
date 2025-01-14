@@ -1,7 +1,7 @@
 /* Section Wrapper */
 .custom-module {
   background-color: var(--color-blanco);
-  padding: 4rem;
+  padding: 3rem;
   text-align: center;
   color: var(--color-chenpi);
 }
@@ -25,18 +25,17 @@
   flex-wrap: nowrap; /* Keep cards in a single row */
   justify-content: space-between; /* Space cards evenly */
   align-items: stretch; /* Align cards to have the same height */
-  gap: 16px; /* Space between cards */
-  padding: 0 48px; /* Container padding */
-  max-width: 1440px;
+  gap: 1rem; /* Space between cards */
+  padding: 0 3rem; /* Container padding */
   margin: 0 auto; /* Center align container */
 }
 
 /* Individual Card */
 .custom-module .card {
-  width: 437.33px; /* Fixed card width */
+  width: 100%; /* Fixed card width */
   height: 246px; /* Fixed card height */
-  padding: 24px; /* Padding inside the card */
-  border-radius: 12px; /* Fully rounded corners */
+  padding: 1.5rem; /* Padding inside the card */
+  border-radius: 0.75rem; /* Fully rounded corners */
   background-color: var(--color-albedo);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
   display: flex;
@@ -98,8 +97,8 @@
   .custom-module .cards-container {
     flex-direction: column; /* Stack cards vertically */
     height: auto; /* Adjust height for stacked layout */
-    padding: 0 16px;
-    gap: 24px;
+    padding: 0 1rem;
+    gap: 1.5rem;
   }
 
   .custom-module .card {
