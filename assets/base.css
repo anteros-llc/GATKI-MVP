@@ -1337,8 +1337,8 @@ button.shopify-payment-button__button--unbranded {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   padding: 1rem 2rem;
+  text-align: center;
   text-decoration: none;
-  transition: box-shadow var(--duration-short) ease;
   -webkit-appearance: none;
   appearance: none;
 }
