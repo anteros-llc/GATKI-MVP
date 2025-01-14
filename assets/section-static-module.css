@@ -39,7 +39,7 @@
 }
 
 @media (max-width: 750px) {
-  .text-field {
+  .text-field h1 {
     font-size: 2.75rem;
   }
 }
