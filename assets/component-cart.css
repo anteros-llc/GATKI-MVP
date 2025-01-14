@@ -198,6 +198,7 @@ cart-items {
 
 #checkout-wrapper {
   display: flex;
+  flex-direction: column;
   text-align: right;
   padding-right: 3rem;
 }
