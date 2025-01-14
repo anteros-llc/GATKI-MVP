@@ -197,6 +197,7 @@ cart-items {
 }
 
 #checkout-wrapper {
+  display: flex;
   text-align: right;
   padding-right: 3rem;
 }
