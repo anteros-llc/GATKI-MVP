@@ -110,7 +110,7 @@ h7 {
   font-weight: 500;
 }
 
-/* Button text style */
+/* Button text style we don't use it anywhere */
 h8 {
   font-family: var(--font-body-family);
   font-weight: 500;
@@ -1342,7 +1342,10 @@ button.shopify-payment-button__button--unbranded {
   padding: 0 3rem;
   cursor: pointer;
   font: inherit;
-  font-size: 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   text-decoration: none;
   transition: box-shadow var(--duration-short) ease;
   -webkit-appearance: none;
