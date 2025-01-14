@@ -102,6 +102,18 @@
                     {%- endif -%}
                   {%- endif -%}
                 </small>
+                 <button
+                  type="submit"
+                  id="checkout"
+                  class="button--primary"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
               </div>
             {%- else -%}
                 <button
