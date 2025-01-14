@@ -85,7 +85,7 @@ span {
   line-height: 1.3;
 }
 
-label {
+small {
   font-family: var(--font-body-family);
   font-weight: 700;
   font-size: 1rem;
