@@ -116,24 +116,11 @@
                 </button>
               </div>
             {%- else -%}
-                <button
-                  type="submit"
-                  id="checkout"
-                  class="button--primary"
-                  name="checkout"
-                  {% if cart == empty %}
-                    disabled
-                  {% endif %}
-                  form="cart"
-                >
-                  {{ 'sections.cart.checkout' | t }}
-                </button>
-
-            {%- if additional_checkout_buttons -%}
+            <!-- {%- if additional_checkout_buttons -%}
                 <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
                   {{ content_for_additional_checkout_buttons }}
                 </div>
-              {%- endif -%}
+              {%- endif -%} -->
           {%- endcase -%}
         {% endfor %}
 
