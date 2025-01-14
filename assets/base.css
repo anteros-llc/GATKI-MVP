@@ -1330,6 +1330,10 @@ button.shopify-payment-button__button--unbranded {
 } */
 
 .button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
   cursor: pointer;
   font-family: var(--font-body-family);
   font-weight: 500;
@@ -1337,7 +1341,6 @@ button.shopify-payment-button__button--unbranded {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   padding: 1rem 2rem;
-  text-align: center;
   text-decoration: none;
   -webkit-appearance: none;
   appearance: none;
