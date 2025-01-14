@@ -89,24 +89,20 @@
   font-size: 1.5rem;
 }
 
-.custom-module .learn-more:hover {
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
+  .custom-module {
+    padding: 2.5rem 1.5rem;
+  }
   .custom-module .cards-container {
     flex-direction: column; /* Stack cards vertically */
     height: auto; /* Adjust height for stacked layout */
-    padding: 0 1rem;
-    gap: 1.5rem;
+    padding: 0 0;
+    gap: 2rem;
   }
 
   .custom-module .card {
     width: 100%; /* Full width on mobile */
     height: auto; /* Allow cards to grow naturally */
-  }
-
-  .custom-module {
-    padding: 1rem;
   }
 }
