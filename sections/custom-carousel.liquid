@@ -3,7 +3,7 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
 <slideshow-component
-  class="slider-mobile-gutter"
+  class="slider-mobile-gutter custom-slider-ingredients"
   role="region"
   aria-roledescription="carousel"
   aria-label="Slideshow"
@@ -112,6 +112,16 @@
   background-color: var(--color-blanco); 
   color: var(--color-chenpi);
 } 
+
+.custom-slider-ingredients {
+  position: relative;
+}
+
+slider-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
   
 .slider__custom {
   display: flex;
@@ -203,7 +213,6 @@
     width: 60%;
   }
 }
-
 </style>
 
 {% schema %}
