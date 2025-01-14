@@ -1293,7 +1293,8 @@ deferred-media {
 /* component-button */
 /* Button - default */
 
-button {
+button,
+.button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
