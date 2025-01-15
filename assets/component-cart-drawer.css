@@ -67,11 +67,11 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 
 .drawer.active .drawer__inner {
   transform: translateX(0);
+  padding: 1.5rem;
 }
 
 .drawer__header {
   position: relative;
-  padding: 1.5rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
