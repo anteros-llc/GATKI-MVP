@@ -74,6 +74,7 @@ h5 {
   font-family: var(--font-heading-family);
   font-weight: 400;
   font-size: 1.25rem;
+  margin: 0;
 }
 
 body,
