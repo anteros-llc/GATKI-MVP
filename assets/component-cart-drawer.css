@@ -71,10 +71,10 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 }
 
 .drawer__header {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+display: flex;
+justify-content: space-between;
+align-items: center;
+align-self: stretch;
 }
 
 .drawer__heading {
