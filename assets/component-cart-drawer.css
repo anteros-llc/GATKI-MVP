@@ -75,12 +75,13 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1.5rem;
 
 }
 
-.drawer__heading {
+/* .drawer__heading {
   margin: 0 0 1rem;
-}
+} */
 
 .drawer__close {
   display: inline-block;
