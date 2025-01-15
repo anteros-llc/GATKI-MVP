@@ -75,7 +75,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem;
+  padding-bottom: 1.5rem;
 
 }
 
