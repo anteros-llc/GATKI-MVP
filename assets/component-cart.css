@@ -65,9 +65,9 @@ cart-items {
   pointer-events: none;
 }
 
-.cart__footer-wrapper:last-child .cart__footer {
+/* .cart__footer-wrapper:last-child .cart__footer {
   padding-bottom: 5rem;
-}
+} */
 
 .cart__footer > div:only-child {
   margin-left: auto;
