@@ -110,6 +110,7 @@ h6,
 
 a.h7 {
   text-decoration: none;
+  color: inherit;
 }
 
 /* Button text style we don't use it anywhere */
