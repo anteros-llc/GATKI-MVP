@@ -65,7 +65,7 @@ cart-items {
   pointer-events: none;
 }
 
-.cart__footer{
+.cart__footer {
   display: flex;
     flex-direction: column;
     gap: 0.5rem;
