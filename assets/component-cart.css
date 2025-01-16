@@ -65,14 +65,20 @@ cart-items {
   pointer-events: none;
 }
 
-.cart__footer, .cart__footer--drawer {
+.cart__footer {
   display: flex; 
   flex-direction: column; 
   gap: 1.5rem; 
-  background-color: grey;
+
 }
 
+.cart__footer--drawer {
+  
+}
 
+.cart__footer--main {
+  
+}
 
 
 /* .cart__footer-wrapper:last-child .cart__footer {
