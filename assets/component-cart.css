@@ -65,6 +65,13 @@ cart-items {
   pointer-events: none;
 }
 
+.cart__footer{
+  display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
 /* .cart__footer-wrapper:last-child .cart__footer {
   padding-bottom: 5rem;
 } */
