@@ -110,7 +110,9 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 }
 
 .drawer__footer {
-
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem; 
 }
 
 cart-drawer-items.is-empty + .drawer__footer {
