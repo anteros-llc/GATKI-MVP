@@ -73,7 +73,7 @@ cart-items {
   flex-direction: column;
   text-align: right;
   gap: 0.5rem;
-  margin: 0 3rem 0 auto;
+  padding: 0 3rem 0 auto;
   width: 50%;
 }
 
