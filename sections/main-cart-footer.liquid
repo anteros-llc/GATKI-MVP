@@ -23,36 +23,6 @@
   data-id="{{ section.id }}"
 >
   <div class="page-width">
-    <div class="drawer__footer">
-      <!-- Start blocks -->
-      <!-- Subtotals -->
-
-      <div class="cart-drawer__footer">
-        <div></div>
-
-        <div class="totals" role="status">
-          <h5>SUBTOTAL</h5>
-          <h5>$18.00 USD</h5>
-        </div>
-
-        <div class="h7">Taxes, discounts and shipping calculated at checkout.</div>
-      </div>
-
-      <!-- CTAs -->
-
-      <div class="cart__ctas">
-        <button
-          type="submit"
-          id="CartDrawer-Checkout"
-          class="cart__checkout-button button button--primary"
-          name="checkout"
-          form="CartDrawer-Form"
-        >
-          Check out
-        </button>
-      </div>
-    </div>
-
     <div class="cart__footer">
       {%- if settings.show_cart_note -%}
         <cart-note class="cart__note field">
