@@ -64,8 +64,7 @@ cart-items {
 }
 
 .cart__footer--drawer {
-  background-color: grey;
-    display: flex; 
+  display: flex; 
   flex-direction: column; 
   gap: 0.5rem; 
 }
