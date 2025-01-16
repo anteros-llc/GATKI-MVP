@@ -118,6 +118,7 @@ a.cart-item__name,
 }
 
 .cart-item cart-remove-button {
+  background-color: transparent;
   display: flex;
   margin-left: 1rem;
 }
