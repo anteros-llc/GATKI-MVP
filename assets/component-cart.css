@@ -173,7 +173,7 @@ cart-items {
 }
 
 .cart__blocks {
-    display: flex;
+  display: flex;
   flex-direction: column;
   text-align: right;
   padding-right: 3rem;
