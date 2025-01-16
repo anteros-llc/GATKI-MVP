@@ -291,9 +291,13 @@ cart-drawer-items {
   justify-content: space-between;
 }
 
-.cart-drawer .price {
-  line-height: 1;
+.h7 {
+  color: var(--color-ash);
 }
+
+/* .cart-drawer .price {
+  line-height: 1;
+} */
 
 .cart-drawer .tax-note {
   margin: 1.2rem 0 2rem auto;
