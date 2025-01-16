@@ -43,7 +43,7 @@
             {%- when '@app' -%}
               {% render block %}
             {%- when 'subtotal' -%}
-              <div class="js-contents" id="checkout-wrapper" {{ block.shopify_attributes }}>
+              <div class="js-contents" {{ block.shopify_attributes }}>
                 <div>
                   {%- if cart.cart_level_discount_applications.size > 0 -%}
                     <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
