@@ -281,11 +281,11 @@ cart-drawer-items {
   grid-column: 2 / 5;
 }
 
-.cart-drawer__footer {
+/* .cart-drawer__footer {
   display: flex; 
   flex-direction: column; 
   gap: 0.5rem; 
-}
+} */
 
 .cart-drawer .totals {
   justify-content: space-between;
