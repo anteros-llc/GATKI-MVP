@@ -319,7 +319,7 @@ cart-remove-button .button:not([disabled]):hover {
   }
 }
 
-@media screen and (min-width: 990px) {
+/* @media screen and (min-width: 990px) {
   .cart-item .cart-item__quantity,
   .cart-items .cart-items__heading--wide {
     padding-left: 6rem;
@@ -352,4 +352,4 @@ cart-remove-button .button:not([disabled]):hover {
   .cart-items .quantity-popover__info-button {
     padding-left: 0;
   }
-}
+} */
