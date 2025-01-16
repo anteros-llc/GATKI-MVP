@@ -291,7 +291,7 @@ cart-remove-button .button:not([disabled]):hover {
 
   .cart-items td {
     vertical-align: top;
-    padding-top: 4rem;
+    /* padding-top: 4rem; */
   }
 
   .cart-item {
