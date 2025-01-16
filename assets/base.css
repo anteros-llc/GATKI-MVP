@@ -108,6 +108,10 @@ h6,
   font-weight: 500;
 }
 
+a.h7 {
+  text-decoration: none;
+}
+
 /* Button text style we don't use it anywhere */
 h8 {
   font-family: var(--font-body-family);
