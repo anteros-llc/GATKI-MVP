@@ -73,11 +73,11 @@ cart-items {
 }
 
 .cart__footer--drawer {
-  
+  background-color: grey;
 }
 
 .cart__footer--main {
-  
+  background-color: white;
 }
 
 
