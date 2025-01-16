@@ -109,12 +109,30 @@
         "sulfate_free_text": "Sulfate free",
         "recyclable_package_text": "Recyclable package"
       }
+    },
+    "video_background_CM4yTj": {
+      "type": "video-background",
+      "settings": {
+        "video_link": "https://cdn.shopify.com/videos/c/o/v/05190b00a72a43d786ca09e679bd8c7b.mov",
+        "video_image": "shopify://shop_images/Lifestyle_LipDew_Model_ProfileHand_2000x2500_PDP_LIPDEW.png",
+        "overlay_opacity": 0,
+        "title": "Video slide",
+        "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+        "color_text": "#242833",
+        "button_label": "shop",
+        "button_link": "shopify://products/lipdew",
+        "color_btn_bg": "#ffffff",
+        "color_btn_text": "#ffffff",
+        "color_bg": "#16165b",
+        "image_bg": "shopify://shop_images/Lifestyle_LipDew_Model_ProfileHand_2000x2500_PDP_LIPDEW.png"
+      }
     }
   },
   "order": [
     "video_banner_iaQeaL",
     "card_section_lips_whwkyT",
     "section_static_module_eeeYLb",
-    "section_product_attributes_fBB7bM"
+    "section_product_attributes_fBB7bM",
+    "video_background_CM4yTj"
   ]
 }
