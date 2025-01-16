@@ -70,12 +70,13 @@ cart-items {
 }
 
 .cart__footer--main {
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.5rem; 
-  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
   text-align: right;
+  gap: 0.5rem;
+  margin-right: 3rem;
   width: 50%;
+
 }
 
 
