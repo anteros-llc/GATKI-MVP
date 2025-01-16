@@ -79,6 +79,7 @@ cart-items {
 .cart__footer--main {
   background-color: white;
   margin-right: 3rem;
+  text-align: right;
 }
 
 
