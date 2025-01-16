@@ -73,9 +73,9 @@ cart-items {
   display: flex; 
   flex-direction: column; 
   gap: 0.5rem; 
-  background-color: white;
   margin-right: 3rem;
   text-align: right;
+  width: 50%;
 }
 
 
