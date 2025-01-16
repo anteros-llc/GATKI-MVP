@@ -165,6 +165,8 @@ cart-drawer {
 
 .cart-drawer .drawer__cart-items-wrapper {
   flex-grow: 1;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .cart-drawer .cart-items,
@@ -236,9 +238,9 @@ cart-drawer-items {
   padding-top: 2.5rem;
 }
 
-.cart-drawer .cart-items td {
+/* .cart-drawer .cart-items td {
   padding-top: 0;
-}
+} */
 
 .cart-drawer .cart-item > td + td {
   padding-left: 1rem;
