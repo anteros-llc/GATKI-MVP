@@ -63,7 +63,7 @@
                   <h5>{{ cart.total_price | money_with_currency }}</h5>
                 </div>
 
-                <h6>
+                <div class="h7">
                   {%- if cart.duties_included and cart.taxes_included -%}
                     {%- if shop.shipping_policy.body == blank -%}
                       {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
@@ -101,8 +101,8 @@
                       }}
                     {%- endif -%}
                   {%- endif -%}
-                </h6>
-                 <button
+                </div>
+                <button
                   type="submit"
                   id="checkout"
                   class="button--primary"
@@ -116,11 +116,13 @@
                 </button>
               </div>
             {%- else -%}
-            <!-- {%- if additional_checkout_buttons -%}
-                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-                  {{ content_for_additional_checkout_buttons }}
-                </div>
-              {%- endif -%} -->
+              <!--
+                {%- if additional_checkout_buttons -%}
+                  <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                    {{ content_for_additional_checkout_buttons }}
+                  </div>
+                {%- endif -%}
+              -->
           {%- endcase -%}
         {% endfor %}
 
