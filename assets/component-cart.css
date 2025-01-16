@@ -60,7 +60,6 @@ cart-items {
   display: flex; 
   flex-direction: column; 
   gap: 1.5rem; 
-  width: 100%;
 }
 
 .cart__footer--drawer {
@@ -74,7 +73,7 @@ cart-items {
   flex-direction: column;
   text-align: right;
   gap: 0.5rem;
-  margin: 0 3rem;
+  margin: 0 3rem 0 auto;
   width: 50%;
 }
 
