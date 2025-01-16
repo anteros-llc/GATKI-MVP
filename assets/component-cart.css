@@ -199,9 +199,8 @@ cart-items {
 #checkout-wrapper {
   display: flex;
   flex-direction: column;
-  text-align: right;
+  gap: 0.5rem;
   padding-right: 3rem;
-  gap: 1rem;
 }
 
 @media screen and (min-width: 750px) {
