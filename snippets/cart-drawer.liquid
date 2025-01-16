@@ -451,7 +451,7 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
-      <div class="drawer__footer">
+      <div class="cart__footer cart__footer--drawer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>
@@ -472,10 +472,8 @@
           </details>
         {%- endif -%}
 
-        <!-- Start blocks -->
         <!-- Subtotals -->
-
-        <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
+        <div class="cart__footer-totals">
           <div>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
               <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -537,12 +535,11 @@
         </div>
 
         <!-- CTAs -->
-
-        <div class="cart__ctas" {{ block.shopify_attributes }}>
+        <div class="cart__footer-ctas">
           <button
             type="submit"
             id="CartDrawer-Checkout"
-            class="cart__checkout-button button button--primary"
+            class="button button--primary"
             name="checkout"
             form="CartDrawer-Form"
             {% if cart == empty %}
