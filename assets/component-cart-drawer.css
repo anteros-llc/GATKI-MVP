@@ -224,7 +224,7 @@ cart-drawer-items {
 }
 
 .cart-drawer .cart-items th {
-  border-bottom: 0.1rem solid var(--color-ash);
+  border-bottom: 0.5rem solid var(--color-ash);
 }
 
 .cart-drawer .cart-item:last-child {
