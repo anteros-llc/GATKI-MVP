@@ -102,20 +102,19 @@
                     {%- endif -%}
                   {%- endif -%}
                 </div>
-
-                <button
-                  type="submit"
-                  id="checkout"
-                  class="button--primary"
-                  name="checkout"
-                  {% if cart == empty %}
-                    disabled
-                  {% endif %}
-                  form="cart"
-                >
-                  {{ 'sections.cart.checkout' | t }}
-                </button>
               </div>
+              <button
+                type="submit"
+                id="checkout"
+                class="button--primary"
+                name="checkout"
+                {% if cart == empty %}
+                  disabled
+                {% endif %}
+                form="cart"
+              >
+                {{ 'sections.cart.checkout' | t }}
+              </button>
             {%- else -%}
               <!--
                 {%- if additional_checkout_buttons -%}
