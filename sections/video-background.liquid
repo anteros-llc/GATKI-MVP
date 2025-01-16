@@ -22,23 +22,23 @@
       {% endif %}
     </div>
   </div>
-</div>
 
-<div class="imageBox" style="background-color: {{ section.settings.color_bg }}; background-image: url('{{ section.settings.image_bg | img_url: 'master' }}');">
-  <div class="overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100 }}"></div>
-  <div class="imageBoxInfo">
-    <h1 class="imageBoxInfoTitle" style="color: {{ section.settings.color_text }}">
-      {{ section.settings.title }}
-    </h1>
-    <div class="imageBoxInfoDescription" style="color: {{ section.settings.color_text }}">
-      {{ section.settings.text }}
+  <div class="imageBox" style="background-color: {{ section.settings.color_bg }}; background-image: url('{{ section.settings.image_bg | img_url: 'master' }}');">
+    <div class="overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100 }}"></div>
+    <div class="imageBoxInfo">
+      <h1 class="imageBoxInfoTitle" style="color: {{ section.settings.color_text }}">
+        {{ section.settings.title }}
+      </h1>
+      <div class="imageBoxInfoDescription" style="color: {{ section.settings.color_text }}">
+        {{ section.settings.text }}
+      </div>
+      {% if section.settings.button_label %}
+        <a href="{{ section.settings.button_link }}" class="imageBoxInfoBtn"
+           style="color: {{ section.settings.color_btn_text }}; background: {{ section.settings.color_btn_bg }}">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
     </div>
-    {% if section.settings.button_label %}
-      <a href="{{ section.settings.button_link }}" class="imageBoxInfoBtn"
-         style="color: {{ section.settings.color_btn_text }}; background: {{ section.settings.color_btn_bg }}">
-        {{ section.settings.button_label }}
-      </a>
-    {% endif %}
   </div>
 </div>
 
