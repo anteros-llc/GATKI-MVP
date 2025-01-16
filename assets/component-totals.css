@@ -1,7 +1,13 @@
 .totals {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cart-drawer__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .totals > * {
