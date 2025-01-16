@@ -1,7 +1,10 @@
 .totals {
-    justify-content: space-between;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-ash);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-ash);
+  gap: 0.5rem; 
 }
 
 .totals > * {
