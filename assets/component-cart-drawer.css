@@ -169,7 +169,6 @@ cart-drawer {
 
 .cart-drawer .cart-items,
 .cart-drawer tbody {
-  display: block;
   width: 100%;
   display: flex;
   flex-direction: column;
