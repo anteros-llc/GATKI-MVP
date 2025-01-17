@@ -1,4 +1,4 @@
-{% comment %} {%- if section.blocks.size > 0 -%}
+{%- if section.blocks.size > 0 -%}
  
 {%- for block in section.blocks -%}
  
@@ -6,10 +6,12 @@
  
  
  
-{% if block.type == 'video' %} {% endcomment %}
+{% if block.type == 'video' %}
  
 <!-- <div class="videoBox" style="{%- if block.settings.video_url == blank -%} background-image: url('{{ block.settings.video_image  | img_url: 'master' }}');{%- endif -%}"> -->
 <div class="videoBox">
+
+{%- if block.settings.video_url != blank -%}
  
 <div class="fullscreen-video-wrap">
  
@@ -18,6 +20,8 @@
        Your browser does not support HTML5 video.
   </video>
 </div>
+ 
+{% endif %}
  
  
 <div class="videoBoxInfo">
@@ -50,8 +54,61 @@
 </div>
  
 </div>
+ 
+{% else %}
+ 
+<div class="imageBox" {%- if block.settings.image_bg != blank -%}background-image: url('{{ block.settings.image_bg | img_url: 'master' }}');{%- endif -%}">
+ 
+<div class="imageBoxInfo">
+ 
+{% if block.settings.text != blank %}
+ 
+{{ block.settings.text }}
+ 
+{% endif %}
   
-
+{% if block.settings.title != blank %}
+ 
+<h2 class="imageBoxInfoTitle">
+ 
+{{ block.settings.title | escape }}
+ 
+</h2>
+ 
+{% endif %}
+   
+{% if block.settings.button_link != blank and block.settings.button_label != blank %}
+ 
+<a href="{{ block.settings.button_link }}" class="imageBoxInfoBtn button button--secondary">
+ 
+{{ block.settings.button_label | escape }}
+ 
+</a>
+ 
+{% endif %}
+ 
+</div>
+ 
+</div>
+ 
+{% endif %}
+ 
+{%- endfor -%}
+ 
+ 
+ 
+{% else %}
+ 
+<div class="placeholderNoblocks">
+ 
+This section doesn’t currently include any content. Add content to this section using the sidebar.
+ 
+    </div>
+ 
+{%- endif -%}
+ 
+ 
+ 
 <style>
  
 .main-content .videoBackground {
@@ -303,8 +360,112 @@
  
 "label":  "Button link"
 }, 
-] 
+]
+ 
 },
+ 
+{
+ 
+"type": "image",
+ 
+"name": "Image",
+ 
+"settings": [
+ 
+{
+ 
+"type": "color",
+ 
+"id": "color_bg",
+ 
+"label": "Background color (optional)",
+ 
+"default": "#FAF6F0"
+ 
+},
+ 
+{
+ 
+"type": "image_picker",
+ 
+"id": "image_bg",
+ 
+"label": "or use an image (required)"
+ 
+},
+ 
+{
+ 
+"type": "range",
+ 
+"id": "overlay_opacity",
+ 
+"label":  "Overlay opacity",
+ 
+"min": 0,
+ 
+"max": 99,
+ 
+"step": 1,
+ 
+"unit":  "%",
+ 
+"default": 0
+ 
+},
+ 
+{
+ 
+"type": "header",
+ 
+"content":  "Text"
+},
+ 
+{
+ 
+"type": "text",
+ 
+"id": "title",
+ 
+"default": "Image slide",
+ 
+"label": "Heading"
+ 
+},
+ 
+{
+ 
+"type": "richtext",
+ 
+"id": "text",
+ 
+"label":  "Optional Eyebrow",
+ 
+"default": "<p>drop_01: lip dew</p>"
+ 
+},
+ 
+{
+ 
+"type": "text",
+ 
+"id": "button_label",
+ 
+"label": "Button label"
+ 
+},
+ 
+{
+ 
+"type": "url",
+ 
+"id": "button_link",
+ 
+"label": "Button link"
+ 
+},
+]
+} 
 ],
  
 "presets": [
