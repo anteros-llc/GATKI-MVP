@@ -719,7 +719,7 @@ details > * {
 
 .underlined-link,
 .customer a {
-  color: currentColor;
+  color: var(--color-soil);
 }
 
 .inline-richtext a,
