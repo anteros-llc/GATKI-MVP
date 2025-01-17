@@ -9,9 +9,7 @@
 {% if block.type == 'video' %}
  
 <div class="videoBox" style="{%- if block.settings.video_link == blank -%}background-image: url('{{ block.settings.video_image  | img_url: 'master' }}');{%- endif -%}">
- 
- 
- 
+
 {%- if block.settings.video_link != blank -%}
  
 <div class="fullscreen-video-wrap">
@@ -29,12 +27,10 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
 {% endif %}
  
  
- 
- 
 <div class="videoBoxInfo">
 {% if block.settings.text != blank %}
  
-<div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
+<div class="imageBoxInfoDescription" id="{{ block.id }}">
  
 {{ block.settings.text }}
  
@@ -52,13 +48,9 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
  
 {% endif %}
  
- 
- 
- 
- 
 {% if block.settings.button_link != blank and block.settings.button_label != blank %}
  
-<a href="{{ block.settings.button_link }}" class="videoBoxInfoBtn" style="color: {{ block.settings.color_btn_text }}; background: {{ block.settings.color_btn_bg }}">
+<a href="{{ block.settings.button_link }}" class="videoBoxInfoBtn button button--secondary">
  
 {{ block.settings.button_label | escape }}
  
@@ -72,12 +64,7 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
  
 {% else %}
  
-<div class="imageBox" style="background-color: {{ block.settings.color_bg }}; {%- if block.settings.image_bg != blank -%}background-image: url('{{ block.settings.image_bg | img_url: 'master' }}');{%- endif -%}">
- 
- 
- 
- 
- 
+<div class="imageBox" {%- if block.settings.image_bg != blank -%}background-image: url('{{ block.settings.image_bg | img_url: 'master' }}');{%- endif -%}">
  
 <div class="imageBoxInfo">
  
