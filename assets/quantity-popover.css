@@ -19,7 +19,6 @@ quantity-popover volume-pricing li {
   width: 100%;
   z-index: 3;
   position: absolute;
-  background-color: grey;
   max-width: 36rem;
 }
 
