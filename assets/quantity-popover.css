@@ -1,6 +1,9 @@
 quantity-popover {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: flex-end;
+  align-items: flex-end;
+  height: 100%;
 }
 
 quantity-popover volume-pricing li:nth-child(odd) {
