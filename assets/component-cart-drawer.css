@@ -281,7 +281,7 @@ cart-drawer-items {
 .cart-remove-button {
   color: var(--color-soil);
   background-color: transparent;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .cart-drawer .totals {
