@@ -1,7 +1,17 @@
 .cart-item {
-  display: grid; /* Ensure the row uses a grid layout */
-  align-items: start; /* Align all children to the start by default */
+  display: grid; /* Use a grid layout for alignment */
+  grid-template-columns: auto auto auto auto; /* Define columns for each cell */
+  align-items: start; /* Align all children to the top by default */
+  height: 100%; /* Ensure the row stretches to full height */
 }
+
+.cart-item__quantity {
+  align-self: end; /* Align the quantity container to the bottom */
+  display: flex; /* Allow for internal alignment */
+  justify-content: center; /* Optional: Center elements horizontally */
+}
+
+
 cart-items .title-wrapper-with-link {
   margin-top: 0;
 }
