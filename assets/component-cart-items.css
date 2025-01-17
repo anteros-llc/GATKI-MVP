@@ -69,18 +69,11 @@ cart-items .title-wrapper-with-link {
 
 .cart-item__link {
   display: block;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-
-
+  width: 100%; /* Match the image container width */
+  height: 100%; /* Match the image container height */
   aspect-ratio: 1 / 1; /* Maintain the square shape */
-  overflow: hidden; /* Prevent extra content from spilling */
+  overflow: hidden; /* Prevent any overflow */
+  text-decoration: none; /* Ensure no underline for the link */
 }
 
 a.cart-item__name,
