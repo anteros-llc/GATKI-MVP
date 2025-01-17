@@ -30,11 +30,7 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
 <div class="videoBoxInfo">
 {% if block.settings.text != blank %}
  
-<div class="imageBoxInfoDescription" id="{{ block.id }}">
- 
 {{ block.settings.text }}
- 
-</div>
  
 {% endif %}
  
@@ -260,7 +256,7 @@ bottom: 0;
  
 left: 0;
  
-background: #000;
+background: var(--color-blanco);
  
 z-index: 1;
  
@@ -288,7 +284,7 @@ width: auto;
  
 text-decoration: none;
  
-text-align: center;
+text-align: left;
  
 vertical-align: middle;
  
@@ -310,10 +306,6 @@ margin: 0 auto;
  
 .videoBackground .videoBoxInfoDescription p, .videoBackground .imageBoxInfoDescription p {
   
-font-size: 17px;
- 
-line-height: 28px;
- 
 }
  
 .videoBackground .placeholderNoblocks {
@@ -422,7 +414,6 @@ width: 100%;
  
 {
  
- 
 "type": "header",
  
 "content": "Text"
@@ -447,23 +438,11 @@ width: 100%;
  
 "id": "text",
  
-"label":  "Eyebrow",
+"label":  "Optional Eyebrow",
  
 "default":  "<p>drop_01: lip dew</p>"
 },
- 
-{
- 
-"type": "color",
- 
-"id": "color_text",
- 
-"label": "Text color",
- 
-"default": "#ffffff"
- 
-},
- 
+  
 {
  
 "type": "text",
@@ -480,32 +459,7 @@ width: 100%;
 "id": "button_link",
  
 "label":  "Button link"
-},
- 
-{
- 
-"type": "color",
- 
-"id": "color_btn_bg",
- 
-"label": "Background button color",
- 
-"default": "#ffffff"
- 
-},
- 
-{
- 
-"type": "color",
- 
-"id": "color_btn_text",
- 
-"label": "Button text color",
- 
-"default": "#ffffff"
- 
-}
- 
+}, 
 ]
  
 },
@@ -585,23 +539,9 @@ width: 100%;
  
 "id": "text",
  
-"label":  "Description",
+"label":  "Optional Eyebrow",
  
-"default": 
- 
- "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
- 
-},
- 
-{
- 
-"type": "color",
- 
-"id": "color_text",
- 
-"label":  "Text color",
- 
-"default": "#ffffff"
+"default": "<p>drop_01: lip dew</p>"
  
 },
  
@@ -624,35 +564,8 @@ width: 100%;
 "label": "Button link"
  
 },
- 
-{
- 
-"type": "color",
- 
-"id": "color_btn_bg",
- 
-"label":  "Background button color",
- 
-"default": "#ffffff"
- 
-},
- 
-{
- 
-"type": "color",
- 
-"id": "color_btn_text",
- 
-"label":  "Button text color",
- 
-"default": "#ffffff"
- 
-}
- 
 ]
- 
-}
- 
+} 
 ],
  
 "presets": [
