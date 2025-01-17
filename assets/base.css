@@ -719,7 +719,7 @@ details > * {
 
 .underlined-link,
 .customer a {
-  color: rgba(var(--color-link), var(--alpha-link));
+  color: inherit;
 }
 
 .inline-richtext a,
