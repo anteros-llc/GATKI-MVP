@@ -1,7 +1,7 @@
-/* cart-items {
-  padding: 3rem;
-} */
-
+.cart-item {
+  display: grid; /* Ensure the row uses a grid layout */
+  align-items: start; /* Align all children to the start by default */
+}
 cart-items .title-wrapper-with-link {
   margin-top: 0;
 }
