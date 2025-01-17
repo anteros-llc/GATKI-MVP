@@ -28,7 +28,7 @@
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
     <div class="title-wrapper-with-link">
-      <h3>{{ 'sections.cart.title' | t }}</h3>
+      <h3 class="title title--primary">{{ 'sections.cart.title' | t }}</h3>
       <a href="{{ routes.product.url }}" class="underlined-link">
         {{- 'general.continue_shopping' | t -}}
       </a>
