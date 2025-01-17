@@ -43,12 +43,6 @@ cart-items .title-wrapper-with-link {
   max-width: calc(10rem / var(--font-body-scale));
 }
 
-@media screen and (min-width: 750px) {
-  .cart-item__image {
-    max-width: 100%;
-  }
-}
-
 .cart-item__details {
   text-decoration: none;
   font-size: 1.6rem;
@@ -65,7 +59,10 @@ cart-items .title-wrapper-with-link {
 }
 
 .cart-item__media {
-  position: relative;
+  display: block; /* Make sure the container is block-level */
+  width: 100%; /* Match the full width of the grid column */
+  aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
+  overflow: hidden; /* Ensure cropped content does not spill */
 }
 
 .cart-item__link {
