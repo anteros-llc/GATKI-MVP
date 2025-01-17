@@ -103,7 +103,7 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
    
 {% if block.settings.button_link != blank and block.settings.button_label != blank %}
  
-<a href="{{ block.settings.button_link }}" class="imageBoxInfoBtn" style="color: {{ block.settings.color_btn_text }}; background: {{ block.settings.color_btn_bg }}">
+<a href="{{ block.settings.button_link }}" class="imageBoxInfoBtn button button--secondary">
  
 {{ block.settings.button_label | escape }}
  
@@ -321,19 +321,13 @@ letter-spacing: 0.06em;
  
 white-space: normal;
  
-font-size: 16px;
- 
 margin-top: 20px;
  
 }
  
 .videoBackground .videoBoxInfoTitle, .videoBackground .imageBoxInfoTitle {
  
-color: #FFF;
-  
-font-size: 65px;
- 
-line-height: 40px;
+color: var(--color-blanco);
  
 }
  
@@ -354,8 +348,6 @@ line-height: 28px;
 }
  
 .videoBackground .placeholderNoblocks {
- 
-text-align: center;
  
 max-width: 500px;
  
