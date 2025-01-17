@@ -278,6 +278,7 @@ cart-drawer-items {
 }
 
 .cart-remove-button {
+  color: var(--color-soil);
   background-color: transparent;
 }
 
