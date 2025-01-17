@@ -242,9 +242,9 @@ cart-drawer-items {
   padding-top: 0;
 } */
 
-.cart-drawer .cart-item > td + td {
+/* .cart-drawer .cart-item > td + td {
   padding-left: 1rem;
-}
+} */
 
 .cart-drawer .cart-item__details {
   width: auto;
@@ -273,7 +273,7 @@ cart-drawer-items {
 }
 
 .cart-drawer .cart-items .cart-item__quantity {
-  padding-top: 0;
+  padding: 0;
   grid-column: 2 / 5;
 }
 
