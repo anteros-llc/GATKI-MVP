@@ -67,10 +67,6 @@ cart-items .title-wrapper-with-link {
 
 .cart-item__details {
   text-decoration: none;
-  padding: 0; 
-  margin: 0; 
-  vertical-align: top; 
-  text-align: left; 
 }
 
 .cart-item__details > * {
