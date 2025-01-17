@@ -25,41 +25,6 @@ cart-items .title-wrapper-with-link {
 }
 
 
-/* Style the quantity cell container */
-.cart-item__quantity {
-  display: flex; /* Enable flexbox for alignment */
-  flex-direction: column; /* Stack items vertically */
-  justify-content: flex-end; /* Align items to the bottom */
-  align-items: center; /* Center items horizontally */
-  height: 100%; /* Ensure it takes up the full height of the row */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margin */
-}
-
-/* Style the quantity wrapper */
-.cart-item__quantity-wrapper {
-  display: flex; /* Use flexbox for alignment */
-  flex-direction: column; /* Stack quantity and delete button vertically */
-  align-items: center; /* Center items horizontally */
-  justify-content: flex-end; /* Ensure alignment to the bottom */
-  gap: 8px; /* Add spacing between quantity and delete button */
-  height: 100%; /* Ensure it fills the container height */
-}
-
-/* Ensure quantity-input aligns well */
-.quantity-input {
-  display: flex;
-  align-items: center; /* Align buttons and input field */
-  justify-content: center;
-}
-
-/* Ensure cart-remove-button aligns well */
-.cart-remove-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 8px; /* Add some spacing above */
-}
 
 
 .cart-item__totals {
