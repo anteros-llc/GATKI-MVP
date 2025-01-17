@@ -1972,6 +1972,7 @@ input[type="checkbox"] {
 }
 
 .quantity__button {
+  color: var(--color-soil);
   cursor: pointer;
   display: flex;
   align-items: center;
