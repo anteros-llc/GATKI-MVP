@@ -1963,25 +1963,15 @@ input[type="checkbox"] {
 .quantity__input {
   color: var(--color-soil);
   font-family: var(--font-body-family);
-  /* font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight); */
-  /* font-size: 1.6rem;
-  font-weight: 500;
-  opacity: 0.85; */
   text-align: center;
   background-color: transparent;
   border: 0;
   padding: 0 0.5rem;
-  /* width: 100%;
-  flex-grow: 1; */
   -webkit-appearance: none;
   appearance: none;
 }
 
 .quantity__button {
-  /* width: calc(4.5rem / var(--font-body-scale));
-  flex-shrink: 0;
-  font-size: 0.75rem; */
   border: solid 1px var(--color-ash);
   cursor: pointer;
   display: flex;
