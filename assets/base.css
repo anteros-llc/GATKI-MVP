@@ -1919,10 +1919,11 @@ input[type="checkbox"] {
 .quantity {
   color: var(--color-soil);
   position: relative;
-  width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+  /* width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width) * 2); */
   display: flex;
-  border-radius: var(--inputs-radius);
-  min-height: calc((var(--inputs-border-width) * 2) + 4.5rem);
+  /* border-radius: var(--inputs-radius);
+  min-height: calc((var(--inputs-border-width) * 2) + 4.5rem); */
+  border: solid 1px;
 }
 
 .quantity:after {
@@ -1960,8 +1961,8 @@ input[type="checkbox"] {
 .quantity__input {
   color: var(--color-soil);
   font-family: var(--font-body-family);
-  font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight);
+  /* font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight); */
   /* font-size: 1.6rem;
   font-weight: 500;
   opacity: 0.85; */
@@ -1969,8 +1970,8 @@ input[type="checkbox"] {
   background-color: transparent;
   border: 0;
   padding: 0 0.5rem;
-  width: 100%;
-  flex-grow: 1;
+  /* width: 100%;
+  flex-grow: 1; */
   -webkit-appearance: none;
   appearance: none;
 }
