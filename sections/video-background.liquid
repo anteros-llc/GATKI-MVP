@@ -66,11 +66,7 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
  
 {% if block.settings.text != blank %}
  
-<div class="imageBoxInfoDescription" id="{{ block.id }}">
- 
 {{ block.settings.text }}
- 
-</div>
  
 {% endif %}
   
@@ -304,7 +300,7 @@ margin: 0 auto;
  
 }
  
-.videoBackground .videoBoxInfoDescription p, .videoBackground .imageBoxInfoDescription p {
+.videoBoxInfo p, .imageBoxInfo p {
  color: var(--color-blanco);
 }
  
