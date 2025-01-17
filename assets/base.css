@@ -1979,7 +1979,7 @@ input[type="checkbox"] {
   /* width: calc(4.5rem / var(--font-body-scale));
   flex-shrink: 0;
   font-size: 0.75rem; */
-  border: 1px;
+  border: solid 1px var(--color-ash);
   cursor: pointer;
   display: flex;
   align-items: center;
