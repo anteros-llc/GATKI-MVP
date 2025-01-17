@@ -106,6 +106,7 @@ h6,
 /* Not used in html, reference class*/
 .h7 {
   font-weight: 500;
+  color: inherit;
 }
 
 a.h7 {
