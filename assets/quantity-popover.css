@@ -1,6 +1,9 @@
 quantity-popover {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: flex-end;
+  align-items: flex-end;
+  height: 100%;
 }
 
 quantity-popover volume-pricing li:nth-child(odd) {
@@ -19,7 +22,6 @@ quantity-popover volume-pricing li {
   width: 100%;
   z-index: 3;
   position: absolute;
-  background-color: rgb(var(--color-background));
   max-width: 36rem;
 }
 
@@ -150,9 +152,9 @@ quantity-popover .quantity__rules span:first-of-type {
   }
 }
 
-quantity-popover .quantity {
-  background: rgb(var(--color-background));
-}
+/* quantity-popover .quantity {
+  /* background: rgb(var(--color-background)); */
+} */
 
 quantity-popover .quantity__rules {
   margin-left: 0.8rem;
@@ -164,5 +166,5 @@ quantity-popover .quantity__rules .divider:nth-child(2)::before {
 
 quantity-popover .quantity__button:not(:focus-visible):not(.focused),
 quantity-popover .quantity__input:not(:focus-visible):not(.focused) {
-  background-color: initial;
+  background-color: transparent;
 }

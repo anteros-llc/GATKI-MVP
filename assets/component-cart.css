@@ -41,31 +41,41 @@ cart-items.is-empty .title-wrapper-with-link,
   font-size: inherit;
 }
 
-@media screen and (min-width: 990px) {
-  .cart__warnings {
-    padding: 7rem 0 1rem;
-  }
-
-  .cart__empty-text {
-    margin: 0 0 3rem;
-  }
-}
-
 cart-items {
   display: block;
+  padding: 3rem;
 }
 
 .cart__items {
   position: relative;
-  padding-bottom: 3rem;
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
 .cart__items--disabled {
   pointer-events: none;
 }
 
-.cart__footer-wrapper:last-child .cart__footer {
+.cart__footer {
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.5rem; 
+}
+
+.cart__footer--drawer {
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem; 
+}
+
+.cart__footer--main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 3rem 3rem auto;
+  width: 30%;
+}
+
+
+/* .cart__footer-wrapper:last-child .cart__footer {
   padding-bottom: 5rem;
 }
 
@@ -75,7 +85,7 @@ cart-items {
 
 .cart__footer > * + * {
   margin-top: 6.5rem;
-}
+} */
 
 .cart__footer .discounts {
   margin-bottom: 1rem;
@@ -116,40 +126,6 @@ cart-items {
   border-bottom-right-radius: 0;
 }
 
-@media screen and (min-width: 750px) {
-  .cart__items {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    padding-bottom: 4rem;
-  }
-
-  .cart__contents > * + * {
-    margin-top: 0;
-  }
-
-  .cart__items + .cart__footer {
-    grid-column: 2;
-  }
-
-  .cart__footer {
-    display: flex;
-    justify-content: space-between;
-    border: 0;
-  }
-
-  .cart__footer-wrapper:last-child {
-    padding-top: 0;
-  }
-
-  .cart__footer > * {
-    width: 35rem;
-  }
-
-  .cart__footer > * + * {
-    margin-left: 4rem;
-    margin-top: 0;
-  }
-}
 
 .cart__ctas button {
   width: 100%;
@@ -172,8 +148,12 @@ cart-items {
   margin: 0;
 }
 
-.cart__blocks > * + * {
-  margin-top: 1rem;
+.cart__blocks {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding-right: 3rem;
+  gap: 1.5rem;
 }
 
 .cart-note__label {
@@ -194,14 +174,6 @@ cart-items {
 
 .cart__ctas {
   text-align: center;
-}
-
-#checkout-wrapper {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  padding-right: 3rem;
-  gap: 1rem;
 }
 
 @media screen and (min-width: 750px) {

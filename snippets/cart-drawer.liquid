@@ -62,7 +62,7 @@
         </div>
       {%- endif -%}
       <div class="drawer__header">
-        <h5 class="drawer__heading">{{ 'sections.cart.title' | t }}</h5>
+        <h5>CART</h5>
         <button
           class="drawer__close"
           type="button"
@@ -96,7 +96,7 @@
                       </th>
                       <th
                         id="CartDrawer-ColumnProduct"
-                        class="caption-with-letter-spacing"
+                        class="h7 h7--ash"
                         scope="col"
                         role="columnheader"
                       >
@@ -104,7 +104,7 @@
                       </th>
                       <th
                         id="CartDrawer-ColumnTotal"
-                        class="right caption-with-letter-spacing"
+                        class="right h7 h7--ash"
                         scope="col"
                         role="columnheader"
                       >
@@ -139,7 +139,7 @@
                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                           {%- endif -%}
 
-                          <a href="{{ item.url }}" class="cart-item__name">
+                          <a href="{{ item.url }}" class="h7">
                             {{- item.product.title | escape -}}
                           </a>
 
@@ -233,12 +233,12 @@
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.sale_price' | t }}
                                 </span>
-                                <span class="price price--end">
+                                <span class="h7 price price--end">
                                   {{ item.final_line_price | money }}
                                 </span>
                               </div>
                             {%- else -%}
-                              <span class="price price--end">
+                              <span class="h7 price price--end">
                                 {{ item.original_line_price | money }}
                               </span>
                             {%- endif -%}
@@ -330,7 +330,7 @@
                               >
                                 <button
                                   type="button"
-                                  class="button button--tertiary cart-remove-button"
+                                  class="cart-remove-button"
                                   aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                                   data-variant-id="{{ item.variant.id }}"
                                 >
@@ -451,7 +451,7 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
-      <div class="drawer__footer">
+      <div class="cart__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>
@@ -475,7 +475,7 @@
         <!-- Start blocks -->
         <!-- Subtotals -->
 
-        <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
+        <div class="cart__footer--drawer" {{ block.shopify_attributes }}>
           <div>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
               <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -491,11 +491,11 @@
           </div>
 
           <div class="totals" role="status">
-            <h5 class="totals__total">SUBTOTAL</h5>
-            <h5 class="totals__total-value">{{ cart.total_price | money_with_currency }}</h5>
+            <h5>SUBTOTAL</h5>
+            <h5>{{ cart.total_price | money_with_currency }}</h5>
           </div>
 
-          <h6 class="tax-note caption-large rte">
+          <div class="h7 h7--ash">
             {%- if cart.duties_included and cart.taxes_included -%}
               {%- if shop.shipping_policy.body == blank -%}
                 {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
@@ -533,7 +533,7 @@
                 }}
               {%- endif -%}
             {%- endif -%}
-          </h6>
+          </div>
         </div>
 
         <!-- CTAs -->
