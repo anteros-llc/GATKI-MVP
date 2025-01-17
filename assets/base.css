@@ -301,6 +301,10 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 }
 
+header {
+  padding: 1.25rem 3rem;
+}
+
 .isolate {
   position: relative;
   z-index: 0;
