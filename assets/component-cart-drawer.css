@@ -277,6 +277,10 @@ cart-drawer-items {
   grid-column: 2 / 5;
 }
 
+.cart-remove-button {
+  background-color: transparent;
+}
+
 /* .cart-drawer__footer {
   display: flex; 
   flex-direction: column; 
