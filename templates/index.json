@@ -120,11 +120,8 @@
             "video_image": "shopify://shop_images/Hero_Video_MVP_1_1920x1080_Cover.jpg",
             "title": "Celebrate the New Year with a gift exclusive to this drop.",
             "text": "<p>Drop_01: lip dew</p>",
-            "color_text": "#ffffff",
-            "button_label": "SHOP",
-            "button_link": "shopify://products/lipdew",
-            "color_btn_bg": "#ffffff",
-            "color_btn_text": "#000000"
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://products/lipdew"
           }
         }
       },
