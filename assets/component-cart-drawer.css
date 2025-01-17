@@ -248,6 +248,7 @@ cart-drawer-items {
 
 .cart-drawer .cart-item__details {
   width: auto;
+  padding: 0;
   grid-column: 2 / 4;
 }
 
