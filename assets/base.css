@@ -1925,6 +1925,7 @@ input[type="checkbox"] {
   min-height: calc((var(--inputs-border-width) * 2) + 4.5rem); */
   padding: 0.5rem 0.75rem;
   border: solid 1px;
+  border-radius: 0.25rem;
 }
 
 .quantity:after {
