@@ -18,14 +18,8 @@ cart-items .title-wrapper-with-link {
 }
 
 .cart-item__quantity-wrapper {
-   display: flex; /* Ensure internal items (quantity and delete button) are aligned */
-  flex-direction: column; /* Stack quantity and delete button vertically */
-  align-items: center; /* Center them horizontally */
-  gap: 8px; /
+  display: flex;
 }
-
-
-
 
 .cart-item__totals {
   position: relative;
