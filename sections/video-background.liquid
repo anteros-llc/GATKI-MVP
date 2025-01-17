@@ -8,7 +8,7 @@
  
 {% if block.type == 'video' %}
  
-<div class="videoBox" style="{%- if block.settings.video_link == blank -%}background-image: url('{{ block.settings.video_image  | img_url: 'master' }}');{%- endif -%}">
+<div class="videoBox" style="{%- if block.settings.video_link == blank -%} background-image: url('{{ block.settings.video_image  | img_url: 'master' }}');{%- endif -%}">
 
 {%- if block.settings.video_link != blank -%}
  
