@@ -281,12 +281,6 @@ cart-drawer-items {
   background-color: transparent;
 }
 
-/* .cart-drawer__footer {
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.5rem; 
-} */
-
 .cart-drawer .totals {
   justify-content: space-between;
   padding-bottom: 0.5rem;
@@ -296,10 +290,6 @@ cart-drawer-items {
 .h7 {
   color: var(--color-ash);
 }
-
-/* .cart-drawer .price {
-  line-height: 1;
-} */
 
 .cart-drawer .tax-note {
   margin: 1.2rem 0 2rem auto;
