@@ -1,20 +1,3 @@
-/* Parent container */
-.cart-item {
-  display: grid; /* Use grid for consistent alignment */
-  grid-template-columns: auto auto auto auto; /* Define columns */
-  align-items: stretch; /* Stretch items to fill the container height */
-  height: 100%; /* Ensure full height for alignment */
-}
-
-/* Quantity container */
-.cart-item__quantity {
-  display: flex; /* Use flexbox for better alignment control */
-  align-items: flex-end; /* Align to the bottom */
-  justify-content: center; /* Optional: Center horizontally within the cell */
-  height: 100%; /* Inherit the parent's height */
-}
-
-
 cart-items .title-wrapper-with-link {
   margin-top: 0;
 }
