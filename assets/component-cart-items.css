@@ -29,6 +29,13 @@ cart-items .title-wrapper-with-link {
   text-align: right;
 }
 
+.cart-item__media {
+  display: block;
+  width: 100%; 
+  aspect-ratio: 1 / 1; 
+  overflow: hidden; 
+}
+
 .cart-item__image-container {
   display: inline-flex;
   align-items: flex-start;
@@ -56,13 +63,6 @@ cart-items .title-wrapper-with-link {
 
 .cart-item__details > * + * {
   margin-top: 0.6rem;
-}
-
-.cart-item__media {
-  display: block; /* Make sure the container is block-level */
-  width: 100%; /* Match the full width of the grid column */
-  aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
-  overflow: hidden; /* Ensure cropped content does not spill */
 }
 
 .cart-item__link {
