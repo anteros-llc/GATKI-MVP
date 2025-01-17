@@ -6,21 +6,6 @@
         <source src="{{ section.settings.video_link }}" type="video/mp4">
       </video>
     </div>
-    <div class="overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100 }}"></div>
-    <div class="videoBoxInfo">
-      <h1 class="videoBoxInfoTitle" style="color: {{ section.settings.color_text }}">
-        {{ section.settings.title }}
-      </h1>
-      <div class="videoBoxInfoDescription" style="color: {{ section.settings.color_text }}">
-        {{ section.settings.text }}
-      </div>
-      {% if section.settings.button_label %}
-        <a href="{{ section.settings.button_link }}" class="videoBoxInfoBtn"
-           style="color: {{ section.settings.color_btn_text }}; background: {{ section.settings.color_btn_bg }}">
-          {{ section.settings.button_label }}
-        </a>
-      {% endif %}
-    </div>
   </div>
 
   <div class="imageBox" style="background-color: {{ section.settings.color_bg }}; background-image: url('{{ section.settings.image_bg | img_url: 'master' }}');">
