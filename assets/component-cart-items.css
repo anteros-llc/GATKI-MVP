@@ -67,6 +67,7 @@ cart-items .title-wrapper-with-link {
 
 .cart-item__details {
   text-decoration: none;
+  padding: 0;
 }
 
 .cart-item__details > * {
