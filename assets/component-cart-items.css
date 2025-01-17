@@ -17,6 +17,10 @@ cart-items .title-wrapper-with-link {
   padding-bottom: 0.5rem;
 }
 
+.cart-item__quantity {
+  align-self: end; /* Align this specific cell to the bottom */
+}
+
 .cart-item__quantity-wrapper {
   display: flex;
 }
