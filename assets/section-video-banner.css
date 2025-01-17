@@ -423,11 +423,6 @@
   .banner.video-background:not(.banner--mobile-bottom) .banner__content {
   }
 
-  .button {
-    min-height: calc(3.5rem + var(--buttons-border-width) * 2);
-    font-size: 1.2rem;
-  }
-
   .banner__box {
     padding-top: 1rem;
     padding-bottom: 1rem;
