@@ -78,9 +78,7 @@ cart-items .title-wrapper-with-link {
   height: 100%;
   text-decoration: none;
 
-  display: block; /* Ensure it behaves as a block element */
-  width: 100%; /* Match the container width */
-  height: 100%; /* Match the container height */
+
   aspect-ratio: 1 / 1; /* Maintain the square shape */
   overflow: hidden; /* Prevent extra content from spilling */
 }
