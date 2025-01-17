@@ -66,13 +66,16 @@ cart-items .title-wrapper-with-link {
 }
 
 .cart-item__details {
-  display: flex; /* Enables flexible layout */
-  flex-direction: column; /* Stack content vertically */
-  align-items: flex-start; /* Align content to the left */
-  justify-content: flex-start; /* Align content to the top */
-  margin: 0; /* Remove any potential margin */
-  padding: 0; /* Remove any potential padding */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
+  grid-column: 2; /* Explicitly align it to the second column */
+  text-align: left; /* Align text to the left */
 }
+
 
 .cart-item__details > * {
   margin: 0;
