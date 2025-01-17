@@ -234,10 +234,13 @@
                             {%- if has_qty_rules or has_vol_pricing -%}
                               <button
                                 type="button"
-                                aria-expanded="false"
-                                class="quantity-popover__info-button quantity-popover__info-button--icon-only button button--tertiary small-hide medium-hide"
+                                class="cart-remove-button"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                                data-variant-id="{{ item.variant.id }}"
                               >
-                                {{- 'icon-info.svg' | inline_asset_content -}}
+                                <span class="svg-wrapper">
+                                  {{- 'icon-remove.svg' | inline_asset_content -}}
+                                </span>
                               </button>
                             {%- endif -%}
                             <quantity-input class="quantity cart-quantity">
