@@ -1924,7 +1924,7 @@ input[type="checkbox"] {
   /* border-radius: var(--inputs-radius);
   min-height: calc((var(--inputs-border-width) * 2) + 4.5rem); */
   padding: 0.5rem 0.75rem;
-  border: solid 1px;
+  border: solid 1px var(--color-ash);
   border-radius: 0.25rem;
 }
 
