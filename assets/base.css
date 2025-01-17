@@ -1984,7 +1984,7 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+
 }
 
 .quantity__button:first-child {
