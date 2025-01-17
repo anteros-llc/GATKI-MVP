@@ -22,9 +22,7 @@ cart-items .title-wrapper-with-link {
 }
 
 .cart-item__totals {
-  text-align: right; /* Align text to the right */
-  margin: 0; /* Remove any default margins */
-  padding: 0; /* Remove padding */
+  position: relative;
 }
 
 .cart-items *.right {
@@ -68,11 +66,8 @@ cart-items .title-wrapper-with-link {
 }
 
 .cart-item__details {
-  margin: 0; /* Remove any default margins */
-  padding: 0; /* Remove padding */
-  text-align: left; /* Align the text to the left */
+  text-decoration: none;
 }
-
 
 .cart-item__details > * {
   margin: 0;
