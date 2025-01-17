@@ -32,31 +32,6 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
  
  
 <div class="videoBoxInfo">
- 
-{% if block.settings.title != blank %}
- 
-<h1 class="videoBoxInfoTitle" style="color: {{ block.settings.color_text }}">
- 
-{{ block.settings.title | escape }}
- 
-</h1>
- 
-{% endif %}
- 
- 
- 
-{%- style -%}
- 
-.videoBackground .imageBoxInfoDescription p {
- 
-color: {{ block.settings.color_text }}!important;
- 
-}
- 
-{%- endstyle -%}
- 
- 
- 
 {% if block.settings.text != blank %}
  
 <div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
@@ -66,6 +41,18 @@ color: {{ block.settings.color_text }}!important;
 </div>
  
 {% endif %}
+ 
+{% if block.settings.title != blank %}
+ 
+<h2 class="videoBoxInfoTitle">
+ 
+{{ block.settings.title | escape }}
+ 
+</h2>
+ 
+{% endif %}
+ 
+ 
  
  
  
@@ -94,30 +81,6 @@ color: {{ block.settings.color_text }}!important;
  
 <div class="imageBoxInfo">
  
-{% if block.settings.title != blank %}
- 
-<h1 class="imageBoxInfoTitle" style="color: {{ block.settings.color_text }}">
- 
-{{ block.settings.title | escape }}
- 
-</h1>
- 
-{% endif %}
- 
- 
- 
-{%- style -%}
- 
-.videoBackground .imageBoxInfoDescription p {
- 
-color: {{ block.settings.color_text }}!important;
- 
-}
- 
-{%- endstyle -%}
- 
- 
- 
 {% if block.settings.text != blank %}
  
 <div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
@@ -127,9 +90,17 @@ color: {{ block.settings.color_text }}!important;
 </div>
  
 {% endif %}
+  
+{% if block.settings.title != blank %}
  
+<h2 class="imageBoxInfoTitle" style="color: {{ block.settings.color_text }}">
  
+{{ block.settings.title | escape }}
  
+</h2>
+ 
+{% endif %}
+   
 {% if block.settings.button_link != blank and block.settings.button_label != blank %}
  
 <a href="{{ block.settings.button_link }}" class="imageBoxInfoBtn" style="color: {{ block.settings.color_btn_text }}; background: {{ block.settings.color_btn_bg }}">
@@ -394,16 +365,12 @@ margin: 0 auto;
  
     @media screen and (max-width: 767px) {
  
-.main-content .videoBackground {
- 
+.main-content .videoBackground { 
 margin-top: -35px;
- 
 }
  
-.videoBackground .fullscreen-video-wrap {
- 
+.videoBackground .fullscreen-video-wrap { 
 z-index: 3;
- 
 }
  
 .videoBackground .videoBox {
@@ -433,11 +400,6 @@ z-index: -2;
 padding: 2px 20px;
  
 width: 100%;
- 
-}
- 
-.videoBoxInfoTitle, .videoBackground .videoBoxInfoBtn {
-display: none;
  
 }
     }
@@ -503,8 +465,7 @@ display: none;
 "type": "header",
  
 "content": "Text"
- 
- 
+
 },
  
 {
@@ -513,11 +474,9 @@ display: none;
  
 "id": "title",
  
-"label": "Heading"
+"label": "Heading",
  
-,
- 
-"default": "Video slide"
+"default": "Celebrate the New Year with a gift exclusive to this drop."
  
 },
  
@@ -527,9 +486,9 @@ display: none;
  
 "id": "text",
  
-"label":  "Description",
+"label":  "Eyebrow",
  
-"default":  "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+"default":  "<p>drop_01: lip dew</p>"
 },
  
 {
