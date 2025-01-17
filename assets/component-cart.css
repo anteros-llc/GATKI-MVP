@@ -69,7 +69,6 @@ cart-items {
 .cart__footer--main {
   display: flex;
   flex-direction: column;
-  text-align: right;
   gap: 0.5rem;
   margin: 0 3rem 3rem auto;
   width: 30%;
