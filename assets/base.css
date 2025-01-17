@@ -284,7 +284,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 */
 
-@media screen and (min-width: 990px) {
+/* @media screen and (min-width: 990px) {
   .header:not(.drawer-menu).page-width {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -300,10 +300,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     padding: 0 5rem;
   }
 }
+ */
 
-.header {
-  padding: 1.25rem 3rem;
-}
 
 .isolate {
   position: relative;
