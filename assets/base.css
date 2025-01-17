@@ -719,7 +719,7 @@ details > * {
 
 .underlined-link,
 .customer a {
-  color: inherit;
+  color: currentColor;
 }
 
 .inline-richtext a,
