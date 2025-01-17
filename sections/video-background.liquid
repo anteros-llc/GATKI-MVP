@@ -16,7 +16,7 @@
 <div class="fullscreen-video-wrap">
  
   <video class="video-js" loop autoplay muted playsinline>
-    <source src="{{ block.settings.video_link }}" type="video/mp4">
+    <source src="{{ section.settings.video_url }}" type="video/mp4">
        Your browser does not support HTML5 video.
   </video>
 </div>
@@ -298,15 +298,10 @@ This section doesn’t currently include any content. Add content to this sectio
 "settings": [
  
 {
- 
-"type": "url",
- 
-"id": "video_link",
- 
-"label":  "Video link"
- 
-},
- 
+      "type": "text",
+      "id": "video_url",
+      "label": "Video Url"
+    }, 
 {
  
 "type": "image_picker",
