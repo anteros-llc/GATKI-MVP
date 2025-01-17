@@ -150,7 +150,7 @@ quantity-popover .quantity__rules span:first-of-type {
 }
 
 quantity-popover .quantity {
-  background: rgb(var(--color-background));
+  /* background: rgb(var(--color-background)); */
 }
 
 quantity-popover .quantity__rules {
