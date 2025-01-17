@@ -83,7 +83,7 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
  
 {% if block.settings.text != blank %}
  
-<div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
+<div class="imageBoxInfoDescription" id="{{ block.id }}">
  
 {{ block.settings.text }}
  
@@ -93,7 +93,7 @@ poster="https:{{ block.settings.video_image | img_url: 'master' }}">
   
 {% if block.settings.title != blank %}
  
-<h2 class="imageBoxInfoTitle" style="color: {{ block.settings.color_text }}">
+<h2 class="imageBoxInfoTitle">
  
 {{ block.settings.title | escape }}
  
