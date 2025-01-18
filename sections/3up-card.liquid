@@ -1,4 +1,4 @@
-{{ 'section-card-lips.css' | asset_url | stylesheet_tag }}
+{{ '3up-card.css' | asset_url | stylesheet_tag }}
 
 <!-- Dynamic Section -->
 <section class="custom-module">
@@ -20,10 +20,11 @@
       {% endfor %}
     </div>
     {% if section.settings.learn_more_link != blank %}
-      <a href="{{ section.settings.learn_more_link }}" class="learn-more">{{ section.settings.learn_more_text }}
+      <a href="{{ section.settings.learn_more_link }}" class="learn-more">
+        {{- section.settings.learn_more_text }}
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 17" height="15" width="15">
-        <path fill="#91693C" d="M13.5875 2.65869L14 3.07119V13.5712H12.5375V5.18994L3.125 14.6587L2 13.5337L11.45 4.10244H3.0875V2.65869H13.5875Z"/>
-      </svg> 
+          <path fill="#91693C" d="M13.5875 2.65869L14 3.07119V13.5712H12.5375V5.18994L3.125 14.6587L2 13.5337L11.45 4.10244H3.0875V2.65869H13.5875Z"/>
+        </svg>
       </a>
     {% endif %}
   </div>
@@ -51,7 +52,7 @@
       "label": "Section Description",
       "default": "The LIP DEW formula combines the anti-inflammatory power of Chenpi Oil and the hydrating benefits of peptides to soothe, plump, and protect delicate lips."
     },
-    
+
     {
       "type": "text",
       "id": "learn_more_text",
