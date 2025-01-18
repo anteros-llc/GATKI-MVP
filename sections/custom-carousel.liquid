@@ -3,7 +3,7 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
 <slideshow-component
-  class="slider-mobile-gutter"
+  class="slider-mobile-gutter custom-slider-ingredients"
   role="region"
   aria-roledescription="carousel"
   aria-label="Slideshow"
@@ -112,6 +112,20 @@
   background-color: var(--color-blanco); 
   color: var(--color-chenpi);
 } 
+
+.custom-slider-ingredients {
+  position: relative;
+}
+
+.slider-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
   
 .slider__custom {
   display: flex;
@@ -198,8 +212,11 @@
     text-align: center;
     padding: 1rem;
   }
-}
 
+  .svg-slider {
+    width: 60%;
+  }
+}
 </style>
 
 {% schema %}
