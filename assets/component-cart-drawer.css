@@ -44,12 +44,12 @@
   justify-content: center;
 }
 
-cart-drawer.is-empty .drawer__inner {
+/* cart-drawer.is-empty .drawer__inner {
   display: grid;
   grid-template-rows: 1fr;
   align-items: center;
   padding: 0;
-}
+} */
 
 /* cart-drawer.is-empty .drawer__header {
   display: none;
