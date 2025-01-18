@@ -1,5 +1,5 @@
 /* Section Wrapper */
-.custom-module {
+.3up-card {
   background-color: var(--color-blanco);
   padding: 4rem 3rem 4rem 3rem;
   text-align: center;
@@ -7,12 +7,12 @@
 }
 
 /* Title & Description */
-.custom-module .module-title {
+.3up-card .module-title {
   margin-bottom: 1.5rem;
   text-underline-position: from-font;
 }
 
-.custom-module .module-description {
+.3up-card .module-description {
   font-weight: 400;
   font-size: 1.25rem;
   margin-bottom: 3rem;
@@ -20,7 +20,7 @@
 }
 
 /* Cards Container */
-.custom-module .cards-container {
+.3up-card .cards-container {
   display: flex;
   flex-wrap: nowrap; /* Keep cards in a single row */
   justify-content: space-between; /* Space cards evenly */
@@ -31,7 +31,7 @@
 }
 
 /* Individual Card */
-.custom-module .card {
+.3up-card .card {
   width: 100%; /* Fixed card width */
   height: 246px; /* Fixed card height */
   padding: 1.5rem; /* Padding inside the card */
@@ -47,7 +47,7 @@
 }
 
 /* Card Header */
-.custom-module .card-header {
+.3up-card .card-header {
   font-size: 0.875rem;
   display: flex;
   justify-content: space-between; /* Align eyebrow and number */
@@ -56,29 +56,29 @@
 }
 
 /* Eyebrow (Category) */
-.custom-module .card-category {
+.3up-card .card-category {
   text-transform: uppercase;
   margin-bottom: 0; /* Remove margin to align closely with headline */
 }
 
 /* Card Number */
-.custom-module .card-number {
+.3up-card .card-number {
   font-size: 0.875rem;
 }
 
 /* Headline (Title) */
-.custom-module .card-title {
+.3up-card .card-title {
   margin: 0; /* Remove all margins for tight alignment */
   font-weight: 400;
 }
 
 /* Card Description */
-.custom-module .card-description {
+.3up-card .card-description {
   margin-top: 1rem; /* Add spacing above description */
 }
 
 /* Learn More Link */
-.custom-module .learn-more {
+.3up-card .learn-more {
   color: var(--color-chenpi);
   display: inline-block;
   margin-top: 3rem;
@@ -91,17 +91,17 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .custom-module {
+  .3up-card {
     padding: 2.5rem 1.5rem;
   }
-  .custom-module .cards-container {
+  .3up-card .cards-container {
     flex-direction: column; /* Stack cards vertically */
     height: auto; /* Adjust height for stacked layout */
     padding: 0 0;
     gap: 2rem;
   }
 
-  .custom-module .card {
+  .3up-card .card {
     width: 100%; /* Full width on mobile */
     height: auto; /* Allow cards to grow naturally */
   }
