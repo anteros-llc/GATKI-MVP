@@ -9,15 +9,6 @@
  */
 {
   "sections": {
-    "section_static_module_eeeYLb": {
-      "type": "section-static-module",
-      "custom_css": [],
-      "settings": {
-        "ingredients_text": "Gentle yet effective ingredients.",
-        "nature_text": "Vitally drawn from nature's depth.",
-        "radiance_text": "Find your radiance with ease."
-      }
-    },
     "hero_video_J6pLxA": {
       "type": "hero-video",
       "blocks": {
@@ -37,10 +28,63 @@
         "video_w9cyKj"
       ],
       "settings": {}
+    },
+    "section_static_module_eeeYLb": {
+      "type": "section-static-module",
+      "custom_css": [],
+      "settings": {
+        "ingredients_text": "Gentle yet effective ingredients.",
+        "nature_text": "Vitally drawn from nature's depth.",
+        "radiance_text": "Find your radiance with ease."
+      }
+    },
+    "3up_card_jrFUnJ": {
+      "type": "3up-card",
+      "blocks": {
+        "card_qhGTrF": {
+          "type": "card",
+          "settings": {
+            "category": "ESSENTIALS",
+            "number": "01",
+            "title": "Anti-inflammatory, hydrating, and plumping",
+            "description": "Description"
+          }
+        },
+        "card_FrqRxr": {
+          "type": "card",
+          "settings": {
+            "category": "ESSENTIALS",
+            "number": "02",
+            "title": "Anti-inflammatory, hydrating, and plumping",
+            "description": "Description"
+          }
+        },
+        "card_8Da4Fz": {
+          "type": "card",
+          "settings": {
+            "category": "ESSENTIALS",
+            "number": "03",
+            "title": "Anti-inflammatory, hydrating, and plumping",
+            "description": "Description"
+          }
+        }
+      },
+      "block_order": [
+        "card_qhGTrF",
+        "card_FrqRxr",
+        "card_8Da4Fz"
+      ],
+      "settings": {
+        "title": "Simple formula for sensitive and delicate lips.",
+        "description": "The LIP DEW formula combines the anti-inflammatory power of Chenpi Oil and the hydrating benefits of peptides to soothe, plump, and protect delicate lips.",
+        "learn_more_text": "Learn more →",
+        "learn_more_link": ""
+      }
     }
   },
   "order": [
+    "hero_video_J6pLxA",
     "section_static_module_eeeYLb",
-    "hero_video_J6pLxA"
+    "3up_card_jrFUnJ"
   ]
 }
