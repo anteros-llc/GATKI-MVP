@@ -124,46 +124,14 @@
         "padding_bottom": 28
       }
     },
-    "ingredients_UDWPHK": {
-      "type": "ingredients",
+    "2up_carousel_qyXbXN": {
+      "type": "2up-carousel",
       "blocks": {
-        "point_UyzRpe": {
-          "type": "point",
-          "settings": {
-            "bulletpoint_text": "STICKINESS"
-          }
-        },
-        "point_GtfFwG": {
-          "type": "point",
-          "settings": {
-            "bulletpoint_text": "PIGMENT"
-          }
-        },
-        "point_FpMXgE": {
-          "type": "point",
-          "settings": {
-            "bulletpoint_text": "MENTHOL"
-          }
-        }
-      },
-      "block_order": [
-        "point_UyzRpe",
-        "point_GtfFwG",
-        "point_FpMXgE"
-      ],
-      "custom_css": [],
-      "settings": {
-        "eyebrow": ""
-      }
-    },
-    "custom_carousel_LQUw6V": {
-      "type": "custom-carousel",
-      "blocks": {
-        "slide_pfY37a": {
+        "slide_ddHPj8": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
-            "heading": "The touch of softness.",
+            "heading": "Image slide",
             "slide_type": "slider",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
@@ -178,12 +146,12 @@
             "text_alignment_mobile": "center"
           }
         },
-        "slide_FP3t6t": {
+        "slide_ngpHDf": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Texture_LipDew_Gel_2000x2000_PDP_LIPDEW.jpg",
-            "heading": "The touch of softness.",
-            "slide_type": "text",
+            "heading": "Image slide",
+            "slide_type": "slider",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
@@ -193,19 +161,19 @@
             "show_text_box": true,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
-            "color_scheme": "",
+            "color_scheme": "scheme-1",
             "text_alignment_mobile": "center"
           }
         }
       },
       "block_order": [
-        "slide_pfY37a",
-        "slide_FP3t6t"
+        "slide_ddHPj8",
+        "slide_ngpHDf"
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "small",
-        "slider_visual": "numbers",
+        "slide_height": "medium",
+        "slider_visual": "counter",
         "auto_rotate": false,
         "change_slides_speed": 5,
         "image_behavior": "none",
@@ -367,8 +335,7 @@
   "order": [
     "main",
     "related-products",
-    "ingredients_UDWPHK",
-    "custom_carousel_LQUw6V",
+    "2up_carousel_qyXbXN",
     "image_banner_UKJ3fP",
     "slider_image_ANw9BW",
     "1731992271885d52d1"
