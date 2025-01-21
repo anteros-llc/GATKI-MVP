@@ -39,15 +39,6 @@ cart-items .title-wrapper-with-link {
   position: relative; 
 }
 
-/* .cart-item__image-container {
-  display: inline-flex;
-  align-items: flex-start;
-}
-
-.cart-item__image-container:after {
-  content: none;
-} */
-
 .cart-item__link {
   display: block;
   width: 100%; 
