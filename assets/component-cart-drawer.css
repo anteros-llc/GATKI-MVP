@@ -193,10 +193,10 @@ cart-drawer-items {
   max-width: 100%;
 }
 
-.cart-drawer .cart-items thead {
+/* .cart-drawer .cart-items thead {
   margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--color-ash);
-}
+} */
 
 .cart-drawer .cart-items thead th:first-child,
 .cart-drawer .cart-items thead th:last-child {
