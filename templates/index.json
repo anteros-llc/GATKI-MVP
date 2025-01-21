@@ -29,15 +29,6 @@
       ],
       "settings": {}
     },
-    "section_static_module_eeeYLb": {
-      "type": "section-static-module",
-      "custom_css": [],
-      "settings": {
-        "ingredients_text": "Gentle yet effective ingredients.",
-        "nature_text": "Vitally drawn from nature's depth.",
-        "radiance_text": "Find your radiance with ease."
-      }
-    },
     "3up_card_jrFUnJ": {
       "type": "3up-card",
       "blocks": {
@@ -81,6 +72,15 @@
         "learn_more_link": ""
       }
     },
+    "section_static_module_eeeYLb": {
+      "type": "section-static-module",
+      "custom_css": [],
+      "settings": {
+        "ingredients_text": "Gentle yet effective ingredients.",
+        "nature_text": "Vitally drawn from nature's depth.",
+        "radiance_text": "Find your radiance with ease."
+      }
+    },
     "dot_label_row_edQFik": {
       "type": "dot-label-row",
       "settings": {
@@ -92,8 +92,8 @@
   },
   "order": [
     "hero_video_J6pLxA",
-    "section_static_module_eeeYLb",
     "3up_card_jrFUnJ",
+    "section_static_module_eeeYLb",
     "dot_label_row_edQFik"
   ]
 }
