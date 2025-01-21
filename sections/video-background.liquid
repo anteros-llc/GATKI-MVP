@@ -88,21 +88,7 @@
   position: relative;
 }
  
-.videoBackground .imageBox {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  flex-direction: column;
-  padding: 6.25rem 1.25rem 5rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  min-height: calc(100vh - 4rem);
-  height: auto; 
-}
- 
-.videoBackground .videoBoxInfo, .videoBackground .imageBoxInfo { 
+.videoBackground .videoBoxInfo { 
   z-index: 2; 
   margin-left: 3rem;
   text-align: left;
@@ -120,7 +106,7 @@
   z-index: 1;
 }
  
-.videoBackground .videoBoxInfoBtn, .videoBackground .imageBoxInfoBtn {
+.videoBackground .videoBoxInfoBtn {
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -135,17 +121,17 @@
   vertical-align: middle;
 }
  
-.videoBackground .videoBoxInfoTitle, .videoBackground .imageBoxInfoTitle {
+.videoBackground .videoBoxInfoTitle{
   color: var(--color-blanco);
   margin-top: 0;
 }
  
-.videoBackground .videoBoxInfoDescription, .videoBackground .imageBoxInfoDescription { 
+.videoBackground .videoBoxInfoDescription { 
   max-width: 31.25rem; 
   margin: 0 auto;
 }
  
-.videoBoxInfo p, .imageBoxInfo p {
+.videoBoxInfo p {
   color: var(--color-blanco);
   margin-bottom: 0;
   text-transform: uppercase;
