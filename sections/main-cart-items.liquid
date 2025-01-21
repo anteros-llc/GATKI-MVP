@@ -34,22 +34,6 @@
       </a>
     </div>
 
-    <!--
-      <div class="cart__warnings">
-        <h3 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h3>
-        <a href="{{ routes.all_products_collection_url }}" class="button">
-          {{ 'general.continue_shopping' | t }}
-        </a>
-
-        {%- if shop.customer_accounts_enabled and customer == null -%}
-          <h3 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h3>
-          <p class="cart__login-paragraph">
-            {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-          </p>
-        {%- endif -%}
-      </div>
-    -->
-
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
         <div class="js-contents">
