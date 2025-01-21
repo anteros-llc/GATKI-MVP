@@ -80,11 +80,20 @@
         "learn_more_text": "Learn more →",
         "learn_more_link": ""
       }
+    },
+    "dot_label_row_edQFik": {
+      "type": "dot-label-row",
+      "settings": {
+        "cruelty_free_text": "Cruelty free",
+        "sulfate_free_text": "Sulfate free",
+        "recyclable_package_text": "Recyclable package"
+      }
     }
   },
   "order": [
     "hero_video_J6pLxA",
     "section_static_module_eeeYLb",
-    "3up_card_jrFUnJ"
+    "3up_card_jrFUnJ",
+    "dot_label_row_edQFik"
   ]
 }
