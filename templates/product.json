@@ -214,41 +214,6 @@
     },
     "image_banner_UKJ3fP": {
       "type": "image-banner",
-      "blocks": {
-        "heading_Kt3anE": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_R7heRx": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "buttons_kiWaeM": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_Kt3anE",
-        "text_R7heRx",
-        "buttons_kiWaeM"
-      ],
       "settings": {
         "image": "shopify://shop_images/Lifestyle_Flatlay_LipDew_Ingredients_2000x833_PDP_LIPDEW.jpg",
         "image_overlay_opacity": 0,
