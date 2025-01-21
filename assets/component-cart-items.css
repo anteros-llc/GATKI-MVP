@@ -2,6 +2,17 @@ cart-items .title-wrapper-with-link {
   margin-top: 0;
 }
 
+.cart-drawer .cart-item {
+  display: grid;
+  grid-template: repeat(2, auto) / repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+.cart-drawer .cart-item:last-child {
+  margin-bottom: 1.5rem;
+}
+
 .cart-items td,
 .cart-items th {
   padding: 0;
