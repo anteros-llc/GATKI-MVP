@@ -39,7 +39,6 @@ cart-items.is-empty .title-wrapper-with-link,
 
 cart-items {
   display: block;
-  padding: 3rem;
 }
 
 .cart__items {
