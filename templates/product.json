@@ -124,6 +124,37 @@
         "padding_bottom": 28
       }
     },
+    "made_without_U3Rt3K": {
+      "type": "made-without",
+      "blocks": {
+        "point_khmBgn": {
+          "type": "point",
+          "settings": {
+            "bulletpoint_text": "Stickeness"
+          }
+        },
+        "point_WzY48U": {
+          "type": "point",
+          "settings": {
+            "bulletpoint_text": "Pigment"
+          }
+        },
+        "point_q6LJEV": {
+          "type": "point",
+          "settings": {
+            "bulletpoint_text": "Menthol"
+          }
+        }
+      },
+      "block_order": [
+        "point_khmBgn",
+        "point_WzY48U",
+        "point_q6LJEV"
+      ],
+      "settings": {
+        "eyebrow": ""
+      }
+    },
     "2up_carousel_qyXbXN": {
       "type": "2up-carousel",
       "blocks": {
@@ -335,6 +366,7 @@
   "order": [
     "main",
     "related-products",
+    "made_without_U3Rt3K",
     "2up_carousel_qyXbXN",
     "image_banner_UKJ3fP",
     "slider_image_ANw9BW",
