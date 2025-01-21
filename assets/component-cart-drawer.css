@@ -195,6 +195,7 @@ cart-drawer-items {
 
 .cart-drawer .cart-items thead {
   margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-ash);
 }
 
 .cart-drawer .cart-items thead th:first-child,
@@ -211,10 +212,6 @@ cart-drawer-items {
 .cart-drawer .cart-items thead tr {
   display: table-row;
   margin-bottom: 0;
-}
-
-.cart-drawer .cart-items th {
-  /* border-bottom: 1px solid var(--color-ash); */
 }
 
 .cart-drawer .cart-item .loading__spinner {
