@@ -228,6 +228,86 @@
         "show_text_below": true
       }
     },
+    "ingredient_carousel_nJh9hp": {
+      "type": "ingredient-carousel",
+      "blocks": {
+        "ingredient_MUP9ja": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-1",
+            "image": "shopify://shop_images/Ingredient_LipDew_Chenpi_2000x2000_PDP_LIPDEW.jpg",
+            "number": "01",
+            "title": "CHENPI OIL",
+            "description": "Chenpi, the sun-dried mandarin orange peel (Citrus reticulata Blanco), has been cherished in traditional Chinese medicine for its warming properties and aromatic bitterness.",
+            "percentage": "",
+            "bullet_point_1_heading": "Anti-inflammatory",
+            "bullet_point_1_text": "Extracted from sun-dried Chenpi (mandarin orange peel) from Xinhui, China, our vitamin C-rich oil is anti-inflammatory and antibacterial, soothing irritation.",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
+          }
+        },
+        "ingredient_9Xw7T7": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-2",
+            "image": "shopify://shop_images/Ingredient_Pianta_1000x1000_PDP_LIPDEW.jpg",
+            "number": "02",
+            "title": "Gentle Ingredient",
+            "description": "This is a brief description of the ingredient.",
+            "percentage": "",
+            "bullet_point_1_heading": "",
+            "bullet_point_1_text": "",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
+          }
+        },
+        "ingredient_eEPyr3": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-3",
+            "image": "shopify://shop_images/Ingredient_Camellia_2000x2000_PDP_LIPDEW.jpg",
+            "number": "03",
+            "title": "Gentle Ingredient",
+            "description": "This is a brief description of the ingredient.",
+            "percentage": "",
+            "bullet_point_1_heading": "",
+            "bullet_point_1_text": "",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
+          }
+        },
+        "ingredient_nrn4Bw": {
+          "type": "ingredient",
+          "settings": {
+            "slide_id": "slide-4",
+            "image": "shopify://shop_images/Ingredient_Peptide_2000x2000_PDP_LIPDEW.jpg",
+            "number": "04",
+            "title": "Gentle Ingredient",
+            "description": "This is a brief description of the ingredient.",
+            "percentage": "",
+            "bullet_point_1_heading": "",
+            "bullet_point_1_text": "",
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_MUP9ja",
+        "ingredient_9Xw7T7",
+        "ingredient_eEPyr3",
+        "ingredient_nrn4Bw"
+      ],
+      "settings": {}
+    },
     "1731992271885d52d1": {
       "type": "apps",
       "blocks": {
@@ -254,6 +334,7 @@
     "bullet_list_6xwt8x",
     "2up_carousel_qyXbXN",
     "image_banner_UKJ3fP",
+    "ingredient_carousel_nJh9hp",
     "1731992271885d52d1"
   ]
 }
