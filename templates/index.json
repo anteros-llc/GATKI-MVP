@@ -72,9 +72,8 @@
         "learn_more_link": ""
       }
     },
-    "section_static_module_eeeYLb": {
-      "type": "section-static-module",
-      "custom_css": [],
+    "parallax_gMnKiQ": {
+      "type": "parallax",
       "settings": {
         "ingredients_text": "Gentle yet effective ingredients.",
         "nature_text": "Vitally drawn from nature's depth.",
@@ -93,7 +92,7 @@
   "order": [
     "hero_video_J6pLxA",
     "3up_card_jrFUnJ",
-    "section_static_module_eeeYLb",
+    "parallax_gMnKiQ",
     "dot_label_row_edQFik"
   ]
 }
