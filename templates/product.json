@@ -124,42 +124,41 @@
         "padding_bottom": 28
       }
     },
-    "ingredients_UDWPHK": {
-      "type": "ingredients",
+    "bullet_list_6xwt8x": {
+      "type": "bullet-list",
       "blocks": {
-        "point_UyzRpe": {
+        "point_nghiHm": {
           "type": "point",
           "settings": {
-            "bulletpoint_text": "STICKINESS"
+            "bulletpoint_text": "Stickiness"
           }
         },
-        "point_GtfFwG": {
+        "point_mcM6AF": {
           "type": "point",
           "settings": {
-            "bulletpoint_text": "PIGMENT"
+            "bulletpoint_text": "Pigment"
           }
         },
-        "point_FpMXgE": {
+        "point_LE6xcf": {
           "type": "point",
           "settings": {
-            "bulletpoint_text": "MENTHOL"
+            "bulletpoint_text": "Menthol"
           }
         }
       },
       "block_order": [
-        "point_UyzRpe",
-        "point_GtfFwG",
-        "point_FpMXgE"
+        "point_nghiHm",
+        "point_mcM6AF",
+        "point_LE6xcf"
       ],
-      "custom_css": [],
       "settings": {
         "eyebrow": ""
       }
     },
-    "custom_carousel_LQUw6V": {
-      "type": "custom-carousel",
+    "2up_carousel_qyXbXN": {
+      "type": "2up-carousel",
       "blocks": {
-        "slide_pfY37a": {
+        "slide_ddHPj8": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
@@ -178,12 +177,12 @@
             "text_alignment_mobile": "center"
           }
         },
-        "slide_FP3t6t": {
+        "slide_ngpHDf": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Texture_LipDew_Gel_2000x2000_PDP_LIPDEW.jpg",
             "heading": "The touch of softness.",
-            "slide_type": "text",
+            "slide_type": "slider",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
@@ -193,19 +192,19 @@
             "show_text_box": true,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
-            "color_scheme": "",
+            "color_scheme": "scheme-1",
             "text_alignment_mobile": "center"
           }
         }
       },
       "block_order": [
-        "slide_pfY37a",
-        "slide_FP3t6t"
+        "slide_ddHPj8",
+        "slide_ngpHDf"
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "small",
-        "slider_visual": "numbers",
+        "slide_height": "medium",
+        "slider_visual": "counter",
         "auto_rotate": false,
         "change_slides_speed": 5,
         "image_behavior": "none",
@@ -215,41 +214,6 @@
     },
     "image_banner_UKJ3fP": {
       "type": "image-banner",
-      "blocks": {
-        "heading_Kt3anE": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_R7heRx": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "buttons_kiWaeM": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_Kt3anE",
-        "text_R7heRx",
-        "buttons_kiWaeM"
-      ],
       "settings": {
         "image": "shopify://shop_images/Lifestyle_Flatlay_LipDew_Ingredients_2000x833_PDP_LIPDEW.jpg",
         "image_overlay_opacity": 0,
@@ -264,10 +228,10 @@
         "show_text_below": true
       }
     },
-    "slider_image_ANw9BW": {
-      "type": "slider-image",
+    "ingredient_carousel_nJh9hp": {
+      "type": "ingredient-carousel",
       "blocks": {
-        "ingredient_AVkb6z": {
+        "ingredient_MUP9ja": {
           "type": "ingredient",
           "settings": {
             "slide_id": "slide-1",
@@ -278,13 +242,13 @@
             "percentage": "",
             "bullet_point_1_heading": "Anti-inflammatory",
             "bullet_point_1_text": "Extracted from sun-dried Chenpi (mandarin orange peel) from Xinhui, China, our vitamin C-rich oil is anti-inflammatory and antibacterial, soothing irritation.",
-            "bullet_point_2_heading": "Soothing",
-            "bullet_point_2_text": "The lightweight, non-greasy oil creates a moisture barrier that relieves dry and flaky lips.",
-            "bullet_point_3_heading": "Brightening",
-            "bullet_point_3_text": "Rich in antioxidants, it neutralizes free radicals to enhance lip vitality and reduce dullness."
+            "bullet_point_2_heading": "",
+            "bullet_point_2_text": "",
+            "bullet_point_3_heading": "",
+            "bullet_point_3_text": ""
           }
         },
-        "ingredient_YW3jXa": {
+        "ingredient_9Xw7T7": {
           "type": "ingredient",
           "settings": {
             "slide_id": "slide-2",
@@ -301,7 +265,7 @@
             "bullet_point_3_text": ""
           }
         },
-        "ingredient_h8ydbV": {
+        "ingredient_eEPyr3": {
           "type": "ingredient",
           "settings": {
             "slide_id": "slide-3",
@@ -318,7 +282,7 @@
             "bullet_point_3_text": ""
           }
         },
-        "ingredient_qtXFxx": {
+        "ingredient_nrn4Bw": {
           "type": "ingredient",
           "settings": {
             "slide_id": "slide-4",
@@ -337,10 +301,10 @@
         }
       },
       "block_order": [
-        "ingredient_AVkb6z",
-        "ingredient_YW3jXa",
-        "ingredient_h8ydbV",
-        "ingredient_qtXFxx"
+        "ingredient_MUP9ja",
+        "ingredient_9Xw7T7",
+        "ingredient_eEPyr3",
+        "ingredient_nrn4Bw"
       ],
       "settings": {}
     },
@@ -367,10 +331,10 @@
   "order": [
     "main",
     "related-products",
-    "ingredients_UDWPHK",
-    "custom_carousel_LQUw6V",
+    "bullet_list_6xwt8x",
+    "2up_carousel_qyXbXN",
     "image_banner_UKJ3fP",
-    "slider_image_ANw9BW",
+    "ingredient_carousel_nJh9hp",
     "1731992271885d52d1"
   ]
 }

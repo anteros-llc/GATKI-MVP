@@ -1,5 +1,5 @@
 {{ 'base.css' | asset_url | stylesheet_tag }}
-{{ 'section-footer-custom.css' | asset_url | stylesheet_tag }}
+{{ 'footer.css' | asset_url | stylesheet_tag }}
 
 <footer class="custom-footer">
   <div class="custom-footer-container">
@@ -66,7 +66,7 @@
 
 {% schema %}
 {
-  "name": "Footer-custom",
+  "name": "Footer",
   "tag": "section",
   "class": "section",
   "blocks": [
@@ -114,7 +114,7 @@
   ],
   "presets": [
     {
-      "name": "Custom Footer"
+      "name": "Footer"
     }
   ]
 }
