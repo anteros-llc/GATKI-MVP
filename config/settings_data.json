@@ -161,6 +161,11 @@
         "settings": {
           "show_preview_data": true
         }
+      },
+      "4388101675464981650": {
+        "type": "shopify://apps/kedra-shield-website-security/blocks/shield/ceea2cd7-3e8d-4c9f-bd14-570614cf0bb8",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
