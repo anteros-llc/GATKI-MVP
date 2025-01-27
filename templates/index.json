@@ -9,30 +9,30 @@
  */
 {
   "sections": {
-    "video_background_CM4yTj": {
-      "type": "video-background",
+    "hero_video_J6pLxA": {
+      "type": "hero-video",
       "blocks": {
-        "video_dn6BHh": {
+        "video_w9cyKj": {
           "type": "video",
           "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/5a80dcb1d3ff4fa4b397edc1ee265b17.mov",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/05190b00a72a43d786ca09e679bd8c7b.mov",
             "video_image": "shopify://shop_images/Hero_Video_MVP_1_1920x1080_Cover.jpg",
             "title": "Celebrate the New Year with a gift exclusive to this drop.",
-            "text": "<p>Drop_01: lip dew</p>",
+            "text": "<p>drop_01: lip dew</p>",
             "button_label": "SHOP NOW",
             "button_link": "shopify://products/lipdew"
           }
         }
       },
       "block_order": [
-        "video_dn6BHh"
+        "video_w9cyKj"
       ],
       "settings": {}
     },
-    "card_section_lips_whwkyT": {
-      "type": "card-section-lips",
+    "3up_card_jrFUnJ": {
+      "type": "3up-card",
       "blocks": {
-        "card_r4pAwa": {
+        "card_qhGTrF": {
           "type": "card",
           "settings": {
             "category": "ESSENTIALS",
@@ -41,7 +41,7 @@
             "description": ""
           }
         },
-        "card_49MPNi": {
+        "card_FrqRxr": {
           "type": "card",
           "settings": {
             "category": "ESSENTIALS",
@@ -50,22 +50,21 @@
             "description": ""
           }
         },
-        "card_4HBKGE": {
+        "card_8Da4Fz": {
           "type": "card",
           "settings": {
             "category": "ESSENTIALS",
             "number": "03",
-            "title": "Lightweight, fragrance-free, and non-sticky gel",
+            "title": "Lightweight, fragnance-free, and non-sticky gel",
             "description": ""
           }
         }
       },
       "block_order": [
-        "card_r4pAwa",
-        "card_49MPNi",
-        "card_4HBKGE"
+        "card_qhGTrF",
+        "card_FrqRxr",
+        "card_8Da4Fz"
       ],
-      "custom_css": [],
       "settings": {
         "title": "Simple formula for sensitive and delicate lips.",
         "description": "The LIP DEW formula combines the anti-inflammatory power of Chenpi Oil and the hydrating benefits of peptides to soothe, plump, and protect delicate lips.",
@@ -73,18 +72,16 @@
         "learn_more_link": "shopify://products/lipdew"
       }
     },
-    "section_static_module_eeeYLb": {
-      "type": "section-static-module",
-      "custom_css": [],
+    "parallax_gMnKiQ": {
+      "type": "parallax",
       "settings": {
         "ingredients_text": "Gentle yet effective ingredients.",
         "nature_text": "Vitally drawn from nature's depth.",
         "radiance_text": "Find your radiance with ease."
       }
     },
-    "section_product_attributes_fBB7bM": {
-      "type": "section-product-attributes",
-      "custom_css": [],
+    "dot_label_row_edQFik": {
+      "type": "dot-label-row",
       "settings": {
         "cruelty_free_text": "Cruelty free",
         "sulfate_free_text": "Sulfate free",
@@ -93,9 +90,9 @@
     }
   },
   "order": [
-    "video_background_CM4yTj",
-    "card_section_lips_whwkyT",
-    "section_static_module_eeeYLb",
-    "section_product_attributes_fBB7bM"
+    "hero_video_J6pLxA",
+    "3up_card_jrFUnJ",
+    "parallax_gMnKiQ",
+    "dot_label_row_edQFik"
   ]
 }

@@ -30,6 +30,7 @@
     justify-content: space-between;
     flex-wrap: wrap; /* Stack items on smaller screens */
     gap: 6rem; /* Horizontal spacing between bullet points */
+    white-space: nowrap;
   }
 
   .bulletpoint-item h4 {
@@ -46,7 +47,7 @@
 
 {% schema %}
 {
-  "name": "Made Without",
+  "name": "Bullet List",
   "settings": [
     {
       "type": "text",
@@ -71,7 +72,7 @@
   ],
   "presets": [
     {
-      "name": "point Module",
+      "name": "Bullet List",
     }
   ]
 }

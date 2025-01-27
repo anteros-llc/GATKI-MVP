@@ -29,23 +29,9 @@
   <div class="page-width">
     <div class="title-wrapper-with-link">
       <h5>CART</h5>
-      <a href="{{ routes.product.url }}" class="underlined-link">
+      <a href="https://gatki.co/products/lipdew?variant=49963258904896" class="underlined-link">
         {{- 'general.continue_shopping' | t -}}
       </a>
-    </div>
-
-    <div class="cart__warnings">
-      <h3 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h3>
-      <a href="{{ routes.all_products_collection_url }}" class="button">
-        {{ 'general.continue_shopping' | t }}
-      </a>
-
-      {%- if shop.customer_accounts_enabled and customer == null -%}
-        <h3 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h3>
-        <p class="cart__login-paragraph">
-          {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-        </p>
-      {%- endif -%}
     </div>
 
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
@@ -53,9 +39,6 @@
         <div class="js-contents">
           {%- if cart != empty -%}
             <table class="cart-items">
-              <caption class="visually-hidden">
-                {{ 'sections.cart.title' | t }}
-              </caption>
               <thead>
                 <tr>
                   <th class="h7 h7--ash" colspan="2" scope="col">
@@ -225,19 +208,7 @@
                     <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
                       <quantity-popover>
                         <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
-                          <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
-                            {{ 'products.product.quantity.label' | t }}
-                          </label>
                           <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
-                            {%- if has_qty_rules or has_vol_pricing -%}
-                              <button
-                                type="button"
-                                aria-expanded="false"
-                                class="quantity-popover__info-button quantity-popover__info-button--icon-only button button--tertiary small-hide medium-hide"
-                              >
-                                {{- 'icon-info.svg' | inline_asset_content -}}
-                              </button>
-                            {%- endif -%}
                             <quantity-input class="quantity cart-quantity">
                               <button class="quantity__button" name="minus" type="button">
                                 <span class="visually-hidden">
@@ -249,8 +220,8 @@
                               </button>
                               <input
                                 class="quantity__input"
-                                data-quantity-variant-id="{{ item.variant.id }}"
                                 type="number"
+                                data-quantity-variant-id="{{ item.variant.id }}"
                                 name="updates[]"
                                 value="{{ item.quantity }}"
                                 {% # theme-check-disable %}
@@ -263,7 +234,7 @@
                                 step="{{ item.variant.quantity_rule.increment }}"
                                 {% # theme-check-enable %}
                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                                id="Quantity-{{ item.index | plus: 1 }}"
+                                id="Drawer-quantity-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
                               >
                               <button class="quantity__button" name="plus" type="button">
@@ -295,10 +266,12 @@
                         {%- if has_qty_rules or has_vol_pricing -%}
                           <button
                             type="button"
-                            class="quantity-popover__info-button quantity-popover__info-button--icon-with-label button button--tertiary large-up-hide"
+                            class="quantity-popover__info-button quantity-popover__info-button--icon-with-label button button--tertiary"
                             aria-expanded="false"
                           >
-                            {{- 'icon-info.svg' | inline_asset_content -}}
+                            <span class="svg-wrapper">
+                              {{- 'icon-info.svg' | inline_asset_content -}}
+                            </span>
                             <span>
                               {%- if has_vol_pricing -%}
                                 {{ 'products.product.volume_pricing.note' | t }}
@@ -346,7 +319,7 @@
                               {%- endif -%}
                             </div>
                             <button
-                              class="button-close button button--tertiary large-up-hide"
+                              class="button-close button button--tertiary"
                               type="button"
                               aria-label="{{ 'accessibility.close' | t }}"
                             >
@@ -359,8 +332,7 @@
                                 <ul class="list-unstyled">
                                   <li>
                                     <span>{{ item.variant.quantity_rule.min }}+</span>
-                                    {%- assign price = item.variant.price | money_with_currency -%}
-                                    <span> {{ 'sections.quick_order_list.each' | t: money: price }}</span>
+                                    <span>{{ item.variant.price | money_with_currency }}/ea</span>
                                   </li>
                                   {%- for price_break in item.variant.quantity_price_breaks -%}
                                     <li>
@@ -368,8 +340,7 @@
                                         {{- price_break.minimum_quantity -}}
                                         <span aria-hidden="true">+</span></span
                                       >
-                                      {%- assign price = price_break.price | money_with_currency -%}
-                                      <span> {{ 'sections.quick_order_list.each' | t: money: price }}</span>
+                                      <span>{{ price_break.price | money_with_currency }}/ea</span>
                                     </li>
                                   {%- endfor -%}
                                 </ul>
@@ -377,7 +348,11 @@
                             {%- endif -%}
                           </div>
                         {%- endif -%}
-                        <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
+                        <div
+                          id="CartDrawer-LineItemError-{{ item.index | plus: 1 }}"
+                          class="cart-item__error"
+                          role="alert"
+                        >
                           <small class="cart-item__error-text"></small>
                           <span class="svg-wrapper">
                             {{- 'icon-error.svg' | inline_asset_content -}}
