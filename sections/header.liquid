@@ -118,7 +118,7 @@
       assign localization_forms = true
     endif
   -%}
-  <header>
+  <header class="{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}">
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
