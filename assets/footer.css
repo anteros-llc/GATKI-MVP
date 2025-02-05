@@ -137,8 +137,9 @@
 
   /* Bottom Section */
   .custom-footer-bottom {
-    flex-direction: column; /* Stack bottom items vertically */
-    text-align: center; /* Center-align bottom content */
+    padding: 1rem 1.5rem;
+    flex-direction: column; 
+    text-align: center; 
   }
 
   .custom-footer-policies {
