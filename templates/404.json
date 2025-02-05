@@ -15,14 +15,14 @@
         "heading_6UBT4z": {
           "type": "heading",
           "settings": {
-            "heading": "404 Not Found",
-            "heading_size": "h1"
+            "heading": "Oops! Something went wrong.",
+            "heading_size": "h2"
           }
         },
         "text_CjLbnV": {
           "type": "text",
           "settings": {
-            "text": "<p>Oops! Our store is currently unavailable in your region.</p>"
+            "text": "<p>This page isn’t accessible right now. If you’re visiting from outside the United States, our store is currently unavailable in your region.</p>"
           }
         }
       },
