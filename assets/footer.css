@@ -131,6 +131,10 @@
     padding: 2rem 1.5rem; /* Adjust padding for smaller screens */
   }
 
+  .custom-footer-heading {
+    margin-bottom: 1.25rem;
+}
+
   /* Bottom Section */
   .custom-footer-bottom {
     flex-direction: column; /* Stack bottom items vertically */
