@@ -99,7 +99,7 @@
 }
 
 /* Responsive Adjustments */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 375px) {
   /* Parent Container Adjustments */
   .custom-footer-container {
     flex-direction: column; /* Stack columns vertically */
