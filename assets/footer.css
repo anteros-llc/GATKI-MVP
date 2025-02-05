@@ -143,7 +143,10 @@
   }
 
   .custom-footer-policies {
-    justify-content: center; /* Center-align policy links */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
   }
 
   .custom-footer {
