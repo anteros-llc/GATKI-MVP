@@ -182,7 +182,7 @@
           "settings": {
             "image": "shopify://shop_images/Texture_LipDew_Gel_2000x2000_PDP_LIPDEW.jpg",
             "heading": "The touch of softness.",
-            "slide_type": "slider",
+            "slide_type": "text",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
