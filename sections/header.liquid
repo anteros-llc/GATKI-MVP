@@ -139,7 +139,7 @@
       endif
     %}
 
-      <a href="{{ routes.cart_url }}" class="header__icon" id="cart-icon-bubble">
+      <!-- <a href="{{ routes.cart_url }}" class="header__icon" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="svg-wrapper">CART</span>
           {% else %}
@@ -154,7 +154,7 @@
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
-      </a>
+      </a> -->
     
       {%- for block in section.blocks -%}
         {%- case block.type -%}
