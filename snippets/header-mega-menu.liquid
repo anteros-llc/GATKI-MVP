@@ -91,8 +91,7 @@
         {%- endif -%}
       </li>
     {%- endfor -%}
-  </ul>
-       <a href="{{ routes.cart_url }}" class="header__icon" id="cart-icon-bubble">
+         <a href="{{ routes.cart_url }}" class="header__icon" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="svg-wrapper">CART</span>
           {% else %}
@@ -108,4 +107,6 @@
           </div>
         {%- endif -%}
       </a>
+  </ul>
+  
 </nav>
