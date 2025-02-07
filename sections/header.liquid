@@ -3,21 +3,8 @@
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
 
-{%- if settings.predictive_search_enabled -%}
-  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- endif -%}
-
-{%- if section.settings.menu_type_desktop == 'mega' -%}
-  <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- endif -%}
-
 
 <style>
-  header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
-  }
-
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
       width: 75%;
@@ -32,50 +19,12 @@
     }
   {%- endif -%}
 
-  .menu-drawer-container {
-    display: flex;
-  }
-
-  .list-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .list-menu--inline {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-
-  summary.list-menu__item {
-    padding-right: 2.7rem;
-  }
-
-  .list-menu__item {
-    display: flex;
-    align-items: center;
-  }
-
-  .list-menu__item--link {
-    text-decoration: none;
-  }
-
-  @media screen and (min-width: 750px) {
-    .list-menu__item--link {
-    }
-  }
 </style>
 
 {%- style -%}
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-header {
-      margin-bottom: {{ section.settings.margin_bottom }}px;
-    }
   }
 {%- endstyle -%}
 
@@ -136,23 +85,6 @@
         endif
       endif
     %}
-
-      <!-- <a href="{{ routes.cart_url }}" class="header__icon" id="cart-icon-bubble">
-          {% if cart == empty %}
-            <span class="svg-wrapper">CART</span>
-          {% else %}
-            <span class="svg-wrapper">CART</span>
-          {% endif %}
-        <span class="visually-hidden">CART</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble"
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">({{ cart.item_count }})</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
-      </a> -->
     
       {%- for block in section.blocks -%}
         {%- case block.type -%}
