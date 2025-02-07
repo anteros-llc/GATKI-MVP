@@ -100,13 +100,11 @@
       </li>
     {%- endfor -%}
     <li>
-        <a href="{{ routes.cart_url }}" class="header__icon" id="cart-icon-bubble">
+        <a href="{{ routes.cart_url }}" class="header__menu-item list-menu__item link link--text focus-inset" id="cart-icon-bubble">
           {% if cart == empty %}
-            <span 
-               class="header__menu-item list-menu__item link link--text focus-inset">
-              CART</span>
+            <span>CART</span>
           {% else %}
-            <span class="header__menu-item list-menu__item link link--text focus-inset">CART</span>
+            <span>CART</span>
           {% endif %}
         <span class="visually-hidden">CART</span>
         {%- if cart != empty -%}
