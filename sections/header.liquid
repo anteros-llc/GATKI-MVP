@@ -139,13 +139,6 @@
       endif
     %}
 
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
-
       <a href="{{ routes.cart_url }}" class="header__icon" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="svg-wrapper">CART</span>
@@ -162,6 +155,14 @@
           </div>
         {%- endif -%}
       </a>
+    
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        {%- endcase -%}
+      {%- endfor -%}
+
     </div>
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
