@@ -18,7 +18,7 @@
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
           <li>
-        <a href="{{ routes.cart_url }}" class="header__menu-item" id="cart-icon-bubble">
+        <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
           {% if cart == empty %}
             <span>CART</span>
           {% else %}
@@ -58,7 +58,7 @@
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
         {% endfor %}
         <li>
-          <a href="{{ routes.cart_url }}" class="header__menu-item" id="cart-icon-bubble">
+          <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
             {% if cart == empty %}
               <span>CART</span>
             {% else %}
