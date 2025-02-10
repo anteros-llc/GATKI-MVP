@@ -105,14 +105,7 @@
   }
   .mobile-menu-button {
     display: none;
-    flex-direction: column;
-    gap: 5px;
     cursor: pointer;
-  }
-  .mobile-menu-button span {
-    width: 25px;
-    height: 3px;
-    background: black;
   }
   .mobile-menu {
     display: none;
@@ -128,15 +121,21 @@
   .mobile-menu.active {
     display: block;
   }
+  .mobile-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
   @media (max-width: 768px) {
     .desktop-menu {
       display: none;
     }
     .mobile-menu-button {
-      display: flex;
+      display: block;
     }
   }
 </style>
+
 
 <script>
   function toggleMobileMenu() {
