@@ -4,7 +4,10 @@
   - Mobile: Logo on the left, hamburger menu opens a drawer with menu items + cart
   - Sticky Header for Desktop using Shopify Dawn's `sticky-header`
 {% endcomment %}
-
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
 {% schema %}
 {
   "name": "Header-custom",
