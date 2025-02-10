@@ -70,7 +70,7 @@
   </div>
 
   <div class="mobile-menu">
-    <div class="mobile-menu-header">
+    <div class="mobile-menu-header" onclick="toggleMobileMenu()">
       <span class="icon">
         {{- 'icon-close.svg' | inline_asset_content -}}
       </span>
@@ -148,6 +148,7 @@
     display: flex;
     justify-content: flex-end;
     padding: 10px;
+    cursor: pointer;
   }
   .icon {
     display: inline-block;
