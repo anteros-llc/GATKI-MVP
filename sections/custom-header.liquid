@@ -2,6 +2,7 @@
   Shopify Header with Custom Logo and Menu
   - Desktop: Logo on the left, menu items on the right
   - Mobile: Logo on the left, hamburger menu opens a drawer with menu items + cart
+  - Sticky Header for Desktop
 {% endcomment %}
 
 {% schema %}
@@ -110,7 +111,11 @@
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  body {
+    padding-top: 70px;
   }
   .header-content {
     display: flex;
