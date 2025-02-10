@@ -2,7 +2,7 @@
   Shopify Header with Custom Logo and Menu
   - Desktop: Logo on the left, menu items on the right
   - Mobile: Logo on the left, hamburger menu opens a drawer with menu items + cart
-  - Sticky Header for Desktop
+  - Sticky Header for Desktop using Shopify Dawn's `sticky-header`
 {% endcomment %}
 
 {% schema %}
@@ -27,82 +27,84 @@
 }
 {% endschema %}
 
-<header class="site-header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <a href="{{ shop.url }}">
-          <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
-        </a>
-      </div>
-      
-      <nav class="desktop-menu">
-        <ul>
-          {% for link in linklists.main-menu.links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-          <li>
-            <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
-              {% if cart == empty %}
-                <span>CART</span>
-              {% else %}
-                <span>CART</span>
-              {% endif %}
-              <span class="visually-hidden">CART</span>
-              {%- if cart != empty -%}
-                <div class="cart-count-bubble">
-                  {%- if cart.item_count < 100 -%}
-                    <span aria-hidden="true">({{ cart.item_count }})</span>
-                  {%- endif -%}
-                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-                </div>
-              {%- endif -%}
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="mobile-menu-button" onclick="toggleMobileMenu()">
-        <span class="icon">
-          {{- 'icon-hamburger.svg' | inline_asset_content -}}
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="mobile-menu">
-    <div class="mobile-menu-header" onclick="toggleMobileMenu()">
-      <span class="icon">
-        {{- 'icon-close.svg' | inline_asset_content -}}
-      </span>
-    </div>
-    <nav>
-      <ul>
-        {% for link in linklists.main-menu.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-        {% endfor %}
-        <li>
-          <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
-            {% if cart == empty %}
-              <span>CART</span>
-            {% else %}
-              <span>CART</span>
-            {% endif %}
-            <span class="visually-hidden">CART</span>
-            {%- if cart != empty -%}
-              <div class="cart-count-bubble">
-                {%- if cart.item_count < 100 -%}
-                  <span aria-hidden="true">({{ cart.item_count }})</span>
-                {%- endif -%}
-                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-              </div>
-            {%- endif -%}
+<sticky-header>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="{{ shop.url }}">
+            <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
           </a>
-        </li>
-      </ul>
-    </nav>
+        </div>
+        
+        <nav class="desktop-menu">
+          <ul>
+            {% for link in linklists.main-menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+            <li>
+              <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
+                {% if cart == empty %}
+                  <span>CART</span>
+                {% else %}
+                  <span>CART</span>
+                {% endif %}
+                <span class="visually-hidden">CART</span>
+                {%- if cart != empty -%}
+                  <div class="cart-count-bubble">
+                    {%- if cart.item_count < 100 -%}
+                      <span aria-hidden="true">({{ cart.item_count }})</span>
+                    {%- endif -%}
+                    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                  </div>
+                {%- endif -%}
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="mobile-menu-button" onclick="toggleMobileMenu()">
+          <span class="icon">
+            {{- 'icon-hamburger.svg' | inline_asset_content -}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+</sticky-header>
+
+<div class="mobile-menu">
+  <div class="mobile-menu-header" onclick="toggleMobileMenu()">
+    <span class="icon">
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </span>
   </div>
-</header>
+  <nav>
+    <ul>
+      {% for link in linklists.main-menu.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+      <li>
+        <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
+          {% if cart == empty %}
+            <span>CART</span>
+          {% else %}
+            <span>CART</span>
+          {% endif %}
+          <span class="visually-hidden">CART</span>
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble">
+              {%- if cart.item_count < 100 -%}
+                <span aria-hidden="true">({{ cart.item_count }})</span>
+              {%- endif -%}
+              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            </div>
+          {%- endif -%}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
 
 <style>
   .site-header {
@@ -113,6 +115,14 @@
     width: 100%;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  sticky-header {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background: white;
   }
   body {
     padding-top: 70px;
