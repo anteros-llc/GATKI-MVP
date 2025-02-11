@@ -187,20 +187,6 @@
   </nav>
 </div>
 
-<!-- <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    function toggleMobileMenu() {
-      const mobileMenu = document.querySelector('.mobile-menu');
-      mobileMenu.classList.toggle('active');
-    }
-
-    document.querySelector('.mobile-menu-button').addEventListener('click', toggleMobileMenu);
-    document.querySelector('.mobile-menu-header').addEventListener('click', toggleMobileMenu);
-  });
-</script> -->
-
-
-
 {% javascript %}
   class StickyHeader extends HTMLElement {
     constructor() {
@@ -313,6 +299,18 @@
   customElements.define('sticky-header', StickyHeader);
 }
 {% endjavascript %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    function toggleMobileMenu() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      mobileMenu.classList.toggle('active');
+    }
+
+    document.querySelector('.mobile-menu-button').addEventListener('click', toggleMobileMenu);
+    document.querySelector('.mobile-menu-header').addEventListener('click', toggleMobileMenu);
+  });
+</script>
 
 
 <script type="application/ld+json">
