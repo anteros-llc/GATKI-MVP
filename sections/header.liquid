@@ -13,11 +13,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 3rem;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
   }
   .section-header {
     position: sticky;
@@ -107,6 +102,13 @@
     .mobile-menu-button {
       display: block;
     }
+    .header-content {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
   }
 {%- endstyle -%}
 
@@ -149,6 +151,35 @@
   </header>
 </sticky-header>
 
+<div class="mobile-menu">
+  <div class="mobile-menu-header" id="menu-close">
+    <div class="logo">
+      <a href="{{ shop.url }}">
+        <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
+      </a>
+    </div>
+    <span class="icon icon-close">
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </span>
+  </div>
+  <nav>
+    <ul>
+      {% for link in linklists.main-menu.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+      <li>
+        <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
+          {% if cart == empty %}
+            <span>CART</span>
+          {% else %}
+            <span>CART</span>
+          {% endif %}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function toggleMobileMenu() {
@@ -164,6 +195,6 @@
     }
 
     document.querySelector('#menu-toggle').addEventListener('click', toggleMobileMenu);
-    document.querySelector('.mobile-menu-header').addEventListener('click', toggleMobileMenu);
+    document.querySelector('#menu-close').addEventListener('click', toggleMobileMenu);
   });
 </script>
