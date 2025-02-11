@@ -185,3 +185,33 @@
     document.querySelector('#menu-close').addEventListener('click', toggleMobileMenu);
   });
 </script>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_mobile",
+      "label": "Mobile Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Navigation Menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header",
+      "category": "Header",
+      "settings": {
+        "logo_mobile": "",
+        "menu": "main-menu"
+      }
+    }
+  ]
+}
+{% endschema %}
+
