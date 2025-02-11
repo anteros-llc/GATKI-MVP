@@ -171,6 +171,13 @@
   </nav>
 </div>
 
+<script>
+  function toggleMobileMenu() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    mobileMenu.classList.toggle('active');
+  }
+</script>
+
 
 {% javascript %}
   class StickyHeader extends HTMLElement {
@@ -285,11 +292,6 @@
 }
 {% endjavascript %}
 
-<script>
-    toggleMobileMenu() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    mobileMenu.classList.toggle('active');
-</script>
 
 <script type="application/ld+json">
   {
