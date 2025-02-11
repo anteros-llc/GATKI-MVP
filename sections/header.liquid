@@ -23,9 +23,6 @@
   }
   .desktop-menu a {
     text-decoration: none;
-    color: black;
-    font-weight: 600;
-    font-size: 14px;
   }
   .mobile-menu-button {
     display: none;
@@ -68,8 +65,6 @@
       display: block;
     }
   }
-
-  
 </style>
 
 {%- style -%}
@@ -124,12 +119,8 @@
       </div>
     </div>
   </header>
-  
 </sticky-header>
 
-{%- if settings.cart_type == "notification" -%}
-  {%- render 'cart-notification', desktop_menu_type: section.settings.menu_type_desktop -%}
-{%- endif -%}
 
 {% javascript %}
   class StickyHeader extends HTMLElement {
