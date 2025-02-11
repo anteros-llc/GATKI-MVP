@@ -351,9 +351,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   z-index: 2;
 }
 
-::selection {
+/* ::selection {
   background-color: rgba(var(--color-foreground), 0.2);
-}
+} */
 
 /* Removed .hx and .hxl if not used globally
 .hxxl {
