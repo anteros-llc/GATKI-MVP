@@ -14,22 +14,10 @@
     "header": {
       "type": "header",
       "custom_css": [],
-      "settings": {
-        "menu": "main-menu",
-        "sticky_header_type": "always"
-      }
-    },
-    "custom_header_kHdzJd": {
-      "type": "custom-header",
-      "disabled": true,
-      "settings": {
-        "menu": "main-menu",
-        "sticky_header_type": "always"
-      }
+      "settings": {}
     }
   },
   "order": [
-    "header",
-    "custom_header_kHdzJd"
+    "header"
   ]
 }
