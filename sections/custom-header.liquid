@@ -2,12 +2,9 @@
   Shopify Header with Custom Logo and Menu
   - Desktop: Logo on the left, menu items on the right
   - Mobile: Logo on the left, hamburger menu opens a drawer with menu items + cart
-  - Sticky Header for Desktop using Shopify Dawn's `sticky-header`
+  - Sticky Header with Shopify Dawn's `sticky-header` functionality
 {% endcomment %}
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+
 {% schema %}
 {
   "name": "Header-custom",
@@ -30,7 +27,7 @@
 }
 {% endschema %}
 
-<sticky-header>
+<sticky-header class="sticky-header" data-sticky="true">
   <header class="site-header">
     <div class="container">
       <div class="header-content">
@@ -110,18 +107,19 @@
 </div>
 
 <style>
-  .site-header {
-    background: #f8f4ef;
-    padding: 15px 0;
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  sticky-header {
-    display: block;
+  .sticky-header {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1100;
+    background: white;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .site-header {
+    background: #f8f4ef;
+    padding: 15px 0;
+    width: 100%;
   }
   body {
     padding-top: 70px;
@@ -188,6 +186,20 @@
 </style>
 
 <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const stickyHeader = document.querySelector(".sticky-header");
+    const headerOffset = stickyHeader.offsetTop;
+    
+    function onScroll() {
+      if (window.scrollY > headerOffset) {
+        stickyHeader.classList.add("is-sticky");
+      } else {
+        stickyHeader.classList.remove("is-sticky");
+      }
+    }
+    window.addEventListener("scroll", onScroll);
+  });
+
   function toggleMobileMenu() {
     document.querySelector('.mobile-menu').classList.toggle('active');
   }
