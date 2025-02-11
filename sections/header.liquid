@@ -100,8 +100,9 @@
   }
 {%- endstyle -%}
 
-<sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}">
- 
+<!-- <sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"> -->
+
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %}">
  <header class="section-header">
     <div class="container">
       <div class="header-content">
@@ -145,7 +146,8 @@
       </div>
     </div>
   </header>
-</sticky-header>
+  </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+<!-- </sticky-header> -->
 
 <div class="mobile-menu">
   <div class="mobile-menu-header">
