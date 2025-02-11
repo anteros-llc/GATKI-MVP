@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+{% comment %} <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
 
 
 <style>
@@ -111,8 +111,6 @@
 
 
 <sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}">
-
-<!-- <{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %}"> -->
  <header class="section-header">
     <div class="container">
       <div class="header-content">
@@ -156,7 +154,6 @@
       </div>
     </div>
   </header>
-  <!-- </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}> -->
 </sticky-header>
 
 <div class="mobile-menu">
