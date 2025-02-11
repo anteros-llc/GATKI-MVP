@@ -13,7 +13,6 @@
   "sections": {
     "header": {
       "type": "header",
-      "disabled": true,
       "custom_css": [],
       "settings": {
         "menu": "main-menu",
@@ -22,6 +21,7 @@
     },
     "custom_header_kHdzJd": {
       "type": "custom-header",
+      "disabled": true,
       "settings": {
         "menu": "main-menu",
         "sticky_header_type": "always"
