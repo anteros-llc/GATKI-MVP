@@ -23,7 +23,8 @@
     "custom_header_kHdzJd": {
       "type": "custom-header",
       "settings": {
-        "menu": "main-menu"
+        "menu": "main-menu",
+        "sticky_header_type": "always"
       }
     }
   },
