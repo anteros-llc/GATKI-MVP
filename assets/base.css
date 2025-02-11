@@ -38,6 +38,23 @@
   --color-ash: #aaaaaa;
 }
 
+* {
+  user-select: auto !important;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div {
+  user-select: text !important;
+}
+
 /* Typography Styles */
 h1,
 h2 {
