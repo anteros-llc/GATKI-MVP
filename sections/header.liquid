@@ -80,6 +80,9 @@
     width: 100%;
     height: 100%;
   }
+  .icon-close{
+    color: var(--color-blanco);
+  }
   @media (max-width: 375px) {
     .desktop-menu {
       display: none;
@@ -151,7 +154,7 @@
         <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
       </a>
     </div>
-    <span class="icon">
+    <span class="icon icon-close">
       {{- 'icon-close.svg' | inline_asset_content -}}
     </span>
   </div>
