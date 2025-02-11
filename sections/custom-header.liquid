@@ -2,33 +2,32 @@
   Shopify Header with Custom Logo and Menu
   - Desktop: Logo on the left, menu items on the right
   - Mobile: Logo on the left, hamburger menu opens a drawer with menu items + cart
-  - Sticky Header with Shopify Dawn's `sticky-header` functionality
+  - Sticky Header using Dawn theme structure
 {% endcomment %}
 
-{% schema %}
-{
-  "name": "Header-custom",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Header-custom",
-      "settings": {
-        "menu": "main-menu"
-      }
-    }
-  ]
-}
-{% endschema %}
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<sticky-header class="sticky-header" data-sticky="true">
-  <header class="site-header">
+{%- style -%}
+  .section-header {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background: white;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  li {
+    list-style: none;
+  }
+{%- endstyle -%}
+
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+
+<sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}">
+  <header class="header section-header">
     <div class="container">
       <div class="header-content">
         <div class="logo">
@@ -106,99 +105,77 @@
   </nav>
 </div>
 
-<style>
-  .sticky-header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 1100;
-    background: white;
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .site-header {
-    background: #f8f4ef;
-    padding: 15px 0;
-    width: 100%;
-  }
-  body {
-    padding-top: 70px;
-  }
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .logo img {
-    height: 40px;
-  }
-  .desktop-menu ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-  }
-  .desktop-menu a {
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-  }
-  .mobile-menu-button {
-    display: none;
-    cursor: pointer;
-  }
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 250px;
-    height: 100vh;
-    background: white;
-    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  .mobile-menu.active {
-    display: block;
-  }
-  .mobile-menu-header {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    cursor: pointer;
-  }
-  .icon {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-  }
-  .icon svg {
-    width: 100%;
-    height: 100%;
-  }
-  @media (max-width: 768px) {
-    .desktop-menu {
-      display: none;
+{% schema %}
+{
+  "name": "Header-custom",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "select",
+      "id": "sticky_header_type",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
+        },
+        {
+          "value": "on-scroll-up",
+          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
+        },
+        {
+          "value": "always",
+          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
+        },
+        {
+          "value": "reduce-logo-size",
+          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
+        }
+      ],
+      "default": "on-scroll-up",
+      "label": "t:sections.header.settings.sticky_header_type.label"
     }
-    .mobile-menu-button {
-      display: block;
-    }
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const stickyHeader = document.querySelector(".sticky-header");
-    const headerOffset = stickyHeader.offsetTop;
-    
-    function onScroll() {
-      if (window.scrollY > headerOffset) {
-        stickyHeader.classList.add("is-sticky");
-      } else {
-        stickyHeader.classList.remove("is-sticky");
+  ],
+  "presets": [
+    {
+      "name": "Header-custom",
+      "settings": {
+        "menu": "main-menu",
+        "sticky_header_type": "on-scroll-up"
       }
     }
-    window.addEventListener("scroll", onScroll);
-  });
+  ]
+}
+{% endschema %}
+
+<script>
+  class StickyHeader extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      this.header = document.querySelector('.section-header');
+      this.currentScrollTop = 0;
+      this.onScrollHandler = this.onScroll.bind(this);
+      window.addEventListener('scroll', this.onScrollHandler, false);
+    }
+
+    onScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > this.currentScrollTop) {
+        this.header.classList.add('scrolled-past-header');
+      } else {
+        this.header.classList.remove('scrolled-past-header');
+      }
+      this.currentScrollTop = scrollTop;
+    }
+  }
+  customElements.define('sticky-header', StickyHeader);
 
   function toggleMobileMenu() {
     document.querySelector('.mobile-menu').classList.toggle('active');
