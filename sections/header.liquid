@@ -12,7 +12,7 @@
   {%- endif -%}
 
   {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
+    @media screen and (max-width: 375px) {
       header-drawer {
         display: none;
       }
@@ -44,61 +44,50 @@
 
 <{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %}">
  
-  <header class="header">
-    {%- liquid
-      if section.settings.menu != blank
-        render 'header-drawer'
-      endif
-
-    -%}
-
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo motion-reduce',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
+ <header class="header section-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="{{ shop.url }}">
+            <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
           </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
+        </div>
+        
+        <nav class="desktop-menu">
+          <ul>
+            {% for link in linklists.main-menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+            <li>
+              <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
+                {% if cart == empty %}
+                  <span>CART</span>
+                {% else %}
+                  <span>CART</span>
+                {% endif %}
+                <span class="visually-hidden">CART</span>
+                {%- if cart != empty -%}
+                  <div class="cart-count-bubble">
+                    {%- if cart.item_count < 100 -%}
+                      <span aria-hidden="true">({{ cart.item_count }})</span>
+                    {%- endif -%}
+                    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                  </div>
+                {%- endif -%}
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-       {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-dropdown-menu'
-        endif
-      endif
-    %}
-    
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
-
+        <div class="mobile-menu-button" onclick="toggleMobileMenu()">
+          <span class="icon">
+            {{- 'icon-hamburger.svg' | inline_asset_content -}}
+          </span>
+        </div>
+      </div>
     </div>
   </header>
+  
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
