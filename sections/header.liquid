@@ -48,10 +48,10 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: yellow;
+    background: black;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     justify-content: flex-start;
     padding: 20px;
     transform: translateY(-100%);
@@ -67,11 +67,6 @@
     padding: 10px;
     cursor: pointer;
   }
-  .mobile-menu .logo {
-    padding: 10px 0;
-    color: white;
-    text-align: center;
-  }
   .mobile-menu nav ul {
     list-style: none;
     padding: 0;
@@ -79,7 +74,6 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: left;
   }
   .mobile-menu nav a {
     color: var(--color-blanco);
@@ -151,11 +145,9 @@
 
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-header">
-    <div class="logo">
-      <a href="{{ shop.url }}">
-        <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
-      </a>
-    </div>
+    <span class="icon icon-close" id="menu-close">
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </span>
   </div>
   <nav>
     <ul>
