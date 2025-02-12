@@ -237,20 +237,28 @@
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
-  "class": "section-header",
-  "max_blocks": 3,
+  "name": "Header",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_mobile",
+      "label": "Mobile Logo"
+    },
     {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
-    },
+      "label": "Navigation Menu"
+    }
   ],
-  "blocks": [
+  "presets": [
     {
-      "type": "@app"
+      "name": "Header",
+      "category": "Header",
+      "settings": {
+        "logo_mobile": "",
+        "menu": "main-menu"
+      }
     }
   ]
 }
