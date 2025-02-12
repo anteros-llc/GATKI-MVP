@@ -174,7 +174,7 @@
       {% for link in linklists.main-menu.links %}
         <li><a href="{{ link.url }}">{{ link.title }}</a></li>
       {% endfor %}
-      <li>
+      <li class="cart-menu">
         <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="mobile-cart">CART</span>
