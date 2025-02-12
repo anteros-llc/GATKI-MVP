@@ -183,12 +183,19 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function toggleMobileMenu() {
-      const mobileMenu = document.querySelector('.mobile-menu');
+      const mobileMenu = document.querySelector('#mobile-menu');
+      const menuIcon = document.querySelector('#menu-icon');
       mobileMenu.classList.toggle('active');
+      
+      if (mobileMenu.classList.contains('active')) {
+        menuIcon.innerHTML = `{{- 'icon-close.svg' | inline_asset_content -}}`;
+      } else {
+        menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
+      }
     }
 
-    document.querySelector('.mobile-menu-button').addEventListener('click', toggleMobileMenu);
-    document.querySelector('.mobile-menu-header').addEventListener('click', toggleMobileMenu);
+    document.querySelector('#menu-toggle').addEventListener('click', toggleMobileMenu);
+    document.querySelector('#menu-close').addEventListener('click', toggleMobileMenu);
   });
 </script>
 
