@@ -110,7 +110,7 @@
       z-index: 1000;
       padding: 1rem 1.25rem;
     }
-    .mobile-menu nav a{
+    .mobile-menu nav a, .mobile-cart{
       font-size: 0.875rem;
       font-weight: 400;
     }
@@ -138,9 +138,9 @@
             <li>
               <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
                 {% if cart == empty %}
-                  <span>CART</span>
+                  <span class="mobile-cart">CART</span>
                 {% else %}
-                  <span>CART</span>
+                  <span class="mobile-cart">CART</span>
                 {% endif %}
                 <span class="visually-hidden">CART</span>
                 {%- if cart != empty -%}
