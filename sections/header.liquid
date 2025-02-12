@@ -110,7 +110,7 @@
       z-index: 1000;
       padding: 1rem 1.25rem;
     }
-    .mobile-menu nav a, .mobile-cart{
+    .mobile-menu nav a, .mobile-cart, span{
       font-size: 0.875rem;
       font-weight: 400;
     }
@@ -142,7 +142,7 @@
                 {% else %}
                   <span class="mobile-cart">CART</span>
                 {% endif %}
-                <span class="visually-hidden mobile-cart">CART</span>
+                <span class="visually-hidden">CART</span>
                 {%- if cart != empty -%}
                   <div class="cart-count-bubble">
                     {%- if cart.item_count < 100 -%}
