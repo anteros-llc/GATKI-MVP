@@ -3,11 +3,18 @@
   - Desktop: Logo on the left, menu items on the right
   - Mobile: Menu overlays the hero module, opening from the top
   - Mobile: Hamburger button changes to 'close' when menu is open
+  - Mobile: White logo replaces black logo when menu is open, set via Customizer
   - Full-height and full-width mobile menu drawer with top-down animation
   - Sticky Header using Dawn theme structure with custom styles
 {% endcomment %}
 
 {%- style -%}
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+  }
   .section-header {
     position: sticky;
     position: -webkit-sticky;
@@ -18,14 +25,9 @@
     background: var(--color-blanco);
     transition: all 0.3s ease-in-out;
   }
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 3rem;
-  }
   .logo img {
     height: 1.65rem;
+    transition: opacity 0.3s ease-in-out;
   }
   .desktop-menu ul {
     display: flex;
@@ -48,12 +50,11 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: white;
-    /* var(--color-soil); */
+    background: black;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: left;
+    justify-content: flex-start;
     padding: 20px;
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
@@ -70,26 +71,27 @@
   }
   .mobile-menu nav ul {
     list-style: none;
-    padding: 3rem 2rem;
-    margin-top: 3.8rem;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
   .mobile-menu nav a {
-    /* color: var(--color-blanco); */
-    color: black;
+    color: var(--color-blanco);
     text-decoration: none;
   }
   .icon {
     display: inline-block;
     width: 24px;
     height: 24px;
-    color: var(--color-blanco);
   }
   .icon svg {
     width: 100%;
     height: 100%;
+  }
+  .icon-close{
+    color: var(--color-blanco);
   }
   @media (max-width: 768px) {
     .desktop-menu {
@@ -99,23 +101,36 @@
       display: block;
     }
     .header-content {
-      position: absolute;
-      width: 100%;
+      position: sticky;
       top: 0;
+      width: 100%;
       left: 0;
-      z-index: 1000;
+      z-index: 1100;
+    }
+    .logo img.default-logo {
+      display: block;
+    }
+    .logo img.white-logo {
+      display: none;
+    }
+    .mobile-menu.active ~ .section-header .logo img.default-logo {
+      display: none;
+    }
+    .mobile-menu.active ~ .section-header .logo img.white-logo {
+      display: block;
     }
   }
 {%- endstyle -%}
 
+<sticky-header data-sticky-type="always">
   <header class="section-header">
     <div class="container">
-        <div class="header-content">
+      <div class="header-content">
         <div class="logo">
           <a href="{{ shop.url }}">
-            <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}"/>
-            {% if settings.logo_mobile %}
-              <img src="{{ settings.logo_mobile | img_url: 'medium' }}" alt="{{ shop.name }}" class="white-logo" />
+            <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" class="default-logo" />
+            {% if section.settings.logo_mobile %}
+              <img src="{{ section.settings.logo_mobile | img_url: 'medium' }}" alt="{{ shop.name }}" class="white-logo" />
             {% endif %}
           </a>
         </div>
@@ -145,71 +160,4 @@
       </div>
     </div>
   </header>
-
-<div class="mobile-menu" id="mobile-menu">
-  <nav>
-    <ul>
-      {% for link in linklists.main-menu.links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-      <li>
-        <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
-          {% if cart == empty %}
-            <span>CART</span>
-          {% else %}
-            <span>CART</span>
-          {% endif %}
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    function toggleMobileMenu() {
-      const mobileMenu = document.querySelector('#mobile-menu');
-      const menuIcon = document.querySelector('#menu-icon');
-      mobileMenu.classList.toggle('active');
-      
-      if (mobileMenu.classList.contains('active')) {
-        menuIcon.innerHTML = `{{- 'icon-close.svg' | inline_asset_content -}}`;
-      } else {
-        menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
-      }
-    }
-
-    document.querySelector('#menu-toggle').addEventListener('click', toggleMobileMenu);
-    document.querySelector('#menu-close').addEventListener('click', toggleMobileMenu);
-  });
-</script>
-
-{% schema %}
-{
-  "name": "Header",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo_mobile",
-      "label": "Mobile Logo"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "Navigation Menu"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Header",
-      "category": "Header",
-      "settings": {
-        "logo_mobile": "",
-        "menu": "main-menu"
-      }
-    }
-  ]
-}
-{% endschema %}
-
+</sticky-header>
