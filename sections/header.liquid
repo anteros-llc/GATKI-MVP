@@ -95,6 +95,17 @@
   .icon-close{
     color: var(--color-blanco);
   }
+
+    {% if section.settings.logo_mobile %}
+    @media (max-width: 768px) {
+      .logo img.default-logo {
+        display: none;
+      }
+      .logo img.white-logo {
+        display: block;
+      }
+    }
+      {% endif %}
   @media (max-width: 768px) {
     .desktop-menu {
       display: none;
