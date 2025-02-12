@@ -138,9 +138,9 @@
             <li>
               <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
                 {% if cart == empty %}
-                  <span class="mobile-cart">CART</span>
+                  <span>CART</span>
                 {% else %}
-                  <span class="mobile-cart">CART</span>
+                  <span>CART</span>
                 {% endif %}
                 <span class="visually-hidden">CART</span>
                 {%- if cart != empty -%}
@@ -174,9 +174,9 @@
       <li>
         <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
           {% if cart == empty %}
-            <span>CART</span>
+            <span class="mobile-cart">CART</span>
           {% else %}
-            <span>CART</span>
+            <span class="mobile-cart">CART</span>
           {% endif %}
           <span class="visually-hidden">CART</span>
           {%- if cart != empty -%}
