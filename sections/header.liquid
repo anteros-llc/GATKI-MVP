@@ -15,8 +15,18 @@
     background: var(--color-blanco);
     transition: all 0.3s ease-in-out;
   }
-  .logo img {
+   .logo img {
     height: 1.65rem;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .logo img.white-logo {
+    display: none;
+  }
+  .mobile-menu.active ~ .section-header .logo img.default-logo {
+    display: none;
+  }
+  .mobile-menu.active ~ .section-header .logo img.white-logo {
+    display: block;
   }
   .desktop-menu ul {
     display: flex;
