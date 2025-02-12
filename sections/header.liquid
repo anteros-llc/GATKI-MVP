@@ -3,16 +3,17 @@
   - Desktop: Logo on the left, menu items on the right
   - Mobile: Menu overlays the hero module, opening from the top
   - Mobile: Hamburger button changes to 'close' when menu is open
+  - Mobile: White logo replaces black logo when menu is open, set via Customizer
   - Full-height and full-width mobile menu drawer with top-down animation
   - Sticky Header using Dawn theme structure with custom styles
 {% endcomment %}
 
 {%- style -%}
-  sticky-header{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 1100; 
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
   }
   .section-header {
     position: sticky;
@@ -20,18 +21,19 @@
     top: 0;
     z-index: 1100;
     width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background: var(--color-blanco);
     transition: all 0.3s ease-in-out;
   }
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 3rem;
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background: var(--color-blanco);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   .logo img {
     height: 1.65rem;
+    transition: opacity 0.3s ease-in-out;
   }
   .desktop-menu ul {
     display: flex;
@@ -54,12 +56,11 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: white;
-    /* var(--color-soil); */
+    background: black;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: left;
+    justify-content: flex-start;
     padding: 20px;
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
@@ -76,26 +77,27 @@
   }
   .mobile-menu nav ul {
     list-style: none;
-    padding: 3rem 2rem;
-    margin-top: 3.8rem;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
   .mobile-menu nav a {
-    /* color: var(--color-blanco); */
-    color: black;
+    color: var(--color-blanco);
     text-decoration: none;
   }
   .icon {
     display: inline-block;
     width: 24px;
     height: 24px;
-    color: var(--color-blanco);
   }
   .icon svg {
     width: 100%;
     height: 100%;
+  }
+  .icon-close{
+    color: var(--color-blanco);
   }
   @media (max-width: 768px) {
     .desktop-menu {
@@ -104,24 +106,36 @@
     .mobile-menu-button {
       display: block;
     }
-    .header-content {
-      position: absolute;
-      width: 100%;
+    .sticky-header {
+      position: sticky;
       top: 0;
-      left: 0;
-      z-index: 1000;
+      z-index: 1100;
+      width: 100%;
+    }
+    .logo img.default-logo {
+      display: block;
+    }
+    .logo img.white-logo {
+      display: none;
+    }
+    .mobile-menu.active ~ .sticky-header .logo img.default-logo {
+      display: none;
+    }
+    .mobile-menu.active ~ .sticky-header .logo img.white-logo {
+      display: block;
     }
   }
 {%- endstyle -%}
-<sticky-header>
+
+<sticky-header class="sticky-header">
   <header class="section-header">
     <div class="container">
-        <div class="header-content">
+      <div class="header-content">
         <div class="logo">
           <a href="{{ shop.url }}">
-            <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}"/>
-            {% if settings.logo_mobile %}
-              <img src="{{ settings.logo_mobile | img_url: 'medium' }}" alt="{{ shop.name }}" class="white-logo" />
+            <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" class="default-logo" />
+            {% if section.settings.logo_mobile %}
+              <img src="{{ section.settings.logo_mobile | img_url: 'medium' }}" alt="{{ shop.name }}" class="white-logo" />
             {% endif %}
           </a>
         </div>
@@ -151,26 +165,8 @@
       </div>
     </div>
   </header>
-
-<div class="mobile-menu" id="mobile-menu">
-  <nav>
-    <ul>
-      {% for link in linklists.main-menu.links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-      <li>
-        <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
-          {% if cart == empty %}
-            <span>CART</span>
-          {% else %}
-            <span>CART</span>
-          {% endif %}
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
 </sticky-header>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function toggleMobileMenu() {
