@@ -14,7 +14,10 @@
     "header": {
       "type": "header",
       "custom_css": [],
-      "settings": {}
+      "settings": {
+        "logo_mobile": "shopify://shop_images/GATKI_Logo_BLANCO.svg",
+        "menu": "main-menu"
+      }
     }
   },
   "order": [
