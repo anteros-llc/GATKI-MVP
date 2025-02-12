@@ -96,14 +96,6 @@
     .mobile-menu-button {
       display: block;
     }
-
-    /* .header-content {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    } */
   }
 </style>
 
@@ -143,8 +135,8 @@
           </ul>
         </nav>
 
-        <div class="mobile-menu-button" id="menu-toggle">
-          <span class="icon" id="menu-icon">
+        <div class="mobile-menu-button">
+          <span class="icon">
             {{- 'icon-hamburger.svg' | inline_asset_content -}}
           </span>
         </div>
@@ -152,7 +144,17 @@
     </div>
   </header>
 
-<div class="mobile-menu" id="mobile-menu">
+<div class="mobile-menu">
+  <div class="mobile-menu-header">
+    <div class="logo">
+      <a href="{{ shop.url }}">
+        <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
+      </a>
+    </div>
+    <span class="icon icon-close">
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </span>
+  </div>
   <nav>
     <ul>
       {% for link in linklists.main-menu.links %}
@@ -165,6 +167,15 @@
           {% else %}
             <span>CART</span>
           {% endif %}
+          <span class="visually-hidden">CART</span>
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble">
+              {%- if cart.item_count < 100 -%}
+                <span aria-hidden="true">({{ cart.item_count }})</span>
+              {%- endif -%}
+              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            </div>
+          {%- endif -%}
         </a>
       </li>
     </ul>
@@ -174,19 +185,12 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function toggleMobileMenu() {
-      const mobileMenu = document.querySelector('#mobile-menu');
-      const menuIcon = document.querySelector('#menu-icon');
+      const mobileMenu = document.querySelector('.mobile-menu');
       mobileMenu.classList.toggle('active');
-      
-      if (mobileMenu.classList.contains('active')) {
-        menuIcon.innerHTML = `{{- 'icon-close.svg' | inline_asset_content -}}`;
-      } else {
-        menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
-      }
     }
 
-    document.querySelector('#menu-toggle').addEventListener('click', toggleMobileMenu);
-    document.querySelector('#menu-close').addEventListener('click', toggleMobileMenu);
+    document.querySelector('.mobile-menu-button').addEventListener('click', toggleMobileMenu);
+    document.querySelector('.mobile-menu-header').addEventListener('click', toggleMobileMenu);
   });
 </script>
 
