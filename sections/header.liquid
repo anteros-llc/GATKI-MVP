@@ -135,8 +135,8 @@
           </ul>
         </nav>
 
-        <div class="mobile-menu-button">
-          <span class="icon">
+        <div class="mobile-menu-button" id="menu-toggle">
+          <span class="icon" id="menu-icon">
             {{- 'icon-hamburger.svg' | inline_asset_content -}}
           </span>
         </div>
@@ -144,17 +144,7 @@
     </div>
   </header>
 
-<div class="mobile-menu">
-  <div class="mobile-menu-header">
-    <div class="logo">
-      <a href="{{ shop.url }}">
-        <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
-      </a>
-    </div>
-    <span class="icon icon-close">
-      {{- 'icon-close.svg' | inline_asset_content -}}
-    </span>
-  </div>
+<div class="mobile-menu" id="mobile-menu">
   <nav>
     <ul>
       {% for link in linklists.main-menu.links %}
@@ -167,15 +157,6 @@
           {% else %}
             <span>CART</span>
           {% endif %}
-          <span class="visually-hidden">CART</span>
-          {%- if cart != empty -%}
-            <div class="cart-count-bubble">
-              {%- if cart.item_count < 100 -%}
-                <span aria-hidden="true">({{ cart.item_count }})</span>
-              {%- endif -%}
-              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-            </div>
-          {%- endif -%}
         </a>
       </li>
     </ul>
@@ -185,12 +166,19 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function toggleMobileMenu() {
-      const mobileMenu = document.querySelector('.mobile-menu');
+      const mobileMenu = document.querySelector('#mobile-menu');
+      const menuIcon = document.querySelector('#menu-icon');
       mobileMenu.classList.toggle('active');
+      
+      if (mobileMenu.classList.contains('active')) {
+        menuIcon.innerHTML = `{{- 'icon-close.svg' | inline_asset_content -}}`;
+      } else {
+        menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
+      }
     }
 
-    document.querySelector('.mobile-menu-button').addEventListener('click', toggleMobileMenu);
-    document.querySelector('.mobile-menu-header').addEventListener('click', toggleMobileMenu);
+    document.querySelector('#menu-toggle').addEventListener('click', toggleMobileMenu);
+    document.querySelector('#menu-close').addEventListener('click', toggleMobileMenu);
   });
 </script>
 
