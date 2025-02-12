@@ -8,6 +8,12 @@
 {% endcomment %}
 
 {%- style -%}
+  sticky-header{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1100; 
+  }
   .section-header {
     position: sticky;
     position: -webkit-sticky;
@@ -164,7 +170,7 @@
     </ul>
   </nav>
 </div>
-
+<sticky-header>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function toggleMobileMenu() {
