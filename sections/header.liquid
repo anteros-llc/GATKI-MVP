@@ -143,16 +143,6 @@
   </header>
 
 <div class="mobile-menu">
-  <div class="mobile-menu-header">
-    <div class="logo">
-      <a href="{{ shop.url }}">
-        <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}" />
-      </a>
-    </div>
-    <span class="icon icon-close">
-      {{- 'icon-close.svg' | inline_asset_content -}}
-    </span>
-  </div>
   <nav>
     <ul>
       {% for link in linklists.main-menu.links %}
