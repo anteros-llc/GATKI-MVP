@@ -119,7 +119,7 @@
          <div class="logo">
           <a href="{{ shop.url }}">
             <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}"class="default-logo"/>
-            {% if settings.logo_mobile %}
+            {% if section.settings.logo_mobile %}
               <img src="{{ section.settings.logo_mobile | img_url: 'medium' }}" alt="{{ shop.name }}" class="white-logo" />
             {% endif %}
           </a>
