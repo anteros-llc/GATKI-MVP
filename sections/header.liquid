@@ -114,6 +114,9 @@
         <div class="logo">
           <a href="{{ shop.url }}">
             <img src="{{ settings.logo | img_url: 'medium' }}" alt="{{ shop.name }}"/>
+            {% if settings.logo_mobile %}
+              <img src="{{ settings.logo_mobile | img_url: 'medium' }}" alt="{{ shop.name }}" class="white-logo" />
+            {% endif %}
           </a>
         </div>
         
@@ -186,6 +189,11 @@
   "name": "Header",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "logo_mobile",
+      "label": "Mobile Logo"
+    },
+    {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
@@ -197,6 +205,7 @@
       "name": "Header",
       "category": "Header",
       "settings": {
+        "logo_mobile": "",
         "menu": "main-menu"
       }
     }
