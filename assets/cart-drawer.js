@@ -50,75 +50,29 @@ class CartDrawer extends HTMLElement {
 }
 
 
-  // open(triggeredBy) {
-  //   if (triggeredBy) this.setActiveElement(triggeredBy);
-  //   const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
-  //   if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
-  //   // here the animation doesn't seem to always get triggered. A timeout seem to help
-  //   setTimeout(() => {
-  //     this.classList.add('animate', 'active');
-  //   });
-
-  //   this.addEventListener(
-  //     'transitionend',
-  //     () => {
-  //       const containerToTrapFocusOn = this.classList.contains('is-empty')
-  //         ? this.querySelector('.drawer__inner-empty')
-  //         : document.getElementById('CartDrawer');
-  //       const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
-  //       trapFocus(containerToTrapFocusOn, focusElement);
-  //     },
-  //     { once: true }
-  //   );
-
-  //   document.body.classList.add('overflow-hidden');
-  // }
-
   open(triggeredBy) {
-    const cartDrawer = document.getElementById('CartDrawer'); // Ensure correct selection
-
-    if (!cartDrawer) {
-        console.error('Cart drawer not found!');
-        return;
-    }
-
-    console.log("Cart drawer function triggered!"); // Debugging line
-
-    if (triggeredBy) {
-        triggeredBy.blur(); // Ensure the button loses focus
-        this.setActiveElement(triggeredBy);
-    }
-
-    // Close mobile menu before opening cart drawer
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (mobileMenu && mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-    }
-
-    // **Force Shopify’s drawer to open properly**
-    const cartDetails = document.querySelector('details#CartDrawer');
-    if (cartDetails) {
-        cartDetails.setAttribute('open', 'true'); // Ensure it's marked as open
-        cartDetails.classList.add('is-open'); // Add a class to track state
-    }
-
-    // Ensure visibility & animation
+    if (triggeredBy) this.setActiveElement(triggeredBy);
+    const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
+    if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
+    // here the animation doesn't seem to always get triggered. A timeout seem to help
     setTimeout(() => {
-        cartDrawer.classList.add('animate', 'active');
-    }, 10);
+      this.classList.add('animate', 'active');
+    });
+
+    this.addEventListener(
+      'transitionend',
+      () => {
+        const containerToTrapFocusOn = this.classList.contains('is-empty')
+          ? this.querySelector('.drawer__inner-empty')
+          : document.getElementById('CartDrawer');
+        const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
+        trapFocus(containerToTrapFocusOn, focusElement);
+      },
+      { once: true }
+    );
 
     document.body.classList.add('overflow-hidden');
-
-    // Ensure it closes properly when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!cartDrawer.contains(event.target) && !triggeredBy.contains(event.target)) {
-            cartDetails.removeAttribute('open');
-            cartDrawer.classList.remove('animate', 'active');
-            document.body.classList.remove('overflow-hidden');
-        }
-    }, { once: true });
-}
-
+  }
 
   close() {
     this.classList.remove('active');
