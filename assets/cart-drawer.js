@@ -25,43 +25,42 @@ class CartDrawer extends HTMLElement {
     });
   }
 
-//   setMobileCartIconAccessibility() {
-//   const mobileCartLink = document.querySelector('.mobile-menu #cart-icon-bubble');
-//   if (!mobileCartLink) return;
+  setMobileCartIconAccessibility() {
+  const mobileCartLink = document.querySelector('.mobile-menu #cart-icon-bubble');
+  if (!mobileCartLink) return;
 
-//   mobileCartLink.setAttribute('role', 'button');
-//   mobileCartLink.setAttribute('aria-haspopup', 'dialog');
-//   mobileCartLink.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     this.openMobileCart(mobileCartLink);
-//   });
-// },
+  mobileCartLink.setAttribute('role', 'button');
+  mobileCartLink.setAttribute('aria-haspopup', 'dialog');
+  mobileCartLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    this.openMobileCart(mobileCartLink);
+  });
+},
 
-// openMobileCart(triggeredBy) {
-//   const cartDrawer = document.getElementById('CartDrawer');
-//   if (!cartDrawer) {
-//     console.error('Cart drawer not found!');
-//     return;
-//   }
+openMobileCart(triggeredBy) {
+  const cartDrawer = document.getElementById('CartDrawer');
+  if (!cartDrawer) {
+    console.error('Cart drawer not found!');
+    return;
+  }
 
-//   // Close mobile menu
-//   const mobileMenu = document.getElementById('mobile-menu');
-//   if (mobileMenu && mobileMenu.classList.contains('active')) {
-//     mobileMenu.classList.remove('active');
-//   }
+  // Close mobile menu
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenu && mobileMenu.classList.contains('active')) {
+    mobileMenu.classList.remove('active');
+  }
 
-//   if (triggeredBy) this.setActiveElement(triggeredBy);
+  if (triggeredBy) this.setActiveElement(triggeredBy);
 
-//   const cartDrawerNote = cartDrawer.querySelector('[id^="Details-"] summary');
-//   if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
+  const cartDrawerNote = cartDrawer.querySelector('[id^="Details-"] summary');
+  if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
 
-//   setTimeout(() => {
-//     cartDrawer.classList.add('animate', 'active');
-//   }, 10);
+  setTimeout(() => {
+    cartDrawer.classList.add('animate', 'active');
+  }, 10);
 
-//   document.body.classList.add('overflow-hidden');
-// }
-
+  document.body.classList.add('overflow-hidden');
+}
 
   open(triggeredBy) {
     if (triggeredBy) this.setActiveElement(triggeredBy);
