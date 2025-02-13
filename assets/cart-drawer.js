@@ -24,7 +24,7 @@ class CartDrawer extends HTMLElement {
   //     }
   //   });
   // }
-  setHeaderCartIconAccessibility() {
+setHeaderCartIconAccessibility() {
     const updateCartLink = () => {
         const cartLink = document.querySelector('#cart-icon-bubble:not([style*="display: none"])'); // Select only the visible cart link
         if (!cartLink) return;
@@ -48,6 +48,7 @@ class CartDrawer extends HTMLElement {
     updateCartLink(); // Apply initially
     window.addEventListener('resize', updateCartLink); // Reapply on window resize to ensure it targets the correct link
 }
+
 
 
   open(triggeredBy) {
