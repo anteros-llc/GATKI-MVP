@@ -380,6 +380,6 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
   }
 
   .drawer.active .drawer__inner {
-    marging-top: 4.375rem;
+    margin-top: 4.375rem;
   }
 }
