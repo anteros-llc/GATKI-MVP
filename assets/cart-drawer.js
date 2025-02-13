@@ -21,7 +21,8 @@ class CartDrawer extends HTMLElement {
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && mobileMenu.classList.contains('active')) {
           mobileMenu.classList.remove('active');
-          this.setMenuToggleIcon();
+          const menuIcon = document.querySelector('#menu-icon');
+          if (menuIcon) menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
         }
         this.open(cartLink);
       });
@@ -34,6 +35,7 @@ class CartDrawer extends HTMLElement {
       });
     });
   }
+
 
     setMenuToggleIcon() {
     const mobileMenu = document.getElementById('mobile-menu');
