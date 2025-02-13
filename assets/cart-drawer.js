@@ -1,5 +1,4 @@
 class CartDrawer extends HTMLElement {
-  class CartDrawer extends HTMLElement {
   constructor() {
     super();
 
@@ -17,6 +16,8 @@ class CartDrawer extends HTMLElement {
       cartLink.setAttribute('aria-haspopup', 'dialog');
       cartLink.addEventListener('click', (event) => {
         event.preventDefault();
+        if (cartLink.getAttribute('href')) cartLink.removeAttribute('href'); // Remove href to prevent fallback navigation
+
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && mobileMenu.classList.contains('active')) {
           mobileMenu.classList.remove('active');
@@ -26,6 +27,7 @@ class CartDrawer extends HTMLElement {
       cartLink.addEventListener('keydown', (event) => {
         if (event.code.toUpperCase() === 'SPACE') {
           event.preventDefault();
+          if (cartLink.getAttribute('href')) cartLink.removeAttribute('href');
           this.open(cartLink);
         }
       });
