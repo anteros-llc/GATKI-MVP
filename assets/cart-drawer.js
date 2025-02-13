@@ -1,4 +1,5 @@
 class CartDrawer extends HTMLElement {
+  class CartDrawer extends HTMLElement {
   constructor() {
     super();
 
@@ -16,20 +17,15 @@ class CartDrawer extends HTMLElement {
       cartLink.setAttribute('aria-haspopup', 'dialog');
       cartLink.addEventListener('click', (event) => {
         event.preventDefault();
-        if (cartLink.getAttribute('href')) cartLink.removeAttribute('href');
-
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && mobileMenu.classList.contains('active')) {
           mobileMenu.classList.remove('active');
-          const menuIcon = document.getElementById('menu-icon');
-          if (menuIcon) menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
         }
         this.open(cartLink);
       });
       cartLink.addEventListener('keydown', (event) => {
         if (event.code.toUpperCase() === 'SPACE') {
           event.preventDefault();
-          if (cartLink.getAttribute('href')) cartLink.removeAttribute('href');
           this.open(cartLink);
         }
       });
