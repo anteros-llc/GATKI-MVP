@@ -16,11 +16,13 @@ class CartDrawer extends HTMLElement {
       cartLink.setAttribute('aria-haspopup', 'dialog');
       cartLink.addEventListener('click', (event) => {
         event.preventDefault();
-        if (cartLink.getAttribute('href')) cartLink.removeAttribute('href'); // Remove href to prevent fallback navigation
+        if (cartLink.getAttribute('href')) cartLink.removeAttribute('href');
 
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && mobileMenu.classList.contains('active')) {
           mobileMenu.classList.remove('active');
+          const menuIcon = document.getElementById('menu-icon');
+          if (menuIcon) menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
         }
         this.open(cartLink);
       });
