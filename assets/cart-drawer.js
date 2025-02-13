@@ -21,8 +21,7 @@ class CartDrawer extends HTMLElement {
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && mobileMenu.classList.contains('active')) {
           mobileMenu.classList.remove('active');
-          const menuIcon = document.querySelector('#menu-icon');
-          if (menuIcon) menuIcon.innerHTML = {{- 'icon-hamburger.svg' | inline_asset_content -}};
+          this.setMenuToggleIcon();
         }
         this.open(cartLink);
       });
@@ -36,15 +35,14 @@ class CartDrawer extends HTMLElement {
     });
   }
 
-
     setMenuToggleIcon() {
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
     if (menuIcon) {
       if (mobileMenu && mobileMenu.classList.contains('active')) {
-        menuIcon.innerHTML = `{{- 'icon-close.svg' | inline_asset_content -}}`;
+        menuIcon.innerHTML = {{- 'icon-close.svg' | inline_asset_content -}};
       } else {
-        menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
+        menuIcon.innerHTML = {{- 'icon-hamburger.svg' | inline_asset_content -}};
       }
     }
   }
