@@ -207,9 +207,8 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         menuIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16"><path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/></svg>`;
       }
-    }
 
-         // Ensure icon resets when cart drawer is opened
+      // Ensure icon resets when cart drawer is opened
       const cartDrawer = document.getElementById('CartDrawer');
       if (cartDrawer && cartDrawer.classList.contains('active')) {
         menuIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16"><path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/></svg>`;
@@ -217,6 +216,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.querySelector('#menu-toggle').addEventListener('click', toggleMobileMenu);
+
+    // Close menu when cart drawer opens
+    // const cartDrawer = document.getElementById('CartDrawer');
+    // if (cartDrawer) {
+    //   cartDrawer.addEventListener('transitionstart', () => {
+    //     const mobileMenu = document.querySelector('#mobile-menu');
+    //     const menuIcon = document.querySelector('#menu-icon');
+    //     if (mobileMenu && mobileMenu.classList.contains('active')) {
+    //       mobileMenu.classList.remove('active');
+    //       menuIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16"><path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/></svg>`;
+    //     }
+    //   });
+    // }
 });
 </script>
 
