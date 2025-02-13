@@ -22,7 +22,7 @@ class CartDrawer extends HTMLElement {
         if (mobileMenu && mobileMenu.classList.contains('active')) {
           mobileMenu.classList.remove('active');
           const menuIcon = document.querySelector('#menu-icon');
-          if (menuIcon) menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
+          if (menuIcon) menuIcon.innerHTML = {{- 'icon-hamburger.svg' | inline_asset_content -}};
         }
         this.open(cartLink);
       });
