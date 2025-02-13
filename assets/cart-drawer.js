@@ -7,23 +7,48 @@ class CartDrawer extends HTMLElement {
     this.setHeaderCartIconAccessibility();
   }
 
-  setHeaderCartIconAccessibility() {
-    const cartLink = document.querySelector('#cart-icon-bubble');
-    if (!cartLink) return;
+  // setHeaderCartIconAccessibility() {
+  //   const cartLink = document.querySelector('#cart-icon-bubble');
+  //   if (!cartLink) return;
 
-    cartLink.setAttribute('role', 'button');
-    cartLink.setAttribute('aria-haspopup', 'dialog');
-    cartLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      this.open(cartLink);
-    });
-    cartLink.addEventListener('keydown', (event) => {
-      if (event.code.toUpperCase() === 'SPACE') {
-        event.preventDefault();
-        this.open(cartLink);
-      }
-    });
-  }
+  //   cartLink.setAttribute('role', 'button');
+  //   cartLink.setAttribute('aria-haspopup', 'dialog');
+  //   cartLink.addEventListener('click', (event) => {
+  //     event.preventDefault();
+  //     this.open(cartLink);
+  //   });
+  //   cartLink.addEventListener('keydown', (event) => {
+  //     if (event.code.toUpperCase() === 'SPACE') {
+  //       event.preventDefault();
+  //       this.open(cartLink);
+  //     }
+  //   });
+  // }
+  setHeaderCartIconAccessibility() {
+    const updateCartLink = () => {
+        const cartLink = document.querySelector('#cart-icon-bubble:not([style*="display: none"])'); // Select only the visible cart link
+        if (!cartLink) return;
+
+        cartLink.setAttribute('role', 'button');
+        cartLink.setAttribute('aria-haspopup', 'dialog');
+
+        cartLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            this.open(cartLink);
+        });
+
+        cartLink.addEventListener('keydown', (event) => {
+            if (event.code.toUpperCase() === 'SPACE') {
+                event.preventDefault();
+                this.open(cartLink);
+            }
+        });
+    };
+
+    updateCartLink(); // Apply initially
+    window.addEventListener('resize', updateCartLink); // Reapply on window resize to ensure it targets the correct link
+}
+
 
   open(triggeredBy) {
     if (triggeredBy) this.setActiveElement(triggeredBy);
