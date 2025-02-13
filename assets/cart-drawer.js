@@ -7,48 +7,60 @@ class CartDrawer extends HTMLElement {
     this.setHeaderCartIconAccessibility();
   }
 
-  // setHeaderCartIconAccessibility() {
-  //   const cartLink = document.querySelector('#cart-icon-bubble');
-  //   if (!cartLink) return;
+  setHeaderCartIconAccessibility() {
+    const cartLink = document.querySelector('#cart-icon-bubble');
+    if (!cartLink) return;
 
-  //   cartLink.setAttribute('role', 'button');
-  //   cartLink.setAttribute('aria-haspopup', 'dialog');
-  //   cartLink.addEventListener('click', (event) => {
-  //     event.preventDefault();
-  //     this.open(cartLink);
-  //   });
-  //   cartLink.addEventListener('keydown', (event) => {
-  //     if (event.code.toUpperCase() === 'SPACE') {
-  //       event.preventDefault();
-  //       this.open(cartLink);
-  //     }
-  //   });
-  // }
-setHeaderCartIconAccessibility() {
-    const updateCartLink = () => {
-        const cartLink = document.querySelector('#cart-icon-bubble:not([style*="display: none"])'); // Select only the visible cart link
-        if (!cartLink) return;
+    cartLink.setAttribute('role', 'button');
+    cartLink.setAttribute('aria-haspopup', 'dialog');
+    cartLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      this.open(cartLink);
+    });
+    cartLink.addEventListener('keydown', (event) => {
+      if (event.code.toUpperCase() === 'SPACE') {
+        event.preventDefault();
+        this.open(cartLink);
+      }
+    });
+  }
 
-        cartLink.setAttribute('role', 'button');
-        cartLink.setAttribute('aria-haspopup', 'dialog');
+  setMobileCartIconAccessibility() {
+  const mobileCartLink = document.querySelector('.mobile-menu #cart-icon-bubble');
+  if (!mobileCartLink) return;
 
-        cartLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            this.open(cartLink);
-        });
+  mobileCartLink.setAttribute('role', 'button');
+  mobileCartLink.setAttribute('aria-haspopup', 'dialog');
+  mobileCartLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    this.openMobileCart(mobileCartLink);
+  });
+},
 
-        cartLink.addEventListener('keydown', (event) => {
-            if (event.code.toUpperCase() === 'SPACE') {
-                event.preventDefault();
-                this.open(cartLink);
-            }
-        });
-    };
+openMobileCart(triggeredBy) {
+  const cartDrawer = document.getElementById('CartDrawer');
+  if (!cartDrawer) {
+    console.error('Cart drawer not found!');
+    return;
+  }
 
-    updateCartLink(); // Apply initially
-    window.addEventListener('resize', updateCartLink); // Reapply on window resize to ensure it targets the correct link
+  // Close mobile menu
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenu && mobileMenu.classList.contains('active')) {
+    mobileMenu.classList.remove('active');
+  }
+
+  if (triggeredBy) this.setActiveElement(triggeredBy);
+
+  const cartDrawerNote = cartDrawer.querySelector('[id^="Details-"] summary');
+  if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
+
+  setTimeout(() => {
+    cartDrawer.classList.add('animate', 'active');
+  }, 10);
+
+  document.body.classList.add('overflow-hidden');
 }
-
 
 
   open(triggeredBy) {
