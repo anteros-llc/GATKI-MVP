@@ -16,35 +16,20 @@ class CartDrawer extends HTMLElement {
       cartLink.setAttribute('aria-haspopup', 'dialog');
       cartLink.addEventListener('click', (event) => {
         event.preventDefault();
-        if (cartLink.getAttribute('href')) cartLink.removeAttribute('href');
 
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && mobileMenu.classList.contains('active')) {
           mobileMenu.classList.remove('active');
-          this.setMenuToggleIcon();
         }
         this.open(cartLink);
       });
       cartLink.addEventListener('keydown', (event) => {
         if (event.code.toUpperCase() === 'SPACE') {
           event.preventDefault();
-          if (cartLink.getAttribute('href')) cartLink.removeAttribute('href');
           this.open(cartLink);
         }
       });
     });
-  }
-
-    setMenuToggleIcon() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    if (menuIcon) {
-      if (mobileMenu && mobileMenu.classList.contains('active')) {
-        menuIcon.innerHTML = {{- 'icon-close.svg' | inline_asset_content -}};
-      } else {
-        menuIcon.innerHTML = {{- 'icon-hamburger.svg' | inline_asset_content -}};
-      }
-    }
   }
 
   open(triggeredBy) {
@@ -52,6 +37,7 @@ class CartDrawer extends HTMLElement {
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
     setTimeout(() => this.classList.add('animate', 'active'));
+
     this.addEventListener('transitionend', () => {
       const containerToTrapFocusOn = this.classList.contains('is-empty')
         ? this.querySelector('.drawer__inner-empty')
@@ -59,8 +45,15 @@ class CartDrawer extends HTMLElement {
       const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
       trapFocus(containerToTrapFocusOn, focusElement);
     }, { once: true });
+
     document.body.classList.add('overflow-hidden');
   }
+
+  close() {
+    this.classList.remove('active');
+    document.body.classList.remove('overflow-hidden');
+  }
+  
   close() {
     this.classList.remove('active');
     removeTrapFocus(this.activeElement);
