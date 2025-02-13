@@ -5,6 +5,7 @@ class CartDrawer extends HTMLElement {
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
     this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
     this.setCartIconAccessibility();
+    this.setMenuToggleIcon();
   }
 
   setCartIconAccessibility() {
@@ -16,10 +17,12 @@ class CartDrawer extends HTMLElement {
       cartLink.setAttribute('aria-haspopup', 'dialog');
       cartLink.addEventListener('click', (event) => {
         event.preventDefault();
-        if (cartLink.getAttribute('href')) cartLink.removeAttribute('href'); // Remove href to prevent fallback navigation
+        if (cartLink.getAttribute('href')) cartLink.removeAttribute('href');
+
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && mobileMenu.classList.contains('active')) {
           mobileMenu.classList.remove('active');
+          this.setMenuToggleIcon();
         }
         this.open(cartLink);
       });
@@ -31,6 +34,18 @@ class CartDrawer extends HTMLElement {
         }
       });
     });
+  }
+
+    setMenuToggleIcon() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    if (menuIcon) {
+      if (mobileMenu && mobileMenu.classList.contains('active')) {
+        menuIcon.innerHTML = `{{- 'icon-close.svg' | inline_asset_content -}}`;
+      } else {
+        menuIcon.innerHTML = `{{- 'icon-hamburger.svg' | inline_asset_content -}}`;
+      }
+    }
   }
 
   open(triggeredBy) {
