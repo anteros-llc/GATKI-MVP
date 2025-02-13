@@ -365,12 +365,21 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
   margin-top: 0.2rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .cart-drawer .cart-item__quantity--info quantity-popover > * {
     padding-left: 0;
   }
 
   .cart-drawer .cart-item__error {
     margin-left: 0;
+  }
+
+  .drawer__inner {
+    width: 100vw;
+    max-width: unset;
+  }
+
+  .drawer.active .drawer__inner {
+    marging-top: 4.375rem;
   }
 }
