@@ -50,54 +50,29 @@ class CartDrawer extends HTMLElement {
 }
 
 
-open(triggeredBy) {
-    const cartDrawer = document.getElementById('CartDrawer'); // Ensure we target the correct element
-
-    if (!cartDrawer) {
-        console.error('Cart drawer not found!');
-        return;
-    }
-
-    // Prevent default navigation
-    if (triggeredBy) {
-        triggeredBy.blur(); // Remove focus from cart icon to avoid issues
-        this.setActiveElement(triggeredBy);
-    }
-
-    // Ensure accessibility role is properly set
-    const cartDrawerNote = cartDrawer.querySelector('[id^="Details-"] summary');
-    if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) {
-        this.setSummaryAccessibility(cartDrawerNote);
-    }
-
-    // Close the mobile menu first to avoid conflicts
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (mobileMenu && mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-    }
-
-    // Timeout ensures animation runs properly
+  open(triggeredBy) {
+    if (triggeredBy) this.setActiveElement(triggeredBy);
+    const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
+    if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
+    // here the animation doesn't seem to always get triggered. A timeout seem to help
     setTimeout(() => {
-        cartDrawer.classList.add('animate', 'active');
-    }, 10);
+      this.classList.add('animate', 'active');
+    });
 
-    // Ensure focus trapping works properly for accessibility
-    cartDrawer.addEventListener(
-        'transitionend',
-        () => {
-            const containerToTrapFocusOn = cartDrawer.classList.contains('is-empty')
-                ? cartDrawer.querySelector('.drawer__inner-empty')
-                : cartDrawer;
-
-            const focusElement = cartDrawer.querySelector('.drawer__inner') || cartDrawer.querySelector('.drawer__close');
-            trapFocus(containerToTrapFocusOn, focusElement);
-        },
-        { once: true }
+    this.addEventListener(
+      'transitionend',
+      () => {
+        const containerToTrapFocusOn = this.classList.contains('is-empty')
+          ? this.querySelector('.drawer__inner-empty')
+          : document.getElementById('CartDrawer');
+        const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
+        trapFocus(containerToTrapFocusOn, focusElement);
+      },
+      { once: true }
     );
 
     document.body.classList.add('overflow-hidden');
-}
-
+  }
 
   close() {
     this.classList.remove('active');
