@@ -7,53 +7,52 @@ class CartDrawer extends HTMLElement {
     this.setHeaderCartIconAccessibility();
   }
 
-  setHeaderCartIconAccessibility() {
-    const cartLink = document.querySelector('#cart-icon-bubble');
-    if (!cartLink) return;
+  setCartIconAccessibility() {
+  const desktopCartLink = document.querySelector('#cart-icon-bubble.desktop');
+  const mobileCartLink = document.querySelector('#cart-icon-bubble.mobile');
 
-    cartLink.setAttribute('role', 'button');
-    cartLink.setAttribute('aria-haspopup', 'dialog');
-    cartLink.addEventListener('click', (event) => {
+  if (desktopCartLink) {
+    desktopCartLink.setAttribute('role', 'button');
+    desktopCartLink.setAttribute('aria-haspopup', 'dialog');
+    desktopCartLink.addEventListener('click', (event) => {
       event.preventDefault();
-      this.open(cartLink);
-    });
-    cartLink.addEventListener('keydown', (event) => {
-      if (event.code.toUpperCase() === 'SPACE') {
-        event.preventDefault();
-        this.open(cartLink);
-      }
+      this.openCartDrawer(desktopCartLink);
     });
   }
 
-  setMobileCartIconAccessibility() {
-  const mobileCartLink = document.querySelector('.mobile-menu #cart-icon-bubble');
-  if (!mobileCartLink) return;
-
-  mobileCartLink.setAttribute('role', 'button');
-  mobileCartLink.setAttribute('aria-haspopup', 'dialog');
-  mobileCartLink.addEventListener('click', (event) => {
-    event.preventDefault();
-    this.openMobileCart(mobileCartLink);
-  });
+  if (mobileCartLink) {
+    mobileCartLink.setAttribute('role', 'button');
+    mobileCartLink.setAttribute('aria-haspopup', 'dialog');
+    mobileCartLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      this.openMobileCartDrawer(mobileCartLink);
+    });
+  }
 },
 
-openMobileCart(triggeredBy) {
+openCartDrawer(triggeredBy) {
   const cartDrawer = document.getElementById('CartDrawer');
-  if (!cartDrawer) {
-    console.error('Cart drawer not found!');
-    return;
-  }
+  if (!cartDrawer) return;
 
-  // Close mobile menu
+  if (triggeredBy) this.setActiveElement(triggeredBy);
+
+  setTimeout(() => {
+    cartDrawer.classList.add('animate', 'active');
+  }, 10);
+
+  document.body.classList.add('overflow-hidden');
+},
+
+openMobileCartDrawer(triggeredBy) {
+  const cartDrawer = document.getElementById('CartDrawer');
+  if (!cartDrawer) return;
+
   const mobileMenu = document.getElementById('mobile-menu');
   if (mobileMenu && mobileMenu.classList.contains('active')) {
     mobileMenu.classList.remove('active');
   }
 
   if (triggeredBy) this.setActiveElement(triggeredBy);
-
-  const cartDrawerNote = cartDrawer.querySelector('[id^="Details-"] summary');
-  if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
 
   setTimeout(() => {
     cartDrawer.classList.add('animate', 'active');
@@ -62,29 +61,85 @@ openMobileCart(triggeredBy) {
   document.body.classList.add('overflow-hidden');
 }
 
-  open(triggeredBy) {
-    if (triggeredBy) this.setActiveElement(triggeredBy);
-    const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
-    if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
-    // here the animation doesn't seem to always get triggered. A timeout seem to help
-    setTimeout(() => {
-      this.classList.add('animate', 'active');
-    });
 
-    this.addEventListener(
-      'transitionend',
-      () => {
-        const containerToTrapFocusOn = this.classList.contains('is-empty')
-          ? this.querySelector('.drawer__inner-empty')
-          : document.getElementById('CartDrawer');
-        const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
-        trapFocus(containerToTrapFocusOn, focusElement);
-      },
-      { once: true }
-    );
+  // setHeaderCartIconAccessibility() {
+  //   const cartLink = document.querySelector('#cart-icon-bubble');
+  //   if (!cartLink) return;
 
-    document.body.classList.add('overflow-hidden');
-  }
+  //   cartLink.setAttribute('role', 'button');
+  //   cartLink.setAttribute('aria-haspopup', 'dialog');
+  //   cartLink.addEventListener('click', (event) => {
+  //     event.preventDefault();
+  //     this.open(cartLink);
+  //   });
+  //   cartLink.addEventListener('keydown', (event) => {
+  //     if (event.code.toUpperCase() === 'SPACE') {
+  //       event.preventDefault();
+  //       this.open(cartLink);
+  //     }
+  //   });
+  // }
+
+//   setMobileCartIconAccessibility() {
+//   const mobileCartLink = document.querySelector('.mobile-menu #cart-icon-bubble');
+//   if (!mobileCartLink) return;
+
+//   mobileCartLink.setAttribute('role', 'button');
+//   mobileCartLink.setAttribute('aria-haspopup', 'dialog');
+//   mobileCartLink.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     this.openMobileCart(mobileCartLink);
+//   });
+// },
+
+// openMobileCart(triggeredBy) {
+//   const cartDrawer = document.getElementById('CartDrawer');
+//   if (!cartDrawer) {
+//     console.error('Cart drawer not found!');
+//     return;
+//   }
+
+//   // Close mobile menu
+//   const mobileMenu = document.getElementById('mobile-menu');
+//   if (mobileMenu && mobileMenu.classList.contains('active')) {
+//     mobileMenu.classList.remove('active');
+//   }
+
+//   if (triggeredBy) this.setActiveElement(triggeredBy);
+
+//   const cartDrawerNote = cartDrawer.querySelector('[id^="Details-"] summary');
+//   if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
+
+//   setTimeout(() => {
+//     cartDrawer.classList.add('animate', 'active');
+//   }, 10);
+
+//   document.body.classList.add('overflow-hidden');
+// }
+
+  // open(triggeredBy) {
+  //   if (triggeredBy) this.setActiveElement(triggeredBy);
+  //   const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
+  //   if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
+  //   // here the animation doesn't seem to always get triggered. A timeout seem to help
+  //   setTimeout(() => {
+  //     this.classList.add('animate', 'active');
+  //   });
+
+  //   this.addEventListener(
+  //     'transitionend',
+  //     () => {
+  //       const containerToTrapFocusOn = this.classList.contains('is-empty')
+  //         ? this.querySelector('.drawer__inner-empty')
+  //         : document.getElementById('CartDrawer');
+  //       const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
+  //       trapFocus(containerToTrapFocusOn, focusElement);
+  //     },
+  //     { once: true }
+  //   );
+
+  //   document.body.classList.add('overflow-hidden');
+  // }
 
   close() {
     this.classList.remove('active');
