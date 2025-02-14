@@ -382,4 +382,8 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
   .drawer.active .drawer__inner {
     margin-top: 4rem;
   }
+
+  .drawer__header {
+    padding-top: 0;
+  }
 }
