@@ -225,6 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (cartIcon) {
       cartIcon.addEventListener('click', () => {
         console.log('Cart icon clicked');
+         event.stopPropagation();
         const mobileMenu = document.querySelector('#mobile-menu');
         const menuIcon = document.querySelector('#menu-icon');
         if (mobileMenu.classList.contains('active')) {
