@@ -4,24 +4,33 @@ class CartDrawer extends HTMLElement {
 
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
     this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
-    this.setHeaderCartIconAccessibility();
+    this.setCartIconAccessibility();
   }
 
-  setHeaderCartIconAccessibility() {
-    const cartLink = document.querySelector('#cart-icon-bubble');
-    if (!cartLink) return;
+  setCartIconAccessibility() {
+    const cartLinks = document.querySelectorAll('#cart-icon-bubble');
+    if (!cartLinks.length) return;
 
-    cartLink.setAttribute('role', 'button');
-    cartLink.setAttribute('aria-haspopup', 'dialog');
-    cartLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      this.open(cartLink);
-    });
-    cartLink.addEventListener('keydown', (event) => {
-      if (event.code.toUpperCase() === 'SPACE') {
+    cartLinks.forEach(cartLink => {
+      cartLink.setAttribute('role', 'button');
+      cartLink.setAttribute('aria-haspopup', 'dialog');
+      cartLink.addEventListener('click', (event) => {
         event.preventDefault();
+        if (cartLink.getAttribute('href')) cartLink.removeAttribute('href'); // Remove href to prevent fallback navigation
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
         this.open(cartLink);
-      }
+      });
+      cartLink.addEventListener('keydown', (event) => {
+        if (event.code.toUpperCase() === 'SPACE') {
+          event.preventDefault();
+          if (cartLink.getAttribute('href')) cartLink.removeAttribute('href');
+          this.open(cartLink);
+        }
+      });
     });
   }
 
@@ -29,23 +38,14 @@ class CartDrawer extends HTMLElement {
     if (triggeredBy) this.setActiveElement(triggeredBy);
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
-    // here the animation doesn't seem to always get triggered. A timeout seem to help
-    setTimeout(() => {
-      this.classList.add('animate', 'active');
-    });
-
-    this.addEventListener(
-      'transitionend',
-      () => {
-        const containerToTrapFocusOn = this.classList.contains('is-empty')
-          ? this.querySelector('.drawer__inner-empty')
-          : document.getElementById('CartDrawer');
-        const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
-        trapFocus(containerToTrapFocusOn, focusElement);
-      },
-      { once: true }
-    );
-
+    setTimeout(() => this.classList.add('animate', 'active'));
+    this.addEventListener('transitionend', () => {
+      const containerToTrapFocusOn = this.classList.contains('is-empty')
+        ? this.querySelector('.drawer__inner-empty')
+        : document.getElementById('CartDrawer');
+      const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
+      trapFocus(containerToTrapFocusOn, focusElement);
+    }, { once: true });
     document.body.classList.add('overflow-hidden');
   }
 

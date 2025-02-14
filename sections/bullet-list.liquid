@@ -1,4 +1,4 @@
-<section class="made-without">
+<section class="bullet-list">
   <label class="eyebrow">{{ section.settings.eyebrow }}</label>
   <ul class="point-list">
     {%- for block in section.blocks -%}
@@ -10,15 +10,10 @@
 </section>
 
 <style>
-  .made-without {
+  .bullet-list {
     color: var(--color-chenpi);
-    padding: 1rem 8rem;
     background-color: var(--color-albedo);
     text-align: center;
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align content */
-    gap: 0rem; /* Vertical spacing between eyebrow and bullet points */
   }
 
   .point-list {
@@ -27,9 +22,8 @@
     padding: 0;
     list-style: none;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Stack items on smaller screens */
-    gap: 6rem; /* Horizontal spacing between bullet points */
+    justify-content: space-around;
+    flex-wrap: wrap;
     white-space: nowrap;
   }
 
@@ -37,11 +31,17 @@
     text-transform: uppercase;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 375px) {
     .point-list {
-      flex-direction: column; /* Stack bullet points vertically */
-      gap: 1rem;
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1.25rem;
     }
+     .bulletpoint-item h4{
+       margin: 0;
+       font-size: 1.25rem;
+       line-height: 1.3;
+     }
   }
 </style>
 
