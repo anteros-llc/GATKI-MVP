@@ -13,9 +13,7 @@
   "sections": {
     "header": {
       "type": "header",
-      "custom_css": [
-        "header{background: black;}"
-      ],
+      "custom_css": [],
       "settings": {
         "menu": "main-menu"
       }
