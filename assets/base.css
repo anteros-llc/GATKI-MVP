@@ -2285,6 +2285,7 @@ input[type="checkbox"] {
 /* section-header */
 a#cart-icon-bubble {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .overflow-hidden-mobile,
