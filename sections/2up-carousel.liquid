@@ -36,9 +36,14 @@
                 {{ block.settings.heading }}
               </h2>
               {%- if forloop.first -%}
+               <div class="slideshow__controls slider-buttons">
                 <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" aria-controls="Slider-{{ section.id }}">&rarr;</button>
-              {%- elsif forloop.last -%}
+               </div>
+                <button
+                {%- elsif forloop.last -%}
+                    <div class="slideshow__controls slider-buttons">    
                 <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" aria-controls="Slider-{{ section.id }}">&larr;</button>
+                    </div>
               {%- endif -%}
             </div>
           {%- endif -%}
