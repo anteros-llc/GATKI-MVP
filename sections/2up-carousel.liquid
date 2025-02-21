@@ -30,11 +30,20 @@
 
         <!-- Right Column: Text -->
         <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-          {%- if block.settings.heading != blank -%}
-            <h2>
-              {{ block.settings.heading }}
-            </h2>
+            {%- if block.settings.heading != blank -%}
+            <div class="slider-heading-wrapper">
+              <h2>
+                {{ block.settings.heading }}
+              </h2>
+              {%- if forloop.first -%}
+                <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" aria-controls="Slider-{{ section.id }}">&rarr;</button>
+             
+                {%- elsif forloop.last -%}
+                <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" aria-controls="Slider-{{ section.id }}">&larr;</button>
+              {%- endif -%}
+            </div>
           {%- endif -%}
+
             {% if block.settings.slide_type == 'slider' %}
           <div class="bottom-slider">
       <div class="slider-wrapper">
@@ -79,7 +88,7 @@
     {%- endfor -%}
   </div>
  <!-- Navigation Buttons -->
-  {%- if section.blocks.size > 1 -%}
+  <!-- {%- if section.blocks.size > 1 -%}
     <div class="slideshow__controls slider-buttons">
       <button
         type="button"
@@ -100,7 +109,7 @@
         &rarr;
       </button>
     </div>
-  {%- endif -%}
+  {%- endif -%} -->
 </slideshow-component>
 <style>
 
