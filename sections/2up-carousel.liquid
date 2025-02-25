@@ -234,21 +234,21 @@
   document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('#Slider-{{ section.id }}');
     const slides = slider.querySelectorAll('.slider__slide');
-    const prevButton = document.querySelector('[data-action="prev"]');
-    const nextButton = document.querySelector('[data-action="next"]');
+    const prevButtons = document.querySelectorAll('.slider-button--prev');
+    const nextButtons = document.querySelectorAll('.slider-button--next');
     let currentIndex = 0;
 
     console.log('Slider:', slider);
     console.log('Slides:', slides.length);
-    console.log('Prev Button:', prevButton);
-    console.log('Next Button:', nextButton);
+    console.log('Prev Buttons:', prevButtons);
+    console.log('Next Buttons:', nextButtons);
 
     function updateSliderPosition() {
       console.log(`Moving to slide index: ${currentIndex}`);
       slider.scrollTo({ left: slides[currentIndex].offsetLeft, behavior: 'smooth' });
     }
 
-    if (prevButton) {
+    prevButtons.forEach(prevButton => {
       prevButton.addEventListener('click', () => {
         console.log('Prev button clicked');
         if (currentIndex > 0) {
@@ -257,11 +257,9 @@
           updateSliderPosition();
         }
       });
-    } else {
-      console.warn('Prev button not found!');
-    }
+    });
 
-    if (nextButton) {
+    nextButtons.forEach(nextButton => {
       nextButton.addEventListener('click', () => {
         console.log('Next button clicked');
         console.log(`Current Index before update: ${currentIndex}`);
@@ -273,9 +271,7 @@
           console.warn('Next button reached last slide!');
         }
       });
-    } else {
-      console.warn('Next button not found!');
-    }
+    });
   });
 </script>
 
