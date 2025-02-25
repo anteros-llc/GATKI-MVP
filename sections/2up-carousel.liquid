@@ -233,7 +233,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('#Slider-{{ section.id }}');
-    const slides = slider.querySelectorAll('.slider__slide');
+    const slides = Array.from(slider.querySelectorAll('.slider__slide'));
     const prevButtons = document.querySelectorAll('.slider-button--prev');
     const nextButtons = document.querySelectorAll('.slider-button--next');
     let currentIndex = 0;
@@ -250,7 +250,8 @@
       }
     }
 
-    prevButtons.forEach(prevButton => {
+    prevButtons.forEach((prevButton, index) => {
+      console.log(`Attaching event to prev button ${index}`);
       prevButton.addEventListener('click', () => {
         console.log('Prev button clicked');
         if (currentIndex > 0) {
@@ -263,7 +264,8 @@
       });
     });
 
-    nextButtons.forEach(nextButton => {
+    nextButtons.forEach((nextButton, index) => {
+      console.log(`Attaching event to next button ${index}`);
       nextButton.addEventListener('click', () => {
         console.log('Next button clicked');
         console.log(`Current Index before update: ${currentIndex}`);
@@ -272,7 +274,7 @@
           console.log(`Current Index after update: ${currentIndex}`);
           updateSliderPosition();
         } else {
-          console.warn('Already at the last slide!');
+          console.warn('Already at the last slide! No further movement.');
         }
       });
     });
