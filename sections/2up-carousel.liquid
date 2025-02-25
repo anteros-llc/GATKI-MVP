@@ -238,30 +238,47 @@
     const nextButton = document.querySelector('[data-action="next"]');
     let currentIndex = 0;
 
+    console.log('Slider:', slider);
+    console.log('Slides:', slides.length);
+    console.log('Prev Button:', prevButton);
+    console.log('Next Button:', nextButton);
+
     function updateSliderPosition() {
       console.log(`Moving to slide index: ${currentIndex}`);
       slider.scrollTo({ left: slides[currentIndex].offsetLeft, behavior: 'smooth' });
     }
 
-    prevButton.addEventListener('click', () => {
-      console.log('Prev button clicked');
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-      }
-    });
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        console.log('Prev button clicked');
+        if (currentIndex > 0) {
+          currentIndex--;
+          console.log(`Updated index: ${currentIndex}`);
+          updateSliderPosition();
+        }
+      });
+    } else {
+      console.warn('Prev button not found!');
+    }
 
-    nextButton.addEventListener('click', () => {
-      console.log('Next button clicked');
-      console.log(`Current Index before update: ${currentIndex}`);
-      if (currentIndex < slides.length - 1) {
-        currentIndex++;
-        console.log(`Current Index after update: ${currentIndex}`);
-        updateSliderPosition();
-      }
-    });
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        console.log('Next button clicked');
+        console.log(`Current Index before update: ${currentIndex}`);
+        if (currentIndex < slides.length - 1) {
+          currentIndex++;
+          console.log(`Current Index after update: ${currentIndex}`);
+          updateSliderPosition();
+        } else {
+          console.warn('Next button reached last slide!');
+        }
+      });
+    } else {
+      console.warn('Next button not found!');
+    }
   });
 </script>
+
 
 {% schema %}
 {
