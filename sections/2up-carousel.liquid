@@ -30,32 +30,17 @@
 
         <!-- Right Column: Text -->
         <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-          {%- if block.settings.heading != blank -%}
+            {%- if block.settings.heading != blank -%}
             <div class="slider-heading-wrapper">
-              <h2>{{ block.settings.heading }}</h2>
-               <!-- Navigation Buttons -->
-  {%- if section.blocks.size > 1 -%}
-    <div class="slideshow__controls slider-buttons">
-      <button
-        type="button"
-        class="slider-button slider-button--prev"
-        name="previous"
-        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        &larr;
-      </button>
-      <button
-        type="button"
-        class="slider-button slider-button--next"
-        name="next"
-        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        &rarr;
-      </button>
-    </div>
-  {%- endif -%}
+              <h2>
+                {{ block.settings.heading }}
+              </h2>
+              {%- if forloop.first -%}
+                <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" aria-controls="Slider-{{ section.id }}">&rarr;</button>
+             
+                {%- elsif forloop.last -%}
+                <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" aria-controls="Slider-{{ section.id }}">&larr;</button>
+              {%- endif -%}
             </div>
           {%- endif -%}
 
@@ -102,6 +87,29 @@
       </div>
     {%- endfor -%}
   </div>
+ <!-- Navigation Buttons -->
+  <!-- {%- if section.blocks.size > 1 -%}
+    <div class="slideshow__controls slider-buttons">
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        &larr;
+      </button>
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        &rarr;
+      </button>
+    </div>
+  {%- endif -%} -->
 </slideshow-component>
 <style>
 
@@ -114,6 +122,9 @@
   color: var(--color-chenpi);
 } 
 
+.custom-slider-ingredients {
+  position: relative;
+}
 
 .slider-buttons {
   display: flex;
@@ -220,39 +231,6 @@
   }
 }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('#Slider-{{ section.id }}');
-    const slides = Array.from(slider.querySelectorAll('.slider__slide'));
-    const prevButton = document.querySelector('.slider-button--prev');
-    const nextButton = document.querySelector('.slider-button--next');
-    let currentIndex = 0;
-
-    function updateSliderPosition() {
-    slider.style.transition = 'transform 0.5s ease-in-out';
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      prevButtons.forEach(btn => btn.style.display = currentIndex === 0 ? 'none' : 'block');
-      nextButtons.forEach(btn => btn.style.display = currentIndex === slides.length - 1 ? 'none' : 'block');
-    }
-
-    prevButton.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-      }
-    });
-
-    nextButton.addEventListener('click', () => {
-      if (currentIndex < slides.length - 1) {
-        currentIndex++;
-        updateSliderPosition();
-      }
-    });
-
-    updateSliderPosition();
-  });
-</script>
 
 {% schema %}
 {
