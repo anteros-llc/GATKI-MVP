@@ -32,13 +32,7 @@
         <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
           {%- if block.settings.heading != blank -%}
             <div class="slider-heading-wrapper">
-              {%- if forloop.index > 1 -%}
-                <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" data-controls="Slider-{{ section.id }}">&larr;</button>
-              {%- endif -%}
               <h2>{{ block.settings.heading }}</h2>
-              {%- if forloop.index < forloop.length -%}
-                <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" data-controls="Slider-{{ section.id }}">&rarr;</button>
-              {%- endif -%}
             </div>
           {%- endif -%}
 
@@ -86,7 +80,7 @@
     {%- endfor -%}
   </div>
  <!-- Navigation Buttons -->
-  <!-- {%- if section.blocks.size > 1 -%}
+  {%- if section.blocks.size > 1 -%}
     <div class="slideshow__controls slider-buttons">
       <button
         type="button"
@@ -107,7 +101,7 @@
         &rarr;
       </button>
     </div>
-  {%- endif -%} -->
+  {%- endif -%}
 </slideshow-component>
 <style>
 
