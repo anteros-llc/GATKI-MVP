@@ -240,19 +240,19 @@
       nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'block';
     }
 
-    // prevButton.addEventListener('click', () => {
-    //   if (currentIndex > 0) {
-    //     currentIndex--;
-    //     updateSliderPosition();
-    //   }
-    // });
+    prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSliderPosition();
+      }
+    });
 
-    // nextButton.addEventListener('click', () => {
-    //   if (currentIndex < slides.length - 1) {
-    //     currentIndex++;
-    //     updateSliderPosition();
-    //   }
-    // });
+    nextButton.addEventListener('click', () => {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSliderPosition();
+      }
+    });
 
     updateSliderPosition();
   });
