@@ -35,11 +35,12 @@
               <h2>
                 {{ block.settings.heading }}
               </h2>
-              {%- if forloop.first -%}
-                <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" aria-controls="Slider-{{ section.id }}">&rarr;</button>
-             
-                {%- elsif forloop.last -%}
-                <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" aria-controls="Slider-{{ section.id }}">&larr;</button>
+             {%- if forloop.index > 1 -%}
+                <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" data-controls="Slider-{{ section.id }}">&larr;</button>
+              {%- endif -%}
+              <h2>{{ block.settings.heading }}</h2>
+              {%- if forloop.index < forloop.length -%}
+                <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" data-controls="Slider-{{ section.id }}">&rarr;</button>
               {%- endif -%}
             </div>
           {%- endif -%}
@@ -231,6 +232,19 @@
   }
 }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('#Slider-{{ section.id }}');
+    const prevButton = document.querySelector('[data-action="prev"]');
+    const nextButton = document.querySelector('[data-action="next"]');
+    
+    if (prevButton && nextButton) {
+      prevButton.addEventListener('click', () => slider.scrollBy({ left: -slider.offsetWidth, behavior: 'smooth' }));
+      nextButton.addEventListener('click', () => slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' }));
+    }
+  });
+</script>
 
 {% schema %}
 {
