@@ -224,8 +224,39 @@
 }
 </style>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('#Slider-{{ section.id }}');
+    const slides = Array.from(slider.querySelectorAll('.slider__slide'));
+    const prevButton = document.querySelector('.slider-button--prev');
+    const nextButton = document.querySelector('.slider-button--next');
+    let currentIndex = 0;
 
+    function updateSliderPosition() {
+      if (slides[currentIndex]) {
+        slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      }
+      prevButton.style.display = currentIndex === 0 ? 'none' : 'block';
+      nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'block';
+    }
 
+    // prevButton.addEventListener('click', () => {
+    //   if (currentIndex > 0) {
+    //     currentIndex--;
+    //     updateSliderPosition();
+    //   }
+    // });
+
+    // nextButton.addEventListener('click', () => {
+    //   if (currentIndex < slides.length - 1) {
+    //     currentIndex++;
+    //     updateSliderPosition();
+    //   }
+    // });
+
+    // updateSliderPosition();
+  });
+</script>
 
 {% schema %}
 {
