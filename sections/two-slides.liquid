@@ -1,18 +1,15 @@
 <style>
-  .2up-carousel {
+  .carousel {
     display: flex;
     overflow: hidden;
     width: 100%;
     position: relative;
-    
   }
   .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
-      scroll-snap-type: x mandatory;
- 
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
+    will-change: transform;
+    touch-action: pan-y;
   }
   .carousel-slide {
     min-width: 100%;
@@ -20,8 +17,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-     flex: 0 0 100%;
-  scroll-snap-align: start;
+    flex-shrink: 0;
   }
   .carousel-image {
     flex: 1;
@@ -35,6 +31,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    justify-content: space-between;
   }
   .carousel-buttons {
     display: flex;
@@ -51,12 +48,9 @@
     opacity: 0.5;
     cursor: default;
   }
-  .carousel-track {
-  touch-action: pan-y;
-}
 </style>
 
-<div class="2up-carousel">
+<div class="carousel">
   <div class="carousel-track">
     {% for block in section.blocks %}
       <div class="carousel-slide">
@@ -65,7 +59,7 @@
           <div class="carousel-header">
             <h2>{{ block.settings.heading }}</h2>
             <div class="carousel-buttons">
-              <button class="carousel-button prev" aria-label="Previous slide" style="display: none;">&larr;</button>
+              <button class="carousel-button prev" aria-label="Previous slide">&larr;</button>
               <button class="carousel-button next" aria-label="Next slide">&rarr;</button>
             </div>
           </div>
@@ -87,28 +81,26 @@
     let isSwiping = false;
 
     function updateSliderPosition() {
-        track.style.transition = 'transform 0.5s ease-in-out';
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-        prevButtons.forEach(btn => btn.style.display = currentIndex === 0 ? 'none' : 'block');
-        nextButtons.forEach(btn => btn.style.display = currentIndex === slides.length - 1 ? 'none' : 'block');
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      prevButtons.forEach(btn => btn.style.display = currentIndex === 0 ? 'none' : 'block');
+      nextButtons.forEach(btn => btn.style.display = currentIndex === slides.length - 1 ? 'none' : 'block');
     }
 
     prevButtons.forEach(btn => btn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSliderPosition();
-        }
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSliderPosition();
+      }
     }));
 
     nextButtons.forEach(btn => btn.addEventListener('click', () => {
-        if (currentIndex < slides.length - 1) {
-            currentIndex++;
-            updateSliderPosition();
-        }
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSliderPosition();
+      }
     }));
 
-    // Touch event listeners for swipe functionality
     // Touch event listeners for swipe functionality
     track.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
@@ -136,13 +128,12 @@
     });
 
     updateSliderPosition();
-});
-
+  });
 </script>
 
 {% schema %}
 {
-  "name": "2UP Slides",
+  "name": "2UP Carousel",
   "tag": "section",
   "class": "section",
   "settings": [],
@@ -166,7 +157,7 @@
   ],
   "presets": [
     {
-      "name": "2UP Slides",
+      "name": "2UP Carousel",
       "blocks": [
         { "type": "slide" },
         { "type": "slide" }
