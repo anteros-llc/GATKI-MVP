@@ -239,10 +239,12 @@
     let currentIndex = 0;
 
     function updateSliderPosition() {
+      console.log(`Moving to slide index: ${currentIndex}`);
       slider.scrollTo({ left: slides[currentIndex].offsetLeft, behavior: 'smooth' });
     }
 
     prevButton.addEventListener('click', () => {
+      console.log('Prev button clicked');
       if (currentIndex > 0) {
         currentIndex--;
         updateSliderPosition();
@@ -250,8 +252,11 @@
     });
 
     nextButton.addEventListener('click', () => {
+      console.log('Next button clicked');
+      console.log(`Current Index before update: ${currentIndex}`);
       if (currentIndex < slides.length - 1) {
         currentIndex++;
+        console.log(`Current Index after update: ${currentIndex}`);
         updateSliderPosition();
       }
     });
