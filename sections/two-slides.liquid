@@ -109,36 +109,30 @@
     }));
 
     // Touch event listeners for swipe functionality
+    // Touch event listeners for swipe functionality
     track.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isSwiping = true;
-        track.style.transition = 'none';
+      startX = e.touches[0].clientX;
+      moveX = startX;
+      isSwiping = true;
+      track.style.transition = 'none';
     });
 
     track.addEventListener('touchmove', (e) => {
-        if (!isSwiping) return;
-        moveX = e.touches[0].clientX;
-        let diff = startX - moveX;
-
-        // Constrain movement to avoid sliding off-page
-        let newTranslate = -currentIndex * 100 - (diff / window.innerWidth) * 100;
-        newTranslate = Math.max(-((slides.length - 1) * 100), Math.min(0, newTranslate));
-
-        track.style.transform = `translateX(${newTranslate}%)`;
+      if (!isSwiping) return;
+      moveX = e.touches[0].clientX;
+      let diff = startX - moveX;
+      track.style.transform = `translateX(calc(-${currentIndex * 100}% - ${diff}px))`;
     });
 
     track.addEventListener('touchend', () => {
-        let diff = startX - moveX;
-
-        // Determine slide change based on swipe distance
-        if (diff > 50 && currentIndex < slides.length - 1) {
-            currentIndex++;
-        } else if (diff < -50 && currentIndex > 0) {
-            currentIndex--;
-        }
-
-        isSwiping = false;
-        updateSliderPosition();
+      let diff = startX - moveX;
+      if (diff > 50 && currentIndex < slides.length - 1) {
+        currentIndex++;
+      } else if (diff < -50 && currentIndex > 0) {
+        currentIndex--;
+      }
+      isSwiping = false;
+      updateSliderPosition();
     });
 
     updateSliderPosition();
