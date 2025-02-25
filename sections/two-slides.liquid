@@ -98,13 +98,14 @@
       }
     }));
 
-    // Touch event listeners for swipe functionality
     track.addEventListener('touchstart', (e) => {
+        console.log("Touch Start", e.touches[0].clientX);
       startX = e.touches[0].clientX;
       isSwiping = true;
     });
 
     track.addEventListener('touchmove', (e) => {
+       console.log("Touch Move", e.touches[0].clientX);
       if (!isSwiping) return;
       const moveX = e.touches[0].clientX;
       const diff = startX - moveX;
@@ -121,6 +122,7 @@
     });
 
     track.addEventListener('touchend', () => {
+       console.log("Touch End");
       isSwiping = false;
     });
 
