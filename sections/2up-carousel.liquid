@@ -35,7 +35,7 @@
               <h2>{{ block.settings.heading }}</h2>
                <!-- Navigation Buttons -->
   {%- if section.blocks.size > 1 -%}
- 
+    <div class="slideshow__controls slider-buttons">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -54,7 +54,7 @@
       >
         &rarr;
       </button>
-   
+    </div>
   {%- endif -%}
             </div>
           {%- endif -%}
@@ -114,9 +114,9 @@
   color: var(--color-chenpi);
 } 
 
-/* .custom-slider-ingredients {
+.slider-heading-wrapper{
   position: relative;
-} */
+}
 
 .slider-buttons {
   display: flex;
