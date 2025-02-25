@@ -109,7 +109,7 @@
     }));
 
     // Touch event listeners for swipe functionality
-     track.addEventListener('touchstart', (e) => {
+    track.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isSwiping = true;
         track.style.transition = 'none';
@@ -119,8 +119,8 @@
         if (!isSwiping) return;
         moveX = e.touches[0].clientX;
         let diff = startX - moveX;
-        
-        // Constrain movement within bounds
+
+        // Constrain movement to avoid sliding off-page
         let newTranslate = -currentIndex * 100 - (diff / window.innerWidth) * 100;
         newTranslate = Math.max(-((slides.length - 1) * 100), Math.min(0, newTranslate));
 
@@ -129,14 +129,14 @@
 
     track.addEventListener('touchend', () => {
         let diff = startX - moveX;
-        
+
         // Determine slide change based on swipe distance
         if (diff > 50 && currentIndex < slides.length - 1) {
             currentIndex++;
         } else if (diff < -50 && currentIndex > 0) {
             currentIndex--;
         }
-        
+
         isSwiping = false;
         updateSliderPosition();
     });
