@@ -230,11 +230,10 @@
     let currentIndex = 0;
 
     function updateSliderPosition() {
-      if (slides[currentIndex]) {
-        slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-      }
-      prevButton.style.display = currentIndex === 0 ? 'none' : 'block';
-      nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'block';
+    slider.style.transition = 'transform 0.5s ease-in-out';
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      prevButtons.forEach(btn => btn.style.display = currentIndex === 0 ? 'none' : 'block');
+      nextButtons.forEach(btn => btn.style.display = currentIndex === slides.length - 1 ? 'none' : 'block');
     }
 
     prevButton.addEventListener('click', () => {
