@@ -8,7 +8,7 @@ slider-component {
         ) / 2
     )
   );
-  /* position: relative; */
+  position: relative;
   display: block;
 }
 
