@@ -33,6 +33,29 @@
           {%- if block.settings.heading != blank -%}
             <div class="slider-heading-wrapper">
               <h2>{{ block.settings.heading }}</h2>
+               <!-- Navigation Buttons -->
+  {%- if section.blocks.size > 1 -%}
+    <div class="slideshow__controls slider-buttons">
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        &larr;
+      </button>
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        &rarr;
+      </button>
+    </div>
+  {%- endif -%}
             </div>
           {%- endif -%}
 
@@ -79,29 +102,6 @@
       </div>
     {%- endfor -%}
   </div>
- <!-- Navigation Buttons -->
-  {%- if section.blocks.size > 1 -%}
-    <div class="slideshow__controls slider-buttons">
-      <button
-        type="button"
-        class="slider-button slider-button--prev"
-        name="previous"
-        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        &larr;
-      </button>
-      <button
-        type="button"
-        class="slider-button slider-button--next"
-        name="next"
-        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        &rarr;
-      </button>
-    </div>
-  {%- endif -%}
 </slideshow-component>
 <style>
 
