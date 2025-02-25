@@ -4,10 +4,15 @@
     overflow: hidden;
     width: 100%;
     position: relative;
+    
   }
   .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+      scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
   }
   .carousel-slide {
     min-width: 100%;
@@ -15,6 +20,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
+     flex: 0 0 100%;
+  scroll-snap-align: start;
   }
   .carousel-image {
     flex: 1;
