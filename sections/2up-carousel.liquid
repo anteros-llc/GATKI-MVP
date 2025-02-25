@@ -239,13 +239,15 @@
     let currentIndex = 0;
 
     console.log('Slider:', slider);
-    console.log('Slides:', slides.length);
-    console.log('Prev Buttons:', prevButtons);
-    console.log('Next Buttons:', nextButtons);
+    console.log('Total Slides:', slides.length);
+    console.log('Prev Buttons:', prevButtons.length);
+    console.log('Next Buttons:', nextButtons.length);
 
     function updateSliderPosition() {
       console.log(`Moving to slide index: ${currentIndex}`);
-      slider.scrollTo({ left: slides[currentIndex].offsetLeft, behavior: 'smooth' });
+      if (slides[currentIndex]) {
+        slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      }
     }
 
     prevButtons.forEach(prevButton => {
@@ -255,6 +257,8 @@
           currentIndex--;
           console.log(`Updated index: ${currentIndex}`);
           updateSliderPosition();
+        } else {
+          console.warn('Already at the first slide!');
         }
       });
     });
@@ -268,7 +272,7 @@
           console.log(`Current Index after update: ${currentIndex}`);
           updateSliderPosition();
         } else {
-          console.warn('Next button reached last slide!');
+          console.warn('Already at the last slide!');
         }
       });
     });
