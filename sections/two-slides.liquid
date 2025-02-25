@@ -108,30 +108,30 @@
     }));
 
     // Touch event listeners for swipe functionality
-  // Touch event listeners for swipe functionality
     track.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      moveX = startX;
-      isSwiping = true;
-      track.style.transition = 'none';
+        startX = e.touches[0].clientX;
+        isSwiping = true;
+        track.style.transition = 'none';
     });
 
     track.addEventListener('touchmove', (e) => {
-      if (!isSwiping) return;
-      moveX = e.touches[0].clientX;
-      let diff = startX - moveX;
-      track.style.transform = `translateX(calc(-${currentIndex * 100}% - ${diff}px))`;
+        if (!isSwiping) return;
+        moveX = e.touches[0].clientX;
+        let diff = startX - moveX;
+        let offset = Math.max(-currentIndex * 100, Math.min(-(currentIndex * 100 + diff), -(slides.length - 1) * 100));
+        track.style.transform = `translateX(${offset}%)`;
+        e.preventDefault(); // Prevent unintended page scrolling
     });
 
     track.addEventListener('touchend', () => {
-      let diff = startX - moveX;
-      if (diff > 50 && currentIndex < slides.length - 1) {
-        currentIndex++;
-      } else if (diff < -50 && currentIndex > 0) {
-        currentIndex--;
-      }
-      isSwiping = false;
-      updateSliderPosition();
+        let diff = startX - moveX;
+        if (diff > 50 && currentIndex < slides.length - 1) {
+            currentIndex++;
+        } else if (diff < -50 && currentIndex > 0) {
+            currentIndex--;
+        }
+        isSwiping = false;
+        updateSliderPosition();
     });
 
     updateSliderPosition();
