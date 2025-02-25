@@ -1,5 +1,5 @@
 <style>
-  .2up-carousel {
+  .carousel {
     display: flex;
     overflow: hidden;
     width: 100%;
@@ -28,6 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
   }
   .carousel-button {
     background: none;
@@ -41,15 +42,15 @@
   }
 </style>
 
-<div class="2up-carousel">
+<div class="carousel">
   <div class="carousel-track">
     {% for block in section.blocks %}
       <div class="carousel-slide">
         <img class="carousel-image" src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.heading }}">
         <div class="carousel-content">
+          <h2>{{ block.settings.heading }}</h2>
           <div class="carousel-buttons">
             <button class="carousel-button prev" aria-label="Previous slide" style="display: none;">&larr;</button>
-            <h2>{{ block.settings.heading }}</h2>
             <button class="carousel-button next" aria-label="Next slide">&rarr;</button>
           </div>
         </div>
