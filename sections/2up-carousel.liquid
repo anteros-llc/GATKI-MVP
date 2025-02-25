@@ -264,21 +264,21 @@
       });
     });
 
-    nextButtons.forEach((nextButton, index) => {
-      console.log(`Attaching event to next button ${index}`);
-      nextButton.addEventListener('click', () => {
-        console.log('Next button clicked');
-        console.log(`Current Index before update: ${currentIndex}`);
-        if (currentIndex < slides.length - 1) {
-          currentIndex++;
-          console.log(`Current Index after update: ${currentIndex}`);
-          updateSliderPosition();
-        } else {
-          console.warn('Already at the last slide! No further movement.');
-        }
-      });
-    });
+nextButtons.forEach((nextButton, index) => {
+  console.log(`Attaching event to next button ${index}`);
+  nextButton.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent interference
+    console.log('Next button clicked!');
+    
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      console.log(`Current Index after update: ${currentIndex}`);
+      updateSliderPosition();
+    } else {
+      console.warn('Already at the last slide! No further movement.');
+    }
   });
+});
 </script>
 
 
