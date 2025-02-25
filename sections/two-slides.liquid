@@ -4,15 +4,10 @@
     overflow: hidden;
     width: 100%;
     position: relative;
-    
   }
   .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
-      scroll-snap-type: x mandatory;
- 
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
   }
   .carousel-slide {
     min-width: 100%;
@@ -20,8 +15,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-     flex: 0 0 100%;
-  scroll-snap-align: start;
   }
   .carousel-image {
     flex: 1;
@@ -31,15 +24,10 @@
     flex: 1;
     text-align: left;
   }
-  .carousel-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
   .carousel-buttons {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
   }
   .carousel-button {
     background: none;
@@ -51,9 +39,6 @@
     opacity: 0.5;
     cursor: default;
   }
-  .carousel-track {
-  touch-action: pan-y;
-}
 </style>
 
 <div class="2up-carousel">
@@ -62,12 +47,10 @@
       <div class="carousel-slide">
         <img class="carousel-image" src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.heading }}">
         <div class="carousel-content">
-          <div class="carousel-header">
+          <div class="carousel-buttons">
+            <button class="carousel-button prev" aria-label="Previous slide" style="display: none;">&larr;</button>
             <h2>{{ block.settings.heading }}</h2>
-            <div class="carousel-buttons">
-              <button class="carousel-button prev" aria-label="Previous slide" style="display: none;">&larr;</button>
-              <button class="carousel-button next" aria-label="Next slide">&rarr;</button>
-            </div>
+            <button class="carousel-button next" aria-label="Next slide">&rarr;</button>
           </div>
         </div>
       </div>
@@ -82,12 +65,8 @@
     const prevButtons = document.querySelectorAll('.carousel-button.prev');
     const nextButtons = document.querySelectorAll('.carousel-button.next');
     let currentIndex = 0;
-    let startX = 0;
-    let moveX = 0;
-    let isSwiping = false;
 
     function updateSliderPosition() {
-      track.style.transition = 'transform 0.5s ease-in-out';
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
       prevButtons.forEach(btn => btn.style.display = currentIndex === 0 ? 'none' : 'block');
       nextButtons.forEach(btn => btn.style.display = currentIndex === slides.length - 1 ? 'none' : 'block');
@@ -106,33 +85,6 @@
         updateSliderPosition();
       }
     }));
-
-    // Touch event listeners for swipe functionality
-    track.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isSwiping = true;
-        track.style.transition = 'none';
-    });
-
-    track.addEventListener('touchmove', (e) => {
-        if (!isSwiping) return;
-        moveX = e.touches[0].clientX;
-        let diff = startX - moveX;
-        let offset = Math.max(-currentIndex * 100, Math.min(-(currentIndex * 100 + diff), -(slides.length - 1) * 100));
-        track.style.transform = `translateX(${offset}%)`;
-        e.preventDefault(); // Prevent unintended page scrolling
-    });
-
-    track.addEventListener('touchend', () => {
-        let diff = startX - moveX;
-        if (diff > 50 && currentIndex < slides.length - 1) {
-            currentIndex++;
-        } else if (diff < -50 && currentIndex > 0) {
-            currentIndex--;
-        }
-        isSwiping = false;
-        updateSliderPosition();
-    });
 
     updateSliderPosition();
   });
