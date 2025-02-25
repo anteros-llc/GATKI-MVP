@@ -31,17 +31,13 @@
         <!-- Right Column: Text -->
         <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
             {%- if block.settings.heading != blank -%}
-            <div class="slider-heading-wrapper">
-              <h2>
-                {{ block.settings.heading }}
-              </h2>
-              {%- if forloop.first -%}
-                <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" aria-controls="Slider-{{ section.id }}">&rarr;</button>
-             
-                {%- elsif forloop.last -%}
-                <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" aria-controls="Slider-{{ section.id }}">&larr;</button>
-              {%- endif -%}
+             <div class="carousel-header">
+            <h2>{{ block.settings.heading }}</h2>
+            <div class="carousel-buttons">
+              <button class="carousel-button prev" aria-label="Previous slide">&larr;</button>
+              <button class="carousel-button next" aria-label="Next slide">&rarr;</button>
             </div>
+          </div>
           {%- endif -%}
 
             {% if block.settings.slide_type == 'slider' %}
@@ -231,6 +227,39 @@
   }
 }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const prevButtons = document.querySelectorAll('.carousel-button.prev');
+    const nextButtons = document.querySelectorAll('.carousel-button.next');
+    let currentIndex = 0;
+
+    function updateSliderPosition() {
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      prevButtons.forEach(btn => btn.style.display = currentIndex === 0 ? 'none' : 'block');
+      nextButtons.forEach(btn => btn.style.display = currentIndex === slides.length - 1 ? 'none' : 'block');
+    }
+
+    prevButtons.forEach(btn => btn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSliderPosition();
+      }
+    }));
+
+    nextButtons.forEach(btn => btn.addEventListener('click', () => {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSliderPosition();
+      }
+    }));
+
+    updateSliderPosition();
+  });
+</script>
 
 {% schema %}
 {
