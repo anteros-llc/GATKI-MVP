@@ -6,16 +6,19 @@
   }
   .carousel-track {
     display: flex;
-    width: 200%;
-    transition: transform 0.5s ease-in-out;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
   .carousel-slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    /* flex-shrink: 0; */
   }
   .carousel-image {
     flex: 1;
@@ -42,65 +45,38 @@
     font-size: 1.5rem;
     cursor: pointer;
   }
-  
-  /* Hide radio inputs */
-  .carousel input {
+  .carousel::-webkit-scrollbar {
     display: none;
   }
   
-  /* Slide transition */
-  #slide1:checked ~ .carousel-track {
-    transform: translateX(0);
-  }
-  #slide2:checked ~ .carousel-track {
-    transform: translateX(-100%);
-  }
-  
-  /* Labels as navigation */
-  .carousel-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-  }
-  .carousel-nav label {
-    cursor: pointer;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 50%;
-  }
 </style>
 
 <div class="carousel">
-  <input type="radio" name="carousel" id="slide1" checked>
-  <input type="radio" name="carousel" id="slide2">
-  
   <div class="carousel-track">
     {% for block in section.blocks %}
-      <div class="carousel-slide">
+      <div class="carousel-slide" id="slide-{{ forloop.index }}">
         <img class="carousel-image" src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.heading }}">
         <div class="carousel-content">
           <div class="carousel-header">
             <h2>{{ block.settings.heading }}</h2>
+            <div class="carousel-buttons">
+              {% if forloop.index > 1 %}
+                <a href="#slide-{{ forloop.index | minus: 1 }}" class="carousel-button">&larr;</a>
+              {% endif %}
+              {% if forloop.index < section.blocks.size %}
+                <a href="#slide-{{ forloop.index | plus: 1 }}" class="carousel-button">&rarr;</a>
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
     {% endfor %}
   </div>
-  
-  <div class="carousel-nav">
-    <label for="slide1">&larr;</label>
-    <label for="slide2">&rarr;</label>
-  </div>
 </div>
 
 {% schema %}
 {
-  "name": "2UP Slides",
+  "name": "2UP Carousel",
   "tag": "section",
   "class": "section",
   "settings": [],
@@ -124,7 +100,7 @@
   ],
   "presets": [
     {
-      "name": "2UP Slides",
+      "name": "2UP Carousel",
       "blocks": [
         { "type": "slide" },
         { "type": "slide" }
