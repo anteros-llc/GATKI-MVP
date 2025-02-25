@@ -224,56 +224,7 @@
 }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('#Slider-{{ section.id }}');
-    const slides = Array.from(slider.querySelectorAll('.slider__slide'));
-    const prevButtons = document.querySelectorAll('.slider-button--prev');
-    const nextButtons = document.querySelectorAll('.slider-button--next');
-    let currentIndex = 0;
 
-    console.log('Slider:', slider);
-    console.log('Total Slides:', slides.length);
-    console.log('Prev Buttons:', prevButtons.length);
-    console.log('Next Buttons:', nextButtons.length);
-
-    function updateSliderPosition() {
-      console.log(`Moving to slide index: ${currentIndex}`);
-      if (slides[currentIndex]) {
-        slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-      }
-    }
-
-    prevButtons.forEach((prevButton, index) => {
-      console.log(`Attaching event to prev button ${index}`);
-      prevButton.addEventListener('click', () => {
-        console.log('Prev button clicked');
-        if (currentIndex > 0) {
-          currentIndex--;
-          console.log(`Updated index: ${currentIndex}`);
-          updateSliderPosition();
-        } else {
-          console.warn('Already at the first slide!');
-        }
-      });
-    });
-
-nextButtons.forEach((nextButton, index) => {
-  console.log(`Attaching event to next button ${index}`);
-  nextButton.addEventListener('click', (event) => {
-    event.stopPropagation(); // Prevent interference
-    console.log('Next button clicked!');
-    
-    if (currentIndex < slides.length - 1) {
-      currentIndex++;
-      console.log(`Current Index after update: ${currentIndex}`);
-      updateSliderPosition();
-    } else {
-      console.warn('Already at the last slide! No further movement.');
-    }
-  });
-});
-</script>
 
 
 {% schema %}
