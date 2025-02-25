@@ -233,13 +233,28 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('#Slider-{{ section.id }}');
+    const slides = slider.querySelectorAll('.slider__slide');
     const prevButton = document.querySelector('[data-action="prev"]');
     const nextButton = document.querySelector('[data-action="next"]');
-    
-    if (prevButton && nextButton) {
-      prevButton.addEventListener('click', () => slider.scrollBy({ left: -slider.offsetWidth, behavior: 'smooth' }));
-      nextButton.addEventListener('click', () => slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' }));
+    let currentIndex = 0;
+
+    function updateSliderPosition() {
+      slider.scrollTo({ left: slides[currentIndex].offsetLeft, behavior: 'smooth' });
     }
+
+    prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSliderPosition();
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSliderPosition();
+      }
+    });
   });
 </script>
 
