@@ -69,65 +69,67 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-    const prevButtons = document.querySelectorAll('.carousel-button.prev');
-    const nextButtons = document.querySelectorAll('.carousel-button.next');
-    let currentIndex = 0;
-    let startX = 0;
-    let isSwiping = false;
+document.addEventListener('DOMContentLoaded', function () {
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+  const prevButtons = document.querySelectorAll('.carousel-button.prev');
+  const nextButtons = document.querySelectorAll('.carousel-button.next');
+  let currentIndex = 0;
+  let startX = 0;
+  let isSwiping = false;
 
-    function updateSliderPosition() {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      prevButtons.forEach(btn => btn.style.display = currentIndex === 0 ? 'none' : 'block');
-      nextButtons.forEach(btn => btn.style.display = currentIndex === slides.length - 1 ? 'none' : 'block');
+  function updateSliderPosition() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    prevButtons.forEach(btn => btn.style.display = currentIndex === 0 ? 'none' : 'block');
+    nextButtons.forEach(btn => btn.style.display = currentIndex === slides.length - 1 ? 'none' : 'block');
+  }
+
+  prevButtons.forEach(btn => btn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSliderPosition();
     }
+  }));
 
-    prevButtons.forEach(btn => btn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-      }
-    }));
+  nextButtons.forEach(btn => btn.addEventListener('click', () => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      updateSliderPosition();
+    }
+  }));
 
-    nextButtons.forEach(btn => btn.addEventListener('click', () => {
-      if (currentIndex < slides.length - 1) {
-        currentIndex++;
-        updateSliderPosition();
-      }
-    }));
-
-    track.addEventListener('touchstart', (e) => {
-        console.log("Touch Start", e.touches[0].clientX);
-      startX = e.touches[0].clientX;
-      isSwiping = true;
-    });
-
-    track.addEventListener('touchmove', (e) => {
-       console.log("Touch Move", e.touches[0].clientX);
-      if (!isSwiping) return;
-      const moveX = e.touches[0].clientX;
-      const diff = startX - moveX;
-
-      if (diff > 50 && currentIndex < slides.length - 1) {
-        currentIndex++;
-        updateSliderPosition();
-        isSwiping = false;
-      } else if (diff < -50 && currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-        isSwiping = false;
-      }
-    });
-
-    track.addEventListener('touchend', () => {
-       console.log("Touch End");
-      isSwiping = false;
-    });
-
-    updateSliderPosition();
+  // **Touch event listeners for swipe functionality**
+  track.addEventListener('touchstart', (e) => {
+    if (e.target.closest('.carousel-button')) return; // Ignore swipe when clicking buttons
+    startX = e.touches[0].clientX;
+    isSwiping = true;
+    console.log('Touch start:', startX);
   });
+
+  track.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
+    const moveX = e.touches[0].clientX;
+    const diff = startX - moveX;
+    console.log('Touch move:', moveX, 'Diff:', diff);
+
+    if (diff > 50 && currentIndex < slides.length - 1) {
+      currentIndex++;
+      updateSliderPosition();
+      isSwiping = false;
+    } else if (diff < -50 && currentIndex > 0) {
+      currentIndex--;
+      updateSliderPosition();
+      isSwiping = false;
+    }
+  });
+
+  track.addEventListener('touchend', () => {
+    console.log('Touch end');
+    isSwiping = false;
+  });
+
+  updateSliderPosition();
+});
 </script>
 
 {% schema %}
