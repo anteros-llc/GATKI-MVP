@@ -53,7 +53,7 @@
 <div class="carousel">
   <div class="carousel-track">
     {% for block in section.blocks %}
-      <div class="carousel-slide">
+      <div class="carousel-slide slider--everywhere">
         <img class="carousel-image" src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.heading }}">
         <div class="carousel-content">
           <div class="carousel-header">
