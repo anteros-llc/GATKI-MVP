@@ -39,6 +39,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    Text-decoration: none;
   }
   .carousel-button {
     background: none;
@@ -69,11 +70,50 @@
               {% endif %}
             </div>
           </div>
+            {% if block.settings.slide_type == 'slider' %}
+          <div class="bottom-slider">
+      <div class="slider-wrapper">
+  <h6 class="slider-label">GENTLENESS</h6>
+  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693" alt="Gentleness slider">
+</div>
+<div class="slider-wrapper">
+  <h6 class="slider-label">NOURISHMENT</h6>
+  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693" alt="Nourishment slider">
+</div>
+<div class="slider-wrapper">
+  <h6 class="slider-label">STAYING POWER</h6>
+  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_8.0.svg?v=1734398694" alt="Staying Power slider">
+</div>  
+          </div>
+         {% elsif block.settings.slide_type == 'text' %}  
+      <div class="text-content">
+        <div class="slider-wrapper">
+          <h6>HOW IT FEELS</h6>
+          <span>Cushiony soft</span>
+        </div>
+        <div class="slider-wrapper">
+          <h6>HOW IT LOOKS</h6>
+          <span>Clear with a natural sheen</span>
+        </div>
+        <div class="slider-wrapper">
+          <h6>HOW IT SMELLS</h6>
+          <span>Fragrance-free</span>
+        </div>
+        <div class="slider-wrapper">
+          <h6>HOW IT TASTES</h6>
+          <span>Flavor-free</span>
+        </div>
+        <div class="slider-wrapper">
+          <h6>BEST FOR</h6>
+          <span>Suitable for all, especially sensitive lips</span>
         </div>
       </div>
-    {% endfor %}
+            {% endif %}
+        </div>
+      </div>
+    {%- endfor -%}
   </div>
-</div>
+        </div>
 
 {% schema %}
 {
@@ -95,8 +135,25 @@
           "type": "inline_richtext",
           "id": "heading",
           "label": "Heading"
-        }
-      ]
+        },
+                {
+  "type": "select",
+  "id": "slide_type",
+  "label": "Slide Type",
+  "options": [
+    {
+      "value": "slider",
+      "label": "Slider"
+    },
+    {
+      "value": "text",
+      "label": "Text"
+    }
+  ],
+  "default": "slider"
+},
+      ],
+      
     }
   ],
   "presets": [
