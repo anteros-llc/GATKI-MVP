@@ -157,31 +157,18 @@
     },
     "2up_carousel_qyXbXN": {
       "type": "2up-carousel",
-      "settings": {}
-    },
-    "two_slides_xKzKnG": {
-      "type": "two-slides",
       "blocks": {
-        "slide_mw8GAg": {
+        "slide_fMH4Bd": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
             "heading": "The touch of softness.",
             "slide_type": "slider"
           }
-        },
-        "slide_aPTALh": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Ingredient_Peptide_2000x2000_PDP_LIPDEW.jpg",
-            "heading": "The touch of softness.",
-            "slide_type": "text"
-          }
         }
       },
       "block_order": [
-        "slide_mw8GAg",
-        "slide_aPTALh"
+        "slide_fMH4Bd"
       ],
       "settings": {}
     },
@@ -306,7 +293,6 @@
     "related-products",
     "bullet_list_6xwt8x",
     "2up_carousel_qyXbXN",
-    "two_slides_xKzKnG",
     "image_banner_UKJ3fP",
     "ingredient_carousel_nJh9hp",
     "1731992271885d52d1"
