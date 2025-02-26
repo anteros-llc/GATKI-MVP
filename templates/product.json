@@ -165,10 +165,19 @@
             "heading": "The touch of softness.",
             "slide_type": "slider"
           }
+        },
+        "slide_XwdLnx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Ingredient_Peptide_2000x2000_PDP_LIPDEW.jpg",
+            "heading": "The touch of softness.",
+            "slide_type": "text"
+          }
         }
       },
       "block_order": [
-        "slide_fMH4Bd"
+        "slide_fMH4Bd",
+        "slide_XwdLnx"
       ],
       "settings": {}
     },
