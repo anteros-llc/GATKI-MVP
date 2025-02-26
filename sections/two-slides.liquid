@@ -54,10 +54,42 @@
     font-size: 1.5rem;
     cursor: pointer;
     text-decoration: none;
+    color: var(--color-chenpi);
   }
   .carousel::-webkit-scrollbar {
     display: none;
   }
+
+.slider-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-label {
+  flex: 1;
+  text-align: left;
+  padding-bottom: .3rem;
+}
+
+.svg-slider {
+  margin-left: 20px; /* Moves the SVG further to the right */
+  flex: 1; /* Takes more space than label */
+  padding-bottom: .3rem;
+}
+
+.slider-wrapper h6, .silder-wrapper span{
+  font-size: 1rem;
+  line-height: 1.1rem;
+}
+
+.slider-wrapper h6{
+  font-weight: 700;
+}
+
+.slider-wrapper span{
+  font-weight: 400;
+}
   
 </style>
 
