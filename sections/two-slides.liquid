@@ -102,12 +102,12 @@
         <div class="carousel-content">
           <div class="carousel-header">
             <h2>{{ block.settings.heading }}</h2>
-            <div class="carousel-buttons">
+             <div class="carousel-buttons">
               {% if forloop.index > 1 %}
-                <a href="#slide-{{ forloop.index | minus: 1 }}" class="carousel-button">&larr;</a>
+                <button class="carousel-button prev" data-target="{{ forloop.index | minus: 1 }}">&larr;</button>
               {% endif %}
               {% if forloop.index < section.blocks.size %}
-                <a href="#slide-{{ forloop.index | plus: 1 }}" class="carousel-button">&rarr;</a>
+                <button class="carousel-button next" data-target="{{ forloop.index | plus: 1 }}">&rarr;</button>
               {% endif %}
             </div>
           </div>
@@ -155,6 +155,40 @@
     {%- endfor -%}
   </div>
         </div>
+
+<script>
+          document.addEventListener("DOMContentLoaded", function () {
+  const carouselTrack = document.querySelector(".carousel-track");
+  const slides = document.querySelectorAll(".carousel-slide");
+  const nextButtons = document.querySelectorAll(".carousel-button.next");
+  const prevButtons = document.querySelectorAll(".carousel-button.prev");
+
+  function navigateToSlide(slideIndex) {
+    if (slideIndex >= 1 && slideIndex <= slides.length) {
+      const targetSlide = document.getElementById(`slide-${slideIndex}`);
+      if (targetSlide) {
+        carouselTrack.scrollTo({
+          left: targetSlide.offsetLeft,
+          behavior: "smooth",
+        });
+      }
+    }
+  }
+
+  nextButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      navigateToSlide(parseInt(this.getAttribute("data-target")));
+    });
+  });
+
+  prevButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      navigateToSlide(parseInt(this.getAttribute("data-target")));
+    });
+  });
+});
+
+</script>
 
 {% schema %}
 {
