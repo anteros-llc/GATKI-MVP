@@ -74,7 +74,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div class="p">
+    <div class="product">
       <div class="grid__item product__media-wrapper">
         <div class="carousel product__image-slider">
           {%- for media in product.media -%}
