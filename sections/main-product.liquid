@@ -89,6 +89,15 @@
               {% endif %}
             </div>
           {%- endfor -%}
+           <div class="carousel-pagination">
+    <button class="pagination-button prev" onclick="moveSlide(-1)">
+      <img src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Arrow_Left.svg?v=1734546235" alt="Previous">
+    </button>
+    <span class="carousel-index" id="slideIndex">1 / {{ section.blocks.size }}</span>
+    <button class="pagination-button next" onclick="moveSlide(1)">
+      <img src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Arrow_Right.svg?v=1734546236" alt="Next">
+    </button>
+  </div>
         </div>
       </div>
 
