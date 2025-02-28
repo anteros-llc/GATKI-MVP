@@ -1,5 +1,8 @@
 .product-info {
   display: block;
+}
+
+.product__info-wrapper {
   overflow-y: auto;
   height: 80vh;
 }
