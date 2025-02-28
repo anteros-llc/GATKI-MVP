@@ -1572,6 +1572,7 @@ a.product__text {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: -2.5rem;
 }
 .pagination-button {
   background: none;
