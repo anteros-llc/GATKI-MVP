@@ -1574,6 +1574,9 @@ a.product__text {
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
+  position: absolute;
+  bottom: 20%;
+  margin: 0 auto;
 }
 .pagination-button {
   background: none;
