@@ -1567,3 +1567,17 @@ a.product__text {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.custom-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.pagination-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
