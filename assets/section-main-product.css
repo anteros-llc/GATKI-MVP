@@ -5,6 +5,23 @@
 .product__info-wrapper {
   overflow-y: auto;
   height: 80vh;
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+  scrollbar-width: thin; /* Makes scrollbar less intrusive (Firefox) */
+  -webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS */
+}
+
+/* Custom Scrollbar for Webkit (Chrome, Safari) */
+.product__info-wrappe::-webkit-scrollbar {
+  width: 6px;
+}
+
+.product__info-wrappeo::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.product__info-wrappe::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .product {
