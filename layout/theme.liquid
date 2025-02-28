@@ -45,13 +45,12 @@
 
     if (carousel) {
       const flickity = new Flickity(carousel, {
-        cellAlign: 'center',
+        cellAlign: "center",
         contain: true,
         wrapAround: true,
         imagesLoaded: true,
         prevNextButtons: false, // Hide Flickity default arrows
         pageDots: false, // Hide Flickity default dots
-        adaptiveHeight: true
       });
 
       function updatePagination() {
