@@ -1568,7 +1568,7 @@ a.product__text {
   margin-bottom: 0;
 }
 
-.custom-pagination {
+.product-carousel-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
