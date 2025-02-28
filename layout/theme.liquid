@@ -78,45 +78,6 @@
   });
 </script>
 
-//     document.addEventListener("DOMContentLoaded", function () {
-//   const staticSlider = document.querySelector(".carousel");
-
-//   if (staticSlider) {
-//     new Flickity(staticSlider, {
-//       cellAlign: "center",
-//       contain: true,
-//       wrapAround: true,
-//       imagesLoaded: true,
-//       prevNextButtons: false,
-//       pageDots: false,
-//     });
-//   }
-// });
-
-//    function updatePagination() {
-//         paginationIndex.textContent = `${flickity.selectedIndex + 1} / ${flickity.slides.length}`;
-//       }
-
-//       // Handle custom prev/next button clicks
-//       prevButton.addEventListener('click', function () {
-//         flickity.previous();
-//         updatePagination();
-//       });
-
-//       nextButton.addEventListener('click', function () {
-//         flickity.next();
-//         updatePagination();
-//       });
-
-//       // Update pagination on Flickity slide change
-//       flickity.on('change', updatePagination);
-
-//       // Set initial pagination
-//       updatePagination();
-//     }
-//   }
-
-
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
