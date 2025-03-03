@@ -473,8 +473,6 @@
                   render 'share-button', block: block, share_link: share_url
                 %}
 
-              {%- when 'variant_picker' -%}
-                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
                   block: block,
@@ -520,9 +518,7 @@
                       </span>
                     </p>
                   </div>
-                {%- endif -%}
-              {%- when 'complementary' -%}
-           
+                {%- endif -%}           
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
