@@ -60,7 +60,7 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
     <div class="product-layout">
-   
+    <div class="product-media">
 <div id="product-carousel" class="splide">
   <div class="splide__track">
     <ul class="splide__list">
@@ -79,7 +79,7 @@
     </ul>
   </div>
 </div>
-
+</div>
 <!-- Custom Pagination (Numbers) -->
 <!-- <div class="product-carousel-pagination">
   <span id="slideIndex">1 / {{ product.media.size }}</span>
