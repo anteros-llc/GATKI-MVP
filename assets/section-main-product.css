@@ -1,26 +1,19 @@
-/* Parent container remains flexbox */
-.product-layout {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 40px;
-}
-
-/* Sticky Image: Set full height minus header & padding */
+/* Ensure the product media (carousel) stays fixed in height */
 .product-media {
   flex: 1;
   max-width: 50%;
   position: sticky;
   top: calc(var(--header-height, 80px) + 20px); /* Sticks below the header */
-  height: calc(100vh - var(--header-height, 80px) - 40px); /* Adjust height */
-  overflow: hidden;
+  height: calc(
+    100vh - var(--header-height, 80px) - 40px
+  ); /* Ensures fixed height */
+  min-height: 500px; /* Prevents collapsing if viewport is too small */
+  overflow: hidden; /* Prevents expansion */
 }
 
-/* Ensure Splide images fill container */
+/* Prevents the image from stretching when product info expands */
 .splide {
-  height: 100%;
+  height: 100%; /* Lock to parent height */
 }
 
 .splide__track {
@@ -34,7 +27,7 @@
   display: block;
 }
 
-/* Right Side: Product Info Scrolls */
+/* Ensure product info scrolls independently */
 .product-info {
   flex: 1;
   max-width: 50%;
