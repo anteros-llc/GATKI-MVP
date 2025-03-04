@@ -44,8 +44,8 @@
   max-width: 100%;
   overflow-y: auto;
   padding-bottom: 50px;
-  padding-left: 8.75rem;
-  padding-right: 8.75rem;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 /* Mobile: Stack layout */
