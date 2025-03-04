@@ -9,7 +9,7 @@
 /* Make image section sticky & fixed in height */
 .product-media {
   position: sticky;
-  top: calc(var(--header-height, 80px) + 20px); /* Adjust based on header */
+  top: 0;
   height: calc(
     100vh - var(--header-height, 80px) - 40px
   ); /* Full height minus header */
