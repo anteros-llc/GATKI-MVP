@@ -1,4 +1,12 @@
-/* Ensure the product media (carousel) stays fixed in height */
+.product-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin: 0 auto;
+  gap: 40px;
+}
+
 .product-media {
   flex: 1;
   max-width: 50%;
