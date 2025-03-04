@@ -3,7 +3,6 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 1200px; /* Keeps the content centered */
   margin: 0 auto;
   gap: 40px; /* Adds spacing between carousel & product info */
 }
