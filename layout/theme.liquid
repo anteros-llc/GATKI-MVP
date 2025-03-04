@@ -33,50 +33,6 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
-    <!-- <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-    {{ 'flickity.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'flickity.js' | asset_url }}" defer></script>
-      <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector('.carousel');
-    const paginationIndex = document.getElementById('slideIndex');
-    const prevButton = document.querySelector('.pagination-button.prev');
-    const nextButton = document.querySelector('.pagination-button.next');
-
-    if (carousel) {
-      const flickity = new Flickity(carousel, {
-        cellAlign: "center",
-        contain: true,
-        wrapAround: true,
-        imagesLoaded: true,
-        prevNextButtons: false, // Hide Flickity default arrows
-        pageDots: false, // Hide Flickity default dots
-        // autoPlay: 5000,
-      });
-
-      function updatePagination() {
-        paginationIndex.textContent = `${flickity.selectedIndex + 1} / ${flickity.slides.length}`;
-      }
-
-      // Handle custom prev/next button clicks
-      prevButton.addEventListener('click', function () {
-        flickity.previous();
-        updatePagination();
-      });
-
-      nextButton.addEventListener('click', function () {
-        flickity.next();
-        updatePagination();
-      });
-
-      // Update pagination on Flickity slide change
-      flickity.on('change', updatePagination);
-
-      // Set initial pagination
-      updatePagination();
-    }
-  });
-</script> -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
   var splide = new Splide('#product-carousel', {
