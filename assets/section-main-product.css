@@ -1,16 +1,14 @@
 /* Two-column layout */
 .product-layout {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 50% 50%; /* Equal width */
   margin: 0 auto;
   gap: 40px;
+  align-items: start; /* Aligns items to the top */
+  padding: 3rem;
 }
-
 /* Make image section sticky & fixed in height */
 .product-media {
-  flex: 1;
-  max-width: 50%;
   position: sticky;
   top: 0;
   height: calc(
@@ -42,11 +40,12 @@
 }
 /* Make product info scroll separately */
 .product-info {
-  flex: 1;
-  max-width: 50%;
   height: auto;
+  max-width: 100%;
   overflow-y: auto;
   padding-bottom: 50px;
+  padding-left: 8.75rem;
+  padding-right: 8.75rem;
 }
 
 /* Mobile: Stack layout */
