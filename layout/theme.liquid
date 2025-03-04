@@ -33,24 +33,27 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-    {{ 'flickity.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'flickity.js' | asset_url }}" defer></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-  const staticSlider = document.querySelector(".carousel");
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+  var splide = new Splide('#product-carousel', {
+    type: 'fade',
+    perPage: 1,
+    autoplay: true,
+    interval: 5000,
+    pagination: true,
+    arrows: false,
+    lazyLoad: 'nearby',
+  });
 
-  if (staticSlider) {
-    new Flickity(staticSlider, {
-      cellAlign: "center",
-      contain: true,
-      wrapAround: true,
-      imagesLoaded: true,
-      prevNextButtons: true,
-    });
-  }
+  splide.mount();
+
+  // Custom Pagination (1 / X format)
+  splide.on('moved', function (newIndex) {
+    let totalSlides = splide.length;
+    document.getElementById('slideIndex').textContent = (newIndex + 1) + ' / ' + totalSlides;
+  });
 });
-    </script>
+</script>
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -380,5 +383,10 @@ shopify-payment-terms {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <!-- Splide.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css">
+
+<!-- Splide.js JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js" defer></script>
   </body>
 </html>

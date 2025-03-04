@@ -92,8 +92,8 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "medium",
-        "constrain_to_viewport": true,
+        "media_size": "small",
+        "constrain_to_viewport": false,
         "media_fit": "cover",
         "gallery_layout": "stacked",
         "media_position": "left",
@@ -101,8 +101,8 @@
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 40,
+        "padding_bottom": 20
       }
     },
     "related-products": {
@@ -158,59 +158,28 @@
     "2up_carousel_qyXbXN": {
       "type": "2up-carousel",
       "blocks": {
-        "slide_ddHPj8": {
+        "slide_fMH4Bd": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
             "heading": "The touch of softness.",
-            "slide_type": "slider",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
+            "slide_type": "slider"
           }
         },
-        "slide_ngpHDf": {
+        "slide_XwdLnx": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Ingredient_Peptide_2000x2000_PDP_LIPDEW.jpg",
             "heading": "The touch of softness.",
-            "slide_type": "text",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
+            "slide_type": "text"
           }
         }
       },
       "block_order": [
-        "slide_ddHPj8",
-        "slide_ngpHDf"
+        "slide_fMH4Bd",
+        "slide_XwdLnx"
       ],
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
-      }
+      "settings": {}
     },
     "image_banner_UKJ3fP": {
       "type": "image-banner",
