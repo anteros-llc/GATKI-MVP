@@ -15,7 +15,7 @@
   height: calc(
     100vh - var(--header-height, 80px) - 40px
   ); /* Ensures fixed height */
-  min-height: 500px; /* Prevents collapsing if viewport is too small */
+  max-height: 800px; /* Optional: Set a max height to avoid huge images */
   overflow: hidden; /* Prevents expansion */
 }
 
@@ -38,9 +38,9 @@
 /* Ensure product info scrolls independently */
 .product-info {
   flex: 1;
-  max-width: 50%;
-  overflow-y: auto;
-  padding-bottom: 50px;
+  height: auto;
+  overflow-y: visible; /* Allows content expansion */
+  max-width: 100%;
 }
 
 /* Mobile: Stack layout */
