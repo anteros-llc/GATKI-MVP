@@ -1,42 +1,62 @@
-/* Parent container: Two-column layout */
+/* Parent container remains flexbox */
 .product-layout {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  max-width: 1200px;
   margin: 0 auto;
-  gap: 40px; /* Adds spacing between carousel & product info */
+  gap: 40px;
 }
 
-/* Left Side: Carousel */
+/* Sticky Image: Set full height minus header & padding */
 .product-media {
   flex: 1;
-  max-width: 50%; /* Ensures the carousel takes half the space */
-}
-
-/* Right Side: Product Info */
-.product-info {
-  flex: 1;
   max-width: 50%;
+  position: sticky;
+  top: calc(var(--header-height, 80px) + 20px); /* Sticks below the header */
+  height: calc(100vh - var(--header-height, 80px) - 40px); /* Adjust height */
+  overflow: hidden;
 }
 
-/* Make sure images fit properly */
+/* Ensure Splide images fill container */
+.splide {
+  height: 100%;
+}
+
+.splide__track {
+  height: 100%;
+}
+
 .splide__slide img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 100%;
+  object-fit: cover; /* Prevents distortion */
   display: block;
 }
 
-/* RESPONSIVE: Stack layout on smaller screens */
+/* Right Side: Product Info Scrolls */
+.product-info {
+  flex: 1;
+  max-width: 50%;
+  overflow-y: auto;
+  padding-bottom: 50px;
+}
+
+/* Mobile: Stack layout */
 @media (max-width: 768px) {
   .product-layout {
-    flex-direction: column; /* Stack on mobile */
+    flex-direction: column;
     gap: 20px;
   }
 
-  .product-media,
+  .product-media {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+  }
+
   .product-info {
-    max-width: 100%; /* Full width on mobile */
+    max-width: 100%;
   }
 }
 
