@@ -5,6 +5,7 @@
   margin: 0 auto;
   gap: 40px;
   align-items: start; /* Aligns items to the top */
+  padding: 3rem;
 }
 /* Make image section sticky & fixed in height */
 .product-media {
