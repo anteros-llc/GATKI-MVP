@@ -10,20 +10,6 @@
   -webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS */
 }
 
-.product__media-wrapper {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 50px; /* Adjust if needed */
-  z-index: 10;
-}
-
-.product-carousel-pagination {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
 /* Custom Scrollbar for Webkit (Chrome, Safari) */
 .product__info-wrappe::-webkit-scrollbar {
   width: 6px;
@@ -52,9 +38,7 @@
 }
 
 .product__media-wrapper {
-  padding-left: 0;
   position: sticky;
-  height: 80vh;
 }
 
 @media screen and (min-width: 750px) {
