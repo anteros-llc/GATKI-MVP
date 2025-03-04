@@ -53,6 +53,7 @@
   .product-layout {
     grid-template-columns: 1fr; /* Single column */
     grid-template-rows: auto auto; /* Image first, then content */
+    padding: 3rem 1.5rem;
   }
 
   .product-media {
