@@ -15,7 +15,6 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-  {{ 'flickity.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -60,9 +59,9 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div class="product product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    <div class="product">
    
-<div id="product-carousel" class="splide">
+<div id="product-carousel" class="splide grid__item">
   <div class="splide__track">
     <ul class="splide__list">
       {%- for media in product.media -%}
@@ -82,9 +81,9 @@
 </div>
 
 <!-- Custom Pagination (Numbers) -->
-<div class="product-carousel-pagination">
+<!-- <div class="product-carousel-pagination">
   <span id="slideIndex">1 / {{ product.media.size }}</span>
-</div>
+</div> -->
       
 
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
