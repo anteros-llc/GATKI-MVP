@@ -1,24 +1,30 @@
-/* Parent layout using Grid */
+/* Two-column layout */
 .product-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-template-columns: 50% 50%; /* Equal width */
   margin: 0 auto;
   gap: 40px;
-  align-items: start;
+  align-items: start; /* Aligns items to the top */
 }
+/* Make image section sticky & fixed in height */
 .product-media {
   position: sticky;
-  top: calc(var(--header-height, 80px) + 20px); /* Sticks below the header */
+  top: calc(var(--header-height, 80px) + 20px); /* Adjust based on header */
   height: calc(
     100vh - var(--header-height, 80px) - 40px
-  ); /* Ensures fixed height */
-  max-height: 800px; /* Optional: Set a max height to avoid huge images */
-  overflow: hidden; /* Prevents expansion */
+  ); /* Full height minus header */
+  max-height: 800px; /* Prevents extra large images */
+  min-height: 600px; /* Prevents shrinking */
+  overflow: hidden; /* Prevents unwanted expansion */
+  display: flex;
+  align-items: center; /* Centers image vertically */
+  justify-content: center; /* Centers horizontally */
 }
 
-/* Prevents the image from stretching when product info expands */
+/* Ensure the slider fits perfectly */
 .splide {
-  height: 100%; /* Lock to parent height */
+  height: 100%;
+  width: 100%;
 }
 
 .splide__track {
@@ -28,15 +34,15 @@
 .splide__slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Prevents distortion */
+  object-fit: cover; /* Prevents image distortion */
   display: block;
 }
-
-/* Ensure product info scrolls independently */
+/* Make product info scroll separately */
 .product-info {
   height: auto;
-  overflow-y: visible; /* Allows content expansion */
   max-width: 100%;
+  overflow-y: auto;
+  padding-bottom: 50px;
 }
 
 /* Mobile: Stack layout */
