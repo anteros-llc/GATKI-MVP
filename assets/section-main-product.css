@@ -1,15 +1,12 @@
+/* Parent layout using Grid */
 .product-layout {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
   margin: 0 auto;
   gap: 40px;
+  align-items: start;
 }
-
 .product-media {
-  flex: 1;
-  max-width: 50%;
   position: sticky;
   top: calc(var(--header-height, 80px) + 20px); /* Sticks below the header */
   height: calc(
@@ -37,7 +34,6 @@
 
 /* Ensure product info scrolls independently */
 .product-info {
-  flex: 1;
   height: auto;
   overflow-y: visible; /* Allows content expansion */
   max-width: 100%;
