@@ -48,17 +48,17 @@
 /* Mobile: Stack layout */
 @media (max-width: 768px) {
   .product-layout {
-    flex-direction: column;
-    gap: 20px;
+    grid-template-columns: 1fr; /* Single column */
+    grid-template-rows: auto auto; /* Image first, then content */
   }
 
   .product-media {
-    position: relative;
-    max-width: 100%;
-    height: auto;
+    grid-row: 1; /* Image stays on top */
+    height: 100vh; /* Keep full height */
   }
 
   .product-info {
+    grid-row: 2; /* Content below */
     max-width: 100%;
   }
 }
