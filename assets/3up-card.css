@@ -47,9 +47,30 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.card-description {
+  opacity: 0;
+  transform: translateY(10px); /* Slightly move down */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  visibility: hidden; /* Ensures it doesn't take up space */
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Optional: Add a background */
+  color: white; /* Ensure good contrast */
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .custom-module .card:hover {
   background-color: var(--color-chenpi);
   color: var(--color-albedo);
+}
+
+.custom-module .card:hover .card-description {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 /* Card Header */
