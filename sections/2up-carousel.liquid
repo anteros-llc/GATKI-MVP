@@ -54,11 +54,7 @@
     text-decoration: none;
     color: var(--color-chenpi);
   }
-  .carousel-button img {
-  width: 24px; /* Adjust size as needed */
-  height: auto;
-  display: block; /* Prevents extra spacing */
-}
+
   .carousel::-webkit-scrollbar {
     display: none;
   }
@@ -177,12 +173,16 @@
    <div class="carousel-buttons">
               {% if forloop.index > 1 %}
                 <button class="carousel-button prev" data-target="{{ forloop.index | minus: 1 }}">
-                 <img src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Arrow_Left.svg?v=1734546235" alt="Previous">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" height="24" width="24" class="arrow-icon">
+    <path d="M2.4125 2.65869L2 3.07119V13.5712H3.4625V5.18994L12.875 14.6587L14 13.5337L4.55 4.10244H12.9125V2.65869H2.4125Z"/>
+  </svg>
                 </button>
               {% endif %}
               {% if forloop.index < section.blocks.size %}
                 <button class="carousel-button next" data-target="{{ forloop.index | plus: 1 }}">
-                    <img src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Arrow_Right.svg?v=1734546236" alt="Next">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" height="24" width="24" class="arrow-icon">
+    <path d="M13.5875 2.65869L14 3.07119V13.5712H12.5375V5.18994L3.125 14.6587L2 13.5337L11.45 4.10244H3.0875V2.65869H13.5875Z"/>
+  </svg>
                 </button>
               {% endif %}
             </div>  
