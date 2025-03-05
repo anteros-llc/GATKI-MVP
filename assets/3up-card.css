@@ -53,8 +53,6 @@
   transition: opacity 0.5s ease-in-out,
     transform 0.5s ease-in-out visibility 0.5s ease-in-out;
   visibility: hidden; /* Ensures it doesn't take up space */
-  padding: 10px;
-  border-radius: 5px;
 }
 
 .custom-module .card:hover {
