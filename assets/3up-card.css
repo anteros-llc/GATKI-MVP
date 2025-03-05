@@ -44,7 +44,7 @@
   text-align: left;
   overflow: hidden;
   gap: 0.5rem; /* Minimal spacing between elements */
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .card-description {
