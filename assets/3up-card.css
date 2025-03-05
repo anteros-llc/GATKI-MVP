@@ -50,13 +50,8 @@
 .card-description {
   opacity: 0;
   transform: translateY(10px); /* Slightly move down */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease visibility 0.3s ease-in-out;
   visibility: hidden; /* Ensures it doesn't take up space */
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  color: white; /* Ensure good contrast */
   padding: 10px;
   border-radius: 5px;
 }
