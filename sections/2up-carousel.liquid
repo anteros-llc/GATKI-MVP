@@ -171,10 +171,14 @@
             {% endif %}
    <div class="carousel-buttons">
               {% if forloop.index > 1 %}
-                <button class="carousel-button prev" data-target="{{ forloop.index | minus: 1 }}">&larr;</button>
+                <button class="carousel-button prev" data-target="{{ forloop.index | minus: 1 }}">
+                 <img src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Arrow_Left.svg?v=1734546235" alt="Previous">
+                </button>
               {% endif %}
               {% if forloop.index < section.blocks.size %}
-                <button class="carousel-button next" data-target="{{ forloop.index | plus: 1 }}">&rarr;</button>
+                <button class="carousel-button next" data-target="{{ forloop.index | plus: 1 }}">
+                    <img src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Arrow_Right.svg?v=1734546236" alt="Next">
+                </button>
               {% endif %}
             </div>  
         </div>
