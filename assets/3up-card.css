@@ -44,10 +44,12 @@
   text-align: left;
   overflow: hidden;
   gap: 0.5rem; /* Minimal spacing between elements */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .custom-module .card:hover {
   background-color: var(--color-chenpi);
+  color: var(--color-albedo);
 }
 
 /* Card Header */
