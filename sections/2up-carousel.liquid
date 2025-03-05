@@ -31,9 +31,8 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
-    padding: 0 1.5rem 1rem;
+    padding: 3%;
   }
   .carousel-header {
     display: flex;
@@ -42,10 +41,14 @@
     justify-content: space-between;
     color: var(--color-chenpi);
   }
+  .carousel-header h2{
+    margin-top: 0;
+  }
   .carousel-buttons {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    justify-content: end;
+    align-items: flex-end;
+    heaight: 100%;
   }
   .carousel-button {
     background: none;
@@ -133,14 +136,6 @@
         <div class="carousel-content">
           <div class="carousel-header">
             <h2>{{ block.settings.heading }}</h2>
-             <div class="carousel-buttons">
-              {% if forloop.index > 1 %}
-                <button class="carousel-button prev" data-target="{{ forloop.index | minus: 1 }}">&larr;</button>
-              {% endif %}
-              {% if forloop.index < section.blocks.size %}
-                <button class="carousel-button next" data-target="{{ forloop.index | plus: 1 }}">&rarr;</button>
-              {% endif %}
-            </div>
           </div>
             {% if block.settings.slide_type == 'slider' %}
           <div class="bottom-slider">
@@ -181,6 +176,14 @@
         </div>
       </div>
             {% endif %}
+   <div class="carousel-buttons">
+              {% if forloop.index > 1 %}
+                <button class="carousel-button prev" data-target="{{ forloop.index | minus: 1 }}">&larr;</button>
+              {% endif %}
+              {% if forloop.index < section.blocks.size %}
+                <button class="carousel-button next" data-target="{{ forloop.index | plus: 1 }}">&rarr;</button>
+              {% endif %}
+            </div>  
         </div>
       </div>
     {%- endfor -%}
