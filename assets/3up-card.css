@@ -44,6 +44,25 @@
   text-align: left;
   overflow: hidden;
   gap: 0.5rem; /* Minimal spacing between elements */
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.card-description {
+  opacity: 0;
+  transition: opacity 100ms ease-in-out, visibility 100ms ease-in-out;
+  padding-top: 10px;
+  visibility: hidden; /* Ensures it doesn't take up space */
+}
+
+.custom-module .card:hover {
+  background-color: var(--color-chenpi);
+  color: var(--color-albedo);
+}
+
+.custom-module .card:hover .card-description {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 /* Card Header */
