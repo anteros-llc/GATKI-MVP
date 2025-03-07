@@ -58,7 +58,7 @@
 
   .product-media {
     grid-row: 1; /* Image stays on top */
-    height: 100vh; /* Keep full height */
+    height: calc(100vh - 80px); /* Keep full height */
     position: unset;
   }
 
