@@ -1,151 +1,245 @@
-<div class="ingredient-carousel">
-  <div id="ingredient-slider" class="splide">
+<div id="ingredient-carousel" class="ingredient-carousel">
+  <h2 class="ingredient-carousel-title">Gentle yet effective ingredients</h2>
+
+  <!-- Image Slider -->
+  <div class="splide ingredient-slider">
     <div class="splide__track">
       <ul class="splide__list">
-        {%- for ingredient in section.blocks -%}
-          <li class="splide__slide">
-            <div class="ingredient-image-container">
-              <img src="{{ ingredient.settings.image | image_url: width: 1600 }}" alt="{{ ingredient.settings.title }}">
-              <!-- Numbers Overlay -->
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'ingredient' -%}
+            <li class="splide__slide ingredient-slide">
+              {%- if block.settings.image -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1600 }}"
+                  alt="{{ block.settings.title }}"
+                  class="ingredient-image"
+                >
+              {%- endif -%}
+
+              <!-- Number Buttons on Image -->
               <div class="ingredient-numbers">
-                {%- for number in section.blocks -%}
-                  <button type="button"
-                    class="pagination-btn"
-                    data-slide="{{ number.settings.slide_id }}"
-                    aria-label="Go to {{ number.settings.title }}">
-                    {{ number.settings.number }}
-                  </button>
+                {%- for ingredient in section.blocks -%}
+                  {%- if ingredient.type == 'ingredient' -%}
+                    <button
+                      class="ingredient-number-btn"
+                      data-slide="{{ ingredient.settings.slide_id }}"
+                      aria-label="Go to {{ ingredient.settings.title }}"
+                    >
+                      {{ ingredient.settings.number }}
+                    </button>
+                  {%- endif -%}
                 {%- endfor -%}
               </div>
-            </div>
-          </li>
+            </li>
+          {%- endif -%}
         {%- endfor -%}
       </ul>
     </div>
   </div>
 
-  <!-- Ingredients List (Always Visible) -->
-  <ul class="ingredients-list">
-    {%- for ingredient in section.blocks -%}
-      <li class="ingredient-item" data-ingredient-id="{{ ingredient.settings.slide_id }}">
-        <div class="ingredient-header">
-          <h6 class="ingredient-title">{{ ingredient.settings.title }}</h6>
-          <span class="ingredient-number">{{ ingredient.settings.number }}</span>
-        </div>
-        <p class="ingredient-description">{{ ingredient.settings.description }}</p>
-
-        <!-- Hidden Expanded Details -->
-        <div class="ingredient-hidden-text">
-          {% if ingredient.settings.percentage %}
-            <div class="percentage">
-              <h2>{{ ingredient.settings.percentage }}</h2>
+  <!-- Ingredients List -->
+  <div class="ingredient-list">
+    <ul>
+      {%- for ingredient in section.blocks -%}
+        {%- if ingredient.type == 'ingredient' -%}
+          <li class="ingredient-item" data-ingredient-id="{{ ingredient.settings.slide_id }}">
+            <div class="ingredient-header">
+              <h6 class="ingredient-title">{{ ingredient.settings.title }}</h6>
+              <span class="ingredient-number">{{ ingredient.settings.number }}</span>
             </div>
-          {% endif %}
-          <div class="bullet-points">
-            <ul>
-              {% for i in (1..3) %}
-                {% assign heading_key = 'bullet_point_' | append: i | append: '_heading' %}
-                {% assign text_key = 'bullet_point_' | append: i | append: '_text' %}
-                {% if ingredient.settings[heading_key] and ingredient.settings[text_key] %}
-                  <li>
-                    <h6>{{ ingredient.settings[heading_key] }}</h6>
-                    <p>{{ ingredient.settings[text_key] }}</p>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </li>
-    {%- endfor -%}
-  </ul>
+            <p class="ingredient-description">{{ ingredient.settings.description }}</p>
+
+            <!-- Hidden Details -->
+            <div class="ingredient-hidden-text">
+              {% if ingredient.settings.percentage %}
+                <div class="percentage">
+                  <h2>{{ ingredient.settings.percentage }}</h2>
+                </div>
+              {% endif %}
+              <div class="bullet-points">
+                <ul>
+                  {% for i in (1..3) %}
+                    {% assign heading = "bullet_point_" | append: i | append: "_heading" %}
+                    {% assign text = "bullet_point_" | append: i | append: "_text" %}
+                    {% if ingredient.settings[heading] and ingredient.settings[text] %}
+                      <li>
+                        <h6>{{ ingredient.settings[heading] }}</h6>
+                        <p>{{ ingredient.settings[text] }}</p>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
 </div>
 
-
-
-
 <style>
+/* General Styling */
+.ingredient-carousel {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+/* Title */
+.ingredient-carousel-title {
+  margin-bottom: 1.5rem;
+}
+
+/* Image Slider */
+.ingredient-slider {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.ingredient-slide {
+  position: relative;
+  text-align: center;
+}
+
+.ingredient-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Number Buttons on Image */
+.ingredient-numbers {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ingredient-number-btn {
+  background: var(--color-blanco);
+  border: 1px solid var(--color-blanco);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--color-chenpi);
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.ingredient-number-btn.active {
+  background-color: var(--color-chenpi);
+  color: var(--color-blanco);
+  border-color: var(--color-chenpi);
+}
+
+.ingredient-number-btn:hover {
+  background-color: var(--color-chenpi);
+  color: var(--color-blanco);
+}
+
+/* Ingredients List */
+.ingredient-list {
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.ingredient-item {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+  text-align: left;
+}
+
+.ingredient-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-chenpi);
+}
+
+.ingredient-title {
+  flex-grow: 1;
+}
+
+.ingredient-number {
+  text-align: right;
+  margin-left: 1rem;
+  color: var(--color-chenpi);
+  font-size: 0.75rem;
+}
+
+/* Ingredient Details (Hidden by Default) */
+.ingredient-hidden-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+}
+
+.ingredient-hidden-text.expanded {
+  max-height: 50
 
 
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.querySelector("#ingredient-slider")) {
-    var ingredientSplide = new Splide("#ingredient-slider", {
-      type: "fade",
-      perPage: 1,
-      pagination: false,
-      arrows: false,
-      speed: 800,
-      easing: "cubic-bezier(0.25, 1, 0.5, 1)"
-    }).mount();
+  const ingredientCarousel = document.querySelector("#ingredient-carousel");
 
-    // Select elements
-    const buttons = document.querySelectorAll(".pagination-btn");
-    const ingredientItems = document.querySelectorAll(".ingredient-item");
-    const ingredientDetails = document.querySelectorAll(".ingredient-hidden-text");
+  if (!ingredientCarousel) return;
 
-    // Ensure only one ingredient expands at a time
-    function collapseAll() {
-      ingredientDetails.forEach((detail) => {
-        detail.style.display = "none";
-        detail.style.opacity = "0";
-        detail.classList.remove("expanded");
-      });
-    }
+  var ingredientSplide = new Splide(".ingredient-slider", {
+    type: "fade",
+    perPage: 1,
+    pagination: false,
+    arrows: false,
+    speed: 800,
+    easing: "cubic-bezier(0.25, 1, 0.5, 1)"
+  }).mount();
 
-    // ✅ On load, all ingredients are visible but not expanded
+  const buttons = ingredientCarousel.querySelectorAll(".ingredient-number-btn");
+  const ingredientItems = ingredientCarousel.querySelectorAll(".ingredient-item");
+  const ingredientDetails = ingredientCarousel.querySelectorAll(".ingredient-hidden-text");
+
+  function collapseAll() {
     ingredientDetails.forEach((detail) => {
-      detail.style.display = "none"; // Keep all details hidden initially
+      detail.style.maxHeight = "0px";
       detail.style.opacity = "0";
-    });
-
-    // ✅ Click event for number buttons
-    buttons.forEach((button, index) => {
-      button.addEventListener("click", function () {
-        const targetId = this.getAttribute("data-slide");
-
-        // Collapse all expanded details before opening the selected one
-        collapseAll();
-
-        // Expand selected ingredient details
-        const targetDetail = document.querySelector(`.ingredient-item[data-ingredient-id="${targetId}"] .ingredient-hidden-text`);
-        if (targetDetail) {
-          targetDetail.style.display = "block";
-          setTimeout(() => {
-            targetDetail.style.opacity = "1";
-            targetDetail.classList.add("expanded");
-          }, 100);
-        }
-
-        // Move Splide to the correct slide
-        ingredientSplide.go(index);
-
-        // Ensure the clicked button is marked active
-        buttons.forEach((btn) => btn.classList.remove("active"));
-        this.classList.add("active");
-      });
-    });
-
-    // ✅ Sync details expansion with Splide transitions
-    ingredientSplide.on("moved", function (newIndex) {
-      collapseAll();
-      const newDetail = ingredientDetails[newIndex];
-      if (newDetail) {
-        newDetail.style.display = "block";
-        setTimeout(() => {
-          newDetail.style.opacity = "1";
-          newDetail.classList.add("expanded");
-        }, 100);
-      }
-
-      // Update active button
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      buttons[newIndex].classList.add("active");
+      detail.classList.remove("expanded");
     });
   }
-});
+
+  // ✅ Set default state: Show all ingredients but hide details
+  ingredientDetails.forEach((detail) => {
+    detail.style.maxHeight = "0px";
+    detail.style.opacity = "0";
+  });
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-slide");
+
+      collapseAll();
+
+      const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetId}"] .ingredient-hidden-text`);
+      if (targetDetail) {
+        targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
+        targetDetail.style.opacity = "1";
+        targetDetail.classList.add("expanded");
+      }
+
+      ingredientSplide.go(index);
+
+      buttons.forE
+
 
 
 </script>
