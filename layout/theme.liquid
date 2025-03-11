@@ -33,26 +33,44 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+    
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-  var splide = new Splide('#product-carousel', {
-    type: 'fade',
-    perPage: 1,
-    autoplay: true,
-    interval: 5000,
-    pagination: true,
-    arrows: false,
-    lazyLoad: 'nearby',
-  });
+        // Initialize Splide for Product Carousel
+        if (document.querySelector('#product-carousel')) {
+            var productSplide = new Splide('#product-carousel', {
+                type: 'fade',
+                perPage: 1,
+                autoplay: true,
+                interval: 5000,
+                pagination: true,
+                arrows: false,
+                lazyLoad: 'nearby',
+            }).mount();
 
-  splide.mount();
+            // Custom Pagination (1 / X format)
+            productSplide.on('moved', function (newIndex) {
+                let totalSlides = productSplide.length;
+                document.getElementById('slideIndex').textContent = (newIndex + 1) + ' / ' + totalSlides;
+            });
+        }
 
-  // Custom Pagination (1 / X format)
-  splide.on('moved', function (newIndex) {
-    let totalSlides = splide.length;
-    document.getElementById('slideIndex').textContent = (newIndex + 1) + ' / ' + totalSlides;
-  });
-});
+        // Initialize Splide for 2UP Carousel
+        if (document.querySelector('#carousel')) {
+            new Splide('#carousel', {
+                type      : 'slide',
+                perPage   : 1,
+                perMove   : 1,
+                pagination: false,
+                arrows    : true,
+                speed     : 800,
+                easing    : 'cubic-bezier(0.25, 1, 0.5, 1)',
+                breakpoints: {
+                    768: { perPage: 1 }
+                }
+            }).mount();
+        }
+    });
 </script>
 
     {%- if settings.animations_reveal_on_scroll -%}
