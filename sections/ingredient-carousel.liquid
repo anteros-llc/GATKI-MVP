@@ -1,192 +1,120 @@
-<div class="two-column-carousel">
-  <slideshow-component
-    class="slider-mobile-gutter"
-    role="region"
-    aria-roledescription="carousel"
-    aria-label="Two-Column Carousel with Ingredients"
-  >
-    <h2 class="carousel-title">Gentle yet effective ingredients</h2>
-
-    <div class="slideshow grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'ingredient' -%}
-        <div
-          class="slideshow__slide two-column-slide grid__item grid--2-col slider__slide"
-          id="{{ block.settings.slide_id }}"
-          {% if forloop.index == 1 %}style="display: flex;"{% else %}style="display: none;"{% endif %}
-        >
+<div class="ingredient-carousel">
+  <h2 class="carousel-title">Gentle yet effective ingredients</h2>
+  
+  <div class="carousel-container">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'ingredient' -%}
+        <div class="carousel-slide" id="{{ block.settings.slide_id }}" {% if forloop.index > 1 %}style="display: none;"{% endif %}>
+          
           <!-- Left Column: Image -->
-          <div class="slideshow__media slideshow__media--half">
+          <div class="carousel-image">
             {%- if block.settings.image -%}
-              {{
-                block.settings.image
-                | image_url: width: 1600
-                | image_tag: alt: block.settings.title
-              }}
+              <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.title }}">
             {%- endif -%}
-             <!-- Number Navigation -->
-    <div class="slideshow__numbers">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'ingredient' -%}
-        <button
-          type="button"
-          class="slideshow__number {% if forloop.index == 1 %}active{% endif %}"
-          data-slide="{{ block.settings.slide_id }}"
-          aria-label="Go to {{ block.settings.title }}"
-        >
-          {{ block.settings.number }}
-        </button>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
           </div>
 
           <!-- Right Column: Text -->
-        <div class="slideshow__text-wrapper slideshow__text-wrapper--half">
-          <div class="ingredients-container">
-            <ul class="ingredients-list-carousel">
-              {%- for ingredient in section.blocks -%}
-              {%- if ingredient.type == 'ingredient' -%}
-              <li class="ingredient-item">
-                <div class="ingredient-heading">
-                  <h6 class="ingredient-title">{{ ingredient.settings.title }}</h6>
-                  <span class="ingredient-number">{{ ingredient.settings.number }}</span>
-                </div>
-                <p class="ingredient-description">{{ ingredient.settings.description }}</p>
-     <div class="ingredient-hidden-text"
-     data-ingredient-id="{{ ingredient.settings.slide_id }}"
-     {% if block.settings.slide_id == ingredient.settings.slide_id %}style="display: block;"{% else %}style="display: none;"{% endif %}
->
-  {% if ingredient.settings.percentage %}
-  <div class="percentage">
-    <h2>{{ ingredient.settings.percentage }}</h2>
-  </div>
-  {% endif %}
-  <div class="bullet-points">
-    <ul>
-      {% if ingredient.settings.bullet_point_1_heading and ingredient.settings.bullet_point_1_text %}
-      <li>
-        <h6>{{ ingredient.settings.bullet_point_1_heading }}</h6>
-        <p>{{ ingredient.settings.bullet_point_1_text }}</p>
-      </li>
-      {% endif %}
-      {% if ingredient.settings.bullet_point_2_heading and ingredient.settings.bullet_point_2_text %}
-      <li>
-        <h6>{{ ingredient.settings.bullet_point_2_heading }}</h6>
-        <p>{{ ingredient.settings.bullet_point_2_text }}</p>
-      </li>
-      {% endif %}
-      {% if ingredient.settings.bullet_point_3_heading and ingredient.settings.bullet_point_3_text %}
-      <li>
-        <h6>{{ ingredient.settings.bullet_point_3_heading }}</h6>
-        <p>{{ ingredient.settings.bullet_point_3_text }}</p>
-      </li>
-      {% endif %}
-    </ul>
-  </div>
-</div>
+          <div class="carousel-text">
+            <h3 class="ingredient-title">{{ block.settings.title }}</h3>
+            <p class="ingredient-description">{{ block.settings.description }}</p>
 
-            </li>
-              {%- endif -%}
-              {%- endfor -%}
-            </ul>
-          </div>
+            <!-- Hidden Text (Toggles) -->
+            <div class="ingredient-hidden-text" data-ingredient-id="{{ block.settings.slide_id }}" style="display: none;">
+              {% if block.settings.percentage %}
+                <div class="percentage"><h2>{{ block.settings.percentage }}</h2></div>
+              {% endif %}
+              <div class="bullet-points">
+                <ul>
+                  {% for i in (1..3) %}
+                    {% assign heading_key = 'bullet_point_' | append: i | append: '_heading' %}
+                    {% assign text_key = 'bullet_point_' | append: i | append: '_text' %}
+                    {% if block.settings[heading_key] and block.settings[text_key] %}
+                      <li>
+                        <h6>{{ block.settings[heading_key] }}</h6>
+                        <p>{{ block.settings[text_key] }}</p>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </slideshow-component>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <!-- Number Navigation -->
+  <div class="carousel-pagination">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'ingredient' -%}
+        <button type="button" class="pagination-btn {% if forloop.index == 1 %}active{% endif %}" 
+          data-slide="{{ block.settings.slide_id }}">
+          {{ block.settings.number }}
+        </button>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
 </div>
 
 <style>
-ul{
-  list-style: none;
-}
-
-.two-column-carousel{
+.ingredient-carousel {
   text-align: center;
   padding-bottom: 2rem;
 }
-/* Namespace wrapper */
-.two-column-carousel .slider__slide {
+
+.carousel-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-/* Image Column */
-.two-column-carousel .slideshow__media--half {
-  flex: 1;
+.carousel-slide {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
-
-.two-column-carousel .slideshow__media img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  max-width: 33rem; /* Equivalent to ~532px at 16px base font size */
-  aspect-ratio: 1; /* Ensures the image remains square (1:1 ratio) */
-  border-radius: 1rem; 
-  gap: 1.5rem; /* 24px gap */
-  opacity: 1; /* Ensures visibility */
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .two-column-carousel .slideshow__media img {
-    max-width: 28rem; /* Slightly smaller for medium screens */
-  }
+.carousel-image img {
+  width: 100%;
+  max-width: 33rem;
+  border-radius: 1rem;
+  aspect-ratio: 1;
 }
 
-@media (max-width: 768px) {
-  .two-column-carousel .slideshow__media img {
-    max-width: 22rem; /* Smaller size for tablets */
-  }
-}
-
-/* Text Column */
-.two-column-carousel .slideshow__text-wrapper--half {
+.carousel-text {
   flex: 1;
   padding: 2rem;
   text-align: left;
 }
 
-.two-column-carousel .slideshow__heading {
-  margin-bottom: 1rem;
+.ingredient-title {
+  color: var(--color-chenpi);
 }
 
-.two-column-carousel .slideshow__description {
-  margin-bottom: 1rem;
+.ingredient-hidden-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
-/* Number Navigation */
-.two-column-carousel .slideshow__media--half {
-  position: relative; /* To position numbers relative to the container */
-}
- 
-.two-column-carousel .slideshow__numbers {
+/* Pagination */
+.carousel-pagination {
   display: flex;
   justify-content: center;
-  position: absolute;
-  bottom: 5%;
-  width: 100%;
+  margin-top: 1rem;
 }
 
-.two-column-carousel .slideshow__number {
-  font-family: var(--font-body-family);
+.pagination-btn {
   background: var(--color-blanco);
-  border: 1px solid var(--color-blanco);
+  border: 1px solid var(--color-chenpi);
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   margin: 0 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--color-chenpi);
@@ -194,225 +122,72 @@ ul{
   transition: all 0.3s ease;
 }
 
-.two-column-carousel .slideshow__number.active {
+.pagination-btn.active,
+.pagination-btn:hover {
   background-color: var(--color-chenpi);
   color: var(--color-blanco);
-  border-color: var(--color-chenpi);
-}
-
-.two-column-carousel .slideshow__number:hover {
-  background-color: var(--color-chenpi);
-  color: var(--color-blanco);
-  border-color: var(--color-chenpi);
-}
-
-.two-column-carousel .ingredients-list-carousel {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.ingredient-hidden-text {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
 /* Responsive */
-@media (max-width: 749px) {
-  .two-column-carousel .slider__slide {
+@media (max-width: 768px) {
+  .carousel-container {
     flex-direction: column;
-    align-items: center;
-  }
-
-  .two-column-carousel .slideshow__media--half,
-  .two-column-carousel .slideshow__text-wrapper--half {
-    width: 100%;
     text-align: center;
   }
-}
 
-/* Wrapper for the ingredients */
-.two-column-carousel .ingredients-container {
-  max-height: 40rem; /* Adjust height as needed */
-  max-width: 30rem;
-  overflow-y: auto; /* Adds vertical scrolling if content overflows */
-  padding-right: 1rem; /* Space for scrollbar */
-}
-
-/* Ingredient item styles */
-.two-column-carousel .ingredient-heading {
-  display: flex;
-  justify-content: space-between; /* Number to the right */
-  align-items: center;
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--color-chenpi);
-}
-
-.two-column-carousel .ingredient-title {
-  flex-grow: 1; /* Takes up remaining space */
-  text-align: left;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.two-column-carousel .ingredient-number {
-  text-align: right;
-  margin-left: 1rem;
-  color: var(--color-chenpi);
-  font-size: 0.75rem;
-}
-
-/* Scrollbar customization (optional) */
-.two-column-carousel .ingredients-container::-webkit-scrollbar {
-  width: 0.6rem;
-}
-
-.two-column-carousel .ingredients-container::-webkit-scrollbar-thumb {
-  background: var(--color-chenpi);
-  border-radius: 0.3rem;
-}
-
-.two-column-carousel .ingredients-container::-webkit-scrollbar-track {
-  background: var(--color-chenpi);
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .two-column-carousel .ingredients-container {
-    max-height: 30rem;
+  .carousel-text {
+    text-align: center;
   }
-}
 
-@media (max-width: 768px) {
-  .two-column-carousel .ingredients-container {
-    max-height: 20rem;
+  .carousel-image img {
+    max-width: 22rem;
   }
-}
-
-.two-column-carousel .ingredients-list-carousel {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Ingredient Description */
-.two-column-carousel .ingredient-description {
-  margin-top: 0.25rem; /* Reduce spacing between title and description */
-}
-
-/* Style for bullet points */
-.ingredient-hidden-text ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Ensures columns are evenly spaced */
-  gap: 1rem; /* Adjust spacing between columns */
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1rem;
-}
-
-.ingredient-hidden-text li {
-  flex: 0 1 30%; /* Adjust column width to ensure 3 columns max */
-}
-
-.ingredient-hidden-text h2{
-  margin-bottom: 0;
-  color: var(--color-mandarin);
-  margin-top: 0;
-}
-
-.ingredient-hidden-text h6::before {
-  content: '•'; /* Bullet point */
-  color: var(--color-mandarin); /* Change to desired color */
-  font-size: 1rem; /* Adjust bullet size */
-  margin-right: 0.125rem; /* Space between bullet and text */
-}
-
-/* Heading and text */
-.ingredient-hidden-text li h6 {
-  margin-top: 0;
-  margin-bottom: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-  
-.ingredient-hidden-text li p{
-  font-size: 0.75rem;
-  margin-top: 0;
-  margin-bottom: 0;
 }
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const carousel = document.querySelector(".two-column-carousel");
-
+  const carousel = document.querySelector(".ingredient-carousel");
   if (!carousel) return;
 
-  const slides = carousel.querySelectorAll(".slideshow__slide");
-  const buttons = carousel.querySelectorAll(".slideshow__number");
+  const slides = carousel.querySelectorAll(".carousel-slide");
+  const buttons = carousel.querySelectorAll(".pagination-btn");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
-  // Initial state: Reset buttons, hide texts, and show the first slide
-  const resetState = () => {
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    hiddenTexts.forEach((text) => {
-      text.style.display = "none";
-      text.style.opacity = "0";
+  function resetState() {
+    buttons.forEach(btn => btn.classList.remove("active"));
+    slides.forEach(slide => slide.style.display = "none");
+    hiddenTexts.forEach(text => {
       text.style.maxHeight = "0";
+      text.style.opacity = "0";
+      text.style.display = "none";
     });
-    slides.forEach((slide) => {
-      slide.style.display = "none"; // Hide all slides
-    });
-  };
+  }
 
-  // On load, reset all states but make the first slide visible
   resetState();
-  if (slides.length > 0) slides[0].style.display = "flex"; // Show first slide only
+  if (slides.length > 0) slides[0].style.display = "flex";
 
-  // Add event listeners to buttons
-  buttons.forEach((button, index) => {
+  buttons.forEach(button => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
       const targetSlide = carousel.querySelector(`#${targetId}`);
-      const isActive = this.classList.contains("active");
+      const targetText = carousel.querySelector(`[data-ingredient-id="${targetId}"]`);
 
-      if (isActive) {
-        // If already active, collapse text and deactivate button
-        this.classList.remove("active");
-        hiddenTexts.forEach((text) => {
-          if (text.getAttribute("data-ingredient-id") === targetId) {
-            text.style.display = "none";
-            text.style.opacity = "0";
-            text.style.maxHeight = "0";
-          }
-        });
-      } else {
-        // Reset all states
-        resetState();
+      resetState();
 
-        // Show the clicked slide
-        if (targetSlide) targetSlide.style.display = "flex";
-
-        // Mark the clicked button as active
-        this.classList.add("active");
-
-        // Show the corresponding hidden text
-        hiddenTexts.forEach((text) => {
-          if (text.getAttribute("data-ingredient-id") === targetId) {
-            text.style.display = "block";
-            text.style.opacity = "1";
-            text.style.maxHeight = "500px"; // Adjust height as needed
-          }
-        });
+      this.classList.add("active");
+      if (targetSlide) targetSlide.style.display = "flex";
+      if (targetText) {
+        targetText.style.display = "block";
+        setTimeout(() => {
+          targetText.style.maxHeight = "500px";
+          targetText.style.opacity = "1";
+        }, 10);
       }
     });
   });
 });
+
 </script>
 
 
