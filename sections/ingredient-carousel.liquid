@@ -226,20 +226,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", function () {
-      const targetId = this.getAttribute("data-slide");
+      const targetIndex = parseInt(this.getAttribute("data-slide"));
 
       collapseAll();
 
-      const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetId}"] .ingredient-hidden-text`);
+      const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"] .ingredient-hidden-text`);
       if (targetDetail) {
         targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
         targetDetail.style.opacity = "1";
         targetDetail.classList.add("expanded");
       }
 
-      ingredientSplide.go(index);
+      ingredientSplide.go(targetIndex);
 
-      buttons.forE
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+
+  ingredientSplide.on("moved", function (newIndex) {
+    collapseAll();
+    const newDetail = ingredientDetails[newIndex];
+    if (newDetail) {
+      newDetail.style.maxHeight = newDetail.scrollHeight + "px";
+      newDetail.style.opacity = "1";
+      newDetail.classList.add("expanded");
+    }
+
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    buttons[newIndex].classList.add("active");
+  });
+});
+
 
 
 
