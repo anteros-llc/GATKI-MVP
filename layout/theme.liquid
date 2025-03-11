@@ -35,7 +35,8 @@
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     
 <script>
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
+    // ✅ Initialize Splide for Product Carousel
     if (document.querySelector('#product-carousel')) {
         var productSplide = new Splide('#product-carousel', {
             type: 'fade',
@@ -43,24 +44,60 @@
             autoplay: true,
             interval: 5000,
             pagination: true,
-            arrows: false, // Hides default arrows, use custom if needed
+            arrows: false,
             lazyLoad: 'nearby',
         }).mount();
 
-
+        // ✅ Custom Pagination (1 / X format)
         productSplide.on('moved', function (newIndex) {
             let totalSlides = productSplide.length;
-            let paginationText = `${newIndex + 1} / ${totalSlides}`;
             let paginationElement = document.getElementById('slideIndex');
 
             if (paginationElement) {
-                paginationElement.textContent = paginationText;
+                paginationElement.textContent = `${newIndex + 1} / ${totalSlides}`;
             }
         });
     }
-   
+
+    // ✅ Initialize Splide for 2UP Carousel
     if (document.querySelector('#carousel')) {
-        const carousel = new Splide('#carousel'
+        var twoUpCarousel = new Splide('#carousel', {
+            type: 'slide',
+            perPage: 1,
+            perMove: 1,
+            pagination: false,
+            arrows: false, // Using custom arrows
+            speed: 800,
+            easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+            breakpoints: {
+                768: { perPage: 1 }
+            }
+        }).mount();
+
+        // ✅ Custom Navigation Arrows (Show Only One at a Time)
+        const prevArrow = document.querySelector('.carousel-button.prev');
+        const nextArrow = document.querySelector('.carousel-button.next');
+
+        if (prevArrow && nextArrow) {
+            // Initial state: Hide "Prev", show "Next"
+            prevArrow.style.display = 'none';
+            nextArrow.style.display = 'block';
+
+            twoUpCarousel.on('moved', function (newIndex) {
+                const totalSlides = twoUpCarousel.length;
+
+                // ✅ Show/Hide Arrows Based on Slide Position
+                prevArrow.style.display = newIndex === 0 ? 'none' : 'block';
+                nextArrow.style.display = newIndex === totalSlides - 1 ? 'none' : 'block';
+            });
+
+            // ✅ Click Listeners for Custom Arrows
+            prevArrow.addEventListener('click', () => twoUpCarousel.go('<'));
+            nextArrow.addEventListener('click', () => twoUpCarousel.go('>'));
+        }
+    }
+});
+
 
 </script>
 
