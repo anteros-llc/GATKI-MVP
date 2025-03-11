@@ -83,6 +83,7 @@
 .ingredient-carousel {
   text-align: center;
   padding-bottom: 2rem;
+  position: relative;
 }
 
 /* Title */
@@ -105,12 +106,13 @@
 .ingredient-image {
   width: 100%;
   border-radius: 10px;
+  display: block;
 }
 
 /* Number Buttons on Image */
 .ingredient-numbers {
   position: absolute;
-  top: 10%;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -156,27 +158,7 @@
   text-align: left;
 }
 
-.ingredient-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--color-chenpi);
-}
-
-.ingredient-title {
-  flex-grow: 1;
-}
-
-.ingredient-number {
-  text-align: right;
-  margin-left: 1rem;
-  color: var(--color-chenpi);
-  font-size: 0.75rem;
-}
-
-/* Ingredient Details (Hidden by Default) */
+/* Hidden Details */
 .ingredient-hidden-text {
   max-height: 0;
   overflow: hidden;
@@ -185,10 +167,28 @@
 }
 
 .ingredient-hidden-text.expanded {
-  max-height: 50
+  max-height: 500px;
+  opacity: 1;
 }
 
+/* Bullet Points */
+.bullet-points ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
+.bullet-points li {
+  margin-bottom: 0.5rem;
+}
+
+.bullet-points h6 {
+  font-weight: bold;
+}
+
+.percentage h2 {
+  color: var(--color-mandarin);
+}
 </style>
 
 <script>
