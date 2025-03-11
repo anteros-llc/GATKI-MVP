@@ -48,6 +48,16 @@
   padding-right: 12%;
 }
 
+.product-carousel-controls {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 button.product-carousel-button {
   background: none;
   border: none;
