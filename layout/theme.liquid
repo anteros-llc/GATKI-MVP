@@ -47,8 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
             lazyLoad: 'nearby',
         }).mount();
 
-        // ✅ Custom Pagination (1 / X format)
-      const paginationElement = document.getElementById('slideIndex');
+     const paginationElement = document.getElementById('slideIndex');
 
         function updatePagination(newIndex) {
             let totalSlides = productSplide.length;
@@ -62,6 +61,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         updatePagination(0); // Set initial pagination
+
+        // ✅ Custom Navigation Arrows
+        const prevArrow = document.querySelector('.product-carousel-button.prev');
+        const nextArrow = document.querySelector('.product-carousel-button.next');
+
+        if (prevArrow && nextArrow) {
+            prevArrow.style.display = 'none'; // Hide prev arrow initially
+
+            productSplide.on('moved', function (newIndex) {
+                const totalSlides = productSplide.length;
+
+                prevArrow.style.display = newIndex === 0 ? 'none' : 'block';
+                nextArrow.style.display = newIndex === totalSlides - 1 ? 'none' : 'block';
+            });
+
+            prevArrow.addEventListener('click', () => productSplide.go('<'));
+            nextArrow.addEventListener('click', () => productSplide.go('>'));
+        }
     }
 
     // ✅ Initialize Splide for 2UP Carousel
