@@ -79,20 +79,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const nextArrow = document.querySelector('.carousel-button.next');
 
  
-        if (prevArrow && nextArrow) {
+    if (prevArrow && nextArrow) {
             // Hide prevArrow initially
-            prevArrow.style.display = 'none';
-            nextArrow.style.display = 'block';
+            prevArrow.classList.remove('show');
+            nextArrow.classList.add('show');
 
             twoUpCarousel.on('moved', function (newIndex) {
                 if (newIndex === 0) {
                     // First slide: Hide prev, Show next
-                    prevArrow.style.display = 'none';
-                    nextArrow.style.display = 'block';
+                    prevArrow.classList.remove('show');
+                    nextArrow.classList.add('show');
                 } else {
                     // Second slide: Show prev, Hide next
-                    prevArrow.style.display = 'block';
-                    nextArrow.style.display = 'none';
+                    prevArrow.classList.add('show');
+                    nextArrow.classList.remove('show');
                 }
             });
 
