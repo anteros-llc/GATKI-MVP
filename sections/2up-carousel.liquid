@@ -47,11 +47,11 @@
 .carousel-header h2{
     margin-top: 0;
 }
-
 .carousel-buttons {
   position: absolute;
   right: 3%;
   bottom: 3%;
+   
 }
 .carousel-button {
   background: none;
@@ -61,7 +61,14 @@
   text-decoration: none;
   color: var(--color-chenpi);
   padding: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
+
+.carousel-button.show {
+    opacity: 1;
+}
+
 .slider-wrapper-slide1, .slider-wrapper-slide2 {
   display: flex;
   justify-content: space-between;
