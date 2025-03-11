@@ -79,18 +79,21 @@ document.addEventListener('DOMContentLoaded', function () {
         const nextArrow = document.querySelector('.carousel-button.next');
 
  
-    if (prevArrow && nextArrow) {
-            // Hide prevArrow initially
+   if (prevArrow && nextArrow) {
+            // ✅ Ensure first slide starts with only "next" arrow visible
             prevArrow.classList.remove('show');
             nextArrow.classList.add('show');
 
             twoUpCarousel.on('moved', function (newIndex) {
+                const totalSlides = twoUpCarousel.length;
+
+                // ✅ First slide: Hide prev, show next
                 if (newIndex === 0) {
-                    // First slide: Hide prev, Show next
                     prevArrow.classList.remove('show');
                     nextArrow.classList.add('show');
-                } else {
-                    // Second slide: Show prev, Hide next
+                }
+                // ✅ Last slide: Show prev, hide next
+                else if (newIndex === totalSlides - 1) {
                     prevArrow.classList.add('show');
                     nextArrow.classList.remove('show');
                 }
