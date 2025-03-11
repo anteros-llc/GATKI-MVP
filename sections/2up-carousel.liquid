@@ -188,7 +188,13 @@ img.svg-slider{
               </div>
             {% endif %}
 
-            <div class="carousel-buttons">
+          
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+    <div class="carousel-buttons">
               {% if forloop.index > 1 %}
                 <button class="carousel-button prev">
                   <svg width="24" height="24" viewBox="0 0 13 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
@@ -204,11 +210,6 @@ img.svg-slider{
                 </button>
               {% endif %}
             </div>
-          </div>
-        </li>
-      {%- endfor -%}
-    </ul>
-  </div>
 </div>
 
 
