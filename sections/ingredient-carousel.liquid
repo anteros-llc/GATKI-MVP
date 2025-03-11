@@ -68,13 +68,26 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
 }
 
+/* Slide Transitions */
 .carousel-slide {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* First Slide Visible */
+.carousel-slide:first-child {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.carousel-image {
+  position: relative;
 }
 
 .carousel-image img {
@@ -84,48 +97,50 @@
   aspect-ratio: 1;
 }
 
-.carousel-text {
-  flex: 1;
-  padding: 2rem;
-  text-align: left;
-}
-
-.ingredient-title {
-  color: var(--color-chenpi);
-}
-
-.ingredient-hidden-text {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-}
-
-/* Pagination */
+/* Numbers on Image */
 .carousel-pagination {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  gap: 1rem;
 }
 
 .pagination-btn {
   background: var(--color-blanco);
-  border: 1px solid var(--color-chenpi);
+  border: 2px solid var(--color-chenpi);
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
-  margin: 0 0.5rem;
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--color-chenpi);
-  font-weight: 400;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
-.pagination-btn.active,
-.pagination-btn:hover {
+.pagination-btn.active {
   background-color: var(--color-chenpi);
   color: var(--color-blanco);
+  border-color: var(--color-chenpi);
+  transform: scale(1.1);
+}
+
+/* Expand Ingredient Text */
+.ingredient-hidden-text {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+  transition: max-height 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Smooth Hide/Show on Click */
+.ingredient-hidden-text:not(.active) {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Responsive */
@@ -142,7 +157,12 @@
   .carousel-image img {
     max-width: 22rem;
   }
+
+  .carousel-pagination {
+    top: 5%;
+  }
 }
+
 </style>
 
 <script>
