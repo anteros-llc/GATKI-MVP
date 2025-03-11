@@ -78,14 +78,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const prevArrow = document.querySelector('.carousel-button.prev');
         const nextArrow = document.querySelector('.carousel-button.next');
 
-        if (prevArrow && nextArrow) {
-            prevArrow.style.display = 'none'; // Hide prev at start
-            nextArrow.style.display = 'block';
+       if (prevArrow && nextArrow) {
+            prevArrow.style.opacity = '0.3'; // Lightly visible at start
+            nextArrow.style.opacity = '1';
+            prevArrow.style.transition = 'opacity 0.3s ease-in-out';
+            nextArrow.style.transition = 'opacity 0.3s ease-in-out';
 
             twoUpCarousel.on('moved', function (newIndex) {
                 const totalSlides = twoUpCarousel.length;
-                prevArrow.style.display = newIndex === 0 ? 'none' : 'block';
-                nextArrow.style.display = newIndex === totalSlides - 1 ? 'none' : 'block';
+                
+                prevArrow.style.opacity = newIndex === 0 ? '0.3' : '1';
+                nextArrow.style.opacity = newIndex === totalSlides - 1 ? '0.3' : '1';
             });
 
             // ✅ Click Listeners for Custom Arrows
