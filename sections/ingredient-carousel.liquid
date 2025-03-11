@@ -151,12 +151,19 @@
   flex: 1;
   text-align: left;
 }
-
+/* Ingredient text container */
 .ingredient-item {
-  display: none;
+  display: none; /* Hide by default */
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
+
+/* First ingredient text is visible on load */
+.ingredient-item:first-child {
+  display: block;
+  opacity: 1;
+}
+
 
 .ingredient-item.active {
   display: block;
@@ -200,7 +207,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // ✅ Initialize Splide
+  // ✅ Initialize Splide for the ingredient carousel
   if (document.querySelector("#ingredient-slider")) {
     var ingredientSplide = new Splide("#ingredient-slider", {
       type: "fade",
@@ -211,45 +218,51 @@ document.addEventListener("DOMContentLoaded", function () {
       easing: "cubic-bezier(0.25, 1, 0.5, 1)"
     }).mount();
 
-    // ✅ Handle Custom Number Navigation
+    // ✅ Get all navigation buttons and ingredient text items
     const buttons = document.querySelectorAll(".pagination-btn");
     const ingredientItems = document.querySelectorAll(".ingredient-item");
 
-    buttons.forEach((button, index) => {
-      button.addEventListener("click", function () {
-        // Move Splide to the corresponding slide
-        ingredientSplide.go(index);
-
-        // Update Active Number Button
-        buttons.forEach((btn) => btn.classList.remove("active"));
-        this.classList.add("active");
-
-        // Update Ingredient Details
-        ingredientItems.forEach((item) => {
-          item.style.display = "none";
-          item.classList.remove("active");
-        });
-
-        ingredientItems[index].style.display = "block";
-        setTimeout(() => ingredientItems[index].classList.add("active"), 10);
-      });
-    });
-
-    // ✅ Sync Text with Splide Slide Change
-    ingredientSplide.on("moved", function (newIndex) {
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      buttons[newIndex].classList.add("active");
-
+    // ✅ Function to show/hide ingredient descriptions
+    function updateIngredients(index) {
+      // Hide all descriptions
       ingredientItems.forEach((item) => {
         item.style.display = "none";
         item.classList.remove("active");
       });
 
-      ingredientItems[newIndex].style.display = "block";
-      setTimeout(() => ingredientItems[newIndex].classList.add("active"), 10);
+      // Show only the selected ingredient
+      ingredientItems[index].style.display = "block";
+      setTimeout(() => ingredientItems[index].classList.add("active"), 10);
+    }
+
+    // ✅ Set the first ingredient text visible on load
+    updateIngredients(0);
+
+    // ✅ Number Button Click Event
+    buttons.forEach((button, index) => {
+      button.addEventListener("click", function () {
+        ingredientSplide.go(index);
+
+        // Update active number button
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        this.classList.add("active");
+
+        // Show only the selected ingredient text
+        updateIngredients(index);
+      });
+    });
+
+    // ✅ Sync text updates with Splide transitions
+    ingredientSplide.on("moved", function (newIndex) {
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      buttons[newIndex].classList.add("active");
+
+      // Show only the active ingredient text
+      updateIngredients(newIndex);
     });
   }
 });
+
 
 
 </script>
