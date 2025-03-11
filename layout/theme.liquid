@@ -78,11 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const prevArrow = document.querySelector('.carousel-button.prev');
         const nextArrow = document.querySelector('.carousel-button.next');
 
-    if (prevArrow && nextArrow) {
-            // Ensure arrows have opacity transition
+ 
+        if (prevArrow && nextArrow) {
+            // 🔹 Hide prevArrow and Show nextArrow by default
             prevArrow.style.opacity = '0';
-            nextArrow.style.opacity = '1';
             prevArrow.style.pointerEvents = 'none';
+            nextArrow.style.opacity = '1';
             nextArrow.style.pointerEvents = 'auto';
 
             prevArrow.style.transition = 'opacity 0.3s ease-in-out';
