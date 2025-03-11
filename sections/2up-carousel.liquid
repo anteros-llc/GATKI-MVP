@@ -73,38 +73,80 @@
 
 </style>
 
-<div class="2up-carousel">
-  <div id="carousel" class="splide">
-    <div class="splide__track">
-      <ul class="splide__list">
-        {% for block in section.blocks %}
-          <li class="splide__slide">
-            <div class="carousel-container">
-              <img class="carousel-image" src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.heading }}">
-              <div class="carousel-content">
-                <div class="carousel-header">
-                  <h2>{{ block.settings.heading }}</h2>
+<div class="2up-carousel splide" id="carousel">
+  <div class="splide__track">
+    <ul class="splide__list">
+      {% for block in section.blocks %}
+        <li class="splide__slide carousel-slide" id="slide-{{ forloop.index }}">
+          <img class="carousel-image" src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.heading }}">
+          <div class="carousel-content">
+            <div class="carousel-header">
+              <h2>{{ block.settings.heading }}</h2>
+            </div>
+
+            {% if block.settings.slide_type == 'slider' %}
+              <div class="bottom-slider">
+                <div class="slider-wrapper-slide1">
+                  <h6 class="slider-label">GENTLENESS</h6>
+                  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693" alt="Gentleness slider">
+                </div>
+                <div class="slider-wrapper-slide1">
+                  <h6 class="slider-label">NOURISHMENT</h6>
+                  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_7.0.svg?v=1734398693" alt="Nourishment slider">
+                </div>
+                <div class="slider-wrapper-slide1">
+                  <h6 class="slider-label">STAYING POWER</h6>
+                  <img class="svg-slider" src="https://cdn.shopify.com/s/files/1/0887/0500/7936/files/Range_8.0.svg?v=1734398694" alt="Staying Power slider">
                 </div>
               </div>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+            {% elsif block.settings.slide_type == 'text' %}
+              <div class="text-content">
+                <div class="slider-wrapper-slide2">
+                  <h6>HOW IT FEELS</h6>
+                  <span>Cushiony soft</span>
+                </div>
+                <div class="slider-wrapper-slide2">
+                  <h6>HOW IT LOOKS</h6>
+                  <span>Clear with a natural sheen</span>
+                </div>
+                <div class="slider-wrapper-slide2">
+                  <h6>HOW IT SMELLS</h6>
+                  <span>Fragrance-free</span>
+                </div>
+                <div class="slider-wrapper-slide2">
+                  <h6>HOW IT TASTES</h6>
+                  <span>Flavor-free</span>
+                </div>
+                <div class="slider-wrapper-slide2">
+                  <h6>BEST FOR</h6>
+                  <span>Suitable for all, especially sensitive lips</span>
+                </div>
+              </div>
+            {% endif %}
 
-    <!-- ✅ Custom Arrows (Only One Arrow Per Slide) -->
-    <button class="splide__arrow splide__arrow--prev">
-      <svg width="24" height="24" viewBox="0 0 13 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.839844 6.55496L6.77028 0.834229L7.74419 1.73127L3.18767 6.1149H12.8398V7.55355L3.18767 7.53663L7.70941 11.9372L6.7355 12.8342L0.839844 7.07964V6.55496Z" fill="#91693C"/>
-      </svg>
-    </button>
-    <button class="splide__arrow splide__arrow--next">
-      <svg width="24" height="24" viewBox="0 0 12 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 6.37918V6.90386L6.10435 12.6584L5.13043 11.7614L9.65217 7.36085L0 7.37777V5.93912H9.65217L5.09565 1.55548L6.06957 0.658447L12 6.37918Z" fill="#91693C"/>
-      </svg>
-    </button>
+            <div class="carousel-buttons">
+              {% if forloop.index > 1 %}
+                <button class="carousel-button prev">
+                  <svg width="24" height="24" viewBox="0 0 13 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                    <path d="M0.839844 6.55496L6.77028 0.834229L7.74419 1.73127L3.18767 6.1149H12.8398V7.55355L3.18767 7.53663L7.70941 11.9372L6.7355 12.8342L0.839844 7.07964V6.55496Z" fill="#91693C"/>
+                  </svg>
+                </button>
+              {% endif %}
+              {% if forloop.index < section.blocks.size %}
+                <button class="carousel-button next">
+                  <svg width="24" height="24" viewBox="0 0 12 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                    <path d="M12 6.37918V6.90386L6.10435 12.6584L5.13043 11.7614L9.65217 7.36085L0 7.37777V5.93912H9.65217L5.09565 1.55548L6.06957 0.658447L12 6.37918Z" fill="#91693C"/>
+                  </svg>
+                </button>
+              {% endif %}
+            </div>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
   </div>
 </div>
+
 
 {% schema %}
 {
