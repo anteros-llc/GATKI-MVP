@@ -78,17 +78,34 @@ document.addEventListener('DOMContentLoaded', function () {
         const prevArrow = document.querySelector('.carousel-button.prev');
         const nextArrow = document.querySelector('.carousel-button.next');
 
-       if (prevArrow && nextArrow) {
-            prevArrow.style.opacity = '0.3'; // Lightly visible at start
-            nextArrow.style.opacity = '1';
+     if (prevArrow && nextArrow) {
+            prevArrow.style.opacity = '0'; // Start hidden
+            nextArrow.style.opacity = '1'; // Start visible
+            prevArrow.style.pointerEvents = 'none'; // Prevent interaction when hidden
+            nextArrow.style.pointerEvents = 'auto';
+
             prevArrow.style.transition = 'opacity 0.3s ease-in-out';
             nextArrow.style.transition = 'opacity 0.3s ease-in-out';
 
             twoUpCarousel.on('moved', function (newIndex) {
                 const totalSlides = twoUpCarousel.length;
-                
-                prevArrow.style.opacity = newIndex === 0 ? '0.3' : '1';
-                nextArrow.style.opacity = newIndex === totalSlides - 1 ? '0.3' : '1';
+
+                if (newIndex === 0) {
+                    prevArrow.style.opacity = '0'; // Hide previous arrow
+                    prevArrow.style.pointerEvents = 'none';
+                    nextArrow.style.opacity = '1'; // Show next arrow
+                    nextArrow.style.pointerEvents = 'auto';
+                } else if (newIndex === totalSlides - 1) {
+                    prevArrow.style.opacity = '1'; // Show previous arrow
+                    prevArrow.style.pointerEvents = 'auto';
+                    nextArrow.style.opacity = '0'; // Hide next arrow
+                    nextArrow.style.pointerEvents = 'none';
+                } else {
+                    prevArrow.style.opacity = '1';
+                    prevArrow.style.pointerEvents = 'auto';
+                    nextArrow.style.opacity = '1';
+                    nextArrow.style.pointerEvents = 'auto';
+                }
             });
 
             // ✅ Click Listeners for Custom Arrows
