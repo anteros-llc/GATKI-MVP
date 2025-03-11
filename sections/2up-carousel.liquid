@@ -1,148 +1,51 @@
 <style>
-  .2up-carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background-color: var(--color-blanco); 
-    color: var(--color-chenpi);
-  }
-
-  .carousel-track {
-    display: flex;
-    width: 100%;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    will-change: transform;
+.2up-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
-  .carousel-slide {
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+.splide {
+  width: 100%;
 }
 
-  .carousel-slide.active {
-    opacity: 1;
+.splide__slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-  .carousel-image {
-    flex: 1;
-    max-width: 50%;
-  }
-  .carousel-content {
-    flex: 1;
-    text-align: left;
-    display: flex;
+.carousel-image {
+  flex: 1;
+  max-width: 50%;
+}
+
+.carousel-content {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 3%;
+}
+
+/* Arrows */
+.splide__arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-chenpi);
+}
+
+@media (max-width: 768px) {
+  .splide__slide {
     flex-direction: column;
-    height: 100%;
-    padding: 3%;
-  }
-  .carousel-header {
-    color: var(--color-chenpi);
-  }
-  .carousel-header h2{
-    margin-top: 0;
-  }
-  .carousel-buttons {
-    display: flex;
-    justify-content: end;
-    align-items: flex-end;
-    height: 100%;
-  }
-  .carousel-button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--color-chenpi);
-  }
-
-  .carousel::-webkit-scrollbar {
-    display: none;
-  }
-
-  .slider-wrapper-slide1, .slider-wrapper-slide2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--color-chenpi);
-  }
-
-  .slider-label {
-    flex: 1;
     text-align: left;
-    padding-bottom: .3rem;
   }
-
-  .svg-slider {
-    margin-left: 20px; /* Moves the SVG further to the right */
-    flex: 1; /* Takes more space than label */
-    padding-bottom: .3rem;
+  .carousel-image {
+    max-width: 100%;
   }
-
-  .slider-wrapper-slide2 h6, .slider-wrapper-slide1 h6, .silder-wrapper-slide2 span{
-    font-size: 1rem;
-    line-height: 1.1rem;
-  }
-
-  .slider-wrapper-slide2 h6, .slider-wrapper-slide1 h6{
-    font-weight: 700;
-  }
-
-  .slider-wrapper-slide2 span{
-    font-weight: 400;
-  }
-
-  @media (max-width: 768px) {
-    .carousel-slide {
-      flex-direction: column;
-      text-align: left;
-    }
-    .carousel-image {
-      max-width: 100%;
-      max-height: 50vh;
-    }
-    .carousel-header h2{
-      font-size: 2rem;
-    }
-    .carousel-content {
-      text-align: left;
-      padding: 3% 0;
-    }
-    .slider-wrapper-slide1{
-      display: unset;
-    }
-    .slider-wrapper-slide2{
-      gap: 0.75rem;
-      padding-bottom: 2px;
-    }
-    .svg-slider{
-      margin-left:0;
-    }
-    .carousel-button{
-      padding: 0;
-    }
-    .slider-wrapper-slide1 h6, .slider-wrapper-slide2 h6{
-      font-size: 0.875rem;
-      line-height: 0.9625rem;
-    }
-    .arrow-icon{
-      margin-top: 3rem;
-      width: 12px;
-      height: 12px;
-    }
-    .slider-wrapper-slide2 span{
-      font-size: 0.875rem;
-    }
-  } 
+}
 </style>
 
 <div class="2up-carousel">
