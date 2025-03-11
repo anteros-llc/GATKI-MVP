@@ -4,11 +4,9 @@
   width: 100%;
   overflow: hidden;
 }
-
 .splide {
   width: 100%;
 }
-
 .splide__slide {
   display: flex;
   justify-content: space-between;
@@ -16,22 +14,18 @@
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
 }
-
 .splide__slide.is-active {
   opacity: 1;
 }
-
 .carousel-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .carousel-image {
   flex: 1;
   max-width: 50%;
 }
-
 .carousel-content {
   flex: 1;
   text-align: left;
@@ -40,12 +34,11 @@
   height: 100%;
   padding: 3%;
 }
-
 .carousel-header {
-    color: var(--color-chenpi);
+  color: var(--color-chenpi);
 }
 .carousel-header h2{
-    margin-top: 0;
+  margin-top: 0;
 }
 .carousel-buttons {
   position: absolute;
@@ -61,14 +54,14 @@
   text-decoration: none;
   color: var(--color-chenpi);
   padding: 0;
- opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    display: none; /* Hide completely */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: none; /* Hide completely */
 }
 
 .carousel-button.show {
-    opacity: 1;
-    display: block;
+  opacity: 1;
+  display: block;
 }
 
 .slider-wrapper-slide1, .slider-wrapper-slide2 {
@@ -101,10 +94,10 @@
   font-weight: 400;
 }
 img.svg-slider{
-    width: unset;
-    height: unset;
-    object-fit: unset;
-    display: unset;
+  width: unset;
+  height: unset;
+  object-fit: unset;
+  display: unset;
 }
 
 @media (max-width: 768px) {
@@ -142,7 +135,6 @@ img.svg-slider{
     height: 12px;
     }
 }
-
 </style>
 
 <div class="2up-carousel splide" id="carousel">
@@ -195,8 +187,6 @@ img.svg-slider{
                 </div>
               </div>
             {% endif %}
-
-          
           </div>
         </li>
       {%- endfor -%}
