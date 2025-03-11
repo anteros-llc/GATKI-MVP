@@ -154,19 +154,37 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = carousel.querySelectorAll(".pagination-btn");
   const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
 
+  // ✅ Show all 4 ingredient texts on load
+  hiddenTexts.forEach(text => {
+    text.style.opacity = "1";
+    text.style.maxHeight = "500px"; // Adjust height if needed
+    text.style.visibility = "visible";
+  });
+
   function resetState() {
     buttons.forEach(btn => btn.classList.remove("active"));
-    slides.forEach(slide => slide.style.display = "none");
+    slides.forEach(slide => {
+      slide.style.opacity = "0";
+      slide.style.visibility = "hidden";
+      slide.style.transform = "translateY(10px)";
+      slide.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+    });
     hiddenTexts.forEach(text => {
       text.style.maxHeight = "0";
       text.style.opacity = "0";
-      text.style.display = "none";
+      text.style.visibility = "hidden";
     });
   }
 
+  // ✅ Set initial state: first slide visible
   resetState();
-  if (slides.length > 0) slides[0].style.display = "flex";
+  if (slides.length > 0) {
+    slides[0].style.opacity = "1";
+    slides[0].style.visibility = "visible";
+    slides[0].style.transform = "translateY(0)";
+  }
 
+  // ✅ Click event on numbers
   buttons.forEach(button => {
     button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-slide");
@@ -176,17 +194,25 @@ document.addEventListener("DOMContentLoaded", function () {
       resetState();
 
       this.classList.add("active");
-      if (targetSlide) targetSlide.style.display = "flex";
-      if (targetText) {
-        targetText.style.display = "block";
-        setTimeout(() => {
-          targetText.style.maxHeight = "500px";
-          targetText.style.opacity = "1";
-        }, 10);
+
+      if (targetSlide) {
+        targetSlide.style.opacity = "1";
+        targetSlide.style.visibility = "visible";
+        targetSlide.style.transform = "translateY(0)";
       }
+
+      // ✅ Expand selected text, hide others
+      hiddenTexts.forEach(text => {
+        if (text.getAttribute("data-ingredient-id") === targetId) {
+          text.style.opacity = "1";
+          text.style.visibility = "visible";
+          text.style.maxHeight = "500px"; 
+        }
+      });
     });
   });
 });
+
 
 </script>
 
