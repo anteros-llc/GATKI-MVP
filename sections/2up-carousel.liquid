@@ -228,36 +228,65 @@
         </div>
 
 <script>
-          document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const carouselTrack = document.querySelector(".carousel-track");
   const slides = document.querySelectorAll(".carousel-slide");
   const nextButtons = document.querySelectorAll(".carousel-button.next");
   const prevButtons = document.querySelectorAll(".carousel-button.prev");
 
-  function navigateToSlide(slideIndex) {
-    if (slideIndex >= 1 && slideIndex <= slides.length) {
-      const targetSlide = document.getElementById(`slide-${slideIndex}`);
-      if (targetSlide) {
-        carouselTrack.scrollTo({
-          left: targetSlide.offsetLeft,
-          behavior: "smooth",
-        });
-      }
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let startX = 0;
+  let isDragging = false;
+  let deltaX = 0;
+
+  function updateCarousel() {
+    // Move slides smoothly
+    carouselTrack.style.transform = `translateX(${-currentIndex * 100}%)`;
+
+    // Fade effect
+    slides.forEach((slide, index) => {
+      slide.classList.toggle("active", index === currentIndex);
+    });
+  }
+
+  function navigateToSlide(index) {
+    if (index >= 0 && index < totalSlides) {
+      currentIndex = index;
+      updateCarousel();
     }
   }
 
+  // Buttons Navigation
   nextButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      navigateToSlide(parseInt(this.getAttribute("data-target")));
-    });
+    button.addEventListener("click", () => navigateToSlide(currentIndex + 1));
   });
 
   prevButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      navigateToSlide(parseInt(this.getAttribute("data-target")));
-    });
+    button.addEventListener("click", () => navigateToSlide(currentIndex - 1));
   });
+
+  // Touch & Swipe Events
+  carouselTrack.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  carouselTrack.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    deltaX = startX - e.touches[0].clientX;
+  });
+
+  carouselTrack.addEventListener("touchend", () => {
+    isDragging = false;
+    if (deltaX > 50) navigateToSlide(currentIndex + 1); // Swipe left
+    if (deltaX < -50) navigateToSlide(currentIndex - 1); // Swipe right
+  });
+
+  // Initialize first slide as active
+  updateCarousel();
 });
+
 
 </script>
 
