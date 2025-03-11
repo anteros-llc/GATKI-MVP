@@ -9,13 +9,13 @@
   .carousel-track {
     display: flex;
      width: 100%;
-    overflow-x: auto;
+    /* overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    /* transition: transform 0.5s ease-in-out; */
-   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
+    transition: transform 0.5s ease-in-out; */
+    transition: transform 0.6s ease-in-out, opacity 0.4s ease-in-out;
+  will-change: transform, opacity;
   }
   
   /* .carousel-slide {
@@ -27,11 +27,14 @@
     align-items: center;
   } */
 
-.carousel-slide {
+  .carousel-slide {
   flex: 0 0 100%;
   width: 100%;
-  opacity: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   transition: opacity 0.4s ease-in-out;
+  opacity: 0; /* Initially hidden */
 }
 
 .carousel-slide.active {
@@ -221,66 +224,36 @@
         </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+          document.addEventListener("DOMContentLoaded", function () {
   const carouselTrack = document.querySelector(".carousel-track");
   const slides = document.querySelectorAll(".carousel-slide");
   const nextButtons = document.querySelectorAll(".carousel-button.next");
   const prevButtons = document.querySelectorAll(".carousel-button.prev");
 
-  let currentIndex = 0;
-  const totalSlides = slides.length;
-  let startX = 0;
-  let isDragging = false;
-  let deltaX = 0;
-
-  function updateCarousel() {
-    // Move slides smoothly
-    carouselTrack.style.transform = `translateX(${-currentIndex * 100}%)`;
-
-    // Fade effect
-    slides.forEach((slide, index) => {
-      slide.classList.toggle("active", index === currentIndex);
-    });
-  }
-
-  function navigateToSlide(index) {
-    if (index >= 0 && index < totalSlides) {
-      currentIndex = index;
-      updateCarousel();
+  function navigateToSlide(slideIndex) {
+    if (slideIndex >= 1 && slideIndex <= slides.length) {
+      const targetSlide = document.getElementById(`slide-${slideIndex}`);
+      if (targetSlide) {
+        carouselTrack.scrollTo({
+          left: targetSlide.offsetLeft,
+          behavior: "smooth",
+        });
+      }
     }
   }
 
-  // Buttons Navigation
   nextButtons.forEach((button) => {
-    button.addEventListener("click", () => navigateToSlide(currentIndex + 1));
+    button.addEventListener("click", function () {
+      navigateToSlide(parseInt(this.getAttribute("data-target")));
+    });
   });
 
   prevButtons.forEach((button) => {
-    button.addEventListener("click", () => navigateToSlide(currentIndex - 1));
+    button.addEventListener("click", function () {
+      navigateToSlide(parseInt(this.getAttribute("data-target")));
+    });
   });
-
-  // Touch & Swipe Events
-  carouselTrack.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-  });
-
-  carouselTrack.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    deltaX = startX - e.touches[0].clientX;
-  });
-
-  carouselTrack.addEventListener("touchend", () => {
-    isDragging = false;
-    if (deltaX > 50) navigateToSlide(currentIndex + 1); // Swipe left
-    if (deltaX < -50) navigateToSlide(currentIndex - 1); // Swipe right
-  });
-
-  // Initialize first slide as active
-  updateCarousel();
 });
-
-
 
 </script>
 
