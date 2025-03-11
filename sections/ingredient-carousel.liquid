@@ -13,7 +13,7 @@
     <!-- Right Column: Ingredients List -->
     <div class="ingredient-list">
       {% for block in section.blocks %}
-      <div class="ingredient-item" data-slide="{{ forloop.index0 }}">
+      <div class="ingredient-item {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.index0 }}">
         <div class="ingredient-title">
           <h6>{{ block.settings.title }}</h6>
         </div>
@@ -44,6 +44,7 @@
     </div>
   </div>
 </div>
+
 
 
 <style>
@@ -88,7 +89,6 @@
   align-items: center;
   font-size: 1.5rem;
   cursor: pointer;
-  color: var(--color-chenpi);
   transition: all 0.3s ease-in-out;
 }
 
@@ -107,7 +107,8 @@
 .ingredient-item {
   cursor: pointer;
   margin-bottom: 1rem;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .ingredient-item h6 {
@@ -115,18 +116,20 @@
   font-weight: 700;
 }
 
+/* Hide details on load */
 .ingredient-hidden-text {
-  display: none;
   opacity: 0;
   max-height: 0;
+  overflow: hidden;
   transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
 }
 
+/* Show only the selected ingredient details */
 .ingredient-item.active .ingredient-hidden-text {
-  display: block;
   opacity: 1;
-  max-height: 500px;
+  max-height: 500px; /* Adjust as needed */
 }
+
 </style>
 
 <script>
@@ -148,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
       number.classList.add("active");
       ingredientItems[index].classList.add("active");
 
-      // Change main image
+      // Change main image dynamically
       const newImage = ingredientItems[index].querySelector("img");
       if (newImage) {
         ingredientMainImage.src = newImage.src;
@@ -157,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
 
 
 </script>
