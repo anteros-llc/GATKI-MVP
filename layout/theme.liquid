@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
             lazyLoad: 'nearby',
         }).mount();
 
-     const paginationElement = document.getElementById('slideIndex');
+
+      const paginationElement = document.getElementById('slideIndex');
 
         function updatePagination(newIndex) {
             let totalSlides = productSplide.length;
@@ -58,27 +59,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
         productSplide.on('mounted move', function () {
             updatePagination(productSplide.index);
+            updateArrowStates();
         });
 
         updatePagination(0); // Set initial pagination
 
-        // ✅ Custom Navigation Arrows
+        // ✅ Custom Navigation Arrows (Always Visible)
         const prevArrow = document.querySelector('.product-carousel-button.prev');
         const nextArrow = document.querySelector('.product-carousel-button.next');
 
-        if (prevArrow && nextArrow) {
-            prevArrow.style.display = 'none'; // Hide prev arrow initially
+        function updateArrowStates() {
+            let totalSlides = productSplide.length;
+            let currentIndex = productSplide.index;
 
-            productSplide.on('moved', function (newIndex) {
-                const totalSlides = productSplide.length;
-
-                prevArrow.style.display = newIndex === 0 ? 'none' : 'block';
-                nextArrow.style.display = newIndex === totalSlides - 1 ? 'none' : 'block';
-            });
-
-            prevArrow.addEventListener('click', () => productSplide.go('<'));
-            nextArrow.addEventListener('click', () => productSplide.go('>'));
+            // Always visible but update disabled state
+            prevArrow.classList.toggle('disabled', currentIndex === 0);
+            nextArrow.classList.toggle('disabled', currentIndex === totalSlides - 1);
         }
+
+        // ✅ Click Listeners for Custom Arrows
+        prevArrow.addEventListener('click', () => {
+            if (!prevArrow.classList.contains('disabled')) {
+                productSplide.go('<');
+            }
+        });
+
+        nextArrow.addEventListener('click', () => {
+            if (!nextArrow.classList.contains('disabled')) {
+                productSplide.go('>');
+            }
+        });
     }
 
     // ✅ Initialize Splide for 2UP Carousel
