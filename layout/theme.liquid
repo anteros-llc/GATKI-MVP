@@ -35,49 +35,33 @@
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Initialize Splide for Product Carousel
-        if (document.querySelector('#product-carousel')) {
-            var productSplide = new Splide('#product-carousel', {
-                type: 'fade',
-                perPage: 1,
-                autoplay: true,
-                interval: 5000,
-                pagination: true,
-                arrows: false,
-                lazyLoad: 'nearby',
-            }).mount();
+ document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('#product-carousel')) {
+        var productSplide = new Splide('#product-carousel', {
+            type: 'fade',
+            perPage: 1,
+            autoplay: true,
+            interval: 5000,
+            pagination: true,
+            arrows: false, // Hides default arrows, use custom if needed
+            lazyLoad: 'nearby',
+        }).mount();
 
-            // Custom Pagination (1 / X format)
-            productSplide.on('moved', function (newIndex) {
-                let totalSlides = productSplide.length;
-                document.getElementById('slideIndex').textContent = (newIndex + 1) + ' / ' + totalSlides;
-            });
-        }
 
-        // Initialize Splide for 2UP Carousel
-        if (document.querySelector('#carousel')) {
-       const carousel = new Splide('#carousel', {
-    type       : 'fade',
-    perPage    : 1,
-    perMove    : 1,
-    pagination : false,
-    rewind     : true,
-    speed      : 1000,
-    gap        : '20px',
-    autoWidth  : true,
-    easing     : 'cubic-bezier(.6,.02,.05,.95)',
-  });
+        productSplide.on('moved', function (newIndex) {
+            let totalSlides = productSplide.length;
+            let paginationText = `${newIndex + 1} / ${totalSlides}`;
+            let paginationElement = document.getElementById('slideIndex');
 
-  // Hide/Show Arrows Based on Active Slide
-  carousel.on('moved', function (newIndex) {
-    document.querySelector('.splide__arrow--prev').style.display = newIndex === 1 ? 'block' : 'none';
-    document.querySelector('.splide__arrow--next').style.display = newIndex === 0 ? 'block' : 'none';
-  });
+            if (paginationElement) {
+                paginationElement.textContent = paginationText;
+            }
+        });
+    }
+   
+    if (document.querySelector('#carousel')) {
+        const carousel = new Splide('#carousel'
 
-  carousel.mount();
-        }
-    });
 </script>
 
     {%- if settings.animations_reveal_on_scroll -%}
