@@ -1,61 +1,76 @@
 <div class="ingredient-carousel">
   <h2 class="carousel-title">Gentle yet effective ingredients</h2>
-  
-  <div class="carousel-container">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'ingredient' -%}
-        <div class="carousel-slide" id="{{ block.settings.slide_id }}" {% if forloop.index > 1 %}style="display: none;"{% endif %}>
-          
-          <!-- Left Column: Image -->
-          <div class="carousel-image">
+
+  <!-- Splide Image Slider -->
+  <div id="ingredient-slider" class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {%- for block in section.blocks -%}
+        {%- if block.type == 'ingredient' -%}
+        <li class="splide__slide" id="{{ block.settings.slide_id }}">
+          <div class="image-container">
             {%- if block.settings.image -%}
-              <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.title }}">
+            <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.title }}">
             {%- endif -%}
-          </div>
 
-          <!-- Right Column: Text -->
-          <div class="carousel-text">
-            <h3 class="ingredient-title">{{ block.settings.title }}</h3>
-            <p class="ingredient-description">{{ block.settings.description }}</p>
-
-            <!-- Hidden Text (Toggles) -->
-            <div class="ingredient-hidden-text" data-ingredient-id="{{ block.settings.slide_id }}" style="display: none;">
-              {% if block.settings.percentage %}
-                <div class="percentage"><h2>{{ block.settings.percentage }}</h2></div>
-              {% endif %}
-              <div class="bullet-points">
-                <ul>
-                  {% for i in (1..3) %}
-                    {% assign heading_key = 'bullet_point_' | append: i | append: '_heading' %}
-                    {% assign text_key = 'bullet_point_' | append: i | append: '_text' %}
-                    {% if block.settings[heading_key] and block.settings[text_key] %}
-                      <li>
-                        <h6>{{ block.settings[heading_key] }}</h6>
-                        <p>{{ block.settings[text_key] }}</p>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-              </div>
+            <!-- Numbers Overlay on Image -->
+            <div class="carousel-numbers">
+              {%- for number_block in section.blocks -%}
+              {%- if number_block.type == 'ingredient' -%}
+              <button type="button" class="pagination-btn {% if forloop.index == 1 %}active{% endif %}"
+                data-slide="{{ forloop.index | minus: 1 }}">
+                {{ number_block.settings.number }}
+              </button>
+              {%- endif -%}
+              {%- endfor -%}
             </div>
           </div>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
+        </li>
+        {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
   </div>
 
-  <!-- Number Navigation -->
-  <div class="carousel-pagination">
-    {%- for block in section.blocks -%}
+  <!-- Ingredient Text Details -->
+  <div class="carousel-text">
+    <ul class="ingredients-list">
+      {%- for block in section.blocks -%}
       {%- if block.type == 'ingredient' -%}
-        <button type="button" class="pagination-btn {% if forloop.index == 1 %}active{% endif %}" 
-          data-slide="{{ block.settings.slide_id }}">
-          {{ block.settings.number }}
-        </button>
+      <li class="ingredient-item" data-slide="{{ forloop.index | minus: 1 }}"
+        {% if forloop.index == 1 %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.description }}</p>
+
+        <!-- Percentage -->
+        {%- if block.settings.percentage -%}
+        <div class="percentage">
+          <h2>{{ block.settings.percentage }}</h2>
+        </div>
+        {%- endif -%}
+
+        <!-- Bullet Points -->
+        <div class="bullet-points">
+          <ul>
+            {%- for i in (1..3) -%}
+            {%- assign heading_key = "bullet_point_" | append: i | append: "_heading" -%}
+            {%- assign text_key = "bullet_point_" | append: i | append: "_text" -%}
+            {%- if block.settings[heading_key] and block.settings[text_key] -%}
+            <li>
+              <h6>{{ block.settings[heading_key] }}</h6>
+              <p>{{ block.settings[text_key] }}</p>
+            </li>
+            {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      </li>
       {%- endif -%}
-    {%- endfor -%}
+      {%- endfor -%}
+    </ul>
   </div>
 </div>
+
 
 <style>
 .ingredient-carousel {
@@ -63,176 +78,144 @@
   padding-bottom: 2rem;
 }
 
-.carousel-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Splide Styles */
+#ingredient-slider {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.splide__slide img {
   width: 100%;
-  position: relative;
-}
-
-/* Slide Transitions */
-.carousel-slide {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-/* First Slide Visible */
-.carousel-slide:first-child {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.carousel-image {
-  position: relative;
-}
-
-.carousel-image img {
-  width: 100%;
-  max-width: 33rem;
+  height: auto;
+  object-fit: cover;
   border-radius: 1rem;
-  aspect-ratio: 1;
 }
 
-/* Numbers on Image */
-.carousel-pagination {
+/* Numbers Overlay on Image */
+.image-container {
+  position: relative;
+}
+
+.carousel-numbers {
   position: absolute;
-  top: 10%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 
 .pagination-btn {
   background: var(--color-blanco);
-  border: 2px solid var(--color-chenpi);
+  border: 1px solid var(--color-chenpi);
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
-  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
   cursor: pointer;
   color: var(--color-chenpi);
-  font-weight: 500;
+  font-weight: 400;
   transition: all 0.3s ease;
 }
 
 .pagination-btn.active {
   background-color: var(--color-chenpi);
   color: var(--color-blanco);
-  border-color: var(--color-chenpi);
-  transform: scale(1.1);
 }
 
-/* Expand Ingredient Text */
-.ingredient-hidden-text {
-  max-height: 500px;
-  opacity: 1;
-  visibility: visible;
-  transition: max-height 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+/* Ingredient Details */
+.carousel-text {
+  margin-top: 2rem;
 }
 
-/* Smooth Hide/Show on Click */
-.ingredient-hidden-text:not(.active) {
-  max-height: 0;
+.ingredient-item {
+  display: none;
   opacity: 0;
-  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .carousel-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .carousel-text {
-    text-align: center;
-  }
-
-  .carousel-image img {
-    max-width: 22rem;
-  }
-
-  .carousel-pagination {
-    top: 5%;
-  }
+.ingredient-item.active {
+  display: block;
+  opacity: 1;
 }
 
+/* Bullet Points */
+.bullet-points ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bullet-points li {
+  flex: 1 1 45%;
+  margin-bottom: 1rem;
+}
+
+.bullet-points h6::before {
+  content: '•';
+  color: var(--color-chenpi);
+  font-size: 1rem;
+  margin-right: 0.125rem;
+}
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const carousel = document.querySelector(".ingredient-carousel");
-  if (!carousel) return;
+  // ✅ Initialize Splide
+  if (document.querySelector("#ingredient-slider")) {
+    var ingredientSplide = new Splide("#ingredient-slider", {
+      type: "fade",
+      perPage: 1,
+      pagination: false,
+      arrows: false,
+      speed: 800,
+      easing: "cubic-bezier(0.25, 1, 0.5, 1)"
+    }).mount();
 
-  const slides = carousel.querySelectorAll(".carousel-slide");
-  const buttons = carousel.querySelectorAll(".pagination-btn");
-  const hiddenTexts = carousel.querySelectorAll(".ingredient-hidden-text");
+    // ✅ Handle Custom Number Navigation
+    const buttons = document.querySelectorAll(".pagination-btn");
+    const ingredientItems = document.querySelectorAll(".ingredient-item");
 
-  // ✅ Show all 4 ingredient texts on load
-  hiddenTexts.forEach(text => {
-    text.style.opacity = "1";
-    text.style.maxHeight = "500px"; // Adjust height if needed
-    text.style.visibility = "visible";
-  });
+    buttons.forEach((button, index) => {
+      button.addEventListener("click", function () {
+        // Move Splide to the corresponding slide
+        ingredientSplide.go(index);
 
-  function resetState() {
-    buttons.forEach(btn => btn.classList.remove("active"));
-    slides.forEach(slide => {
-      slide.style.opacity = "0";
-      slide.style.visibility = "hidden";
-      slide.style.transform = "translateY(10px)";
-      slide.style.transition = "opacity 0.4s ease, transform 0.4s ease";
-    });
-    hiddenTexts.forEach(text => {
-      text.style.maxHeight = "0";
-      text.style.opacity = "0";
-      text.style.visibility = "hidden";
-    });
-  }
+        // Update Active Number Button
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        this.classList.add("active");
 
-  // ✅ Set initial state: first slide visible
-  resetState();
-  if (slides.length > 0) {
-    slides[0].style.opacity = "1";
-    slides[0].style.visibility = "visible";
-    slides[0].style.transform = "translateY(0)";
-  }
+        // Update Ingredient Details
+        ingredientItems.forEach((item) => {
+          item.style.display = "none";
+          item.classList.remove("active");
+        });
 
-  // ✅ Click event on numbers
-  buttons.forEach(button => {
-    button.addEventListener("click", function () {
-      const targetId = this.getAttribute("data-slide");
-      const targetSlide = carousel.querySelector(`#${targetId}`);
-      const targetText = carousel.querySelector(`[data-ingredient-id="${targetId}"]`);
-
-      resetState();
-
-      this.classList.add("active");
-
-      if (targetSlide) {
-        targetSlide.style.opacity = "1";
-        targetSlide.style.visibility = "visible";
-        targetSlide.style.transform = "translateY(0)";
-      }
-
-      // ✅ Expand selected text, hide others
-      hiddenTexts.forEach(text => {
-        if (text.getAttribute("data-ingredient-id") === targetId) {
-          text.style.opacity = "1";
-          text.style.visibility = "visible";
-          text.style.maxHeight = "500px"; 
-        }
+        ingredientItems[index].style.display = "block";
+        setTimeout(() => ingredientItems[index].classList.add("active"), 10);
       });
     });
-  });
-});
 
+    // ✅ Sync Text with Splide Slide Change
+    ingredientSplide.on("moved", function (newIndex) {
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      buttons[newIndex].classList.add("active");
+
+      ingredientItems.forEach((item) => {
+        item.style.display = "none";
+        item.classList.remove("active");
+      });
+
+      ingredientItems[newIndex].style.display = "block";
+      setTimeout(() => ingredientItems[newIndex].classList.add("active"), 10);
+    });
+  }
+});
 
 </script>
 
