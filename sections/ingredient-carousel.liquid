@@ -47,47 +47,37 @@
 
 
 <style>
-/* General Styling */
 .ingredient-carousel {
-  text-align: center;
-  padding-bottom: 2rem;
-  position: relative;
-}
-
-/* Title */
-.ingredient-carousel-title {
-  margin-bottom: 1.5rem;
-}
-
-/* Image Slider */
-.ingredient-slider {
-  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
-  position: relative;
 }
 
-.ingredient-slide {
-  position: relative;
-  text-align: center;
-}
-
+/* Image Column */
 .ingredient-image {
+  position: relative;
+  flex: 1;
+  max-width: 40%;
+}
+
+.ingredient-image img {
   width: 100%;
   border-radius: 10px;
-  display: block;
 }
 
-/* Number Buttons on Image */
 .ingredient-numbers {
   position: absolute;
-  top: 5%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.ingredient-number-btn {
+.ingredient-number {
   background: var(--color-blanco);
   border: 1px solid var(--color-blanco);
   border-radius: 50%;
@@ -96,154 +86,78 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   color: var(--color-chenpi);
-  font-weight: 400;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
-.ingredient-number-btn.active {
-  background-color: var(--color-chenpi);
-  color: var(--color-blanco);
-  border-color: var(--color-chenpi);
-}
-
-.ingredient-number-btn:hover {
-  background-color: var(--color-chenpi);
+.ingredient-number.active {
+  background: var(--color-chenpi);
   color: var(--color-blanco);
 }
 
-/* Ingredients List */
+/* Ingredient List */
 .ingredient-list {
-  max-width: 600px;
-  margin: 2rem auto 0;
+  flex: 1;
+  padding-left: 2rem;
+  max-width: 60%;
 }
 
 .ingredient-item {
-  border-bottom: 1px solid #ddd;
-  padding: 1rem 0;
-  text-align: left;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* Hidden Details */
+.ingredient-item h6 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
 .ingredient-hidden-text {
-  max-height: 0;
-  overflow: hidden;
+  display: none;
   opacity: 0;
-  transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+  max-height: 0;
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
 }
 
-.ingredient-hidden-text.expanded {
-  max-height: 500px;
+.ingredient-item.active .ingredient-hidden-text {
+  display: block;
   opacity: 1;
-}
-
-/* Bullet Points */
-.bullet-points ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.bullet-points li {
-  margin-bottom: 0.5rem;
-}
-
-.bullet-points h6 {
-  font-weight: bold;
-}
-
-.percentage h2 {
-  color: var(--color-mandarin);
+  max-height: 500px;
 }
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const ingredientCarousel = document.querySelector("#ingredient-carousel");
+  const ingredientNumbers = document.querySelectorAll(".ingredient-number");
+  const ingredientItems = document.querySelectorAll(".ingredient-item");
+  const ingredientMainImage = document.getElementById("ingredient-main-image");
 
-  if (!ingredientCarousel) return;
+  // Initial state - No active numbers
+  ingredientNumbers.forEach(num => num.classList.remove("active"));
 
-  var ingredientSplide = new Splide(".ingredient-slider", {
-    type: "fade",
-    perPage: 1,
-    pagination: false,
-    arrows: false,
-    speed: 800,
-    easing: "cubic-bezier(0.25, 1, 0.5, 1)"
-  }).mount();
+  ingredientNumbers.forEach((number, index) => {
+    number.addEventListener("click", function () {
+      // Remove active class from all numbers & items
+      ingredientNumbers.forEach(num => num.classList.remove("active"));
+      ingredientItems.forEach(item => item.classList.remove("active"));
 
-  const buttons = ingredientCarousel.querySelectorAll(".ingredient-number-btn");
-  const ingredientItems = ingredientCarousel.querySelectorAll(".ingredient-item");
-  const ingredientDetails = ingredientCarousel.querySelectorAll(".ingredient-hidden-text");
+      // Add active class to clicked number & corresponding ingredient
+      number.classList.add("active");
+      ingredientItems[index].classList.add("active");
 
-  function hideAllIngredients() {
-    ingredientItems.forEach((item) => {
-      item.style.display = "none"; // Hide all ingredients
-    });
-
-    ingredientDetails.forEach((detail) => {
-      detail.style.maxHeight = "0px";
-      detail.style.opacity = "0";
-      detail.classList.remove("expanded");
-    });
-  }
-
-  // ✅ Set default state: Show all ingredients but collapse details
-  ingredientItems.forEach((item) => {
-    item.style.display = "block"; // Initially visible
-  });
-
-  ingredientDetails.forEach((detail) => {
-    detail.style.maxHeight = "0px";
-    detail.style.opacity = "0";
-  });
-
-  buttons.forEach((button, index) => {
-    button.addEventListener("click", function () {
-      const targetIndex = parseInt(this.getAttribute("data-slide"));
-
-      hideAllIngredients(); // Hide everything first
-
-      const targetItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"]`);
-      if (targetItem) {
-        targetItem.style.display = "block"; // Show only the selected ingredient
+      // Change main image
+      const newImage = ingredientItems[index].querySelector("img");
+      if (newImage) {
+        ingredientMainImage.src = newImage.src;
+        ingredientMainImage.alt = newImage.alt;
       }
-
-      const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"] .ingredient-hidden-text`);
-      if (targetDetail) {
-        targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
-        targetDetail.style.opacity = "1";
-        targetDetail.classList.add("expanded");
-      }
-
-      ingredientSplide.go(targetIndex);
-
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      this.classList.add("active");
     });
-  });
-
-  ingredientSplide.on("moved", function (newIndex) {
-    hideAllIngredients(); // Hide everything first
-
-    const newItem = ingredientItems[newIndex];
-    if (newItem) {
-      newItem.style.display = "block"; // Show only selected ingredient
-    }
-
-    const newDetail = ingredientDetails[newIndex];
-    if (newDetail) {
-      newDetail.style.maxHeight = newDetail.scrollHeight + "px";
-      newDetail.style.opacity = "1";
-      newDetail.classList.add("expanded");
-    }
-
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    buttons[newIndex].classList.add("active");
   });
 });
+
 
 </script>
 
