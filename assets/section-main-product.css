@@ -1503,16 +1503,3 @@ a.product__text {
   margin-top: 0;
   margin-bottom: 0;
 }
-
-.product-carousel-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -2.5rem;
-}
-.pagination-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
