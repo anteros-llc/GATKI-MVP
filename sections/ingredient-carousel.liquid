@@ -210,7 +210,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const ingredientItems = ingredientCarousel.querySelectorAll(".ingredient-item");
   const ingredientDetails = ingredientCarousel.querySelectorAll(".ingredient-hidden-text");
 
-  function collapseAll() {
+  function hideAllIngredients() {
+    ingredientItems.forEach((item) => {
+      item.style.display = "none"; // Hide all ingredients
+    });
+
     ingredientDetails.forEach((detail) => {
       detail.style.maxHeight = "0px";
       detail.style.opacity = "0";
@@ -218,7 +222,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ✅ Set default state: Show all ingredients but hide details
+  // ✅ Set default state: Show all ingredients but collapse details
+  ingredientItems.forEach((item) => {
+    item.style.display = "block"; // Initially visible
+  });
+
   ingredientDetails.forEach((detail) => {
     detail.style.maxHeight = "0px";
     detail.style.opacity = "0";
@@ -228,7 +236,12 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       const targetIndex = parseInt(this.getAttribute("data-slide"));
 
-      collapseAll();
+      hideAllIngredients(); // Hide everything first
+
+      const targetItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"]`);
+      if (targetItem) {
+        targetItem.style.display = "block"; // Show only the selected ingredient
+      }
 
       const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"] .ingredient-hidden-text`);
       if (targetDetail) {
@@ -245,7 +258,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   ingredientSplide.on("moved", function (newIndex) {
-    collapseAll();
+    hideAllIngredients(); // Hide everything first
+
+    const newItem = ingredientItems[newIndex];
+    if (newItem) {
+      newItem.style.display = "block"; // Show only selected ingredient
+    }
+
     const newDetail = ingredientDetails[newIndex];
     if (newDetail) {
       newDetail.style.maxHeight = newDetail.scrollHeight + "px";
@@ -257,9 +276,6 @@ document.addEventListener("DOMContentLoaded", function () {
     buttons[newIndex].classList.add("active");
   });
 });
-
-
-
 
 </script>
 
