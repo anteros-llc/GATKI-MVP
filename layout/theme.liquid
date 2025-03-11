@@ -58,13 +58,16 @@
         // Initialize Splide for 2UP Carousel
         if (document.querySelector('#carousel')) {
             new Splide('#carousel', {
-                type      : 'slide',
-                perPage   : 1,
-                perMove   : 1,
-                pagination: false,
-                arrows    : true,
-                speed     : 800,
-                easing    : 'cubic-bezier(0.25, 1, 0.5, 1)',
+               type       : 'fade',  // Smooth crossfade transition
+      perPage    : 1,       // Show one slide at a time
+      perMove    : 1,       // Move one slide at a time
+      pagination : false,   // Hide default dots navigation
+      arrows     : true,    // Keep navigation arrows
+      rewind     : true,    // Loop back when reaching the end
+      speed      : 1200,    // Adjust speed for smoother feel
+      gap        : '20px',  // Add spacing between content
+      autoWidth  : true,    // Ensures slides keep proper width
+      easing     : 'cubic-bezier(.6,.02,.05,.95)', // Video-like easing
                 breakpoints: {
                     768: { perPage: 1 }
                 }
