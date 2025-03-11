@@ -81,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
  
    if (prevArrow && nextArrow) {
             // Set default state
-            prevArrow.style.display = 'none';
+      
             prevArrow.style.opacity = '0';
-            nextArrow.style.display = 'block';
+         
             nextArrow.style.opacity = '1';
 
             twoUpCarousel.on('moved', function (newIndex) {
@@ -92,15 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (newIndex === 0) {
                     // First slide: Hide prev, Show next
                     prevArrow.style.opacity = '0';
-                    setTimeout(() => { prevArrow.style.display = 'none'; }, 300);
-                    nextArrow.style.display = 'block';
-                    setTimeout(() => { nextArrow.style.opacity = '1'; }, 10);
+                    setTimeout(() => { nextArrow.style.opacity = '1'; }, 100);
                 } else {
                     // Second slide: Show prev, Hide next
-                    prevArrow.style.display = 'block';
-                    setTimeout(() => { prevArrow.style.opacity = '1'; }, 10);
+                    setTimeout(() => { prevArrow.style.opacity = '1'; }, 100);
                     nextArrow.style.opacity = '0';
-                    setTimeout(() => { nextArrow.style.display = 'none'; }, 300);
                 }
             });
 
