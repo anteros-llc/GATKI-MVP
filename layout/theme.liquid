@@ -79,7 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const nextArrow = document.querySelector('.carousel-button.next');
 
  
-       prevArrow.style.display = 'none';
+        if (prevArrow && nextArrow) {
+            // Hide prevArrow initially
+            prevArrow.style.display = 'none';
             nextArrow.style.display = 'block';
 
             twoUpCarousel.on('moved', function (newIndex) {
