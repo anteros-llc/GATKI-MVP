@@ -153,21 +153,29 @@
 }
 /* Ingredient text container */
 .ingredient-item {
-  display: none; /* Hide by default */
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  display: block; /* All are visible on load */
+  max-height: 0; /* Collapsed by default */
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* First ingredient text is visible on load */
-.ingredient-item:first-child {
-  display: block;
+/* Expanded ingredient */
+.ingredient-item.expanded {
+  max-height: 500px; /* Adjust to fit content */
   opacity: 1;
 }
 
+/* Number buttons default (not active) */
+.pagination-btn {
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+}
 
-.ingredient-item.active {
-  display: block;
+/* Active number button */
+.pagination-btn.active {
   opacity: 1;
+  font-weight: bold;
 }
 
 /* Bullet Points */
@@ -207,7 +215,6 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // ✅ Initialize Splide for the ingredient carousel
   if (document.querySelector("#ingredient-slider")) {
     var ingredientSplide = new Splide("#ingredient-slider", {
       type: "fade",
@@ -218,50 +225,58 @@ document.addEventListener("DOMContentLoaded", function () {
       easing: "cubic-bezier(0.25, 1, 0.5, 1)"
     }).mount();
 
-    // ✅ Get all navigation buttons and ingredient text items
+    // ✅ Select all number buttons and ingredient descriptions
     const buttons = document.querySelectorAll(".pagination-btn");
     const ingredientItems = document.querySelectorAll(".ingredient-item");
 
-    // ✅ Function to show/hide ingredient descriptions
-    function updateIngredients(index) {
-      // Hide all descriptions
+    // ✅ Function to collapse all descriptions
+    function collapseAll() {
       ingredientItems.forEach((item) => {
-        item.style.display = "none";
-        item.classList.remove("active");
+        item.classList.remove("expanded");
+        item.style.maxHeight = "0";
+        item.style.opacity = "0";
       });
-
-      // Show only the selected ingredient
-      ingredientItems[index].style.display = "block";
-      setTimeout(() => ingredientItems[index].classList.add("active"), 10);
     }
 
-    // ✅ Set the first ingredient text visible on load
-    updateIngredients(0);
+    // ✅ On load: Show all ingredient items, but collapsed
+    ingredientItems.forEach((item) => {
+      item.style.display = "block"; // Show all items
+      item.style.maxHeight = "0"; // Keep them collapsed
+      item.style.opacity = "1"; // Visible but not expanded
+    });
 
     // ✅ Number Button Click Event
     buttons.forEach((button, index) => {
       button.addEventListener("click", function () {
+        // Move Splide slider
         ingredientSplide.go(index);
 
-        // Update active number button
+        // Collapse all, then expand the selected one
+        collapseAll();
+        ingredientItems[index].classList.add("expanded");
+        ingredientItems[index].style.maxHeight = "500px"; // Expand only the selected item
+        ingredientItems[index].style.opacity = "1";
+
+        // Remove active state from all buttons
         buttons.forEach((btn) => btn.classList.remove("active"));
         this.classList.add("active");
-
-        // Show only the selected ingredient text
-        updateIngredients(index);
       });
     });
 
     // ✅ Sync text updates with Splide transitions
     ingredientSplide.on("moved", function (newIndex) {
+      collapseAll();
+      ingredientItems[newIndex].classList.add("expanded");
+      ingredientItems[newIndex].style.maxHeight = "500px";
+      ingredientItems[newIndex].style.opacity = "1";
+
+      // Update active number
       buttons.forEach((btn) => btn.classList.remove("active"));
       buttons[newIndex].classList.add("active");
-
-      // Show only the active ingredient text
-      updateIngredients(newIndex);
     });
   }
 });
+
 
 
 
