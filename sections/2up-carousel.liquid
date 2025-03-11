@@ -105,3 +105,56 @@
     </button>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "2UP Carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+                {
+  "type": "select",
+  "id": "slide_type",
+  "label": "Slide Type",
+  "options": [
+    {
+      "value": "slider",
+      "label": "Slider"
+    },
+    {
+      "value": "text",
+      "label": "Text"
+    }
+  ],
+  "default": "slider"
+},
+      ],
+      
+    }
+  ],
+  "presets": [
+    {
+      "name": "2UP Carousel",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}
