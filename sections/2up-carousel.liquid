@@ -194,22 +194,18 @@ img.svg-slider{
       {%- endfor -%}
     </ul>
   </div>
-    <div class="carousel-buttons">
-              {% if forloop.index > 1 %}
-                <button class="carousel-button prev">
-                  <svg width="24" height="24" viewBox="0 0 13 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
-                    <path d="M0.839844 6.55496L6.77028 0.834229L7.74419 1.73127L3.18767 6.1149H12.8398V7.55355L3.18767 7.53663L7.70941 11.9372L6.7355 12.8342L0.839844 7.07964V6.55496Z" fill="#91693C"/>
-                  </svg>
-                </button>
-              {% endif %}
-              {% if forloop.index < section.blocks.size %}
-                <button class="carousel-button next">
-                  <svg width="24" height="24" viewBox="0 0 12 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
-                    <path d="M12 6.37918V6.90386L6.10435 12.6584L5.13043 11.7614L9.65217 7.36085L0 7.37777V5.93912H9.65217L5.09565 1.55548L6.06957 0.658447L12 6.37918Z" fill="#91693C"/>
-                  </svg>
-                </button>
-              {% endif %}
-            </div>
+   <div class="carousel-buttons">
+    <button class="carousel-button prev">
+      <svg width="24" height="24" viewBox="0 0 13 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+        <path d="M0.839844 6.55496L6.77028 0.834229L7.74419 1.73127L3.18767 6.1149H12.8398V7.55355L3.18767 7.53663L7.70941 11.9372L6.7355 12.8342L0.839844 7.07964V6.55496Z" fill="#91693C"/>
+      </svg>
+    </button>
+    <button class="carousel-button next">
+      <svg width="24" height="24" viewBox="0 0 12 13" fill="#91693C" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+        <path d="M12 6.37918V6.90386L6.10435 12.6584L5.13043 11.7614L9.65217 7.36085L0 7.37777V5.93912H9.65217L5.09565 1.55548L6.06957 0.658447L12 6.37918Z" fill="#91693C"/>
+      </svg>
+    </button>
+  </div>
 </div>
 
 
