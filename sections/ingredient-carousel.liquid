@@ -1,13 +1,13 @@
 <div id="ingredient-carousel" class="ingredient-carousel">
   <h2 class="ingredient-carousel-title">Gentle yet effective ingredients</h2>
 
-  <!-- Image Slider -->
+  <!-- Image Slider with Splide -->
   <div class="splide ingredient-slider">
     <div class="splide__track">
       <ul class="splide__list">
         {%- for block in section.blocks -%}
           {%- if block.type == 'ingredient' -%}
-            <li class="splide__slide ingredient-slide">
+            <li class="splide__slide ingredient-slide" data-slide-id="{{ block.settings.slide_id }}">
               {%- if block.settings.image -%}
                 <img
                   src="{{ block.settings.image | image_url: width: 1600 }}"
@@ -15,25 +15,25 @@
                   class="ingredient-image"
                 >
               {%- endif -%}
-
-              <!-- Number Buttons on Image -->
-              <div class="ingredient-numbers">
-                {%- for ingredient in section.blocks -%}
-                  {%- if ingredient.type == 'ingredient' -%}
-                    <button
-                      class="ingredient-number-btn"
-                      data-slide="{{ ingredient.settings.slide_id }}"
-                      aria-label="Go to {{ ingredient.settings.title }}"
-                    >
-                      {{ ingredient.settings.number }}
-                    </button>
-                  {%- endif -%}
-                {%- endfor -%}
-              </div>
             </li>
           {%- endif -%}
         {%- endfor -%}
       </ul>
+    </div>
+
+    <!-- Number Buttons Positioned on Image -->
+    <div class="ingredient-numbers">
+      {%- for ingredient in section.blocks -%}
+        {%- if ingredient.type == 'ingredient' -%}
+          <button
+            class="ingredient-number-btn"
+            data-slide="{{ forloop.index0 }}"
+            aria-label="Go to {{ ingredient.settings.title }}"
+          >
+            {{ ingredient.settings.number }}
+          </button>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 
@@ -42,14 +42,14 @@
     <ul>
       {%- for ingredient in section.blocks -%}
         {%- if ingredient.type == 'ingredient' -%}
-          <li class="ingredient-item" data-ingredient-id="{{ ingredient.settings.slide_id }}">
+          <li class="ingredient-item" data-ingredient-id="{{ forloop.index0 }}">
             <div class="ingredient-header">
               <h6 class="ingredient-title">{{ ingredient.settings.title }}</h6>
               <span class="ingredient-number">{{ ingredient.settings.number }}</span>
             </div>
             <p class="ingredient-description">{{ ingredient.settings.description }}</p>
 
-            <!-- Hidden Details -->
+            <!-- Hidden Details (Initially Collapsed) -->
             <div class="ingredient-hidden-text">
               {% if ingredient.settings.percentage %}
                 <div class="percentage">
@@ -186,6 +186,7 @@
 
 .ingredient-hidden-text.expanded {
   max-height: 50
+}
 
 
 </style>
