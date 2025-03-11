@@ -62,13 +62,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // ✅ Initialize Splide for 2UP Carousel
     if (document.querySelector('#carousel')) {
         var twoUpCarousel = new Splide('#carousel', {
-            type: 'slide',
-            perPage: 1,
-            perMove: 1,
-            pagination: false,
-            arrows: false, // Using custom arrows
-            speed: 800,
-            easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+            type       : 'fade', // 🔥 Smooth fade transition
+            perPage    : 1,
+            perMove    : 1,
+            pagination : false,
+            arrows     : false, 
+            rewind     : false, // 🔥 Avoids jumping back
+            speed      : 1200,  // 🔥 Slower transition for smoother effect
+            easing     : 'cubic-bezier(0.65, 0, 0.35, 1)', // 🔥 Natural easing
             breakpoints: {
                 768: { perPage: 1 }
             }
