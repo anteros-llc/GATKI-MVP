@@ -139,29 +139,55 @@
   text-align: left;
 }
 /* Ingredient text container */
+/* ✅ Ensure all ingredient items (title + description) are visible */
 .ingredient-item {
-  display: block; /* All are visible on load */
-  max-height: 0; /* Collapsed by default */
-  overflow: hidden;
-  opacity: 1;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  display: block;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Expanded ingredient */
-.ingredient-item.expanded {
-  max-height: 500px; /* Adjust to fit content */
+/* ✅ Hide expanded details (percentage, bullet points) initially */
+.ingredient-hidden-text {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* ✅ Expanded ingredient details */
+.ingredient-hidden-text.expanded {
+  display: block;
   opacity: 1;
 }
 
-/* Number buttons default (not active) */
+/* ✅ Pagination (Numbers) */
 .pagination-btn {
+  cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.2s ease-in-out;
 }
 
-/* Active number button */
+/* ✅ Active number button */
 .pagination-btn.active {
   opacity: 1;
+  font-weight: bold;
+}
+
+/* ✅ Ingredient Image Container */
+.ingredient-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ Numbers Positioned Over Image */
+.ingredient-numbers {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
 }
 
 /* Bullet Points */
@@ -211,60 +237,56 @@ document.addEventListener("DOMContentLoaded", function () {
       easing: "cubic-bezier(0.25, 1, 0.5, 1)"
     }).mount();
 
-    // ✅ Select all number buttons and ingredient descriptions
+    // Select elements
     const buttons = document.querySelectorAll(".pagination-btn");
     const ingredientItems = document.querySelectorAll(".ingredient-item");
+    const ingredientDetails = document.querySelectorAll(".ingredient-hidden-text");
 
-    // ✅ Function to collapse all descriptions
+    // On load: Show titles & descriptions, hide details
+    ingredientItems.forEach((item) => {
+      item.style.display = "block";
+    });
+
+    ingredientDetails.forEach((detail) => {
+      detail.style.display = "none";
+      detail.style.opacity = "0";
+    });
+
+    // Function to collapse all ingredient details
     function collapseAll() {
-      ingredientItems.forEach((item) => {
-        item.classList.remove("expanded");
-        item.style.maxHeight = "0";
-        item.style.opacity = "0";
+      ingredientDetails.forEach((detail) => {
+        detail.style.display = "none";
+        detail.style.opacity = "0";
       });
     }
 
-    // ✅ On load: Show all ingredient items, but collapsed
-    ingredientItems.forEach((item) => {
-      item.style.display = "block"; // Show all items
-      item.style.maxHeight = "0"; // Keep them collapsed
-      item.style.opacity = "1"; // Visible but not expanded
-    });
-
-    // ✅ Number Button Click Event
+    // Click event for number buttons
     buttons.forEach((button, index) => {
       button.addEventListener("click", function () {
-        // Move Splide slider
         ingredientSplide.go(index);
-
-        // Collapse all, then expand the selected one
         collapseAll();
-        ingredientItems[index].classList.add("expanded");
-        ingredientItems[index].style.maxHeight = "500px"; // Expand only the selected item
-        ingredientItems[index].style.opacity = "1";
 
-        // Remove active state from all buttons
+        // Expand selected ingredient details
+        ingredientDetails[index].style.display = "block";
+        ingredientDetails[index].style.opacity = "1";
+
+        // Highlight active button
         buttons.forEach((btn) => btn.classList.remove("active"));
         this.classList.add("active");
       });
     });
 
-    // ✅ Sync text updates with Splide transitions
+    // Sync details expansion with Splide transitions
     ingredientSplide.on("moved", function (newIndex) {
       collapseAll();
-      ingredientItems[newIndex].classList.add("expanded");
-      ingredientItems[newIndex].style.maxHeight = "500px";
-      ingredientItems[newIndex].style.opacity = "1";
+      ingredientDetails[newIndex].style.display = "block";
+      ingredientDetails[newIndex].style.opacity = "1";
 
-      // Update active number
       buttons.forEach((btn) => btn.classList.remove("active"));
       buttons[newIndex].classList.add("active");
     });
   }
 });
-
-
-
 
 </script>
 
