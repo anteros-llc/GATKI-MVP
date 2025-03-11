@@ -36,7 +36,6 @@
     
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // ✅ Initialize Splide for Product Carousel
     if (document.querySelector('#product-carousel')) {
         var productSplide = new Splide('#product-carousel', {
             type: 'fade',
@@ -63,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         updatePagination(0); // Set initial pagination
-    }
     }
 
     // ✅ Initialize Splide for 2UP Carousel
