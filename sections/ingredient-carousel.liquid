@@ -97,6 +97,9 @@
 
 .ingredient-container{
   display: flex;
+  align-items: flex-start; /* Aligns the text to the top of the image */
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 /* Image Slider */
@@ -104,6 +107,7 @@
   max-width: 600px;
   margin: 0 auto;
   position: relative;
+  flex: 1;
 }
 
 .ingredient-slide {
@@ -161,6 +165,7 @@
   max-width: 600px;
   margin: 2rem auto 0;
   color: var(--color-chenpi);
+  flex: 1;
 }
 
 .ingredient-header{
