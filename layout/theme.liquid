@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         updatePagination(0); // Set initial pagination
 
-        // ✅ Custom Navigation Arrows (Always Visible)
+        // Custom Navigation Arrows (Always Visible)
         const prevArrow = document.querySelector('.product-carousel-button.prev');
         const nextArrow = document.querySelector('.product-carousel-button.next');
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             nextArrow.classList.toggle('disabled', currentIndex === totalSlides - 1);
         }
 
-        // ✅ Click Listeners for Custom Arrows
+        // Click Listeners for Custom Arrows
         prevArrow.addEventListener('click', () => {
             if (!prevArrow.classList.contains('disabled')) {
                 productSplide.go('<');
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ✅ Initialize Splide for 2UP Carousel
+    // Initialize Splide for 2UP Carousel
     if (document.querySelector('#carousel')) {
         var twoUpCarousel = new Splide('#carousel', {
             type       : 'fade', // 🔥 Smooth fade transition
