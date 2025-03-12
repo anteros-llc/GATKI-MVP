@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!ingredientCarousel) return;
 
-  var ingredientSplide = new Splide(".ingredient-slider", {
+  const ingredientSplide = new Splide(".ingredient-slider", {
     type: "fade",
     perPage: 1,
     pagination: false,
@@ -235,92 +235,62 @@ document.addEventListener("DOMContentLoaded", function () {
   const ingredientItems = ingredientCarousel.querySelectorAll(".ingredient-item");
   const ingredientDetails = ingredientCarousel.querySelectorAll(".ingredient-hidden-text");
 
+  let activeIndex = null; // Tracks the active ingredient
+
   function resetState() {
-    // ✅ Show all ingredients (but not expanded)
-    ingredientItems.forEach((item) => {
+    // Show all ingredient titles and descriptions
+    ingredientItems.forEach(item => {
       item.style.display = "block";
     });
 
-    // ✅ Hide all expanded content
-    ingredientDetails.forEach((detail) => {
+    // Collapse all detailed content
+    ingredientDetails.forEach(detail => {
       detail.style.maxHeight = "0px";
       detail.style.opacity = "0";
       detail.classList.remove("expanded");
     });
 
-    // ✅ Remove active state from buttons
-    buttons.forEach((btn) => btn.classList.remove("active"));
+    // Deactivate all number buttons
+    buttons.forEach(btn => btn.classList.remove("active"));
 
-    // ✅ Reset Splide to first image
+    // Reset image slider to the first image
     ingredientSplide.go(0);
+
+    activeIndex = null; // Reset active state
   }
+
+  // ✅ Initialize to the default state
+  resetState();
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", function () {
-      const targetIndex = parseInt(this.getAttribute("data-slide"));
-      const isActive = this.classList.contains("active");
+      if (activeIndex === index) {
+        // ✅ Clicking the same number again resets to the default state
+        resetState();
+      } else {
+        // ✅ Otherwise, show the clicked ingredient
+        resetState(); // First, reset everything
 
-      if (isActive) {
-        resetState(); // ✅ Reset back to original state
-        return;
+        // Activate the clicked button
+        this.classList.add("active");
+
+        // Expand the corresponding ingredient's detailed content
+        const targetDetail = ingredientDetails[index];
+        if (targetDetail) {
+          targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
+          targetDetail.style.opacity = "1";
+          targetDetail.classList.add("expanded");
+        }
+
+        // Move the image slider to the corresponding image
+        ingredientSplide.go(index);
+
+        // Store the active index
+        activeIndex = index;
       }
-
-      // ✅ Hide all ingredient content (except title & description)
-      ingredientItems.forEach((item) => {
-        item.style.display = "block"; // Show all
-      });
-
-      ingredientDetails.forEach((detail) => {
-        detail.style.maxHeight = "0px";
-        detail.style.opacity = "0";
-        detail.classList.remove("expanded");
-      });
-
-      // ✅ Expand only selected ingredient's details
-      const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"] .ingredient-hidden-text`);
-      if (targetDetail) {
-        targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
-        targetDetail.style.opacity = "1";
-        targetDetail.classList.add("expanded");
-      }
-
-      // ✅ Move Splide to the correct image
-      ingredientSplide.go(targetIndex);
-
-      // ✅ Manage active state for buttons
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      this.classList.add("active");
     });
-  });
-
-  ingredientSplide.on("moved", function (newIndex) {
-    // ✅ Hide all ingredient content (except title & description)
-    ingredientItems.forEach((item) => {
-      item.style.display = "block";
-    });
-
-    ingredientDetails.forEach((detail) => {
-      detail.style.maxHeight = "0px";
-      detail.style.opacity = "0";
-      detail.classList.remove("expanded");
-    });
-
-    // ✅ Expand only selected ingredient's details
-    const newDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${newIndex}"] .ingredient-hidden-text`);
-    if (newDetail) {
-      newDetail.style.maxHeight = newDetail.scrollHeight + "px";
-      newDetail.style.opacity = "1";
-      newDetail.classList.add("expanded");
-    }
-
-    // ✅ Manage active state for buttons
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    buttons[newIndex].classList.add("active");
   });
 });
-
-
-
 </script>
 
 
