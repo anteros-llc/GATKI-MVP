@@ -1,7 +1,7 @@
 {{ '3up-card.css' | asset_url | stylesheet_tag }}
 
 <!-- Dynamic Section -->
-<section class="3up-card">
+<section class="3up-cards">
   <div class="content-wrapper">
     <h2 class="module-title">{{ section.settings.title }}</h2>
     <h5 class="module-description">{{ section.settings.description }}</h5>
@@ -32,7 +32,7 @@
 
 <style>
   /* Section Wrapper */
-.3up-card {
+.3up-cards {
   background-color: var(--color-blanco);
   padding: 4rem 3rem 4rem 3rem;
   text-align: center;
