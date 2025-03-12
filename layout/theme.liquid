@@ -33,26 +33,108 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+    
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-  var splide = new Splide('#product-carousel', {
-    type: 'fade',
-    perPage: 1,
-    autoplay: true,
-    interval: 5000,
-    pagination: true,
-    arrows: false,
-    lazyLoad: 'nearby',
-  });
+document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('#product-carousel')) {
+        var productSplide = new Splide('#product-carousel', {
+            type: 'fade',
+            perPage: 1,
+            autoplay: true,
+            interval: 5000,
+            pagination: false,
+            arrows: false,
+            lazyLoad: 'nearby',
+        }).mount();
 
-  splide.mount();
 
-  // Custom Pagination (1 / X format)
-  splide.on('moved', function (newIndex) {
-    let totalSlides = splide.length;
-    document.getElementById('slideIndex').textContent = (newIndex + 1) + ' / ' + totalSlides;
-  });
+      const paginationElement = document.getElementById('slideIndex');
+
+        function updatePagination(newIndex) {
+            let totalSlides = productSplide.length;
+            if (paginationElement) {
+                paginationElement.textContent = `${newIndex + 1} / ${totalSlides}`;
+            }
+        }
+
+        productSplide.on('mounted move', function () {
+            updatePagination(productSplide.index);
+            updateArrowStates();
+        });
+
+        updatePagination(0); // Set initial pagination
+
+        // Custom Navigation Arrows (Always Visible)
+        const prevArrow = document.querySelector('.product-carousel-button.prev');
+        const nextArrow = document.querySelector('.product-carousel-button.next');
+
+        function updateArrowStates() {
+            let totalSlides = productSplide.length;
+            let currentIndex = productSplide.index;
+
+            // Always visible but update disabled state
+            prevArrow.classList.toggle('disabled', currentIndex === 0);
+            nextArrow.classList.toggle('disabled', currentIndex === totalSlides - 1);
+        }
+
+        // Click Listeners for Custom Arrows
+        prevArrow.addEventListener('click', () => {
+            if (!prevArrow.classList.contains('disabled')) {
+                productSplide.go('<');
+            }
+        });
+
+        nextArrow.addEventListener('click', () => {
+            if (!nextArrow.classList.contains('disabled')) {
+                productSplide.go('>');
+            }
+        });
+    }
+
+    // Initialize Splide for 2UP Carousel
+    if (document.querySelector('#carousel')) {
+        var twoUpCarousel = new Splide('#carousel', {
+            type       : 'fade', // 🔥 Smooth fade transition
+            perPage    : 1,
+            perMove    : 1,
+            pagination : false,
+            arrows     : false, 
+            rewind     : false, // 🔥 Avoids jumping back
+            speed      : 500,  // 🔥 Slower transition for smoother effect
+            easing     : 'cubic-bezier(0.65, 0, 0.35, 1)', // 🔥 Natural easing
+            breakpoints: {
+                768: { perPage: 1 }
+            }
+        }).mount();
+
+        const prevArrow = document.querySelector('.carousel-button.prev');
+        const nextArrow = document.querySelector('.carousel-button.next');
+
+ 
+   if (prevArrow && nextArrow) {
+            prevArrow.classList.remove('show');
+            nextArrow.classList.add('show');
+
+            twoUpCarousel.on('moved', function (newIndex) {
+                const totalSlides = twoUpCarousel.length;
+
+                if (newIndex === 0) {
+                    prevArrow.classList.remove('show');
+                    nextArrow.classList.add('show');
+                }
+                else if (newIndex === totalSlides - 1) {
+                    prevArrow.classList.add('show');
+                    nextArrow.classList.remove('show');
+                }
+            });
+
+            prevArrow.addEventListener('click', () => twoUpCarousel.go('<'));
+            nextArrow.addEventListener('click', () => twoUpCarousel.go('>'));
+        }
+    }
 });
+
+
 </script>
 
     {%- if settings.animations_reveal_on_scroll -%}
