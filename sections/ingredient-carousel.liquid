@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function resetState() {
     ingredientItems.forEach((item) => {
-      item.style.display = "block"; // Show ingredient titles and descriptions
+      item.style.display = "block"; // Show all ingredient titles and descriptions
     });
 
     ingredientDetails.forEach((detail) => {
@@ -247,6 +247,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     buttons.forEach((btn) => btn.classList.remove("active"));
+
+    // ✅ Reset image back to first one
+    ingredientSplide.go(0);
   }
 
   // ✅ Set default state: Show all ingredients collapsed
@@ -257,30 +260,35 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetIndex = parseInt(this.getAttribute("data-slide"));
       const isActive = this.classList.contains("active");
 
-      resetState(); // Always reset first
-
-      if (!isActive) {
-        // ✅ Expand only the selected ingredient
-        this.classList.add("active");
-
-        ingredientItems.forEach((item) => {
-          item.style.display = "none"; // Hide all ingredients
-        });
-
-        const targetItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"]`);
-        if (targetItem) {
-          targetItem.style.display = "block"; // Show only selected ingredient
-        }
-
-        const targetDetail = targetItem.querySelector(".ingredient-hidden-text");
-        if (targetDetail) {
-          targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
-          targetDetail.style.opacity = "1";
-          targetDetail.classList.add("expanded");
-        }
-
-        ingredientSplide.go(targetIndex);
+      if (isActive) {
+        // ✅ Reset everything if clicked again
+        resetState();
+        return;
       }
+
+      resetState(); // Always reset first before showing new content
+
+      // ✅ Expand only the selected ingredient
+      this.classList.add("active");
+
+      ingredientItems.forEach((item) => {
+        item.style.display = "none"; // Hide all ingredients
+      });
+
+      const targetItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"]`);
+      if (targetItem) {
+        targetItem.style.display = "block"; // Show only selected ingredient
+      }
+
+      const targetDetail = targetItem.querySelector(".ingredient-hidden-text");
+      if (targetDetail) {
+        targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
+        targetDetail.style.opacity = "1";
+        targetDetail.classList.add("expanded");
+      }
+
+      // ✅ Change image to match selected ingredient
+      ingredientSplide.go(targetIndex);
     });
   });
 
@@ -306,6 +314,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 </script>
 
 
