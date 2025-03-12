@@ -236,20 +236,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const ingredientDetails = ingredientCarousel.querySelectorAll(".ingredient-hidden-text");
 
   function resetState() {
+    // ✅ Show all ingredients (but not expanded)
     ingredientItems.forEach((item) => {
-      item.style.display = "block"; // Show all ingredient titles and descriptions
+      item.style.display = "block";
     });
 
+    // ✅ Hide all expanded content
     ingredientDetails.forEach((detail) => {
       detail.style.maxHeight = "0px";
       detail.style.opacity = "0";
       detail.classList.remove("expanded");
     });
 
+    // ✅ Remove active state from buttons
     buttons.forEach((btn) => btn.classList.remove("active"));
 
-    // ✅ Reset image back to the first one
-    ingredientSplide.go(0); 
+    // ✅ Reset Splide to first image
+    ingredientSplide.go(0);
   }
 
   buttons.forEach((button, index) => {
@@ -258,13 +261,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const isActive = this.classList.contains("active");
 
       if (isActive) {
-        resetState(); // Reset everything
+        resetState(); // ✅ Reset back to original state
         return;
       }
 
-      // ✅ Hide all other ingredients except selected
+      // ✅ Hide all ingredient content (except title & description)
       ingredientItems.forEach((item) => {
-        item.style.display = "none";
+        item.style.display = "block"; // Show all
       });
 
       ingredientDetails.forEach((detail) => {
@@ -273,11 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
         detail.classList.remove("expanded");
       });
 
-      const targetItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"]`);
-      if (targetItem) {
-        targetItem.style.display = "block"; // Show only selected ingredient
-      }
-
+      // ✅ Expand only selected ingredient's details
       const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"] .ingredient-hidden-text`);
       if (targetDetail) {
         targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
@@ -288,14 +287,16 @@ document.addEventListener("DOMContentLoaded", function () {
       // ✅ Move Splide to the correct image
       ingredientSplide.go(targetIndex);
 
+      // ✅ Manage active state for buttons
       buttons.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
     });
   });
 
   ingredientSplide.on("moved", function (newIndex) {
+    // ✅ Hide all ingredient content (except title & description)
     ingredientItems.forEach((item) => {
-      item.style.display = "none";
+      item.style.display = "block";
     });
 
     ingredientDetails.forEach((detail) => {
@@ -304,11 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
       detail.classList.remove("expanded");
     });
 
-    const newItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${newIndex}"]`);
-    if (newItem) {
-      newItem.style.display = "block";
-    }
-
+    // ✅ Expand only selected ingredient's details
     const newDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${newIndex}"] .ingredient-hidden-text`);
     if (newDetail) {
       newDetail.style.maxHeight = newDetail.scrollHeight + "px";
@@ -316,10 +313,12 @@ document.addEventListener("DOMContentLoaded", function () {
       newDetail.classList.add("expanded");
     }
 
+    // ✅ Manage active state for buttons
     buttons.forEach((btn) => btn.classList.remove("active"));
     buttons[newIndex].classList.add("active");
   });
 });
+
 
 
 </script>
