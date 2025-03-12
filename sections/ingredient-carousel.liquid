@@ -219,27 +219,13 @@
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const ingredientCarousel = document.querySelector("#ingredient-carousel");
-
-  if (!ingredientCarousel) return;
-
-  var ingredientSplide = new Splide(".ingredient-slider", {
-    type: "fade",
-    perPage: 1,
-    pagination: false,
-    arrows: false,
-    speed: 800,
-    easing: "cubic-bezier(0.25, 1, 0.5, 1)"
-  }).mount();
-
-  const buttons = ingredientCarousel.querySelectorAll(".ingredient-number-btn");
+const buttons = ingredientCarousel.querySelectorAll(".ingredient-number-btn");
   const ingredientItems = ingredientCarousel.querySelectorAll(".ingredient-item");
   const ingredientDetails = ingredientCarousel.querySelectorAll(".ingredient-hidden-text");
 
-  function hideAllIngredients() {
+  function resetState() {
     ingredientItems.forEach((item) => {
-      item.style.display = "none"; // Hide all ingredients
+      item.style.display = "block"; // Show titles and descriptions
     });
 
     ingredientDetails.forEach((detail) => {
@@ -247,28 +233,25 @@ document.addEventListener("DOMContentLoaded", function () {
       detail.style.opacity = "0";
       detail.classList.remove("expanded");
     });
+
+    buttons.forEach((btn) => btn.classList.remove("active"));
   }
 
   // ✅ Set default state: Show all ingredients but collapse details
-  ingredientItems.forEach((item) => {
-    item.style.display = "block"; // Initially visible
-  });
-
-  ingredientDetails.forEach((detail) => {
-    detail.style.maxHeight = "0px";
-    detail.style.opacity = "0";
-  });
+  resetState();
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", function () {
       const targetIndex = parseInt(this.getAttribute("data-slide"));
 
-      hideAllIngredients(); // Hide everything first
-
-      const targetItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"]`);
-      if (targetItem) {
-        targetItem.style.display = "block"; // Show only the selected ingredient
+      if (this.classList.contains("active")) {
+        // 🔄 If clicked again, reset to default state
+        resetState();
+        return;
       }
+
+      resetState(); // Reset first
+      this.classList.add("active");
 
       const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"] .ingredient-hidden-text`);
       if (targetDetail) {
@@ -278,19 +261,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       ingredientSplide.go(targetIndex);
-
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      this.classList.add("active");
     });
   });
 
   ingredientSplide.on("moved", function (newIndex) {
-    hideAllIngredients(); // Hide everything first
+    resetState(); // Reset everything when slide changes
 
-    const newItem = ingredientItems[newIndex];
-    if (newItem) {
-      newItem.style.display = "block"; // Show only selected ingredient
-    }
+    buttons[newIndex].classList.add("active");
 
     const newDetail = ingredientDetails[newIndex];
     if (newDetail) {
@@ -298,12 +275,8 @@ document.addEventListener("DOMContentLoaded", function () {
       newDetail.style.opacity = "1";
       newDetail.classList.add("expanded");
     }
-
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    buttons[newIndex].classList.add("active");
   });
 });
-
 </script>
 
 
