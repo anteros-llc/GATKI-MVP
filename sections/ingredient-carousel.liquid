@@ -219,7 +219,21 @@
 </style>
 
 <script>
-const buttons = ingredientCarousel.querySelectorAll(".ingredient-number-btn");
+document.addEventListener("DOMContentLoaded", function () {
+  const ingredientCarousel = document.querySelector("#ingredient-carousel");
+
+  if (!ingredientCarousel) return;
+
+  var ingredientSplide = new Splide(".ingredient-slider", {
+    type: "fade",
+    perPage: 1,
+    pagination: false,
+    arrows: false,
+    speed: 800,
+    easing: "cubic-bezier(0.25, 1, 0.5, 1)"
+  }).mount();
+
+  const buttons = ingredientCarousel.querySelectorAll(".ingredient-number-btn");
   const ingredientItems = ingredientCarousel.querySelectorAll(".ingredient-item");
   const ingredientDetails = ingredientCarousel.querySelectorAll(".ingredient-hidden-text");
 
@@ -277,6 +291,7 @@ const buttons = ingredientCarousel.querySelectorAll(".ingredient-number-btn");
     }
   });
 });
+
 </script>
 
 
