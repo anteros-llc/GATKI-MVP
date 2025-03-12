@@ -114,6 +114,10 @@
   .custom-module {
     padding: 1.5rem;
   }
+
+  .custom-module .module-description {
+    padding: 0 2%;
+  }
   .custom-module .cards-container {
     flex-direction: column; /* Stack cards vertically */
     height: auto; /* Adjust height for stacked layout */
