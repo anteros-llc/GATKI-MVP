@@ -124,4 +124,7 @@
     width: 100%; /* Full width on mobile */
     height: auto; /* Allow cards to grow naturally */
   }
+  .custom-module .module-title {
+    font-size: 2rem;
+  }
 }
