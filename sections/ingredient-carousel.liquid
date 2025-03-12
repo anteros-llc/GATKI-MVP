@@ -248,12 +248,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     buttons.forEach((btn) => btn.classList.remove("active"));
 
-    // ✅ Reset image back to first one
-    ingredientSplide.go(0);
+    // ✅ Reset image back to the first one
+    ingredientSplide.go(0); 
   }
-
-  // ✅ Set default state: Show all ingredients collapsed
-  resetState();
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", function () {
@@ -261,18 +258,19 @@ document.addEventListener("DOMContentLoaded", function () {
       const isActive = this.classList.contains("active");
 
       if (isActive) {
-        // ✅ Reset everything if clicked again
-        resetState();
+        resetState(); // Reset everything
         return;
       }
 
-      resetState(); // Always reset first before showing new content
-
-      // ✅ Expand only the selected ingredient
-      this.classList.add("active");
-
+      // ✅ Hide all other ingredients except selected
       ingredientItems.forEach((item) => {
-        item.style.display = "none"; // Hide all ingredients
+        item.style.display = "none";
+      });
+
+      ingredientDetails.forEach((detail) => {
+        detail.style.maxHeight = "0px";
+        detail.style.opacity = "0";
+        detail.classList.remove("expanded");
       });
 
       const targetItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"]`);
@@ -280,40 +278,49 @@ document.addEventListener("DOMContentLoaded", function () {
         targetItem.style.display = "block"; // Show only selected ingredient
       }
 
-      const targetDetail = targetItem.querySelector(".ingredient-hidden-text");
+      const targetDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${targetIndex}"] .ingredient-hidden-text`);
       if (targetDetail) {
         targetDetail.style.maxHeight = targetDetail.scrollHeight + "px";
         targetDetail.style.opacity = "1";
         targetDetail.classList.add("expanded");
       }
 
-      // ✅ Change image to match selected ingredient
+      // ✅ Move Splide to the correct image
       ingredientSplide.go(targetIndex);
+
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
     });
   });
 
   ingredientSplide.on("moved", function (newIndex) {
-    resetState(); // Reset everything when the slide changes
-
-    buttons[newIndex].classList.add("active");
-
     ingredientItems.forEach((item) => {
-      item.style.display = "none"; // Hide all ingredients
+      item.style.display = "none";
+    });
+
+    ingredientDetails.forEach((detail) => {
+      detail.style.maxHeight = "0px";
+      detail.style.opacity = "0";
+      detail.classList.remove("expanded");
     });
 
     const newItem = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${newIndex}"]`);
     if (newItem) {
-      newItem.style.display = "block"; // Show only selected ingredient
+      newItem.style.display = "block";
     }
 
-    const newDetail = newItem.querySelector(".ingredient-hidden-text");
+    const newDetail = ingredientCarousel.querySelector(`.ingredient-item[data-ingredient-id="${newIndex}"] .ingredient-hidden-text`);
     if (newDetail) {
       newDetail.style.maxHeight = newDetail.scrollHeight + "px";
       newDetail.style.opacity = "1";
       newDetail.classList.add("expanded");
     }
+
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    buttons[newIndex].classList.add("active");
   });
 });
+
 
 </script>
 
