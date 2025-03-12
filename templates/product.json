@@ -158,14 +158,6 @@
     "2up_carousel_qyXbXN": {
       "type": "2up-carousel",
       "blocks": {
-        "slide_fMH4Bd": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
-            "heading": "The touch of softness.",
-            "slide_type": "slider"
-          }
-        },
         "slide_XwdLnx": {
           "type": "slide",
           "settings": {
@@ -173,11 +165,19 @@
             "heading": "The touch of softness.",
             "slide_type": "text"
           }
+        },
+        "slide_fMH4Bd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Lifestyle_LipDew_Water_2000x2000_PDP_LIPDEW.jpg",
+            "heading": "The touch of softness.",
+            "slide_type": "slider"
+          }
         }
       },
       "block_order": [
-        "slide_fMH4Bd",
-        "slide_XwdLnx"
+        "slide_XwdLnx",
+        "slide_fMH4Bd"
       ],
       "settings": {}
     },
