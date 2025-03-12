@@ -1,7 +1,7 @@
-{% comment %} {{ '3up-card.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ '3up-card.css' | asset_url | stylesheet_tag }}
 
 <!-- Dynamic Section -->
-<section class="3up-cards">
+<section class="custom-module">
   <div class="content-wrapper">
     <h2 class="module-title">{{ section.settings.title }}</h2>
     <h5 class="module-description">{{ section.settings.description }}</h5>
@@ -29,136 +29,6 @@
     {% endif %}
   </div>
 </section>
-
-<style>
-  /* Section Wrapper */
-.3up-cards {
-  background-color: var(--color-blanco);
-  padding: 4rem 3rem 4rem 3rem;
-  text-align: center;
-  color: var(--color-chenpi);
-}
-
-/* Title & Description */
-.3up-cards .module-title {
-  margin-bottom: 1.5rem;
-  text-underline-position: from-font;
-}
-
-.3up-cards .module-description {
-  font-weight: 400;
-  font-size: 1.25rem;
-  margin-bottom: 3rem;
-  text-underline-position: from-font;
-}
-
-/* Cards Container */
-.3up-cards .cards-container {
-  display: flex;
-  flex-wrap: nowrap; /* Keep cards in a single row */
-  justify-content: space-between; /* Space cards evenly */
-  align-items: stretch; /* Align cards to have the same height */
-  gap: 1rem; /* Space between cards */
-  padding: 0 3rem; /* Container padding */
-  margin: 0 auto; /* Center align container */
-}
-
-/* Individual Card */
-.3up-cards .card {
-  width: 100%; /* Fixed card width */
-  height: 246px; /* Fixed card height */
-  padding: 1.5rem; /* Padding inside the card */
-  border-radius: 0.75rem; /* Fully rounded corners */
-  background-color: var(--color-albedo);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  text-align: left;
-  overflow: hidden;
-  gap: 0.5rem; /* Minimal spacing between elements */
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-.card-description {
-  opacity: 0;
-  transition: opacity 100ms ease-in-out, visibility 100ms ease-in-out;
-  padding-top: 10px;
-  visibility: hidden; /* Ensures it doesn't take up space */
-}
-
-.3up-cards .card:hover {
-  background-color: var(--color-chenpi);
-  color: var(--color-albedo);
-}
-
-.3up-cards .card:hover .card-description {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-}
-
-/* Card Header */
-.3up-cards .card-header {
-  font-size: 0.875rem;
-  display: flex;
-  justify-content: space-between; /* Align eyebrow and number */
-  align-items: center;
-  margin-bottom: 0.25rem; /* Reduce spacing below header */
-}
-
-/* Eyebrow (Category) */
-.3up-card .card-category {
-  text-transform: uppercase;
-  margin-bottom: 0; /* Remove margin to align closely with headline */
-}
-
-/* Card Number */
-.3up-cards .card-number {
-  font-size: 0.875rem;
-}
-
-/* Headline (Title) */
-.3up-cards .card-title {
-  margin: 0; /* Remove all margins for tight alignment */
-  font-weight: 400;
-}
-
-/* Card Description */
-.3up-cards .card-description {
-  margin-top: 1rem; /* Add spacing above description */
-}
-
-/* Learn More Link */
-.3up-cards .learn-more {
-  color: var(--color-chenpi);
-  display: inline-block;
-  margin-top: 3rem;
-  text-decoration: none;
-  padding-bottom: 0.1rem;
-  transition: color 0.3s ease, border-color 0.3s ease;
-  font-weight: 400;
-  font-size: 1.5rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .3up-cards {
-    padding: 2.5rem 1.5rem;
-  }
-  .3up-cards .cards-container {
-    flex-direction: column; /* Stack cards vertically */
-    height: auto; /* Adjust height for stacked layout */
-    padding: 0 0;
-    gap: 2rem;
-  }
-
-  .3up-cards .card {
-    width: 100%; /* Full width on mobile */
-    height: auto; /* Allow cards to grow naturally */
-  }
-}
-</style>
 
 <!-- Shopify schema for dynamic settings -->
 {% schema %}
