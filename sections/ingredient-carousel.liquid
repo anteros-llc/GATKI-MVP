@@ -271,6 +271,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ Otherwise, show the clicked ingredient
         resetState(); // First, reset everything
 
+        // Hide all other ingredients while keeping only the selected one visible
+        ingredientItems.forEach((item, i) => {
+          if (i !== index) {
+            item.style.display = "none"; // Hide other ingredients
+          } else {
+            item.style.display = "block"; // Show only the selected one
+          }
+        });
+
         // Activate the clicked button
         this.classList.add("active");
 
