@@ -213,6 +213,85 @@
   color: var(--color-mandarin);
 }
 
+@media (max-width: 768px) {
+  /* Stack Image and Ingredients List */
+  .ingredient-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Ensure image is centered and fits well */
+  .ingredient-slider {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .ingredient-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  /* Numbers should be centered below the image */
+  .ingredient-numbers {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Adjust numbers for smaller screen */
+  .ingredient-number-btn {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+
+  /* Adjust ingredient text alignment */
+  .ingredient-list {
+    max-width: 100%;
+    text-align: left;
+    padding: 0 1rem;
+  }
+
+  .ingredient-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ingredient-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .ingredient-number {
+    font-size: 1rem;
+  }
+
+  /* Hidden content adjustments */
+  .ingredient-hidden-text {
+    padding-top: 0.5rem;
+  }
+
+  /* Bullet points spacing */
+  .bullet-points ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Percentage section (if applicable) */
+  .percentage h2 {
+    font-size: 1.5rem;
+  }
+}
+
+
 
 </style>
 
